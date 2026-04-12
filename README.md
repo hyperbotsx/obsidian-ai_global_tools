@@ -1,0 +1,1 @@
+# obsidian-ai_global_tools
