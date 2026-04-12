@@ -12,3 +12,4 @@ This folder holds canonical skills that should be reused across multiple runtime
 
 - `herdr/` — herdr workspace/tab/pane control skill, with `SOCKET_API.md` reference
 - `create-pr/` — push branch + open GitHub PR via `git town propose` with house formatting (Greptile tag, no AI mentions). Symlinked into `claude/skills/create-pr` and `codex/skills/create-pr`.
+- `create-branch/` — create a new development branch from the latest `main` via `git town hack`, with clean-tree checks and branch naming guidance. Symlinked into `claude/skills/create-branch` and `codex/skills/create-branch`.
