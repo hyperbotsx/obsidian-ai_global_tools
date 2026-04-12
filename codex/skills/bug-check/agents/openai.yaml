@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bug Check"
+  short_description: "Run a staged post-context bug, silent-failure, and edge-case review."
+  default_prompt: "Use $bug-check to review the audited scope or current diff for regressions, silent bugs, edge cases, and missing tests."

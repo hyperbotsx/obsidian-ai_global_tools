@@ -1,0 +1,4 @@
+interface:
+  display_name: "Greptile Watcher"
+  short_description: "Watch Greptile reviews on PRs."
+  default_prompt: "Monitor the specified GitHub PRs for Greptile review comments, thumbs-up approvals, and re-review cycles."

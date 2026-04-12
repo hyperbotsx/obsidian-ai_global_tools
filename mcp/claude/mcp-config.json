@@ -1,0 +1,41 @@
+{
+  "mcpServers": {
+    "jcodemunch-mcp": {
+      "command": "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/mcp/bin/jcodemunch-mcp.sh",
+      "args": []
+    },
+    "cleanshot": {
+      "command": "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/mcp/bin/cleanshot-resolver.sh",
+      "args": []
+    },
+    "icloud": {
+      "command": "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/mcp/bin/icloud-resolver.sh",
+      "args": []
+    },
+    "archon": {
+      "name": "archon",
+      "type": "http",
+      "url": "http://65.21.193.94:8053/mcp"
+    },
+    "ref": {
+      "name": "ref",
+      "type": "http",
+      "url": "https://api.ref.tools/mcp"
+    },
+    "pieces": {
+      "name": "pieces",
+      "command": "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/mcp/bin/pieces-mcp.sh",
+      "args": []
+    },
+    "exa": {
+      "name": "exa",
+      "command": "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/mcp/bin/exa-mcp.sh",
+      "args": []
+    },
+    "firecrawl": {
+      "name": "firecrawl",
+      "command": "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/mcp/bin/firecrawl-mcp.sh",
+      "args": []
+    }
+  }
+}

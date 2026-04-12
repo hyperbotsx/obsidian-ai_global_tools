@@ -1,0 +1,16 @@
+# Canonical global Codex config for this machine.
+# Live runtime path: ~/.codex/config.toml -> this file
+# Canonical skills path: ~/.codex/skills -> /mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/codex/skills
+# Canonical global prompt/instruction file: /mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/codex/prompts/system/codex-global.md
+# The local Codex runtime bridge injects that prompt file on normal launches so AI_Global_Tools remains the source of truth for skills, workflows, prompts, MCP definitions, and templates.
+model = "gpt-5.4"
+model_reasoning_effort = "xhigh"
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[projects."/mnt/hyperliquid-data/projects/repos/SoldierOne"]
+trust_level = "trusted"
+
+[mcp_servers.exa]
+url = "https://mcp.exa.ai/mcp"
