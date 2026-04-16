@@ -1,3 +1,8 @@
+---
+name: autoresearch
+description: Autonomous goal-directed iteration loop inspired by Karpathy's autoresearch. Use when a task has a mechanical metric and you want the agent to repeatedly modify, verify, keep or discard changes, and continue improving with git as memory.
+---
+
 ABOUTME: Autonomous Goal-directed Iteration skill. Apply Karpathy's autoresearch principles to ANY task.
 ABOUTME: Loops autonomously — modify, verify, keep/discard, repeat — with git as memory and mechanical metrics as the decision function.
 

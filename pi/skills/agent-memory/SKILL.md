@@ -1,3 +1,8 @@
+---
+name: agent-memory
+description: Local hybrid search memory system that indexes markdown memory files into SQLite and searches them with vector plus BM25 retrieval. Use when you need to recall past context, find prior decisions across sessions, or store structured memories for later retrieval.
+---
+
 # agent-memory — Local Hybrid Search Memory System
 
 ## What It Does

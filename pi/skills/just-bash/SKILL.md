@@ -1,3 +1,8 @@
+---
+name: just-bash
+description: Sandboxed bash execution via just-bash with a read-only filesystem, no network, and optional in-memory writes. Use when you want to safely explore files, process data, or test shell pipelines and scripts without touching the real filesystem.
+---
+
 # Just Bash Skill
 
 ABOUTME: Skill for sandboxed bash execution using just-bash from Vercel Labs.
