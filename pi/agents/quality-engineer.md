@@ -1,7 +1,7 @@
 ---
 name: quality-engineer
 description: Intermediate quality gate for consolidated lead bundles before final deep code review
-model: gpt-5.4
+model: openai-codex/gpt-5.4
 thinking: high
 output: quality-engineer-report.md
 defaultProgress: false

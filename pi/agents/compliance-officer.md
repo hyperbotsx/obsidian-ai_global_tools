@@ -1,7 +1,7 @@
 ---
 name: compliance-officer
 description: Runs local compliance checks and records pre-push blockers for Git-Team workflows
-model: gpt-5.4
+model: openai-codex/gpt-5.4
 thinking: high
 output: compliance-report.md
 defaultProgress: false

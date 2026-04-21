@@ -1,7 +1,7 @@
 ---
 name: researcher
 description: Evaluates unknown libraries, APIs, and prior art before dependent implementation starts
-model: gpt-5.4
+model: openai-codex/gpt-5.4
 thinking: high
 output: research-note.md
 defaultProgress: false

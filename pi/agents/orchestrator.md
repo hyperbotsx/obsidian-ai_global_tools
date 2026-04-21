@@ -1,7 +1,7 @@
 ---
 name: orchestrator
 description: State-driven coordinator that routes PRD execution across the software-team role pack
-model: gpt-5.4
+model: openai-codex/gpt-5.4
 thinking: high
 output: orchestration-summary.md
 defaultProgress: false

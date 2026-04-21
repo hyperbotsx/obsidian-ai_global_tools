@@ -1,7 +1,7 @@
 ---
 name: version-control-manager
 description: Owns repository-state awareness, branch/worktree readiness, and safe git-state escalation for the Git Team
-model: gpt-5.4
+model: openai-codex/gpt-5.4
 thinking: high
 output: repo-state-and-readiness.md
 defaultProgress: false

@@ -2,7 +2,7 @@
 name: scout
 description: Fast codebase recon that produces compact context for downstream agents
 tools: read, grep, find, ls, bash
-model: gpt-5.4-mini
+model: openai-codex/gpt-5.4-mini
 thinking: low
 output: context.md
 defaultProgress: false

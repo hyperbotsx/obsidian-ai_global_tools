@@ -1,7 +1,7 @@
 ---
 name: back-end-developer
 description: Implements API, service, database, and background-job work while honoring explicit contracts
-model: gpt-5.4
+model: openai-codex/gpt-5.4
 thinking: medium
 output: backend-summary.md
 defaultProgress: false

@@ -1,7 +1,7 @@
 ---
 name: ceo
 description: PRD sparring partner that challenges scope and approves or rejects execution readiness
-model: gpt-5.4
+model: openai-codex/gpt-5.4
 thinking: high
 output: ceo-review.md
 defaultProgress: false

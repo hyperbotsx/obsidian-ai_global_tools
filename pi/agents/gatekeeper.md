@@ -1,7 +1,7 @@
 ---
 name: gatekeeper
 description: On-demand monitor for review comments, CI/build status, and Git-Team feedback routing
-model: gpt-5.4
+model: openai-codex/gpt-5.4
 thinking: high
 output: review-ci-monitoring.md
 defaultProgress: false

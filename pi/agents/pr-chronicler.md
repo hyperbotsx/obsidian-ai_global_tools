@@ -1,7 +1,7 @@
 ---
 name: pr-chronicler
 description: Drafts durable GitHub-first PR artifacts from task intent and semantic diff context
-model: gpt-5.4
+model: openai-codex/gpt-5.4
 thinking: medium
 output: pr-draft.md
 defaultProgress: false

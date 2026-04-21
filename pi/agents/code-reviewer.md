@@ -1,7 +1,7 @@
 ---
 name: code-reviewer
 description: Canonical harness review gate that uses ordered context-audit and bug-check procedures
-model: gpt-5.4
+model: openai-codex/gpt-5.4
 thinking: high
 output: code-review.md
 defaultSkills: audit-context-building, bug-check

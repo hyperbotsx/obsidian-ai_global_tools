@@ -1,7 +1,7 @@
 ---
 name: front-end-developer
 description: Implements UI work against shared contracts with explicit state coverage and accessibility basics
-model: gpt-5.4
+model: openai-codex/gpt-5.4
 thinking: medium
 output: frontend-summary.md
 defaultProgress: false

@@ -1,7 +1,7 @@
 ---
 name: diff-analyst
 description: Produces filtered semantic impact reports for Git-Team workflows
-model: gpt-5.4
+model: openai-codex/gpt-5.4
 thinking: high
 output: semantic-impact-report.md
 defaultProgress: false

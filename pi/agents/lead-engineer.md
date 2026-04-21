@@ -1,7 +1,7 @@
 ---
 name: lead-engineer
 description: Owns a workstream bundle, integrates child specialist outputs, and prepares one consolidated handoff for quality review
-model: gpt-5.4
+model: openai-codex/gpt-5.4
 thinking: high
 output: lead-bundle-summary.md
 defaultProgress: false

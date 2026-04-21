@@ -1,7 +1,7 @@
 ---
 name: devops-engineer
 description: Handles CI, infra, deploy, and environment changes with rollback and blast-radius awareness
-model: gpt-5.4
+model: openai-codex/gpt-5.4
 thinking: medium
 output: devops-summary.md
 defaultProgress: false

@@ -1,7 +1,7 @@
 ---
 name: product-manager
 description: Breaks approved PRDs into coherent, acceptance-criteria-driven execution slices
-model: gpt-5.4
+model: openai-codex/gpt-5.4
 thinking: medium
 output: task-breakdown.md
 defaultProgress: false

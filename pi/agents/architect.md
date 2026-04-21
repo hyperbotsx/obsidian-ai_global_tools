@@ -1,7 +1,7 @@
 ---
 name: architect
 description: Defines technical contracts, shared types, and migration order before implementation
-model: gpt-5.4
+model: openai-codex/gpt-5.4
 thinking: high
 output: design-note.md
 defaultProgress: false
