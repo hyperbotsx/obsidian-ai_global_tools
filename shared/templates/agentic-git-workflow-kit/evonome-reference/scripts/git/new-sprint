@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)/common.sh"
+
+usage() {
+  printf 'Usage: scripts/git/new-sprint <type> <slug>\n'
+}
+
+parse_target() {
+  [[ $# -eq 2 ]] || { usage; fail "Expected <type> <slug>"; }
+  validate_branch_type "$1"
+  validate_slug "$2"
+  TARGET_BRANCH="$1/$2"
+}
+
+create_sprint_branch() {
+  branch_exists "$TARGET_BRANCH" && fail "Branch already exists: $TARGET_BRANCH"
+  log "Creating $TARGET_BRANCH in $DEV_MAIN_ROOT"
+  git -C "$DEV_MAIN_ROOT" switch -c "$TARGET_BRANCH"
+}
+
+main() {
+  parse_target "$@"
+  require_shared_tree_clean
+  sync_shared_dev_main
+  create_sprint_branch
+  log "Ready in $DEV_MAIN_ROOT on $TARGET_BRANCH"
+}
+
+main "$@"

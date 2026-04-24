@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)/common.sh"
+
+usage() {
+  printf 'Usage: scripts/git/spawn-agent <slice>\n'
+}
+
+create_agent_worktree() {
+  local branch path
+  branch="$(agent_branch_name "$1")"
+  path="$(agent_worktree_path "$1")"
+  branch_exists "$branch" && fail "Branch already exists: $branch"
+  [[ ! -e "$path" ]] || fail "Worktree path already exists: $path"
+  mkdir -p "$AGENT_WORKTREE_PARENT"
+  git worktree add "$path" -b "$branch" "$SPRINT_BRANCH"
+  log "Agent branch: $branch"
+  log "Agent worktree: $path"
+}
+
+main() {
+  [[ $# -eq 1 ]] || { usage; fail "Expected <slice>"; }
+  require_clean_tree
+  load_sprint_context
+  validate_slice "$1"
+  create_agent_worktree "$1"
+}
+
+main "$@"

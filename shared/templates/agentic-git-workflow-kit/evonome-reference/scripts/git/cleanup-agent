@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)/common.sh"
+
+usage() {
+  printf 'Usage: scripts/git/cleanup-agent [--force] <slice>\n'
+}
+
+parse_args() {
+  FORCE=''
+  [[ $# -gt 0 ]] || { usage; fail "Missing <slice>"; }
+  if [[ "$1" == '--force' ]]; then
+    FORCE='-f'
+    shift
+  fi
+  [[ $# -eq 1 ]] || { usage; fail "Expected exactly one <slice>"; }
+  SLICE="$1"
+}
+
+remove_worktree() {
+  [[ -e "$1" ]] || return
+  git worktree remove $FORCE "$1"
+}
+
+delete_branch() {
+  branch_exists "$1" || return
+  git branch -D "$1"
+}
+
+main() {
+  local branch path
+  parse_args "$@"
+  require_clean_tree
+  load_sprint_context
+  validate_slice "$SLICE"
+  branch="$(agent_branch_name "$SLICE")"
+  path="$(agent_worktree_path "$SLICE")"
+  remove_worktree "$path"
+  delete_branch "$branch"
+  git worktree prune
+  log "Cleaned $branch"
+}
+
+main "$@"
