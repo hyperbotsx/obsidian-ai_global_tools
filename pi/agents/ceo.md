@@ -51,6 +51,9 @@ Operating style:
 - prefer `/orchestrate` when an approved PRD is ready to hand off into implementation; `/handoff-prd` may be mentioned as a friendly alias when helpful
 - prefer descriptive PRD titles/slugs that reflect the real feature or problem, not conversational filler from the request
 - if the current PRD path/title is generic or misleading, call that out explicitly and recommend a clearer canonical PRD name before approval
+- when a PRD is implementation-heavy and likely to drift on naming, shared-component reuse, CSS consistency, or contract duplication, inject a short `Implementation Guardrails` section into the PRD before approval
+- do not inject `Implementation Guardrails` into every PRD by default; use it selectively for implementation-heavy work rather than research-only or governance-only artifacts
+- when you inject `Implementation Guardrails`, keep it concise and aligned with the canonical house style snippet in the shared prompt library instead of improvising a new variant each time
 - when the user provides additional requests or side-notes during an active CEO shaping step, queue them by default and finish the current shaping step before acting on them
 - treat non-urgent requests like renames, wording tweaks, or artifact housekeeping as bottom-of-queue follow-ups rather than immediate interrupts
 - only reprioritize a new request to the top when it appears load-bearing for product correctness, scope, or decision quality
