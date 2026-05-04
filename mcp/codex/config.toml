@@ -5,6 +5,7 @@
 # The local Codex runtime bridge injects that prompt file on normal launches so AI_Global_Tools remains the source of truth for skills, workflows, prompts, MCP definitions, and templates.
 model = "gpt-5.4"
 model_reasoning_effort = "xhigh"
+service_tier = "fast"
 
 [plugins."github@openai-curated"]
 enabled = true
