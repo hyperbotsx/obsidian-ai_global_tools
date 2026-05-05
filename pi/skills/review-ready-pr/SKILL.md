@@ -1,6 +1,6 @@
 ---
 name: review-ready-pr
-description: Prepare and create a review-ready GitHub PR after context audit and bug check. Use when the branch is ready for PR drafting, push, and review tagging. Enforces no AI mentions, includes required review tags, and asks for confirmation before opening the PR.
+description: Prepare and create a review-ready GitHub PR after context audit and bug check. Use when the branch is ready for PR drafting and push. Enforces no AI mentions and asks for confirmation before opening the PR.
 ---
 
 # Review-Ready PR
@@ -11,12 +11,9 @@ Use this after the branch has already gone through context audit and bug review.
 
 1. Never mention Claude, Codex, OpenAI, Anthropic, or any AI tool in commits, PR title, or PR body.
 2. Never add Co-Authored-By lines.
-3. Include repo-required review tags.
-4. For this workflow, include both:
-   - `@greptile review`
-   - `@codex`
-5. Ask for confirmation before creating the PR.
-6. Never merge automatically.
+3. Do not add automated review tags unless the user explicitly requests them.
+4. Ask for confirmation before creating the PR.
+5. Never merge automatically.
 
 ## Flow
 
@@ -80,8 +77,6 @@ Build a concise PR using this format:
 - [x] Local quality gate completed or explicitly skipped
 - [ ] Manual verification
 
-@greptile review
-@codex
 ```
 
 PR title must use conventional commit format:
@@ -126,10 +121,8 @@ Before creation, show:
 
 After creation, show:
 - PR URL
-- reminder that review tags were included
 
 ## Notes
 
-- If repo instructions require extra review tags or a different base branch, follow repo instructions in addition to this skill.
-- The `@codex` tag is allowed only as a review trigger, not as authorship or attribution.
+- If repo instructions require a different base branch, follow repo instructions in addition to this skill.
 - If the user asks only for drafting, stop before `gh pr create`.
