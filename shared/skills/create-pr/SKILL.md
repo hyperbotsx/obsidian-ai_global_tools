@@ -1,6 +1,6 @@
 ---
 name: create-pr
-description: "Push the current branch and open a GitHub PR using git-town, with consistent formatting, Greptile review tag, and no AI mentions. Triggers on: update github, create pr, make pr, push pr, open pr, submit pr, propose."
+description: "Push the current branch and open a GitHub PR using git-town, with consistent formatting and no AI mentions. Triggers on: update github, create pr, make pr, push pr, open pr, submit pr, propose."
 ---
 
 # Create PR
@@ -13,7 +13,7 @@ The whole job is: **`git town propose` with our standard title and body**. Do no
 
 1. **NEVER mention Claude, Claude Code, Codex, OpenAI, Anthropic, or any AI tool** in commits, PR title, or PR body.
 2. **NEVER add `Co-Authored-By` lines** to commits.
-3. **ALWAYS append `@greptile review`** at the end of the PR body.
+3. **NEVER add automated review tags unless the user explicitly requests them**.
 4. **ALWAYS show the drafted title and body to the user and wait for confirmation** before running `git town propose`.
 5. **NEVER merge** — only open the PR.
 6. Use conventional commit format for the title: `type(scope): description`, max 70 chars.
@@ -67,7 +67,6 @@ Body:
 - [x] Lint / syntax checks pass
 - [ ] Manual verification items (if any)
 
-@greptile review
 ```
 
 Omit any section that has nothing to report.
