@@ -17,11 +17,12 @@ The whole job is: **create a properly named branch from the latest `main` using 
 4. **NEVER discard or overwrite uncommitted work**.
 5. **If the working tree is dirty, stop and ask the user whether to commit, stash, or move that work first**.
 6. **Confirm the proposed branch name with the user if it is ambiguous**.
-7. Prefer branch names like:
-   - `feat/<slug>`
-   - `fix/<slug>`
-   - `chore/<slug>`
-   - `docs/<slug>`
+7. **For PRD- or issue-backed work, append the canonical issue/PRD number to the branch slug**.
+8. Prefer branch names like:
+   - `feat/<slug>-123`
+   - `fix/<slug>-123`
+   - `chore/<slug>-123`
+   - `docs/<slug>-123`
 
 ## Prerequisites
 
@@ -54,12 +55,14 @@ Interpretation:
 
 If the user already provided a clear branch name, use it.
 
+If the work is tied to a GitHub issue or PRD, include the canonical number at the end of the slug. If the work appears issue-backed but no number is known, ask before creating the branch.
+
 If the user gave only a feature description, convert it into a short kebab-case branch slug with the right prefix.
 
 Examples:
-- "create branch for feature xyz" → `feat/feature-xyz`
-- "start a fix branch for candle parsing" → `fix/candle-parsing`
-- "new docs branch for onboarding cleanup" → `docs/onboarding-cleanup`
+- "create branch for feature xyz, issue 123" → `feat/feature-xyz-123`
+- "start a fix branch for candle parsing from bug 456" → `fix/candle-parsing-456`
+- "new docs branch for onboarding cleanup, PRD 789" → `docs/onboarding-cleanup-789`
 
 If multiple names are plausible, show the best option and ask for confirmation.
 

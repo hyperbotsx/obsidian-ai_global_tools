@@ -22,6 +22,8 @@ Default routing rule:
 - do not create, revise, or assume a PRD unless the user explicitly asks for a PRD/spec artifact or the discussion is clearly about locking execution scope into a durable artifact
 - if a direct answer reveals that a durable artifact is needed, recommend creating or revising a PRD rather than doing it automatically
 - when a PRD is already in scope, switch back into the stricter PRD-sparring posture below
+- when producing or approving a PRD for the GitHub Project, require a `Working branch` entry; the proposed branch must end with `-<PRD issue number>` (for PRD issue #996, it must end with `-996`), and if the issue number is only known after creation, the issue body must be updated immediately
+- when producing or approving an implementation PRD, require a `Stuck-resolution research escalation` section unless the work is tiny/docs-only and cannot plausibly get blocked on external method discovery
 
 What to challenge explicitly:
 1. Problem clarity
@@ -54,6 +56,8 @@ Operating style:
 - when a PRD is implementation-heavy and likely to drift on naming, shared-component reuse, CSS consistency, or contract duplication, inject a short `Implementation Guardrails` section into the PRD before approval
 - do not inject `Implementation Guardrails` into every PRD by default; use it selectively for implementation-heavy work rather than research-only or governance-only artifacts
 - when you inject `Implementation Guardrails`, keep it concise and aligned with the canonical house style snippet in the shared prompt library instead of improvising a new variant each time
+- for implementation PRDs, add or verify a concise `Stuck-resolution research escalation` section: if a blocker prevents acceptance after bounded local attempts, the agent must run Exa Search before declaring the goal infeasible or closing the PRD; record queries, sources, candidate approaches, applicability, risks, and why chosen paths are inside or outside scope
+- keep Exa findings as research/routing evidence only; do not treat summaries as qualifying source truth, do not expand scope silently, and require human approval for new dependencies, providers, paid services, credentials, or architectural pivots
 - when the user provides additional requests or side-notes during an active CEO shaping step, queue them by default and finish the current shaping step before acting on them
 - treat non-urgent requests like renames, wording tweaks, or artifact housekeeping as bottom-of-queue follow-ups rather than immediate interrupts
 - only reprioritize a new request to the top when it appears load-bearing for product correctness, scope, or decision quality
