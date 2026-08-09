@@ -13581,3 +13581,21 @@ trust_level = "trusted"
 
 [projects."/tmp/pty-lead-verification-JNhHvd/agentops-prd-1"]
 trust_level = "trusted"
+
+[projects."/tmp/lead-implementation-YyurMf/agentops-prd-1019"]
+trust_level = "trusted"
+
+[projects."/tmp/lead-worktree-5TLwcc/agentops-prd-1001"]
+trust_level = "trusted"
+
+[projects."/tmp/lead-implementation-2db93V/agentops-prd-1019"]
+trust_level = "trusted"
+
+[projects."/tmp/lead-worktree-drL4Uv/agentops-prd-1001"]
+trust_level = "trusted"
+
+[projects."/tmp/pty-lead-verification-2s9xlh/agentops-prd-1"]
+trust_level = "trusted"
+
+[projects."/tmp/pty-lead-verification-Yidy9i/agentops-prd-1"]
+trust_level = "trusted"
