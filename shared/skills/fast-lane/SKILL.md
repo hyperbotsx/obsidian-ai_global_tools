@@ -48,6 +48,25 @@ type back up a tier.
   pushing, re-read your own diff and reject it yourself if behavior changed without a test
   pinning it.
 
+## Stacked checkpoints (multi-checkpoint slices)
+
+A slice with several sequential checkpoints lands as a PR stack — never as one big PR,
+and never by piling more commits onto an already-proposed branch:
+
+- **Branch per checkpoint.** Finish, verify locally, open the PR, then `git town append`
+  a child branch and keep building. Each PR diffs against its parent checkpoint branch,
+  so every review covers exactly one checkpoint.
+- **In-flight window ≤ 3 unmerged PRs.** Review latency (~12 min) vs build time means
+  depth 2-3 captures the whole throughput gain; deeper stacks only grow the rework blast
+  radius of an early finding. Window full → stop stacking, drain reviews.
+- **Stack-stop on contract findings.** A review finding that changes an interface halts
+  stacking until resolved — everything above is built on it. Local findings don't stop
+  the stack.
+- **Batch review fixes; `git town sync` once per batch.** Every child push triggers an
+  auto re-review, so per-commit syncing multiplies review rounds for nothing.
+- **Merge bottom-up only**, each on the operator's word; children retarget when a parent
+  merges — run `git town sync` after each closeout to repair local lineage.
+
 ## Verify before you ship (receipts, not claims)
 
 1. **Self-QA in the running app**: launch it, drive the feature in the browser against the
@@ -84,8 +103,8 @@ you flagged.
 **Tracker row (mandatory during the pilot):** append a run entry to
 `docs/fast-lane-pilot.md` in the same PR — slice, model + harness, wall-clock, review
 rounds, and the honesty fields the scale-up decision depends on. Final numbers (rounds to
-clean) land with the last fix push before merge. A fast-lane run without a tracker row
-didn't happen.
+clean) land with the last fix push before merge; for stacked slices the **top PR of the
+stack** carries the row. A fast-lane run without a tracker row didn't happen.
 
 ## Run under /goal (Claude Code only)
 
