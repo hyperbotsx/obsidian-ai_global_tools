@@ -56,9 +56,11 @@ and never by piling more commits onto an already-proposed branch:
 - **Branch per checkpoint.** Finish, verify locally, open the PR, then `git town append`
   a child branch and keep building. Each PR diffs against its parent checkpoint branch,
   so every review covers exactly one checkpoint.
-- **In-flight window ≤ 3 unmerged PRs.** Review latency (~12 min) vs build time means
-  depth 2-3 captures the whole throughput gain; deeper stacks only grow the rework blast
-  radius of an early finding. Window full → stop stacking, drain reviews.
+- **In-flight window: default depth 3** — the current value lives in the tracker
+  (`docs/fast-lane-pilot.md`) and is tuned from run-log data, not here. Review latency
+  (~12 min) vs build time means depth 2-3 captures the whole throughput gain; deeper
+  stacks only grow the rework blast radius of an early finding. Window full → stop
+  stacking, drain reviews.
 - **Stack-stop on contract findings.** A review finding that changes an interface halts
   stacking until resolved — everything above is built on it. Local findings don't stop
   the stack.
