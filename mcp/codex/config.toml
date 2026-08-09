@@ -14247,3 +14247,9 @@ trust_level = "trusted"
 
 [projects."/tmp/lead-worktree-MCUFPE/agentops-prd-1001"]
 trust_level = "trusted"
+
+[projects."/tmp/pty-lead-verification-JzsHrd/agentops-prd-1"]
+trust_level = "trusted"
+
+[projects."/tmp/pty-lead-verification-TP38XG/agentops-prd-1"]
+trust_level = "trusted"
