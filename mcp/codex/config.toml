@@ -12747,3 +12747,6 @@ trust_level = "trusted"
 
 [projects."/tmp/pty-lead-verification-3LcS8k/agentops-prd-1"]
 trust_level = "trusted"
+
+[projects."/tmp/lead-implementation-Sh2Pm4/agentops-prd-1019"]
+trust_level = "trusted"
