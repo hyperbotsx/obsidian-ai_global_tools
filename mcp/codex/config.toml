@@ -14670,3 +14670,9 @@ trust_level = "trusted"
 
 [projects."/tmp/lead-worktree-HkCMKs/agentops-prd-1001"]
 trust_level = "trusted"
+
+[projects."/tmp/pty-lead-verification-yZdeBv/agentops-prd-1"]
+trust_level = "trusted"
+
+[projects."/tmp/pty-lead-verification-5pca4q/agentops-prd-1"]
+trust_level = "trusted"
