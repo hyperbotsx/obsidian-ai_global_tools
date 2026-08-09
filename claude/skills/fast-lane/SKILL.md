@@ -1,6 +1,6 @@
 ---
 name: fast-lane
-description: "Build a full feature slice end-to-end in one strong-model session: approved FRD in, self-QA'd + regression-tested PR out, review after instead of checkpoints during. The Lean workflow preset Modula will productize. Triggers on: fast lane, fast-lane, build slice, lean build, feature lane, build this feature fast."
+description: "Build a full feature slice end-to-end in one strong-model session: approved FRD in, self-QA'd + regression-tested PR out, review after instead of checkpoints during. Harness-portable: Claude Code (Fable 5 / Opus 5) and Pi running Codex models. The Lean workflow preset Modula will productize. Triggers on: fast lane, fast-lane, build slice, lean build, feature lane, build this feature fast."
 ---
 
 # Fast Lane — spec in, verified PR out
@@ -9,6 +9,22 @@ One session builds one complete FRD slice. Quality lives at the two ends — a s
 before, hard verification after — not in mid-flight checkpoints. No agent team, no coms
 choreography, no waiting mid-build. The two human gates that remain: the FRD was approved
 before you start, and the merge happens only on the operator's word.
+
+## Model & harness selection (credit-aware)
+
+The lane is harness-portable: the same workflow runs on Claude Code and on Pi driving
+Codex models. The operator picks the executor per slice before the session starts:
+
+| Tier | When to use |
+|------|-------------|
+| Fable 5 (Claude Code) | First run of a new slice *type*, architecture-heavy or novel slices. Credit-limited — spend deliberately, never on repeat patterns. |
+| Opus 5 (Claude Code) | Default lane once a slice type has a proven pattern in the codebase to follow. |
+| Codex via Pi | Overflow capacity and pattern-repetitive slices; bonus: model diversity against the Kody reviewer. |
+
+Downgrade rule: the first slice of a kind runs on the strongest available tier; repeat
+slices of the same shape run one tier down. If a downgraded run needs noticeably more
+review rounds than its Fable predecessor, record it in the tracker and move that slice
+type back up a tier.
 
 ## Preconditions (refuse to start without them)
 
@@ -65,7 +81,13 @@ risky seams called out honestly, and anything deferred. Never suppress a risk fl
 operator's review target is ~20 minutes: working feature vs prototype + a skim of the seams
 you flagged.
 
-## Run under /goal (recommended)
+**Tracker row (mandatory during the pilot):** append a run entry to
+`docs/fast-lane-pilot.md` in the same PR — slice, model + harness, wall-clock, review
+rounds, and the honesty fields the scale-up decision depends on. Final numbers (rounds to
+clean) land with the last fix push before merge. A fast-lane run without a tracker row
+didn't happen.
+
+## Run under /goal (Claude Code only)
 
 Set the completion condition at session start so the run continues autonomously until the
 slice is *actually* done — judged by Claude Code's independent evaluator, not by the working
@@ -79,6 +101,10 @@ model's own sense of completion. Template:
 Rules for the condition: name **artifacts** (gate output, PR state, test names, receipt
 paths), never vibes ("code is good"); always end it before the merge — the merge stays a
 human gate. `/goal clear` aborts; the condition survives `--resume` for long lanes.
+
+On Pi/Codex there is no independent evaluator: write the same artifact-based completion
+condition into the session prompt at start, and verify each artifact explicitly in the
+report — the condition still gates the report even without an evaluator enforcing it.
 
 ## Hard boundaries
 
