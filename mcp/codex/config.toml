@@ -13953,3 +13953,63 @@ trust_level = "trusted"
 
 [projects."/tmp/lane-fingerprint-x5dygU/agentops-agentops-harness-prd-212"]
 trust_level = "trusted"
+
+[projects."/tmp/lane-project-isolation-Wb8QLo/agentops-project-b-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-project-isolation-xrd8X5/agentops-project-b-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-project-isolation-IrA3tD/agentops-project-b-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-project-isolation-IrA3tD/agentops-project-b-prd-213"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-project-isolation-98jqmQ/worktrees-project-b/agentops-project-b-prd-214"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-project-isolation-Idcqwr/agentops-project-b-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-project-isolation-Idcqwr/agentops-project-b-prd-213"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-project-isolation-Idcqwr/agentops-project-b-prd-214"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-project-isolation-XrtP9k/agentops-project-b-prd-219"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-project-isolation-NLgn6M/agentops-project-b-prd-216"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-project-isolation-NLgn6M/agentops-project-b-prd-217"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-retirement-PMKtOZ/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/launch-cleanup-worktree-Zsi7JU/agentops-prd-363"]
+trust_level = "trusted"
+
+[projects."/tmp/launch-cleanup-worktree-EoqTFK/agentops-prd-363"]
+trust_level = "trusted"
+
+[projects."/tmp/launch-cleanup-worktree-DhgQYc/agentops-prd-363"]
+trust_level = "trusted"
+
+[projects."/tmp/launch-cleanup-worktree-0saX8Q/agentops-prd-363"]
+trust_level = "trusted"
+
+[projects."/tmp/lead-implementation-oOdCjJ/agentops-prd-1019"]
+trust_level = "trusted"
+
+[projects."/tmp/lead-worktree-317DL5/agentops-prd-1001"]
+trust_level = "trusted"
+
+[projects."/tmp/lead-implementation-zO6roB/agentops-prd-1019"]
+trust_level = "trusted"
+
+[projects."/tmp/lead-worktree-4oOPRc/agentops-prd-1001"]
+trust_level = "trusted"
