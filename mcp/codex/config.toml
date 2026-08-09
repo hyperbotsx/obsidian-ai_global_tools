@@ -12927,3 +12927,30 @@ trust_level = "trusted"
 
 [projects."/tmp/lane-project-isolation-UGwCWB/agentops-project-b-prd-217"]
 trust_level = "trusted"
+
+[projects."/tmp/lane-retirement-Z3guhZ/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/launch-cleanup-worktree-gdHaIf/agentops-prd-363"]
+trust_level = "trusted"
+
+[projects."/tmp/launch-cleanup-worktree-XSS5KB/agentops-prd-363"]
+trust_level = "trusted"
+
+[projects."/tmp/launch-cleanup-worktree-WxcHqG/agentops-prd-363"]
+trust_level = "trusted"
+
+[projects."/tmp/launch-cleanup-worktree-z3XCVS/agentops-prd-363"]
+trust_level = "trusted"
+
+[projects."/tmp/lead-implementation-t9j8Fg/agentops-prd-1019"]
+trust_level = "trusted"
+
+[projects."/tmp/lead-worktree-oQUVxo/agentops-prd-1001"]
+trust_level = "trusted"
+
+[projects."/tmp/pty-lead-verification-DBOQqJ/agentops-prd-1"]
+trust_level = "trusted"
+
+[projects."/tmp/pty-lead-verification-sAVYQI/agentops-prd-1"]
+trust_level = "trusted"
