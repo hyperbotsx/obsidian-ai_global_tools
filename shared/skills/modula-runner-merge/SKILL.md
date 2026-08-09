@@ -164,8 +164,16 @@ the mirror. (Same discipline as the house `forge-closeout` skill, with modula-ru
 
 ## Hard boundaries
 
-- **Never rewrite public `main` history.** Whatever already landed (e.g. CP-1's fixups) stays;
-  the fix is forward-only — squash from here on.
+- **Never rewrite already-published `main` history — settled decision, trust rationale.**
+  Whatever already landed (e.g. CP-1's review-round fixups) stays; the fix is forward-only.
+  This repo's README says "history is the trust artifact," and a security-audited runner
+  (independent audit is the GA gate) that force-pushed its public `main` to erase its own past
+  would read as hiding, not tidying — an auditor would rightly flag it. Visible iterative
+  hardening is a *trust asset*, not an embarrassment. The honest line: **squash-at-merge
+  summarizes `main` while the full commit record stays public in the PR (nothing erased); a
+  retroactive force-push removes the record.** We do the first, never the second. Do not
+  re-open this — it was weighed against a near-zero-footprint repo (0 forks/releases/tags) and
+  declined on principle, not convenience.
 - **The agent never merges without the operator's explicit word for that specific PR.**
 - Squash is mandatory on this repo. If a future slice genuinely needs its individual commits on
   `main`, that is an operator decision to state explicitly, not a default to fall into.
