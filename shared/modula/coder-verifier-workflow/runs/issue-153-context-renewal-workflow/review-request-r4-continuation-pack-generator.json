@@ -1,0 +1,56 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-153",
+  "purpose": "Checkpoint 3 review for issue #153 continuation-pack generator.",
+  "checkpoint": "3 - Continuation-pack generator",
+  "revision": 4,
+  "requested_action": "Verify dry-run generation of STATE.md and CONTINUATION_PROMPT.md from current repo/run state, required sections, redaction/secret exclusions, tests, and that no reset automation was added.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/153"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/coder-handoff.md",
+  "changed_files": [
+    "docs/agentops-context-renewal.md",
+    "scripts/agentops/context-renewal-pack.py",
+    "src/agentops_harness/context_renewal_pack.py",
+    "tests/unit/test_context_renewal_pack.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/continuation/20260629T145002Z/STATE.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/continuation/20260629T145002Z/CONTINUATION_PROMPT.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/review-request-r4-continuation-pack-generator.json"
+  ],
+  "validation_results": [
+    {
+      "command": "git diff --check",
+      "status": "passed"
+    },
+    {
+      "command": "python3 -m py_compile scripts/agentops/context-renewal-pack.py src/agentops_harness/context_renewal_pack.py scripts/agentops/context-renewal-preflight.py src/agentops_harness/context_renewal_preflight.py",
+      "status": "passed"
+    },
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests/unit/test_context_renewal_pack.py tests/unit/test_context_renewal_preflight.py",
+      "status": "passed",
+      "summary": "8 tests passed."
+    },
+    {
+      "command": "cd term-control-center && node --import /mnt/hyperliquid-data/projects/repos/agentops-harness/term-control-center/node_modules/tsx/dist/loader.mjs --test --test-concurrency=1 tests/contextRenewal.test.ts",
+      "status": "passed",
+      "summary": "5 tests passed."
+    },
+    {
+      "command": "scripts/agentops/context-renewal-pack.py --issue-url https://github.com/hyperbotsx/agentops-harness/issues/153 --artifact-folder dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow --checkpoint '3 - Continuation-pack generator' --revision 4 --stop-reason 'checkpoint dry run after generator tests' --next-action 'request verifier checkpoint 3 review' ...",
+      "status": "passed",
+      "summary": "Wrote continuation/20260629T145002Z/STATE.md and CONTINUATION_PROMPT.md."
+    }
+  ],
+  "finding_ids_addressed": [],
+  "isolation_preflight": {
+    "sender_identity": "coder@agentops-prd-153",
+    "pi_coms_dir": "/tmp/agentops/coms/agentops-prd-153",
+    "verifier_live": true
+  },
+  "stop_condition": "Return compact verifier verdict JSON and write detailed report to verifier-report.md."
+}

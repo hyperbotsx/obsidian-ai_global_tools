@@ -1,0 +1,1 @@
+{"id": "chatcmpl-fca5e0eb5e354c73b79ba018dfaab0b9", "object": "chat.completion", "created": 1782750856, "model": "claude-cli", "choices": [{"index": 0, "message": {"role": "assistant", "content": "I'll respond exactly as requested.\n\nrunbook-gateway-ok"}, "finish_reason": "stop"}], "usage": {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}}

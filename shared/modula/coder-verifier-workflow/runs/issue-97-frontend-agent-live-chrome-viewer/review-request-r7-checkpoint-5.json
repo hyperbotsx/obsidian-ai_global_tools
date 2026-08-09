@@ -1,0 +1,46 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-harness",
+  "checkpoint": "5 - Coms label/deploy",
+  "revision": 1,
+  "requested_action": "Review checkpoint 5 only: PI_COMS_MODEL_LABEL propagation, pi-agent/tmux env propagation, and pi-coms patch idempotency/reinstall hardening.",
+  "prd_issue": "https://github.com/hyperbotsx/agentops-harness/issues/97",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/coder-handoff.md",
+  "verifier_report_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/verifier-report.md",
+  "changed_files": [
+    "scripts/agentops/pi-agent.sh",
+    "scripts/agentops/patch-pi-coms-local.sh",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "term-control-center/tests/agentopsComsLabel.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/decision-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/review-request-r7-checkpoint-5.json"
+  ],
+  "pre_existing_dirty_files": [
+    "dev-plans/prd-backlog.md"
+  ],
+  "validation_results": [
+    { "command": "npm --prefix term-control-center run typecheck", "status": "passed" },
+    { "command": "npm --prefix term-control-center run build", "status": "passed", "notes": "existing Vite chunk-size warning only" },
+    { "command": "npm --prefix term-control-center run test", "status": "passed", "evidence": "405 tests passed" },
+    { "command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/agentopsComsLabel.test.ts tests/launchPlan.test.ts", "status": "passed", "evidence": "13 tests passed" },
+    { "command": "bash -n scripts/agentops/pi-agent.sh scripts/agentops/patch-pi-coms-local.sh", "status": "passed" },
+    { "command": "git diff --check -- scripts/agentops/pi-agent.sh scripts/agentops/patch-pi-coms-local.sh term-control-center/server/launchPlan.ts term-control-center/tests/launchPlan.test.ts term-control-center/tests/agentopsComsLabel.test.ts", "status": "passed" },
+    { "command": "git diff --check", "status": "passed" }
+  ],
+  "finding_ids_addressed": [],
+  "research_consults": [
+    {
+      "peer": "researcher",
+      "date": "2026-06-26",
+      "summary": "Researcher recommended scanning .pi/.hyper-pi managed and tmp npm extension caches, running patch-pi-coms-local.sh best-effort from pi-agent.sh before exec pi, warning rather than blocking launches for a display-only label, and treating upstream/native PI_COMS_MODEL_LABEL support as already patched."
+    }
+  ],
+  "notes": [
+    "Checkpoint 5 does not alter browser/CDP/VNC/public exposure surfaces.",
+    "Manual live coms-panel smoke is deferred to final validation; automated coverage verifies label selection, wrapper env propagation, tmux env propagation, and patch idempotency."
+  ],
+  "stop_condition": "Stop after checkpoint 5 verifier approval unless instructed to continue to checkpoint 6."
+}

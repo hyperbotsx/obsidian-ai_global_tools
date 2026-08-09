@@ -1,0 +1,46 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-59",
+  "purpose": "Issue #59 checkpoint 5 accessibility/reduced-motion terminal hardening review",
+  "expected_response": "Compact verifier verdict JSON matching the provided schema; full details in verifier-report.md only if not approved.",
+  "stop_condition": "Approve checkpoint 5 or return bounded findings.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/59",
+  "checkpoint": "5 - Accessibility/reduced-motion terminal hardening",
+  "revision": 1,
+  "requested_action": "Review reduced-motion terminal hardening after mandatory accessibility/reduced-motion consult: xterm cursor blink is disabled and smooth scroll duration is zero when prefers-reduced-motion is set; static guardrail added. No local-AI explanation code changed because local-AI consult attempts returned unusable responses.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/src/TerminalPane.tsx",
+    "term-control-center/tests/termBasePath.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/review-request-r9-checkpoint-5-reduced-motion.json"
+  ],
+  "validation_results": [
+    {"command": "npm --prefix term-control-center run typecheck", "result": "passed"},
+    {"command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/termBasePath.test.ts", "result": "passed, 31/31"},
+    {"command": "npm --prefix term-control-center test", "result": "passed, 593/593"},
+    {"command": "npm --prefix term-control-center run build", "result": "passed with existing Vite non-module/chunk-size warnings"},
+    {"command": "rm -rf term-control-center/dist term-control-center/build", "result": "completed after build"},
+    {"command": "git diff --check", "result": "passed"}
+  ],
+  "finding_ids_addressed": [],
+  "notes": "Accessibility/reduced-motion consult completed and summarized. Local-AI explanation consult remains pending because three researcher attempts returned unusable attachment/invalid JSON responses; this checkpoint intentionally avoids local-AI explanation code changes.",
+  "response_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["decision", "checkpoint_reviewed", "revision_reviewed", "open_findings", "finding_ids", "bug_check_status", "next_actor", "report_path"],
+    "properties": {
+      "decision": {"type": "string", "enum": ["approved", "revision_requested", "needs_human", "rejected"]},
+      "checkpoint_reviewed": {"type": "string"},
+      "revision_reviewed": {"type": "integer"},
+      "open_findings": {"type": "integer"},
+      "finding_ids": {"type": "array", "items": {"type": "string"}},
+      "bug_check_status": {"type": "string", "enum": ["not_applicable", "passed", "failed", "not_run"]},
+      "next_actor": {"type": "string"},
+      "report_path": {"type": "string"}
+    }
+  }
+}

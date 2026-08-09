@@ -1,0 +1,51 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-277",
+  "purpose": "CP-1 review for issue #277 notification event contract and Python router",
+  "expected_response": "Verdict JSON matching the verifier contract",
+  "stop_condition": "Approve CP-1 or request one bounded CP-1 revision",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-277-notification-backbone/coder-handoff.md",
+  "checkpoint": "CP-1 — FR-1/FR-2 event contract, taxonomy, router recording and delivery skeleton",
+  "revision": 1,
+  "requested_action": "Review only CP-1: exact seven-kind contract, unknown-kind rejection, unconditional in-memory recording before channel bindings, eight-source mapping, additive ActivityItem compatibility, and focused tests. Do not review CP-2/CP-3 endpoints, UI, badges, mutes, unread persistence, or Slack retirement.",
+  "issue_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/277",
+    "dev-plans/drafts/frd-f3-notification-backbone-planning-brief.md"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-277-notification-backbone/coder-handoff.md",
+  "changed_files": [
+    "docs/notification-backbone.md",
+    "src/agentops_harness/activity_center.py",
+    "src/agentops_harness/activity_center_models.py",
+    "src/agentops_harness/activity_center_runtime.py",
+    "src/agentops_harness/activity_state.py",
+    "src/agentops_harness/notification_router.py",
+    "tests/unit/test_activity_state.py",
+    "tests/unit/test_notification_router.py"
+  ],
+  "validation": [
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 -m pytest tests/unit/test_notification_router.py tests/unit/test_activity_center.py tests/unit/test_activity_state.py -q",
+      "result": "passed (28 passed)"
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 -m pytest tests -q",
+      "result": "pre-existing failure: tests/unit/test_completed_work.py::CompletedWorkTests::test_unlinked_merged_pr_emits_warning_row; 1308 passed, 60 subtests passed"
+    },
+    {
+      "command": "cd term-control-center && npm test",
+      "result": "blocked before execution: local tsx dependency absent"
+    },
+    {
+      "command": "cd term-control-center && npm run typecheck && npm run build",
+      "result": "blocked before compilation: local tsc dependency absent"
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed"
+    }
+  ],
+  "finding_ids_addressed": []
+}

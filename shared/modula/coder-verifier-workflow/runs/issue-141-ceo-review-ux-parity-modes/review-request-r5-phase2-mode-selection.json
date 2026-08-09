@@ -1,0 +1,51 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Phase 2 mode-selection checkpoint for issue 141",
+  "expected_response": "Compact verifier verdict JSON matching the response schema; write details to verifier-report.md",
+  "stop_condition": "Approve checkpoint or request bounded revision findings",
+  "checkpoint": "Phase 2 mode-selection checkpoint",
+  "revision": 1,
+  "requested_action": "Verify app CEO review entrypoint offers Guided Questionnaire and Assisted Draft Review with safe defaulting/last-mode behavior and carries the selected mode into the review launch payload/prompt.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/141"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/board.html",
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/server/ceoReviewRuntime.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "term-control-center/tests/launcher.test.ts",
+    "term-control-center/tests/boardGuardrails.test.ts",
+    "docs/admin-configuration.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/review-request-r5-phase2-mode-selection.json"
+  ],
+  "validation_results": [
+    {
+      "command": "cd term-control-center && node --import tsx --test tests/launchPlan.test.ts tests/launcher.test.ts tests/boardGuardrails.test.ts",
+      "status": "pass",
+      "summary": "78 tests passed"
+    },
+    {
+      "command": "cd term-control-center && npm run typecheck",
+      "status": "pass",
+      "summary": "tsconfig app/server typecheck passed"
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "summary": "no whitespace errors"
+    }
+  ],
+  "finding_ids_addressed": [],
+  "notes": [
+    "Phase 1 checkpoints 1-3 are approved.",
+    "This checkpoint only claims mode picker/default/payload/prompt plumbing, not guided four-choice generation or assisted draft editing screens."
+  ]
+}

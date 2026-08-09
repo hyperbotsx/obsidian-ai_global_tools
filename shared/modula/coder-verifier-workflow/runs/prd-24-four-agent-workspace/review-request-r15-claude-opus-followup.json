@@ -1,0 +1,29 @@
+{
+  "type": "review_request",
+  "task": {
+    "issue_url": "https://github.com/hyperbotsx/agentops-harness/issues/24",
+    "branch": "feat/four-agent-workspace-24",
+    "worktree": "/mnt/hyperliquid-data/projects/worktrees/agentops-term"
+  },
+  "checkpoint": "post-approval browser QA follow-up: switch Claude dropdown to Opus 4.8 safely",
+  "revision": 15,
+  "requested_action": "bounded_review",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/board.html",
+    "term-control-center/server/launchProfiles.ts",
+    "term-control-center/tests/boardGuardrails.test.ts",
+    "term-control-center/tests/launchProfiles.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/review-request-r15-claude-opus-followup.json"
+  ],
+  "summary": "Researcher confirmed installed Pi supports claude-opus-4-8. Updated the existing Pi-routed Claude dropdown profile from Claude Sonnet to Claude Opus 4.8 while keeping provider=codex in the harness launch contract so peer-agent panes still route through scripts/agentops/pi-agent.sh. TERM_CONTROL_PI_CLAUDE_MODEL remains the fallback override knob.",
+  "validation_results": [
+    "cd term-control-center && npm run typecheck — pass",
+    "cd term-control-center && npm test — pass, 118 tests",
+    "cd term-control-center && npm run build — pass",
+    "Deployed updated board.html to nginx-served public root and restarted term service on 127.0.0.1:3032",
+    "GET /launch-profiles with x-term-token — pass; returns codex-default and pi-claude-opus"
+  ],
+  "finding_ids_addressed": ["LAUNCH-24-C2-001"]
+}

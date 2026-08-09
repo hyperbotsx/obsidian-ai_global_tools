@@ -1,0 +1,77 @@
+{
+  "artifact_folder": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780978768797",
+  "branch": "prd/lead-developer-slack-decision-inbox-operating-cadence-944",
+  "browser_qa_devtools_recommended": false,
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/session-1780978768797/",
+    "src/agentops_harness/cli.py",
+    "src/agentops_harness/lead_dev_confirmation.py",
+    "src/agentops_harness/lead_dev_heartbeat.py",
+    "src/agentops_harness/lead_dev_inbox.py",
+    "src/agentops_harness/lead_dev_memory.py",
+    "src/agentops_harness/lead_dev_requests.py",
+    "src/agentops_harness/lead_dev_surfaces.py",
+    "tests/unit/test_lead_dev_confirmation.py",
+    "tests/unit/test_lead_dev_inbox.py",
+    "tests/unit/test_lead_dev_operations.py",
+    "tests/unit/test_lead_dev_surfaces.py"
+  ],
+  "devtools_mcp_prerequisites": {
+    "chrome": true,
+    "node": true,
+    "npm": true,
+    "npx": true
+  },
+  "files": {
+    "coder-handoff.md": {
+      "bytes": 15773,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780978768797/coder-handoff.md"
+    },
+    "coder-ready.md": {
+      "bytes": 5989,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780978768797/coder-ready.md"
+    },
+    "decision-log.md": {
+      "bytes": 4390,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780978768797/decision-log.md"
+    },
+    "verifier-report.md": {
+      "bytes": 14979,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780978768797/verifier-report.md"
+    },
+    "verifier-request.md": {
+      "bytes": 7015,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780978768797/verifier-request.md"
+    }
+  },
+  "handoff_missing_fields": [],
+  "hotspot_files": [],
+  "ready_missing_fields": [],
+  "repo_root": "/mnt/hyperliquid-data/projects/worktrees/agentops-harness",
+  "report_machine_status_missing": [],
+  "review_profiles": {
+    "llm_assistant": [
+      "src/agentops_harness/lead_dev_memory.py"
+    ]
+  },
+  "status_short": [
+    "## prd/lead-developer-slack-decision-inbox-operating-cadence-944",
+    " M src/agentops_harness/cli.py",
+    " M src/agentops_harness/lead_dev_confirmation.py",
+    " M tests/unit/test_lead_dev_confirmation.py",
+    "?? dev-plans/agentops/coder-verifier-workflow/runs/session-1780978768797/",
+    "?? src/agentops_harness/lead_dev_heartbeat.py",
+    "?? src/agentops_harness/lead_dev_inbox.py",
+    "?? src/agentops_harness/lead_dev_memory.py",
+    "?? src/agentops_harness/lead_dev_requests.py",
+    "?? src/agentops_harness/lead_dev_surfaces.py",
+    "?? tests/unit/test_lead_dev_inbox.py",
+    "?? tests/unit/test_lead_dev_operations.py",
+    "?? tests/unit/test_lead_dev_surfaces.py"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "manual_review_request",
+  "sender": "user",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Verify Lane B PRDs in order, starting with B1 #57 Responsive AgentOps Navigation Shell, then B2 #58 and B3 #60 if prior PRDs pass.",
+  "expected_response": "Compact verifier verdict JSON with durable evidence written under dev-plans/agentops/coder-verifier-workflow/runs/.",
+  "stop_condition": "Stop on the first PRD that fails verification and return bounded findings.",
+  "review_request": {
+    "lane": "Lane B (Nav / Activity / Admin)",
+    "issues_in_order": [57, 58, 60],
+    "focus_for_issue_57": [
+      "boardGuardrails.test.ts must be rewritten for the new bottom-tab + More-sheet contract",
+      "stable IDs/classes/data-attributes from PRD #57 section 4.1 must be preserved",
+      "keyboard, Escape, and focus-return behavior must work"
+    ],
+    "validation_commands": [
+      "npm --prefix term-control-center run typecheck",
+      "npm --prefix term-control-center test",
+      "npm --prefix term-control-center run build",
+      "PYTHONPATH=src python3 -m pytest tests/unit -q"
+    ],
+    "final_bug_check": true
+  }
+}

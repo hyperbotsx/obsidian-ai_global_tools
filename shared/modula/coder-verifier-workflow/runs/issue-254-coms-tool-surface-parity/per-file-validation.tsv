@@ -1,0 +1,16 @@
+base_revision	4bbc753
+command	cd term-control-center && env -u TERM_CONTROL_MODEL_PROFILES node --import tsx --test --test-concurrency=1 <test-file>
+per_file_timeout_seconds	180
+suite_file_count	110
+passed_file_count	106
+baseline_failed_file_count	4
+failed_then_noncompleting_file_count	0
+
+file	status	exit_status	subtests	passed	failed	classification	evidence
+all other 104 top-level tests	passed	0	completed	completed	0	completed serial per-file validation	manifest run
+tests/coworkerGuard.test.ts	passed	0	2	2	0	completed after sufficient-budget serial rerun	verifier independent rerun, 2026-07-19
+tests/server.test.ts	passed	0	54	54	0	completed after fixture and environment isolation repair	2026-07-19 serial rerun, 36.9 seconds
+tests/coworkerLauncher.test.ts	baseline_failed	1	4	3	1	unchanged stale exported-object assertion; narrow baseline exception proposed	clean HEAD reproduction and byte comparison
+tests/kodyReview.test.ts	baseline_failed	1	19	18	1	unchanged stale launch-plan assertion; narrow baseline exception proposed	clean HEAD reproduction
+tests/launchProjectFallback.test.ts	baseline_failed	1	2	1	unchanged Browser-QA fixture lacks allowed target; narrow baseline exception proposed	clean HEAD reproduction
+tests/verificationSandbox.test.ts	baseline_failed	1	6	5	1	unchanged fixture expects another issue number; narrow baseline exception proposed	clean HEAD reproduction

@@ -1,0 +1,112 @@
+# Forbidden pattern scan (changed implementation files and artifacts)
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/verifier-report.md:83:| Forbidden-pattern scan | pass with only policy/test/artifact matches | yes | fail | Scan includes `sessions/create` and `sessions/delete`, but machine-readable enforcement omits rename. |
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/verifier-report.md:91:| Final enforcement report covers all PRD-forbidden AI Maestro session actions. | PRD #934 forbids session create/delete/rename APIs; `ai_maestro_enforcement.py` lists `sessions/create` and `sessions/delete` but not rename. | fail |
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/verifier-report.md:96:| No real sessions were surfaced or mutated. | `/api/sessions` returns empty sessions; log scan shows no `POST/PUT/PATCH/DELETE /api/sessions`, no `sessions/create`, no `sessions/delete`, no `send-keys`. | pass |
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/verifier-report.md:117:- Evidence: Issue #934 forbids `AI Maestro session create/delete/rename APIs against real Evonome sessions`. `src/agentops_harness/ai_maestro_enforcement.py` includes `sessions/create` and `sessions/delete`, but no rename pattern/string in the final machine-readable enforcement report.
+tests/unit/test_cli.py:94:        self.assertIn("sessions/rename", output.getvalue())
+src/agentops_harness/ai_maestro_plan.py:65:        "tmux send-keys or terminal injection into real sessions",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/coder-followup.md:96:| Forbidden-pattern scan | pass with only policy/test/artifact matches | yes | fail | Scan includes `sessions/create` and `sessions/delete`, but machine-readable enforcement omits rename. |
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/coder-followup.md:104:| Final enforcement report covers all PRD-forbidden AI Maestro session actions. | PRD #934 forbids session create/delete/rename APIs; `ai_maestro_enforcement.py` lists `sessions/create` and `sessions/delete` but not rename. | fail |
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/coder-followup.md:109:| No real sessions were surfaced or mutated. | `/api/sessions` returns empty sessions; log scan shows no `POST/PUT/PATCH/DELETE /api/sessions`, no `sessions/create`, no `sessions/delete`, no `send-keys`. | pass |
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/coder-followup.md:130:- Evidence: Issue #934 forbids `AI Maestro session create/delete/rename APIs against real Evonome sessions`. `src/agentops_harness/ai_maestro_enforcement.py` includes `sessions/create` and `sessions/delete`, but no rename pattern/string in the final machine-readable enforcement report.
+docs/ai-maestro-readonly-integration.md:111:gh issue edit
+docs/ai-maestro-readonly-integration.md:112:gh issue create
+docs/ai-maestro-readonly-integration.md:113:gh issue comment
+docs/ai-maestro-readonly-integration.md:114:gh project item-edit
+docs/ai-maestro-readonly-integration.md:115:gh project item-add
+docs/ai-maestro-readonly-integration.md:116:git commit
+docs/ai-maestro-readonly-integration.md:117:git push
+docs/ai-maestro-readonly-integration.md:118:git checkout -b
+docs/ai-maestro-readonly-integration.md:119:git town
+docs/ai-maestro-readonly-integration.md:120:send-keys
+docs/ai-maestro-readonly-integration.md:121:sessions/create
+docs/ai-maestro-readonly-integration.md:122:sessions/delete
+docs/ai-maestro-readonly-integration.md:123:sessions/rename
+docs/ai-maestro-readonly-integration.md:124:aws ec2
+docs/ai-maestro-readonly-integration.md:125:aws ecs
+docs/ai-maestro-readonly-integration.md:126:docker run
+src/agentops_harness/ai_maestro_enforcement.py:36:        "gh issue edit",
+src/agentops_harness/ai_maestro_enforcement.py:37:        "gh issue create",
+src/agentops_harness/ai_maestro_enforcement.py:38:        "gh issue comment",
+src/agentops_harness/ai_maestro_enforcement.py:39:        "gh project item-edit",
+src/agentops_harness/ai_maestro_enforcement.py:40:        "gh project item-add",
+src/agentops_harness/ai_maestro_enforcement.py:41:        "git commit",
+src/agentops_harness/ai_maestro_enforcement.py:42:        "git push",
+src/agentops_harness/ai_maestro_enforcement.py:43:        "git checkout -b",
+src/agentops_harness/ai_maestro_enforcement.py:44:        "git town",
+src/agentops_harness/ai_maestro_enforcement.py:45:        "send-keys",
+src/agentops_harness/ai_maestro_enforcement.py:46:        "sessions/create",
+src/agentops_harness/ai_maestro_enforcement.py:47:        "sessions/delete",
+src/agentops_harness/ai_maestro_enforcement.py:48:        "sessions/rename",
+src/agentops_harness/ai_maestro_enforcement.py:49:        "aws ec2",
+src/agentops_harness/ai_maestro_enforcement.py:50:        "aws ecs",
+src/agentops_harness/ai_maestro_enforcement.py:51:        "docker run",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:2:dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/verifier-report.md:84:| AI Maestro log/session mutation scan | not claimed | yes | pass | Observed only `GET /api/sessions` for sessions; no `POST/PUT/PATCH/DELETE /api/sessions`, `sessions/create`, `sessions/delete`, `send-keys`, or rename evidence. |
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:3:dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/verifier-report.md:95:| No real-session create/delete/rename/injection occurred. | AI Maestro log has `GET /api/sessions`; no session mutation endpoints or `send-keys` evidence. | pass |
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:4:dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/coder-followup.md:97:| AI Maestro log/session mutation scan | not claimed | yes | pass | Observed only `GET /api/sessions` for sessions; no `POST/PUT/PATCH/DELETE /api/sessions`, `sessions/create`, `sessions/delete`, `send-keys`, or rename evidence. |
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:5:dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/coder-followup.md:108:| No real-session create/delete/rename/injection occurred. | AI Maestro log has `GET /api/sessions`; no session mutation endpoints or `send-keys` evidence. | pass |
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:6:dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-plan-cp1.md:23:- tmux send-keys or terminal injection into real sessions
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:7:dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-plan-cp1.json:17:        "tmux send-keys or terminal injection into real sessions",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:8:src/agentops_harness/ai_maestro_enforcement.py:36:        "gh issue edit",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:9:src/agentops_harness/ai_maestro_enforcement.py:37:        "gh issue create",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:10:src/agentops_harness/ai_maestro_enforcement.py:38:        "gh issue comment",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:11:src/agentops_harness/ai_maestro_enforcement.py:39:        "gh project item-edit",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:12:src/agentops_harness/ai_maestro_enforcement.py:40:        "gh project item-add",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:13:src/agentops_harness/ai_maestro_enforcement.py:41:        "git commit",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:14:src/agentops_harness/ai_maestro_enforcement.py:42:        "git push",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:15:src/agentops_harness/ai_maestro_enforcement.py:43:        "git checkout -b",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:16:src/agentops_harness/ai_maestro_enforcement.py:44:        "git town",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:17:src/agentops_harness/ai_maestro_enforcement.py:45:        "send-keys",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:18:src/agentops_harness/ai_maestro_enforcement.py:46:        "sessions/create",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:19:src/agentops_harness/ai_maestro_enforcement.py:47:        "sessions/delete",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:20:src/agentops_harness/ai_maestro_enforcement.py:48:        "aws ec2",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:21:src/agentops_harness/ai_maestro_enforcement.py:49:        "aws ecs",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:22:src/agentops_harness/ai_maestro_enforcement.py:50:        "docker run",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:23:src/agentops_harness/ai_maestro_plan.py:65:        "tmux send-keys or terminal injection into real sessions",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:24:docs/ai-maestro-readonly-integration.md:111:gh issue edit
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:25:docs/ai-maestro-readonly-integration.md:112:gh issue create
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:26:docs/ai-maestro-readonly-integration.md:113:gh issue comment
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:27:docs/ai-maestro-readonly-integration.md:114:gh project item-edit
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:28:docs/ai-maestro-readonly-integration.md:115:gh project item-add
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:29:docs/ai-maestro-readonly-integration.md:116:git commit
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:30:docs/ai-maestro-readonly-integration.md:117:git push
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:31:docs/ai-maestro-readonly-integration.md:118:git checkout -b
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:32:docs/ai-maestro-readonly-integration.md:119:git town
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:33:docs/ai-maestro-readonly-integration.md:120:send-keys
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:34:docs/ai-maestro-readonly-integration.md:121:sessions/create
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:35:docs/ai-maestro-readonly-integration.md:122:sessions/delete
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:36:docs/ai-maestro-readonly-integration.md:123:aws ec2
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:37:docs/ai-maestro-readonly-integration.md:124:aws ecs
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-forbidden-scan-final.txt:38:docs/ai-maestro-readonly-integration.md:125:docker run
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.md:13:- `gh issue edit`
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.md:14:- `gh issue create`
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.md:15:- `gh issue comment`
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.md:16:- `gh project item-edit`
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.md:17:- `gh project item-add`
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.md:18:- `git commit`
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.md:19:- `git push`
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.md:20:- `git checkout -b`
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.md:21:- `git town`
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.md:22:- `send-keys`
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.md:23:- `sessions/create`
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.md:24:- `sessions/delete`
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.md:25:- `aws ec2`
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.md:26:- `aws ecs`
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.md:27:- `docker run`
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.json:3:        "gh issue edit",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.json:4:        "gh issue create",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.json:5:        "gh issue comment",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.json:6:        "gh project item-edit",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.json:7:        "gh project item-add",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.json:8:        "git commit",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.json:9:        "git push",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.json:10:        "git checkout -b",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.json:11:        "git town",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.json:12:        "send-keys",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.json:13:        "sessions/create",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.json:14:        "sessions/delete",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.json:15:        "aws ec2",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.json:16:        "aws ecs",
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-enforcement-final.json:17:        "docker run"
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-plan-cp1.md:23:- tmux send-keys or terminal injection into real sessions
+dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/validation/ai-maestro-plan-cp1.json:17:        "tmux send-keys or terminal injection into real sessions",

@@ -1,0 +1,31 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-211",
+  "purpose": "Re-review PRD #211 checkpoint 1 bounded fixes",
+  "checkpoint": "1 - Read layer",
+  "revision": 2,
+  "requested_action": "Recheck F211-C1-001 through F211-C1-005 and F211-C1-KISS-001: attach/session redaction, newest UTF-8 byte tail, runtime caps before capture, non-mutating active-project lookup, newest valid project-bound verifier Machine Status, and KISS cleanup.",
+  "prd_ref": "https://github.com/hyperbotsx/agentops-harness/issues/211",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-211-terminal-orchestration-batch-resume/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/adminProjects.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/tmuxSupervisor.ts",
+    "term-control-center/server/validationReceipt.ts",
+    "term-control-center/shared/blockedPaths.ts",
+    "term-control-center/server/orchestrator/machineEvidence.ts",
+    "term-control-center/server/orchestrator/orchestratorRoutes.ts",
+    "term-control-center/server/orchestrator/paneInventory.ts",
+    "term-control-center/server/orchestrator/paneTail.ts",
+    "term-control-center/tests/orchestratorPanes.test.ts"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck: passed",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/orchestratorPanes.test.ts tests/validationReceipt.test.ts tests/heartbeatClassifier.test.ts: passed (22)",
+    "git diff --check: passed"
+  ],
+  "finding_ids_addressed": ["F211-C1-001", "F211-C1-002", "F211-C1-003", "F211-C1-004", "F211-C1-005", "F211-C1-KISS-001"],
+  "stop_condition": "Return the compact verifier verdict; record detailed findings only in verifier-report.md."
+}

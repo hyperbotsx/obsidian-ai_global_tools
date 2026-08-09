@@ -1,0 +1,83 @@
+{
+  "artifact_folder": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780990501083",
+  "branch": "prd/project-aware-prd-authoring-skill-946",
+  "browser_qa_devtools_recommended": false,
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/session-1780990501083/coder-followup.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/session-1780990501083/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/session-1780990501083/coder-ready.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/session-1780990501083/decision-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/session-1780990501083/verifier-preflight.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/session-1780990501083/verifier-report.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/session-1780990501083/verifier-request.md",
+    "src/agentops_harness/cli.py",
+    "src/agentops_harness/prd_author.py",
+    "src/agentops_harness/prd_author_github.py",
+    "src/agentops_harness/prd_author_render.py",
+    "tests/unit/test_prd_author.py",
+    "tests/unit/test_prd_author_github.py"
+  ],
+  "devtools_mcp_prerequisites": {
+    "chrome": true,
+    "node": true,
+    "npm": true,
+    "npx": true
+  },
+  "files": {
+    "coder-handoff.md": {
+      "bytes": 14331,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780990501083/coder-handoff.md"
+    },
+    "coder-ready.md": {
+      "bytes": 3475,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780990501083/coder-ready.md"
+    },
+    "decision-log.md": {
+      "bytes": 13716,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780990501083/decision-log.md"
+    },
+    "verifier-report.md": {
+      "bytes": 6726,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780990501083/verifier-report.md"
+    },
+    "verifier-request.md": {
+      "bytes": 4501,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780990501083/verifier-request.md"
+    }
+  },
+  "handoff_missing_fields": [],
+  "hotspot_files": [],
+  "ready_missing_fields": [],
+  "repo_root": "/mnt/hyperliquid-data/projects/worktrees/agentops-harness",
+  "report_machine_status_missing": [],
+  "review_profiles": {
+    "admin_ops": [
+      "src/agentops_harness/prd_author.py",
+      "src/agentops_harness/prd_author_github.py",
+      "src/agentops_harness/prd_author_render.py",
+      "tests/unit/test_prd_author.py",
+      "tests/unit/test_prd_author_github.py"
+    ]
+  },
+  "status_short": [
+    "## prd/project-aware-prd-authoring-skill-946",
+    " A dev-plans/agentops/coder-verifier-workflow/runs/session-1780990501083/coder-followup.md",
+    " A dev-plans/agentops/coder-verifier-workflow/runs/session-1780990501083/coder-handoff.md",
+    " A dev-plans/agentops/coder-verifier-workflow/runs/session-1780990501083/coder-ready.md",
+    " A dev-plans/agentops/coder-verifier-workflow/runs/session-1780990501083/decision-log.md",
+    " A dev-plans/agentops/coder-verifier-workflow/runs/session-1780990501083/verifier-preflight.json",
+    " A dev-plans/agentops/coder-verifier-workflow/runs/session-1780990501083/verifier-report.md",
+    " A dev-plans/agentops/coder-verifier-workflow/runs/session-1780990501083/verifier-request.md",
+    " M src/agentops_harness/cli.py",
+    " A src/agentops_harness/prd_author.py",
+    " A tests/unit/test_prd_author.py",
+    "?? src/agentops_harness/prd_author_github.py",
+    "?? src/agentops_harness/prd_author_render.py",
+    "?? tests/unit/test_prd_author_github.py"
+  ]
+}

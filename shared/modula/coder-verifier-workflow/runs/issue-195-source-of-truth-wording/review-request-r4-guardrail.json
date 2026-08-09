@@ -1,0 +1,27 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-195",
+  "purpose": "Issue #195 checkpoint 3 guardrail review",
+  "expected_response": "Compact verifier verdict JSON matching schema; full report written to verifier-report.md",
+  "stop_condition": "Approve guardrail or request bounded guardrail revision",
+  "checkpoint": "3 - Guardrail checkpoint",
+  "revision": 1,
+  "requested_action": "Review static guardrail coverage and boundary for active surfaces vs historical/test artifacts.",
+  "prd_issue": "https://github.com/hyperbotsx/agentops-harness/issues/195",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-195-source-of-truth-wording/coder-handoff.md",
+  "review_request_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-195-source-of-truth-wording/review-request-r4-guardrail.json",
+  "changed_files": [
+    "tests/unit/test_source_of_truth_wording_guardrail.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-195-source-of-truth-wording/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-195-source-of-truth-wording/review-request-r4-guardrail.json"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 -m pytest -q -p no:cacheprovider tests/unit/test_source_of_truth_wording_guardrail.py",
+      "result": "1 passed in 0.03s"
+    }
+  ],
+  "finding_ids_addressed": []
+}

@@ -1,0 +1,34 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-218",
+  "purpose": "Final bug-check revision 2: BC218-CURRENT-006 session-scoped tmux reset cache",
+  "expected_response": "Verifier final bug-check verdict JSON conforming to the requested schema; write full findings to verifier-report.md if not approved.",
+  "stop_condition": "Approve the scoped code bug-check or identify a bounded unresolved defect/human gate.",
+  "checkpoint": "5 - Final bug-check",
+  "revision": 2,
+  "requested_action": "bug_check",
+  "prd_issue_ref": "https://github.com/hyperbotsx/agentops-harness/issues/218",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-218-terminal-selection-stability/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/index.ts",
+    "term-control-center/server/serverMonitors.ts",
+    "term-control-center/server/tmuxActivityMonitor.ts",
+    "term-control-center/tests/terminalHeldState.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-218-terminal-selection-stability/coder-handoff.md"
+  ],
+  "validation_results": [
+    "PASS typecheck",
+    "PASS focused seven terminal suites 61/61",
+    "PASS build with existing Vite non-module script and >500kB chunk warnings only",
+    "PASS git diff --check",
+    "PASS Steward revision-2 recheck clean",
+    "INCOMPLETE full suite: timeout 900s exit 124 after 311 passing subtests; isolated origin/main-equivalent coworkerGuard hang after 2 passing assertions",
+    "PENDING human physical Chrome/Safari/iPad Safari/iPhone Safari matrix"
+  ],
+  "finding_ids_addressed": ["BC218-CURRENT-006"],
+  "open_human_gate_ids": ["V218-FULLSUITE-001", "V218-MANUAL-001"],
+  "revision_notes": "SCROLL_RESET calls a session-scoped monitor cache reset before broadcasting. The cached state is deleted so quick no-activity re-entry yields held true/newOutput false; actual later activity and current-state broadcasts are retained.",
+  "context_path": "/home/hyperbots/.local/state/agentops/term-control-center/runtime/agentops-prd-218-47c15734d86e/artifacts/project-context-brief.md"
+}

@@ -1,0 +1,2 @@
+models 200
+completion 200 chat.completion private-gateway-ok

@@ -1,0 +1,38 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-115",
+  "purpose": "Pre-final structure and hygiene review for issue #115 before verifier final bug-check.",
+  "expected_response": "Decision clean, cleanup_recommended, or needs_human with concise findings and whether verifier recheck is needed.",
+  "stop_condition": "Return a steward hygiene decision for current changed-file placement and run artifacts.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-115-project-launch-metadata/coder-handoff.md",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/115"],
+  "scope_summary": "PRD #115 implementation completed through verifier-approved checkpoints 1-6. Requesting stewardship for changed-file placement, run artifact location, generated/temp output, and cleanup before final verifier bug-check.",
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-115-project-launch-metadata/",
+    "src/agentops_harness/ceo_review_evonome_apply.py",
+    "src/agentops_harness/cli.py",
+    "src/agentops_harness/prd_author_github.py",
+    "src/agentops_harness/prd_author_render.py",
+    "src/agentops_harness/prd_create.py",
+    "src/agentops_harness/prd_launch_metadata.py",
+    "src/agentops_harness/prd_worktree_project.py",
+    "src/agentops_harness/review_server.py",
+    "term-control-center/server/implementationWorktreeSync.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/launchMetadataFix.ts",
+    "term-control-center/tests/implementationWorktreeSync.test.ts",
+    "term-control-center/tests/launchMetadataFix.test.ts",
+    "tests/unit/test_ceo_review_evonome_apply.py",
+    "tests/unit/test_prd_author_github.py",
+    "tests/unit/test_prd_create.py",
+    "tests/unit/test_prd_worktree_project.py",
+    "tests/unit/test_review_server_coworker.py"
+  ],
+  "validation_results": [
+    {"command": "git diff --check", "status": "passed"},
+    {"command": "PYTHONPATH=src pytest -q tests/unit/test_prd_create.py tests/unit/test_prd_author_github.py tests/unit/test_prd_author.py tests/unit/test_ceo_review_evonome_apply.py tests/unit/test_prd_worktree_project.py tests/unit/test_review_server_coworker.py", "status": "passed", "summary": "78 passed"},
+    {"command": "cd term-control-center && TMPDIR=<temp> tsx --test tests/launchMetadataFix.test.ts tests/boardGuardrails.test.ts tests/implementationWorktreeSync.test.ts tests/launcher.test.ts", "status": "passed", "summary": "76 passed"}
+  ]
+}

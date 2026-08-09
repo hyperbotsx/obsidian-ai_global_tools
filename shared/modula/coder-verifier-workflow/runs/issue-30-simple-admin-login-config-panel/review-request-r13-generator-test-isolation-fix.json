@@ -1,0 +1,27 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "checkpoint": "PRD #30 follow-up revision 13 - fix V30-R12-001 dynamic lane test isolation",
+  "revision": 13,
+  "requested_action": "review",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/30"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-30-simple-admin-login-config-panel/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/generate.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-30-simple-admin-login-config-panel/coder-handoff.md"
+  ],
+  "validation_results": [
+    { "command": "python3 -m py_compile pipeline-diagram/generate.py", "status": "passed" },
+    { "command": "cd term-control-center && npm run typecheck", "status": "passed" },
+    { "command": "cd term-control-center && HOME=$(mktemp -d) node --import tsx --test --test-concurrency=1 tests/admin.test.ts", "status": "passed", "details": "9 tests passed" },
+    { "command": "cd term-control-center && npm test", "status": "passed", "details": "141 tests passed" },
+    { "command": "cd pipeline-diagram && AGENTOPS_ADMIN_SETTINGS_FILE=/home/hyperbots/.local/state/agentops/term-control-center/admin-settings.json python3 generate.py", "status": "passed", "details": "Wrote pipeline.mmd, pipeline-data.js, board-data.js, wip-data.js (8 open PRDs, 0 in progress)." },
+    { "command": "python3 config/templates/secure-access/validate-secure-access-templates.py", "status": "passed" },
+    { "command": "git diff --check", "status": "passed" }
+  ],
+  "finding_ids_addressed": ["V30-R12-001"],
+  "notes": "Changed classify() to fetch project fields only when fields is None, so explicit empty field maps stay hermetic. Clean HOME admin-test probe now passes."
+}

@@ -1,0 +1,33 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-192",
+  "purpose": "Checkpoint 1 revision 2 review for issue #192 current-state audit and lifecycle design",
+  "checkpoint": "1 - Current-state audit and lifecycle design",
+  "revision": 2,
+  "requested_action": "Review bounded fix for F192-CP1-001 before product-code edits begin.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/192"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/coder-handoff.md",
+  "context_paths": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/current-state-design.md"
+  ],
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/current-state-design.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/review-request-r2-current-state-design-fix.json"
+  ],
+  "validation_results": [
+    {
+      "command": "Product test/typecheck/build",
+      "status": "not_run",
+      "notes": "Artifact-only design fix; no product code changed."
+    }
+  ],
+  "finding_ids_addressed": [
+    "F192-CP1-001"
+  ],
+  "stop_condition": "Verifier approves checkpoint 1 or requests another bounded correction."
+}

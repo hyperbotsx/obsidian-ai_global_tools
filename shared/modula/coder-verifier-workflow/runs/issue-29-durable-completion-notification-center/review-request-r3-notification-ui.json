@@ -1,0 +1,39 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Review PRD #29 checkpoint 2: notification-center UI",
+  "expected_response": "Compact verifier verdict JSON matching schema; write full details to verifier-report.md",
+  "stop_condition": "Approve checkpoint or return bounded findings for revision",
+  "checkpoint": "2 - Notification-center UI",
+  "revision": 3,
+  "requested_action": "checkpoint_review",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/29"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-29-durable-completion-notification-center/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/review-notify.js",
+    "term-control-center/tests/reviewNotify.test.ts",
+    "term-control-center/server/completionStore.ts",
+    "term-control-center/server/completionRoutes.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/shared/completion.ts",
+    "term-control-center/tests/completion-server.test.ts",
+    "term-control-center/tests/completion-store.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-29-durable-completion-notification-center/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-29-durable-completion-notification-center/review-request-r1-scope-persistence.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-29-durable-completion-notification-center/review-request-r2-scope-persistence-fixes.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-29-durable-completion-notification-center/review-request-r3-notification-ui.json"
+  ],
+  "validation_results": [
+    { "command": "node --check pipeline-diagram/review-notify.js", "status": "passed" },
+    { "command": "npm --prefix term-control-center run typecheck", "status": "passed" },
+    { "command": "npm --prefix term-control-center run test", "status": "passed", "summary": "150/150" },
+    { "command": "npm --prefix term-control-center run build", "status": "passed", "summary": "Vite emitted existing term-config/chunk-size warnings" },
+    { "command": "git diff --check", "status": "passed" }
+  ],
+  "finding_ids_addressed": [],
+  "notes": "Checkpoint 1/2 persistence was approved at revision 2. This review is for notification-center UI only: accessible server-backed Updates panel, desktop/mobile/iPad safe-area layout, loading/empty/degraded/action-error states, and no relaunch/autonomous action behavior."
+}

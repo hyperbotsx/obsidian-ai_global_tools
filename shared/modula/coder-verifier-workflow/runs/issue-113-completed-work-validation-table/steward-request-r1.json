@@ -1,0 +1,17 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-113",
+  "purpose": "Structure/hygiene review before final verifier bug-check for issue #113",
+  "expected_response": "Concise markdown with clean/cleanup recommendations",
+  "stop_condition": "Return clean or bounded cleanup recommendations for changed-file placement/run artifacts/generated outputs",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-113-completed-work-validation-table/coder-handoff.md",
+  "changed_files_summary": [
+    "pipeline-diagram completed view/data generation/deploy assets",
+    "term-control-center completed validation/browser-qa helpers and routes",
+    "targeted TS/Python tests",
+    "run artifacts under issue-113 folder",
+    "public symlinks for completed page/data"
+  ]
+}

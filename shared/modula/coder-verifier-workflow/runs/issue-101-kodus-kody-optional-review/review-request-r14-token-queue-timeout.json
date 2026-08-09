@@ -1,0 +1,40 @@
+{
+  "type": "review_request",
+  "checkpoint": "1i-token-and-live-queue-timeout-validation",
+  "revision": 1,
+  "requested_action": "Verify new 7-day token smoke, live queue-timeout adjustment from 30s to 600s, PR #175 cleanup, docs/evidence updates, and validation results.",
+  "source_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/101",
+    "https://github.com/hyperbotsx/agentops-harness/pull/175"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "evidence_paths": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-token-rate-limit-pr175.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-operational-validation.md",
+    "docs/kodus-kody-sprint0-feasibility.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md"
+  ],
+  "changed_files": [
+    "src/agentops_harness/kodus_max_gateway.py",
+    "docs/kodus-kody-docker-sandbox-runbook.md",
+    "docs/kodus-kody-sprint0-feasibility.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-operational-validation.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-token-rate-limit-pr175.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r14-token-queue-timeout.json"
+  ],
+  "validation_results": [
+    "Operator replaced Kodus GitHub token with a new 7-day token; token value was not pasted into chat or written to git.",
+    "PR #175 first run proved Kodus could read PR data and post output but completed partial_error because --queue-timeout 30 caused Too Many Requests for a parallel agent.",
+    "Gateway default queue timeout raised to 600 seconds and live gateway restarted with --max-concurrency 1 --queue-timeout 600.",
+    "PR #175 rerun completed with status=success; gateway logs showed queued 200 responses with queued_ms=171354 and queued_ms=50938.",
+    "PR #175 closed, remote branch deleted, and no merge performed.",
+    "PYTHONPATH=src python3 -m unittest tests.unit.test_kodus_sprint0 tests.unit.test_kodus_max_gateway passed (14 tests).",
+    "PYTHONPATH=src python3 -m py_compile src/agentops_harness/kodus_sprint0.py src/agentops_harness/kodus_max_gateway.py passed.",
+    "AST KISS check passed for kodus_sprint0.py and kodus_max_gateway.py.",
+    "git diff --check passed."
+  ],
+  "finding_ids_addressed": [],
+  "notes": "Actual expiry/refresh still cannot be proven until token expiry or forced-expiry is available; this checkpoint validates replacement-token permissions and live queue-timeout behavior."
+}

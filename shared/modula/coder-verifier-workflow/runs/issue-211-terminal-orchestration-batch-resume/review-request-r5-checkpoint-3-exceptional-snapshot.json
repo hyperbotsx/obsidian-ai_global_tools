@@ -1,0 +1,30 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-211",
+  "purpose": "Human-authorized exceptional re-review of PRD #211 checkpoint 3 coherent snapshot fix",
+  "checkpoint": "3 - Injection",
+  "revision": 5,
+  "requested_action": "Review only the human-authorized exceptional fix for F211-C3-005. `projectScope.ts` creates a versioned server-owned active-project snapshot; `selectActiveProject()` advances its version only after durable selection. Injection accepts only a versioned scope, checks it synchronously after the sole project-read await, uses synchronous artifact-backed recovery eligibility, and repeats this exact assertion before Enter. Adversarial test invalidates a scope snapshot during the final lookup. Confirm the selection mutation and adapter form one coherent server-owned boundary and no old final-await project/gate race remains.",
+  "prd_ref": "https://github.com/hyperbotsx/agentops-harness/issues/211",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-211-terminal-orchestration-batch-resume/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/adminProjectSelection.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/planningBrief.ts",
+    "term-control-center/server/projectScope.ts",
+    "term-control-center/server/orchestrator/paneInjection.ts",
+    "term-control-center/tests/paneInjection.test.ts"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck: passed",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/paneInjection.test.ts: passed (22)",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/paneInjection.test.ts tests/admin.test.ts: passed (48)",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 --test-name-pattern='fix-and-execute' tests/server.test.ts: passed (4)",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/contextBrief.test.ts: passed (6)",
+    "git diff --check: passed"
+  ],
+  "finding_ids_addressed": ["F211-C3-005"],
+  "stop_condition": "Return the compact verifier verdict; record detailed findings only in verifier-report.md."
+}

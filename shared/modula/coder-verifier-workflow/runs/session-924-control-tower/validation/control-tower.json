@@ -1,0 +1,20 @@
+{
+  "allowed_commands": [
+    "gh auth status",
+    "gh project item-list",
+    "gh issue list",
+    "gh issue view",
+    "git -C"
+  ],
+  "mode": "read_only",
+  "project": {
+    "number": 2,
+    "owner": "hyperbotsx"
+  },
+  "repo": "hyperbotsx/SoldierOne",
+  "report_timestamp": "2026-06-07T20:51:25.716064Z",
+  "worktrees": [
+    "/mnt/hyperliquid-data/projects/worktrees/Evonome-admin"
+  ],
+  "write_behavior": "not implemented"
+}

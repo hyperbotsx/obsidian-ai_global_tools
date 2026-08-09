@@ -1,0 +1,26 @@
+{
+  "checkpoint": "CP-2 — FR-3 / FR-4 / FR-5 / FR-10",
+  "revision": 4,
+  "requested_action": "Review all seven round-3 findings and CP-2 acceptance criteria",
+  "source_refs": ["GitHub issue #283", "dev-plans/drafts/frd-f4-page-bot-platform-planning-brief.md"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-283-page-bot-platform/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/pageBotPlatform.ts",
+    "term-control-center/server/pageBotMemoryRecord.ts",
+    "term-control-center/server/pageBotModelSettings.ts",
+    "term-control-center/server/projectMemory.ts",
+    "term-control-center/server/rolePrompts.ts",
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/shared/protocol.ts",
+    "term-control-center/tests/pageBotPlatform.test.ts",
+    "term-control-center/tests/projectMemory.test.ts"
+  ],
+  "validation": {
+    "focused": "passed 18/18",
+    "typecheck": "passed",
+    "node": "1130 passed; 5 documented baseline failures",
+    "build": "passed with existing Vite warnings",
+    "python": "1321 passed plus 60 subtests; 1 documented baseline failure"
+  },
+  "finding_ids_addressed": ["V283-CP2-002", "V283-CP2-003", "V283-CP2-004", "V283-CP2-005", "V283-CP2-006", "V283-CP2-007", "V283-CP2-009"]
+}

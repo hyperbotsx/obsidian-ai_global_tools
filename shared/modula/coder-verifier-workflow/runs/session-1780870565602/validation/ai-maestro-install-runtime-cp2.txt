@@ -1,0 +1,6 @@
+tag=v0.35.54
+commit=2dc2c5dce006608e125d4595af2341e652b6c609
+install_command=cd /mnt/hyperliquid-data/agent-sandboxes/ai-maestro-safe/ai-maestro-v0.35.54 && corepack yarn install --frozen-lockfile
+runtime_command=cd /mnt/hyperliquid-data/agent-sandboxes/ai-maestro-safe/ai-maestro-v0.35.54 && HOSTNAME=127.0.0.1 PORT=23000 corepack yarn dev
+pid_file=/tmp/agentops/ai-maestro-cp2.pid
+log=/tmp/agentops/ai-maestro-cp2.log

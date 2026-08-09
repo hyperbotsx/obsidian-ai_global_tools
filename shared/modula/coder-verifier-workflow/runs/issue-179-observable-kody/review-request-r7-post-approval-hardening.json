@@ -1,0 +1,24 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-179",
+  "checkpoint": "Post-approval hardening - Kody session metadata details",
+  "revision": 7,
+  "requested_action": "checkpoint_and_bug_check_review",
+  "issue_url": "https://github.com/hyperbotsx/agentops-harness/issues/179",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-179-observable-kody/coder-handoff.md",
+  "finding_ids_addressed": [],
+  "changed_files": [
+    "pipeline-diagram/completed.html",
+    "term-control-center/tests/kodyReview.test.ts",
+    "docs/kody-review-sessions.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-179-observable-kody/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-179-observable-kody/review-request-r7-post-approval-hardening.json"
+  ],
+  "validation_results": [
+    {"command":"cd term-control-center && node --import tsx --test --test-concurrency=1 tests/kodyReview.test.ts tests/completedKodusReview.test.ts tests/completedStatic.test.ts","status":"passed","note":"18 tests passed"},
+    {"command":"PYTHONPATH=src pytest tests/unit/test_activity_center.py -q","status":"passed","note":"10 passed"},
+    {"command":"git diff --check","status":"passed"}
+  ],
+  "summary": "Added Completed-row Kody details view for structured session metadata required by PRD: PR URL, branch, requester, status, created/updated time, gateway/webhook health, latest artifact, and findings summary."
+}

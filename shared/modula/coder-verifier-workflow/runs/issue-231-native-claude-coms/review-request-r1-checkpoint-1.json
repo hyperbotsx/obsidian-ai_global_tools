@@ -1,0 +1,34 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-231",
+  "purpose": "Issue #231 checkpoint 1 contract review",
+  "checkpoint": "1 - Contract",
+  "revision": 1,
+  "requested_action": "Review only the runtime-neutral wire contract against installed pi-coms-local@0.1.1 extensions/coms.ts. Confirm registry/name resolution, framing, envelopes, liveness/cleanup, adapter-only coms_respond, and no protocol drift. Verify the bounded polling decision is accurately scoped.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/231",
+    "docs/coms-wire-contract.md"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/coder-handoff.md",
+  "changed_files": [
+    "docs/coms-wire-contract.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/review-request-r1-checkpoint-1.json"
+  ],
+  "validation_results": [
+    {
+      "command": "python3 source-anchor check against installed extensions/coms.ts",
+      "status": "passed",
+      "notes": "Verified registry, naming, framing, envelope-handler, and heartbeat anchors."
+    },
+    {
+      "command": "git diff --check",
+      "status": "passed",
+      "notes": "No whitespace errors."
+    }
+  ],
+  "finding_ids_addressed": [],
+  "stop_condition": "Approve checkpoint 1 or return bounded contract-correctness findings."
+}

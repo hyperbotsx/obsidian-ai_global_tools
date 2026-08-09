@@ -1,0 +1,58 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-211",
+  "purpose": "PRD #211 checkpoint 5 revision 1 review",
+  "checkpoint": "5 - Assistant tools and operator UI",
+  "revision": 1,
+  "requested_action": "Verify exactly three bounded assistant-facing adapters, hostile-tail policy, server-owned human approval/capability boundary, consumed-item-only injection, proposal-card selection/veto/supersede/outcome behavior, Active Jobs badge coordination without duplicate #210 resume UX, existing completion/Kody/lane gate reuse, and no generic tools or raw git/gh/terminal command injection. Check the documented full-suite baseline exceptions separately from checkpoint behavior.",
+  "prd_ref": "https://github.com/hyperbotsx/agentops-harness/issues/211",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-211-terminal-orchestration-batch-resume/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/review_server.py",
+    "src/agentops_harness/kodus_state.py",
+    "tests/unit/test_review_server_coworker.py",
+    "pipeline-diagram/coworker-launcher.js",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/orchestrator/orchestratorRoutes.ts",
+    "term-control-center/server/orchestrator/orchestratorProposalService.ts",
+    "term-control-center/server/orchestrator/proposalStore.ts",
+    "term-control-center/server/orchestrator/delegatedActions.ts",
+    "term-control-center/server/orchestrator/paneInjection.ts",
+    "term-control-center/src/JobSidebar.tsx",
+    "term-control-center/src/JobSidebar.css",
+    "term-control-center/tests/orchestratorCheckpoint5.test.ts",
+    "term-control-center/tests/coworkerLauncher.test.ts",
+    "term-control-center/tests/terminalJobSidebar.test.ts",
+    "term-control-center/tests/paneInjection.test.ts",
+    "docs/agentops-terminal-sessions.md",
+    "term-control-center/README.md"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck passed",
+    "focused TypeScript suite passed (66)",
+    "focused Python suite passed (103)",
+    "npm --prefix term-control-center run build passed",
+    "full Python unit suite: 1258 passed, one pre-existing unrelated stale assertion failed",
+    "full Term suite timed out after the known unrelated server profile-default drift; isolated focused tests passed",
+    "git diff --check passed"
+  ],
+  "finding_ids_addressed": ["F211-FINAL-GATE-001"],
+  "stop_condition": "Return the compact verdict; place detailed findings only in verifier-report.md.",
+  "response_schema": {
+    "type": "object",
+    "required": ["decision", "checkpoint_reviewed", "revision_reviewed", "open_findings", "finding_ids", "bug_check_status", "next_actor", "report_path"],
+    "properties": {
+      "decision": {"enum": ["approved", "revision_requested", "needs_human"]},
+      "checkpoint_reviewed": {"type": "string"},
+      "revision_reviewed": {"type": "number"},
+      "open_findings": {"type": "number"},
+      "finding_ids": {"type": "array", "items": {"type": "string"}},
+      "bug_check_status": {"type": "string"},
+      "next_actor": {"type": "string"},
+      "report_path": {"type": "string"}
+    },
+    "additionalProperties": false
+  }
+}

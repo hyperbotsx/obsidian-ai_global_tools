@@ -1,0 +1,44 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-180",
+  "purpose": "Checkpoint 1 implementation review for PRD #180 Agent Engineering Standards Pack v1",
+  "expected_response": "Compact verifier verdict JSON matching schema; write full findings to verifier-report.md",
+  "stop_condition": "Approve implementation checkpoint or request bounded revisions with finding IDs",
+  "checkpoint": "1 - Agent Engineering Standards Pack v1 implementation",
+  "revision": 1,
+  "requested_action": "implementation_review",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/180"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-180-agent-engineering-standards/coder-handoff.md",
+  "changed_files": [
+    "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/shared/standards/agent-engineering/v1/README.md",
+    "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/shared/standards/agent-engineering/v1/manifest.json",
+    "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/shared/standards/agent-engineering/v1/canonical-standards.md",
+    "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/shared/standards/agent-engineering/v1/researcher-instructions.md",
+    "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/shared/standards/agent-engineering/v1/coder-rules.md",
+    "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/shared/standards/agent-engineering/v1/verifier-checklist.md",
+    "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/shared/standards/agent-engineering/v1/steward-checklist.md",
+    "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/shared/standards/agent-engineering/v1/exception-policy.md",
+    "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/shared/standards/agent-engineering/v1/integration-guide.md",
+    "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/shared/standards/agent-engineering/v1/update-process.md",
+    "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/shared/standards/agent-engineering/v1/validation-checklist.md",
+    "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/shared/skills/agent-engineering-standards/SKILL.md",
+    "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/pi/skills/agent-engineering-standards",
+    "docs/agent-engineering-standards-pack.md",
+    "config/agent-standards-pack.example.json",
+    "docs/skills.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-180-agent-engineering-standards/coder-handoff.md"
+  ],
+  "validation_results": [
+    "manifest json valid",
+    "config example json valid",
+    "custom FR-018 pack completeness script passed",
+    "PYTHONPATH=src pytest tests/unit/test_health.py tests/unit/test_hygiene_check.py: 16 passed",
+    "Full pytest and term-control-center checks attempted; environment/pre-existing failures documented in handoff"
+  ],
+  "finding_ids_addressed": [],
+  "report_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-180-agent-engineering-standards/verifier-report.md"
+}

@@ -1,0 +1,35 @@
+{
+  "type": "review_request",
+  "checkpoint": "1o-pr177-kody-followup-cli-log-fix",
+  "revision": 1,
+  "requested_action": "Verify bounded fix for the follow-up Kody finding about kodus_sprint0 CLI printing captured command stdout/stderr.",
+  "source_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/101",
+    "https://github.com/hyperbotsx/agentops-harness/pull/177"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "evidence_paths": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md"
+  ],
+  "changed_files": [
+    "src/agentops_harness/kodus_sprint0.py",
+    "tests/unit/test_kodus_sprint0.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r22-kody-followup-cli-log-fix.json"
+  ],
+  "validation_results": [
+    "PR #177 rerun after f6b9fb3 used the updated gateway but hit live Claude timeout at 240 seconds; timeout was bumped to 900 seconds for the next local rerun.",
+    "A follow-up Kody comment flagged src/agentops_harness/kodus_sprint0.py main() printing captured command stdout/stderr in its console JSON payload.",
+    "kodus_sprint0 now uses the logging module for console output and emits a public payload with command names, return codes, and stdout/stderr byte counts instead of raw stdout/stderr text; explicit --report artifacts still retain full bounded command output for local evidence.",
+    "PYTHONPATH=src python3 -m unittest tests.unit.test_kodus_sprint0 tests.unit.test_kodus_max_gateway passed (15 tests).",
+    "PYTHONPATH=src python3 -m py_compile src/agentops_harness/kodus_sprint0.py src/agentops_harness/kodus_max_gateway.py passed.",
+    "cd term-control-center && npm run typecheck passed.",
+    "cd term-control-center && node --import tsx --test tests/completedKodusReview.test.ts tests/completedStatic.test.ts passed (10 tests).",
+    "git diff --check passed."
+  ],
+  "finding_ids_addressed": [
+    "KODY-005 kodus_sprint0 main print/leaks captured command output"
+  ],
+  "notes": "Bounded follow-up fix only; no changes to Kodus advisory status, branch protection, workflows, provider config, secrets, or debt automation."
+}

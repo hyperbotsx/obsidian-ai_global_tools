@@ -1,0 +1,262 @@
+# AI Maestro read-only status bridge
+
+- Mode: `read_only`
+- Source command: `evonome-orchestrator-status --format json`
+- Source of truth: GitHub Project 2 via #924 control-tower output
+- Generated: `2026-06-07T22:28:28.681879Z`
+- Drift policy: `warn_only`
+
+## Status items
+- `active_work` — #564 [Task] Finish Phase 1 config completeness hardening — In Progress
+- `active_work` — #612 [PRD] TikTape-backed Hyperliquid datafeed catalog enablement — In Progress
+- `active_work` — #641 PRD: Frontend layout responsiveness and job-loading fixes — Done
+- `active_work` — #646 PRD: NOME chat integration UX across desktop and mobile — In Progress
+- `active_work` — #681 [PRD] DSP-ready market data foundation for algorithmic trading research — In Progress
+- `active_work` — #682 [PRD] Datafeed multi-resolution extension and UI coexistence — In Progress
+- `active_work` — #701 [PRD] Chart Grid Overlays V2: Volatility (ATR) — Done
+- `active_work` — #730 [PRD] Safe all-asset/all-timeframe TikTape historical backfill — Done
+- `active_work` — #756 [PRD] Trading Section Foundation: Paper, Live, and Portfolio — Done
+- `active_work` — #766 [Tracker] Adversarial debate hardening execution order — Done
+- `active_work` — #820 PRD: Validated chart market catalog for asset dropdowns — In Progress
+- `active_work` — #824 PRD: Canonical candle adapter readiness and controlled writer contract — In Progress
+- `active_work` — #860 [Tracker] Adversarial debate production readiness execution order — In Progress
+- `ready_for_agent` — #565 [Task] Add Phase 1 config import smoke test — Ready for Agent
+- `ready_for_agent` — #566 [Task] Define portable config artifact schema — Ready for Agent
+- `blocked` — #887 PRD: Genesis Portfolio Ensemble Allocation Persistent Source-Authority Resolution Loop — Blocked
+- `blocked` — #586 PRD: Genesis ideator family module refactor and 50-cycle hardening gate — Blocked
+- `blocked` — #611 [PRD] Pattern Discovery Native Method — Done
+- `blocked` — #632 PRD: Charts page indicator foundation — frontend V1 — Blocked
+- `blocked` — #647 [PRD] Signal Discovery Job Creation Verification and Repair — Done
+- `blocked` — #649 [PRD] System Builder Job Creation Verification and Repair — Blocked
+- `blocked` — #650 [PRD] Evolutionary Strategy Discovery-Owned Job Creation Verification and Repair — Blocked
+- `blocked` — #705 [PRD] Discovery Runtime Foundation for Method-Owned Execution — Blocked
+- `blocked` — #740 [PRD] Discovery preview execution QA re-check after DATA backfill — Approved
+- `blocked` — #777 [PRD] Trading Route QA and Safety Hardening Pass — Blocked
+- `approved_not_started` — #897 PRD: Adversarial Debate Backtest Readiness Backend Contracts — Approved
+- `approved_not_started` — #896 PRD: Adversarial Debate Workflow Nodes and User-Facing Copy — Approved
+- `approved_not_started` — #898 PRD: Training Handoff Export and Human Import Handshake — Approved
+- `approved_not_started` — #870 PRD: Genesis Cross-Family Validation, Backtest, and Robustness Scorecard — Approved
+- `approved_not_started` — #899 PRD: Genesis Evidence Index and Discoverability Pass — Approved
+- `approved_not_started` — #569 [PRD 1] Admin Hardening V2.0 Foundation — Track Registry, DTOs, Run History, and Runner Controls — Approved
+- `approved_not_started` — #570 [PRD 2] Admin Hardening Seed Readiness and Golden Corpus — Approved
+- `approved_not_started` — #571 [PRD 3] Admin Hardening Operator Matrix Dashboard — Approved
+- `approved_not_started` — #580 [PRD 3.1] Admin Hardening Coverage Browser — Approved
+- `approved_not_started` — #572 [PRD 4] Admin Hardening Extended Autonomous Operations — Approved
+- `approved_not_started` — #579 [PRD 5] Admin Hardening Parallel Lane Operations and Observability — Approved
+- `approved_not_started` — #575 PRD: Strategy Configuration Contract Program Overview — Approved
+- `approved_not_started` — #576 PRD: Strategy Configuration Contract — Approved
+- `approved_not_started` — #591 [PRD] Data Feed Quality Tab Truthful Recovery State — Approved
+- `approved_not_started` — #599 PRD5: Coder-Verifier Agent Workflow POC — Approved
+- `approved_not_started` — #613 PRD: Discovery Debate Frontend Fixes — Approved
+- `approved_not_started` — #633 PRD: Chart indicator/data foundation — backend V1 — Approved
+- `approved_not_started` — #631 [PRD] Frontend Responsiveness, Tokens, and Component Reuse Cleanup — Approved
+- `approved_not_started` — #659 [PRD] Datafeed gap assurance and archive-to-live continuity checks — Approved
+- `approved_not_started` — #663 PRD: Chart page visual polish fixes — Approved
+- `approved_not_started` — #666 [PRD] Hyperliquid chart gap visualization and source-quality guard — Approved
+- `approved_not_started` — #670 PRD: Chunked candlestick chart loading and level-of-detail rendering — Approved
+- `approved_not_started` — #696 [PRD] Frontend product copy and UI clarity guidelines for coding agents — Approved
+- `approved_not_started` — #723 [PRD] Volume Profile V3: Session Order Flow and Liquidity — Approved
+- `approved_not_started` — #740 [PRD] Discovery preview execution QA re-check after DATA backfill — Approved
+- `approved_not_started` — #750 PRD: Optional Ehlers DSP Addons for Chart Indicators — Approved
+- `approved_not_started` — #781 PRD: Training Chart Overlay API and Chart Integration — Approved
+- `approved_not_started` — #787 [PRD] Shared Section Page Header and Breadcrumb Consistency — Approved
+- `approved_not_started` — #796 [PRD] Canonical candlestick database for production and preview domains — Approved
+- `approved_not_started` — #798 [PRD] Discovery canvas shell source-of-truth hardening — Approved
+- `approved_not_started` — #814 [PRD] Training Experiment Intake, Context Selector, and Discovery Import Flow — Approved
+- `approved_not_started` — #827 [PRD] Adaptive Signal Modules Program Umbrella — Approved
+- `approved_not_started` — #842 PRD: Global Activity Console for background jobs — Approved
+- `approved_not_started` — #852 PRD: Genesis Phase 1 Full Suite Failure Cleanup — Approved
+- `approved_not_started` — #883 PRD: Genesis Trend Momentum Persistent Source-Authority Resolution Loop — Approved
+- `approved_not_started` — #889 PRD: Adversarial Debate Backtest Readiness and Training Handoff Workflow — Approved
+- `approved_not_started` — #912 PRD: Genesis Component-Return Source Owner Authority Resolution — Approved
+- `approved_not_started` — #922 PRD: Hermes-safe runtime activation and sandbox verification — Approved
+- `approved_not_started` — #924 PRD: Read-only Project 2 orchestration control tower — Approved
+- `approved_not_started` — #925 PRD: Human-confirmed orchestration action assistant — Approved
+- `approved_not_started` — #929 PRD: Genesis Component-Return Selected Inputs Source Authority — Approved
+- `approved_not_started` — #930 PRD: Main chart dataset selector integration and UI alignment — Approved
+- `approved_not_started` — #931 PRD: Provider-neutral tick data pilot and derived tick-bar read path — Approved
+- `approved_not_started` — #934 PRD: AI Maestro read-only orchestration dashboard integration — Approved
+- `approved_not_started` — #935 PRD: Telegram operator gateway for orchestration questions and instructions — Approved
+
+## Drift warnings
+- WARNING: #894 PRD: Genesis Portfolio Component-Family Registry Reconciliation — item branch differs from worktree branch
+- WARNING: #887 PRD: Genesis Portfolio Ensemble Allocation Persistent Source-Authority Resolution Loop — item branch differs from worktree branch
+- WARNING: #896 PRD: Adversarial Debate Workflow Nodes and User-Facing Copy — item branch differs from worktree branch
+- WARNING: #898 PRD: Training Handoff Export and Human Import Handshake — item branch differs from worktree branch
+- WARNING: #870 PRD: Genesis Cross-Family Validation, Backtest, and Robustness Scorecard — item branch differs from worktree branch
+- WARNING: #899 PRD: Genesis Evidence Index and Discoverability Pass — item branch differs from worktree branch
+- WARNING: #564 [Task] Finish Phase 1 config completeness hardening — item branch differs from worktree branch
+- WARNING: #565 [Task] Add Phase 1 config import smoke test — item references a missing worktree
+- WARNING: #566 [Task] Define portable config artifact schema — item references a missing worktree
+- WARNING: #567 [Task] Map Phase 2, Phase 2.5, and Phase 3 config requirements — item references a missing worktree
+- WARNING: #568 [Task] Pilot Symphony/Sandcastle after board workflow is stable — item references a missing worktree
+- WARNING: #569 [PRD 1] Admin Hardening V2.0 Foundation — Track Registry, DTOs, Run History, and Runner Controls — item references a missing worktree
+- WARNING: #570 [PRD 2] Admin Hardening Seed Readiness and Golden Corpus — item references a missing worktree
+- WARNING: #571 [PRD 3] Admin Hardening Operator Matrix Dashboard — item references a missing worktree
+- WARNING: #572 [PRD 4] Admin Hardening Extended Autonomous Operations — item references a missing worktree
+- WARNING: #579 [PRD 5] Admin Hardening Parallel Lane Operations and Observability — item branch differs from worktree branch
+- WARNING: #573 PRD: Predict Data Readiness Preflight and Backfill — item branch differs from worktree branch
+- WARNING: #574 PRD: Hyperliquid Historical Data Bootstrap — item branch differs from worktree branch
+- WARNING: #575 PRD: Strategy Configuration Contract Program Overview — item branch differs from worktree branch
+- WARNING: #576 PRD: Strategy Configuration Contract — item branch differs from worktree branch
+- WARNING: #577 PRD: Backtest Evaluation Interoperability — item branch differs from worktree branch
+- WARNING: #578 PRD: Cross-System Knowledge Base Learning — item branch differs from worktree branch
+- WARNING: #584 [PRD] Operator Matrix category expansion — approved PRD has non-approved pipeline status
+- WARNING: #584 [PRD] Operator Matrix category expansion — item references a missing worktree
+- WARNING: #585 [PRD] Hardening LCM blocker memory — approved PRD has non-approved pipeline status
+- WARNING: #585 [PRD] Hardening LCM blocker memory — item references a missing worktree
+- WARNING: #586 PRD: Genesis ideator family module refactor and 50-cycle hardening gate — item branch differs from worktree branch
+- WARNING: #591 [PRD] Data Feed Quality Tab Truthful Recovery State — item branch differs from worktree branch
+- WARNING: #593 [PRD2] Discovery Method Porting — item branch differs from worktree branch
+- WARNING: #602 PRD4: Discovery Method Foundation — item branch differs from worktree branch
+- WARNING: #599 PRD5: Coder-Verifier Agent Workflow POC — item references a missing worktree
+- WARNING: #598 PRD: Section Navigation and Trading Grouping — item references a missing worktree
+- WARNING: #608 [PRD] Alpha / Signal Discovery Native Method — item branch differs from worktree branch
+- WARNING: #611 [PRD] Pattern Discovery Native Method — item branch differs from worktree branch
+- WARNING: #612 [PRD] TikTape-backed Hyperliquid datafeed catalog enablement — item branch differs from worktree branch
+- WARNING: #615 PRD: Genesis Phase 1 Operator Matrix Family Hardening Program — item branch differs from worktree branch
+- WARNING: #618 [PRD] Cross-Method Handoff Consistency — item branch differs from worktree branch
+- WARNING: #620 [PRD] Discovery / Training Porting Completion Audit — item branch differs from worktree branch
+- WARNING: #621 PRD: Strategy complexity profiles for seed generation — item branch differs from worktree branch
+- WARNING: #625 [PRD] Discovery Evolutionary Strategy Adapter from Training Strategize — item branch differs from worktree branch
+- WARNING: #627 [PRD] Training Imported Candidates downstream surface — item branch differs from worktree branch
+- WARNING: #631 [PRD] Frontend Responsiveness, Tokens, and Component Reuse Cleanup — item branch differs from worktree branch
+- WARNING: #634 [PRD] Discovery Evolutionary Strategy Route Wrapper — item branch differs from worktree branch
+- WARNING: #637 [Follow-up] Full execution QA for Discovery method jobs — item branch differs from worktree branch
+- WARNING: #636 [Follow-up] Reduce Discovery canvas restore latency and polling churn — item branch differs from worktree branch
+- WARNING: #626 [PRD] Discovery / Training final menu cleanup after ports — item branch differs from worktree branch
+- WARNING: #641 PRD: Frontend layout responsiveness and job-loading fixes — item branch differs from worktree branch
+- WARNING: #645 [PRD] Hyperliquid Data Feed Degraded Status Diagnosis and Recovery — item branch differs from worktree branch
+- WARNING: #646 PRD: NOME chat integration UX across desktop and mobile — item branch differs from worktree branch
+- WARNING: #647 [PRD] Signal Discovery Job Creation Verification and Repair — item branch differs from worktree branch
+- WARNING: #648 [PRD] Pattern Discovery Job Creation Verification and Repair — item branch differs from worktree branch
+- WARNING: #649 [PRD] System Builder Job Creation Verification and Repair — item branch differs from worktree branch
+- WARNING: #650 [PRD] Evolutionary Strategy Discovery-Owned Job Creation Verification and Repair — item branch differs from worktree branch
+- WARNING: #651 [PRD] Hyperliquid TikTape archive validation and continuity report — item branch differs from worktree branch
+- WARNING: #657 PRD: Genesis Phase 1 Trend/Momentum Hardening Activation — item references a missing worktree
+- WARNING: #658 [PRD] Hyperliquid archive repair and app integration — item branch differs from worktree branch
+- WARNING: #659 [PRD] Datafeed gap assurance and archive-to-live continuity checks — item branch differs from worktree branch
+- WARNING: #663 PRD: Chart page visual polish fixes — item references a missing worktree
+- WARNING: #666 [PRD] Hyperliquid chart gap visualization and source-quality guard — item branch differs from worktree branch
+- WARNING: #670 PRD: Chunked candlestick chart loading and level-of-detail rendering — item branch differs from worktree branch
+- WARNING: #672 [PRD] Chart grid mode selector and intelligent overlays — item branch differs from worktree branch
+- WARNING: #676 [PRD] Pattern Discovery Runtime Progression and Readiness Warning Repair — item branch differs from worktree branch
+- WARNING: #677 [PRD] Signal Discovery Runtime Progression and Readiness Repair — item branch differs from worktree branch
+- WARNING: #678 [PRD] System Builder Runtime Progression and Readiness Repair — item branch differs from worktree branch
+- WARNING: #679 [PRD] Evolutionary Strategy Runtime Progression and Readiness Repair — item branch differs from worktree branch
+- WARNING: #681 [PRD] DSP-ready market data foundation for algorithmic trading research — item branch differs from worktree branch
+- WARNING: #684 [PRD] Dataset registry and capability contract — item branch differs from worktree branch
+- WARNING: #685 [PRD] Stream-aware datafeed symbol configuration — item branch differs from worktree branch
+- WARNING: #686 [PRD] Dataset catalog and stream-specific quality surfaces — item branch differs from worktree branch
+- WARNING: #687 [PRD] Derived dataset registration and chart selector coexistence — item branch differs from worktree branch
+- WARNING: #688 [PRD] Strategy and training data compatibility gate — item branch differs from worktree branch
+- WARNING: #689 [Research PRD] Cross-asset provider capability audit — item branch differs from worktree branch
+- WARNING: #690 [PRD] Market data quality verifier and bounded OHLCV repair — item branch differs from worktree branch
+- WARNING: #691 [PRD] Provider-neutral datafeed conformance harness — item branch differs from worktree branch
+- WARNING: #696 [PRD] Frontend product copy and UI clarity guidelines for coding agents — item branch differs from worktree branch
+- WARNING: #698 [PRD] Chart Grid Overlays V2: Pivot Points — item branch differs from worktree branch
+- WARNING: #699 [PRD] Chart Grid Overlays V2: Session Containers — item branch differs from worktree branch
+- WARNING: #700 [PRD] Chart Grid Overlays V2: Volume Profile — item branch differs from worktree branch
+- WARNING: #701 [PRD] Chart Grid Overlays V2: Volatility (ATR) — item branch differs from worktree branch
+- WARNING: #702 [PRD] Independent data-quality QA workflow and backend consumer readiness — item branch differs from worktree branch
+- WARNING: #705 [PRD] Discovery Runtime Foundation for Method-Owned Execution — item branch differs from worktree branch
+- WARNING: #706 [Follow-up] Pivot Point hover inspection and label clarity — item branch differs from worktree branch
+- WARNING: #712 [PRD] Market-aware pivot methods and sessions — item branch differs from worktree branch
+- WARNING: #723 [PRD] Volume Profile V3: Session Order Flow and Liquidity — item branch differs from worktree branch
+- WARNING: #725 [PRD] Charting frontend polish: overlay and indicator pane isolation — item branch differs from worktree branch
+- WARNING: #727 [PRD] Chart pattern indicators and Ichimoku visual polish — item branch differs from worktree branch
+- WARNING: #728 PRD: Premium multi-indicator pane layout, discovery, and volume UX — item branch differs from worktree branch
+- WARNING: #730 [PRD] Safe all-asset/all-timeframe TikTape historical backfill — item branch differs from worktree branch
+- WARNING: #731 [Tracker] DATA PRD execution order — item branch differs from worktree branch
+- WARNING: #732 [Tracker] DISCOVERY PRD execution order — item branch differs from worktree branch
+- WARNING: #733 [Tracker] FRONTEND PRD execution order — item branch differs from worktree branch
+- WARNING: #736 PRD: Adaptive Trend Context Filter for Candlestick Pattern Indicators — item branch differs from worktree branch
+- WARNING: #741 [Bug] Discovery runtime blockers are inconsistently surfaced in method canvases — item branch differs from worktree branch
+- WARNING: #742 [Bug] Evolutionary Strategy method stays running after linked worker completes — item branch differs from worktree branch
+- WARNING: #744 PRD: ATR Volatility Overlay V2 Settings — item branch differs from worktree branch
+- WARNING: #745 [PRD] Account AI provider connections and routing — item branch differs from worktree branch
+- WARNING: #747 PRD: Overlay Layers V3 — item branch differs from worktree branch
+- WARNING: #750 PRD: Optional Ehlers DSP Addons for Chart Indicators — item branch differs from worktree branch
+- WARNING: #752 PRD: Multi-source Hyperliquid OHLCV gap backfill and provenance — item branch differs from worktree branch
+- WARNING: #756 [PRD] Trading Section Foundation: Paper, Live, and Portfolio — item branch differs from worktree branch
+- WARNING: #757 [PRD] Trading Section Phase 0: Ownership Map, Provider Capabilities, and UI Hierarchy — item branch differs from worktree branch
+- WARNING: #759 [PRD] Trading IA and Aliases — item branch differs from worktree branch
+- WARNING: #762 [PRD] Paper Trading Foundation and Simulator Assumptions — item branch differs from worktree branch
+- WARNING: #765 [PRD] Live Trading Disabled Readiness Shell — item branch differs from worktree branch
+- WARNING: #766 [Tracker] Adversarial debate hardening execution order — item branch differs from worktree branch
+- WARNING: #767 [PRD] Memory admin UI copy and information clarity cleanup — item branch differs from worktree branch
+- WARNING: #770 [PRD] Portfolio Observability Foundation — item branch differs from worktree branch
+- WARNING: #774 [PRD] Trading Integration Readiness Layer — item branch differs from worktree branch
+- WARNING: #775 [PRD] Paper-to-Live Promotion Evidence Shell — item branch differs from worktree branch
+- WARNING: #776 [PRD] Trading Provider Capability Contract — item branch differs from worktree branch
+- WARNING: #777 [PRD] Trading Route QA and Safety Hardening Pass — item branch differs from worktree branch
+- WARNING: #779 PRD: Training IA Cleanup and Discovery Remnant Retirement — item branch differs from worktree branch
+- WARNING: #780 PRD: Training Artifact and Lineage Readiness — item branch differs from worktree branch
+- WARNING: #781 PRD: Training Chart Overlay API and Chart Integration — item branch differs from worktree branch
+- WARNING: #784 PRD: Training Workspace Views and Lineage Map — item branch differs from worktree branch
+- WARNING: #787 [PRD] Shared Section Page Header and Breadcrumb Consistency — item branch differs from worktree branch
+- WARNING: #796 [PRD] Canonical candlestick database for production and preview domains — item branch differs from worktree branch
+- WARNING: #798 [PRD] Discovery canvas shell source-of-truth hardening — item branch differs from worktree branch
+- WARNING: #799 [PRD] DATA Knowledge Foundation: IA, Ownership, and Compatibility Map — item branch differs from worktree branch
+- WARNING: #800 [PRD] Canonical Knowledge Read API and Schema Contracts — item branch differs from worktree branch
+- WARNING: #801 [PRD] Knowledge Provenance and Promotion Contract — item branch differs from worktree branch
+- WARNING: #802 [PRD] Shared Signals Neutral Registry Surface — item branch differs from worktree branch
+- WARNING: #803 [PRD] DATA Section Shell and Knowledge Page Foundation — item branch differs from worktree branch
+- WARNING: #805 [PRD] Active Market Workspace Foundation and Scope Contract — item branch differs from worktree branch
+- WARNING: #806 [PRD] Provider Context Metadata and Backend Filtering Contract — item branch differs from worktree branch
+- WARNING: #807 [PRD] Memory and Knowledge Provider-Aware Retrieval — item branch differs from worktree branch
+- WARNING: #808 [PRD] Cross-Provider Strategy Portability and Validation Gate — item branch differs from worktree branch
+- WARNING: #809 [PRD] App-Wide Provider Context UI Adoption — item branch differs from worktree branch
+- WARNING: #810 [PRD] Hyperliquid Raw Event Ingestion Foundation: Trades, BBO, and L2 — item branch differs from worktree branch
+- WARNING: #811 [PRD] App-wide route loading and menu performance hardening — item branch differs from worktree branch
+- WARNING: #814 [PRD] Training Experiment Intake, Context Selector, and Discovery Import Flow — item branch differs from worktree branch
+- WARNING: #819 PRD: Dwellir free-account Hyperliquid OHLCV gap backfill probe — item branch differs from worktree branch
+- WARNING: #820 PRD: Validated chart market catalog for asset dropdowns — item branch differs from worktree branch
+- WARNING: #821 [PRD] Debate Contractability Sidecar Checks — item branch differs from worktree branch
+- WARNING: #822 PRD: Genesis Phase 1 Immutable Funding Artifact Gate — item branch differs from worktree branch
+- WARNING: #824 PRD: Canonical candle adapter readiness and controlled writer contract — item branch differs from worktree branch
+- WARNING: #826 [PRD] Provider-Neutral C++ Cipher DSP Adaptive Signal Runtime — item branch differs from worktree branch
+- WARNING: #827 [PRD] Adaptive Signal Modules Program Umbrella — item branch differs from worktree branch
+- WARNING: #831 PRD: Proportional and Adaptive Grid Overlays — item branch differs from worktree branch
+- WARNING: #832 PRD: Footprint Chart and Volume Delta Order Flow Indicators — item branch differs from worktree branch
+- WARNING: #833 PRD: TradingView-style free chart panning (scroll past the last candle) — item branch differs from worktree branch
+- WARNING: #840 [PRD] Training and Discovery Integration Readiness — item branch differs from worktree branch
+- WARNING: #842 PRD: Global Activity Console for background jobs — item branch differs from worktree branch
+- WARNING: #845 PRD: Canonical Market Readiness and Gap Repair Admin Surface — item branch differs from worktree branch
+- WARNING: #848 PRD: Unified User-Scoped Notifications and Activity Attention System v2 — item branch differs from worktree branch
+- WARNING: #852 PRD: Genesis Phase 1 Full Suite Failure Cleanup — item branch differs from worktree branch
+- WARNING: #858 PRD: Session-stable preview auth and activity polling hardening — item branch differs from worktree branch
+- WARNING: #860 [Tracker] Adversarial debate production readiness execution order — item branch differs from worktree branch
+- WARNING: #861 PRD: Genesis Phase 2 Confirmation and Artifact-Gate Workflow — item branch differs from worktree branch
+- WARNING: #862 [Tracker] ADMIN PRD execution order — item branch differs from worktree branch
+- WARNING: #865 PRD: Genesis Immutable Artifact Binding and Selected-Family Evidence Gate Execution — item branch differs from worktree branch
+- WARNING: #869 PRD: Genesis Selected-Family Immutable Source Manifest Evidence Gate — item branch differs from worktree branch
+- WARNING: #874 PRD: Genesis Selected-Family Source Manifest Acquisition and Eligibility Unlock — item branch differs from worktree branch
+- WARNING: #877 PRD: Genesis Shared Source Evidence Recovery and Trend Momentum Eligibility Recheck — item branch differs from worktree branch
+- WARNING: #879 PRD: Genesis Trend Momentum Missing Source Artifact Recovery — item branch differs from worktree branch
+- WARNING: #881 PRD: Genesis Trend Momentum Source Authority Acquisition and Access-Blocker Decision — item branch differs from worktree branch
+- WARNING: #883 PRD: Genesis Trend Momentum Persistent Source-Authority Resolution Loop — item branch differs from worktree branch
+- WARNING: #885 PRD: Genesis Breakout Continuation Persistent Source-Authority Resolution Loop — item branch differs from worktree branch
+- WARNING: #886 PRD: Genesis Stat Arb Pairs Persistent Source-Authority Resolution Loop — item branch differs from worktree branch
+- WARNING: #889 PRD: Adversarial Debate Backtest Readiness and Training Handoff Workflow — item branch differs from worktree branch
+- WARNING: #890 PRD: Genesis Adversarial Debate Maintainability Consolidation Pass — item branch differs from worktree branch
+- WARNING: #891 PRD: Fix with Nome gate-blocker architecture hardening — item branch differs from worktree branch
+- WARNING: #903 PRD: Genesis Portfolio Correlation Input Source Snapshot Authority — item branch differs from worktree branch
+- WARNING: #905 PRD: Genesis Portfolio Correlation Input Source Generation — item branch differs from worktree branch
+- WARNING: #907 PRD: Genesis Portfolio Correlation Input Common-Window Source Production — item branch differs from worktree branch
+- WARNING: #911 PRD: Genesis Component-Return Source Authority Production — item branch differs from worktree branch
+- WARNING: #912 PRD: Genesis Component-Return Source Owner Authority Resolution — item branch differs from worktree branch
+- WARNING: #914 PRD: Genesis Component-Return Source Owner Evidence Intake — item branch differs from worktree branch
+- WARNING: #917 PRD: Genesis Component-Return Deterministic Producer Specification — item branch differs from worktree branch
+- WARNING: #920 PRD: Genesis Component-Return Deterministic Producer Implementation and Snapshot Generation — item branch differs from worktree branch
+- WARNING: #922 PRD: Hermes-safe runtime activation and sandbox verification — item branch differs from worktree branch
+- WARNING: #923 PRD: Evonome orchestration global skill and memory seed — item branch differs from worktree branch
+- WARNING: #924 PRD: Read-only Project 2 orchestration control tower — item branch differs from worktree branch
+- WARNING: #925 PRD: Human-confirmed orchestration action assistant — item branch differs from worktree branch
+- WARNING: #926 PRD: Derived dataset selector catalog wiring and data preview integration — item branch differs from worktree branch
+- WARNING: #929 PRD: Genesis Component-Return Selected Inputs Source Authority — item branch differs from worktree branch
+- WARNING: #931 PRD: Provider-neutral tick data pilot and derived tick-bar read path — item branch differs from worktree branch
+- WARNING: #934 PRD: AI Maestro read-only orchestration dashboard integration — item branch differs from worktree branch
+- WARNING: #935 PRD: Telegram operator gateway for orchestration questions and instructions — item branch differs from worktree branch
+- WARNING: #936 PRD: AgentOps Harness portable repository foundation — item branch differs from worktree branch
+

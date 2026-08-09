@@ -1,0 +1,29 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-211",
+  "purpose": "Review PRD #211 checkpoint 1 read layer",
+  "checkpoint": "1 - Read layer",
+  "revision": 1,
+  "requested_action": "Verify envelope correctness, active-project isolation, structured-first state, tail budgets/redaction/fencing/hash behavior, capture failure visibility, and read-only route behavior.",
+  "prd_ref": "https://github.com/hyperbotsx/agentops-harness/issues/211",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-211-terminal-orchestration-batch-resume/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/index.ts",
+    "term-control-center/server/tmuxSupervisor.ts",
+    "term-control-center/server/validationReceipt.ts",
+    "term-control-center/shared/blockedPaths.ts",
+    "term-control-center/server/orchestrator/orchestratorRoutes.ts",
+    "term-control-center/server/orchestrator/paneInventory.ts",
+    "term-control-center/server/orchestrator/paneTail.ts",
+    "term-control-center/tests/orchestratorPanes.test.ts"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck: passed",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/orchestratorPanes.test.ts: passed (4)",
+    "git diff --check: passed"
+  ],
+  "finding_ids_addressed": [],
+  "stop_condition": "Return the compact verifier verdict; record detailed findings only in verifier-report.md."
+}

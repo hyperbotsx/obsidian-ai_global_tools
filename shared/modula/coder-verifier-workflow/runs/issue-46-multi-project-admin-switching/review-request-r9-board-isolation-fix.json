@@ -1,0 +1,33 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Checkpoint 5 revision review for CP5-001 active-project isolation fallback",
+  "expected_response": "Compact verifier verdict JSON only; full report at verifier-report.md if not approved.",
+  "stop_condition": "Confirm CP5-001 is fixed or return bounded residual findings.",
+  "checkpoint": "5 - Board/pipeline integration, isolation, and selected-project hooks",
+  "revision": 9,
+  "requested_action": "review",
+  "prd_issue": "https://github.com/hyperbotsx/agentops-harness/issues/46",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-46-multi-project-admin-switching/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/board.html",
+    "pipeline-diagram/global-nav.js",
+    "pipeline-diagram/review-notify.js",
+    "term-control-center/tests/boardGuardrails.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-46-multi-project-admin-switching/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-46-multi-project-admin-switching/review-request-r9-board-isolation-fix.json"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck: passed",
+    "cd term-control-center && HOME=$(mktemp -d) node --import tsx --test --test-concurrency=1 tests/boardGuardrails.test.ts tests/admin.test.ts: passed (37 tests)",
+    "npm --prefix term-control-center test: passed (200 tests)",
+    "npm --prefix term-control-center run build: passed",
+    "python3 -m py_compile pipeline-diagram/generate.py: passed",
+    "node --check pipeline-diagram/global-nav.js: passed",
+    "node --check pipeline-diagram/review-notify.js: passed",
+    "git diff --check: passed"
+  ],
+  "finding_ids_addressed": ["CP5-001"]
+}

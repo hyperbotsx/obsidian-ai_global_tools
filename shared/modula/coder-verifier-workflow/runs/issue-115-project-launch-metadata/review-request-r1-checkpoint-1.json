@@ -1,0 +1,39 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-115",
+  "purpose": "Review checkpoint 1 for issue #115: creation placement and exact launch metadata stamping.",
+  "expected_response": "Compact verifier verdict JSON per coms-transport.md; write full details to verifier-report.md.",
+  "stop_condition": "Return approved or revision_requested with finding IDs.",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-115-project-launch-metadata/coder-handoff.md",
+  "checkpoint": "1 - Creation placement checkpoint",
+  "revision": 1,
+  "requested_action": "Verify created PRDs are added to the active Project path and stamped with exact Worktree / Proposed working branch metadata, with read-back/fail-closed behavior for launch metadata setup.",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/115"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-115-project-launch-metadata/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/prd_launch_metadata.py",
+    "src/agentops_harness/prd_author_render.py",
+    "src/agentops_harness/prd_author_github.py",
+    "src/agentops_harness/prd_create.py",
+    "src/agentops_harness/ceo_review_evonome_apply.py",
+    "tests/unit/test_prd_create.py",
+    "tests/unit/test_prd_author_github.py",
+    "tests/unit/test_ceo_review_evonome_apply.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-115-project-launch-metadata/coder-handoff.md"
+  ],
+  "validation_results": [
+    {
+      "command": "pytest -q tests/unit/test_prd_create.py tests/unit/test_prd_author_github.py tests/unit/test_prd_author.py",
+      "status": "failed_expected_environment",
+      "summary": "Import errors because PYTHONPATH was not set."
+    },
+    {
+      "command": "PYTHONPATH=src pytest -q tests/unit/test_prd_create.py tests/unit/test_prd_author_github.py tests/unit/test_prd_author.py tests/unit/test_ceo_review_evonome_apply.py",
+      "status": "passed",
+      "summary": "43 passed in 0.22s"
+    }
+  ],
+  "finding_ids_addressed": []
+}

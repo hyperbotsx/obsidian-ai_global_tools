@@ -1,0 +1,20 @@
+{
+  "checkpoint": "CP-3",
+  "revision": 9,
+  "requested_action": "Recheck shared composer prefill routing",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-283-page-bot-platform/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/page-bot-panel.js",
+    "pipeline-diagram/coworker-launcher.js",
+    "term-control-center/src/PageBotPanel.tsx",
+    "term-control-center/src/pageBotPanelContract.d.ts"
+  ],
+  "operator_pending": [
+    "V283-CP3-006"
+  ],
+  "validation": [
+    "node syntax passed",
+    "typecheck passed",
+    "focused Node 10/10 passed"
+  ]
+}

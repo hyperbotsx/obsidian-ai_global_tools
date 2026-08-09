@@ -1,0 +1,29 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-211",
+  "purpose": "Re-review PRD #211 checkpoint 3 injection fixes",
+  "checkpoint": "3 - Injection",
+  "revision": 2,
+  "requested_action": "Recheck F211-C3-001 through F211-C3-006 and F211-C3-KISS-001. Same-key retries now retain the original outcome forever within the in-process owner and never re-touch a pane; echo requires a prompt occurrence increase over baseline; active project and recovery gate are server-owned callbacks evaluated inside the lock; the unbound approved-item seam and caller awaiting proof are removed; all live preflights rerun under the lock; issue and draft supplied bindings must both match; helper signatures are compact. Please adversarially test post-paste replay, stale old-tail redraw, foreign group/target agreement, fabricated recovery/authority absence, queued state change, and conflicting issue/draft.",
+  "prd_ref": "https://github.com/hyperbotsx/agentops-harness/issues/211",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-211-terminal-orchestration-batch-resume/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/contextBriefTransition.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/launchGroup.ts",
+    "term-control-center/server/orchestrator/paneInjection.ts",
+    "term-control-center/server/orchestrator/paneInjectionGuard.ts",
+    "term-control-center/server/orchestrator/paneInjectionRunner.ts",
+    "term-control-center/tests/paneInjection.test.ts"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck: passed",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/paneInjection.test.ts: passed (13)",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 --test-name-pattern='fix-and-execute' tests/server.test.ts tests/contextBrief.test.ts: passed (5)",
+    "git diff --check: passed"
+  ],
+  "finding_ids_addressed": ["F211-C3-001", "F211-C3-002", "F211-C3-003", "F211-C3-004", "F211-C3-005", "F211-C3-006", "F211-C3-KISS-001"],
+  "stop_condition": "Return the compact verifier verdict; record detailed findings only in verifier-report.md."
+}

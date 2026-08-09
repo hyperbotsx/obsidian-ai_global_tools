@@ -1,0 +1,44 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-115",
+  "purpose": "Verifier re-review for human-requested worktree provisioning follow-up after final #115 approval.",
+  "expected_response": "Compact verifier verdict JSON per coms-transport.md; write details to verifier-report.md.",
+  "stop_condition": "Return approved if the follow-up is safe to include, or revision_requested with bounded finding IDs.",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-115-project-launch-metadata/coder-handoff.md",
+  "checkpoint": "8 - Worktree provisioning follow-up",
+  "revision": 1,
+  "requested_action": "Verify the app now provisions missing implementation PRD worktrees from recorded PRD metadata using canonical <worktreesRoot>/agentops-prd-<issue> paths, creates the recorded branch from origin/main, rejects non-canonical requested worktree paths, and keeps lane orchestration reuse aligned with canonical paths.",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/115"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-115-project-launch-metadata/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/index.ts",
+    "term-control-center/server/laneOrchestrator.ts",
+    "term-control-center/server/worktreeProvision.ts",
+    "term-control-center/tests/worktreeProvision.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-115-project-launch-metadata/coder-handoff.md"
+  ],
+  "validation_results": [
+    {
+      "command": "cd term-control-center && TMPDIR=<temp> tsx --test tests/worktreeProvision.test.ts tests/implementationWorktreeSync.test.ts tests/launcher.test.ts tests/launchMetadataFix.test.ts tests/boardGuardrails.test.ts",
+      "status": "passed",
+      "summary": "81 passed"
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src pytest -q -p no:cacheprovider tests/unit/test_ceo_review_evonome_apply.py tests/unit/test_prd_create.py tests/unit/test_prd_author_github.py tests/unit/test_prd_author.py tests/unit/test_prd_worktree_project.py tests/unit/test_review_server_coworker.py",
+      "status": "passed",
+      "summary": "79 passed in 3.94s"
+    },
+    {
+      "command": "git diff --check",
+      "status": "passed"
+    },
+    {
+      "command": "cache cleanup targets",
+      "status": "passed",
+      "summary": "Removed src/agentops_harness/__pycache__; no tracked cache artifacts"
+    }
+  ],
+  "finding_ids_addressed": []
+}

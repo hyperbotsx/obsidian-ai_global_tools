@@ -1,0 +1,56 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-59",
+  "purpose": "Issue #59 checkpoint 2 end-to-end operator flow validation / launch-validation hardening review",
+  "expected_response": "Compact verifier verdict JSON matching the provided schema; full details in verifier-report.md only if not approved.",
+  "stop_condition": "Approve checkpoint 2 launch-validation hardening or return bounded findings.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/59",
+  "checkpoint": "2 - End-to-end operator flow validation",
+  "revision": 1,
+  "requested_action": "Review the checkpoint-2 hardening slice that restores the required Term typecheck/test/build baseline under current per-PRD worktree, strict launch validation, admin/browser env, PRD Studio, completion, and active-jobs behavior.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/tests/admin.test.ts",
+    "term-control-center/tests/completion-server.test.ts",
+    "term-control-center/tests/contextRenewal.test.ts",
+    "term-control-center/tests/frontendBrowserLaunch.test.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "term-control-center/tests/projectActionConfig.test.ts",
+    "term-control-center/tests/server.test.ts",
+    "term-control-center/tests/terminalJobSidebar.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/review-request-r3-checkpoint-2-launch-validation.json"
+  ],
+  "validation_results": [
+    {"command": "npm --prefix term-control-center ci", "result": "passed; installed ignored dependencies for this fresh worktree"},
+    {"command": "npm --prefix term-control-center run typecheck", "result": "passed"},
+    {"command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/contextRenewal.test.ts", "result": "passed, 5/5"},
+    {"command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/projectActionConfig.test.ts tests/contextRenewal.test.ts", "result": "passed, 11/11"},
+    {"command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/server.test.ts", "result": "passed, 52/52"},
+    {"command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/admin.test.ts tests/completion-server.test.ts", "result": "passed, 34/34"},
+    {"command": "npm --prefix term-control-center test", "result": "passed, 592/592"},
+    {"command": "npm --prefix term-control-center run build", "result": "passed with existing Vite non-module/chunk-size warnings"},
+    {"command": "rm -rf term-control-center/dist term-control-center/build", "result": "completed after build"},
+    {"command": "git diff --check", "result": "passed"}
+  ],
+  "finding_ids_addressed": [],
+  "notes": "No shipped runtime code changed in this slice; test fixtures and static expectations were updated to match current integrated behavior. Python baseline remains required later; mandatory researcher consults remain pending before browser/mobile/Slack/local-AI/reduced-motion implementation slices.",
+  "response_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["decision", "checkpoint_reviewed", "revision_reviewed", "open_findings", "finding_ids", "bug_check_status", "next_actor", "report_path"],
+    "properties": {
+      "decision": {"type": "string", "enum": ["approved", "revision_requested", "needs_human", "rejected"]},
+      "checkpoint_reviewed": {"type": "string"},
+      "revision_reviewed": {"type": "integer"},
+      "open_findings": {"type": "integer"},
+      "finding_ids": {"type": "array", "items": {"type": "string"}},
+      "bug_check_status": {"type": "string", "enum": ["not_applicable", "passed", "failed", "not_run"]},
+      "next_actor": {"type": "string"},
+      "report_path": {"type": "string"}
+    }
+  }
+}

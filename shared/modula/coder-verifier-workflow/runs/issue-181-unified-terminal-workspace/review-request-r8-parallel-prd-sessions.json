@@ -1,0 +1,30 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-181",
+  "purpose": "Review issue #181 checkpoint 5 parallel PRD draft/planner session isolation",
+  "expected_response": "Compact verifier verdict JSON per coms contract; write full findings to verifier-report.md",
+  "stop_condition": "Approve checkpoint 5 or request bounded revisions with finding IDs",
+  "checkpoint": "5 - Parallel PRD session checkpoint",
+  "revision": 1,
+  "requested_action": "review",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/181"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-181-unified-terminal-workspace/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/index.ts",
+    "term-control-center/tests/server.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-181-unified-terminal-workspace/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-181-unified-terminal-workspace/review-request-r8-parallel-prd-sessions.json"
+  ],
+  "validation_results": [
+    "PASS: cd term-control-center && node --import tsx --test --test-name-pattern 'parallel draft PRD Studio launches keep unrelated draft authoring groups|starts pre-issue PRD planning drafts as Planner only|PRD planning execute fails closed' tests/server.test.ts",
+    "PASS: cd term-control-center && npx tsc -p tsconfig.app.json --noEmit && node --import tsx --test tests/terminalJobSidebar.test.ts tests/termBasePath.test.ts && npm run build:client && git diff --check",
+    "BLOCKED/pre-existing: cd term-control-center && npx tsc -p tsconfig.server.json --noEmit fails due tests/contextRenewal.test.ts importing ../../pi-packages/agentops-context-renewal/lib/policy.ts outside rootDir and without allowImportingTsExtensions",
+    "BLOCKED/pre-existing/env: npm --prefix term-control-center test reports unrelated admin/auth/pipeline-generator failures and timed out at 120s"
+  ],
+  "finding_ids_addressed": [],
+  "notes": "Please focus on FR-011/FR-012: replace/reuse lifecycle for multiple draft IDs, same-draft replacement, unrelated draft retention, and documented isolation model."
+}

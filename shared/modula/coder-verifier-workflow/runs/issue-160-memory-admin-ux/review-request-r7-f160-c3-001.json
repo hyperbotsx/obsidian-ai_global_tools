@@ -1,0 +1,31 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-160",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/160",
+  "checkpoint": "3 - Readiness panel checkpoint",
+  "revision": 7,
+  "requested_action": "Re-review bounded fix for F160-C3-001: stale isolation evidence no longer renders ready.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-160-memory-admin-ux/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/adminCss.ts",
+    "term-control-center/server/adminHtml.ts",
+    "term-control-center/server/adminMemoryClient.ts",
+    "term-control-center/server/adminProjectMemory.ts",
+    "term-control-center/server/adminProjects.ts",
+    "term-control-center/server/adminRoutes.ts",
+    "term-control-center/tests/admin.test.ts",
+    "term-control-center/tests/projectMemory.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-160-memory-admin-ux/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-160-memory-admin-ux/review-request-r7-f160-c3-001.json"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck — passed",
+    "cd term-control-center && env -u TERM_CONTROL_ADMIN_AUTH_MODE -u TERM_CONTROL_ADMIN_TRUSTED_PROXY_ADDRESSES node --import tsx --test --test-concurrency=1 --test-name-pattern='admin static assets|admin memory API|operator remember|capture writes' tests/admin.test.ts tests/projectMemory.test.ts — passed 4/4"
+  ],
+  "finding_ids_addressed": ["F160-C3-001"],
+  "constraints": [
+    "No live enablement/deploy/PR/merge/Project mutation",
+    "Only bounded checkpoint 3 fix applied"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Checkpoint 5 review for board/pipeline per-project data, active-project isolation, and integration hooks",
+  "expected_response": "Compact verifier verdict JSON only; full report at verifier-report.md if not approved.",
+  "stop_condition": "Approve checkpoint 5 or return bounded findings for revision.",
+  "checkpoint": "5 - Board/pipeline integration, isolation, and selected-project hooks",
+  "revision": 8,
+  "requested_action": "review",
+  "prd_issue": "https://github.com/hyperbotsx/agentops-harness/issues/46",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-46-multi-project-admin-switching/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/board.html",
+    "pipeline-diagram/generate.py",
+    "pipeline-diagram/global-nav.js",
+    "pipeline-diagram/review-notify.js",
+    "pipeline-diagram/public/projects",
+    "docs/agentops-multi-project-admin.md",
+    "term-control-center/server/adminPipeline.ts",
+    "term-control-center/server/adminRoutes.ts",
+    "term-control-center/server/completionStore.ts",
+    "term-control-center/shared/completion.ts",
+    "term-control-center/tests/admin.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-46-multi-project-admin-switching/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-46-multi-project-admin-switching/review-request-r8-board-isolation-integration.json"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck: passed",
+    "cd term-control-center && HOME=$(mktemp -d) node --import tsx --test --test-concurrency=1 tests/admin.test.ts tests/boardGuardrails.test.ts tests/completion.test.ts tests/completion-store.test.ts tests/completion-server.test.ts: passed (57 tests)",
+    "npm --prefix term-control-center test: passed (199 tests)",
+    "npm --prefix term-control-center run build: passed",
+    "python3 -m py_compile pipeline-diagram/generate.py: passed",
+    "node --check pipeline-diagram/global-nav.js: passed",
+    "node --check pipeline-diagram/review-notify.js: passed",
+    "git diff --check: passed"
+  ],
+  "finding_ids_addressed": []
+}

@@ -1,0 +1,17 @@
+{
+  "type": "review_request",
+  "checkpoint": "1 - UX contract checkpoint",
+  "revision": 2,
+  "requested_action": "recheck_finding",
+  "prd": "https://github.com/hyperbotsx/agentops-harness/issues/24",
+  "issue": "https://github.com/hyperbotsx/agentops-harness/issues/24",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/coder-handoff.md",
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/ux-contract-checkpoint.md"
+  ],
+  "validation_results": [
+    { "command": "bounded documentation recheck for UX-24-C1-001 and UX-24-C1-002", "result": "pass" }
+  ],
+  "finding_ids_addressed": ["UX-24-C1-001", "UX-24-C1-002"]
+}

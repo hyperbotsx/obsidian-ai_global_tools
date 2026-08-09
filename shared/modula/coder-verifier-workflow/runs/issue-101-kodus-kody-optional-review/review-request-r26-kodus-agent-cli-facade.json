@@ -1,0 +1,62 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-101",
+  "purpose": "Review PRD #101 Checkpoint 4 slice: kodus-agent CLI facade MVP after PRD #179 observability landed",
+  "expected_response": "Compact verifier verdict JSON per coms transport contract; write full report to verifier-report.md",
+  "stop_condition": "Approve this bounded CLI facade slice or request a bounded revision",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/101",
+    "https://github.com/hyperbotsx/agentops-harness/issues/179",
+    "dev-plans/agentops/prd-101-next-steps-plan.md"
+  ],
+  "checkpoint": "PRD #101 Checkpoint 4 - AgentOps Facade and Observability: kodus-agent CLI facade MVP",
+  "revision": 1,
+  "requested_action": "implementation_review",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "changed_files": [
+    "pyproject.toml",
+    "src/agentops_harness/kodus_agent.py",
+    "tests/unit/test_kodus_agent.py",
+    "docs/kodus-agent.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r26-kodus-agent-cli-facade.json"
+  ],
+  "pre_existing_dirty_files": [
+    "dev-plans/agentops/prd-101-next-steps-plan.md",
+    "dev-plans/agentops/kody-review-session-prd-brief.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/continuation-prompt-20260629-kody-findings.md"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONPATH=src python3 -m unittest tests.unit.test_kodus_agent tests.unit.test_kodus_sprint0 tests.unit.test_kodus_max_gateway tests.unit.test_activity_center",
+      "status": "passed",
+      "summary": "34 tests passed"
+    },
+    {
+      "command": "PYTHONPATH=src python3 -m py_compile src/agentops_harness/kodus_agent.py src/agentops_harness/kodus_sprint0.py src/agentops_harness/kodus_max_gateway.py",
+      "status": "passed"
+    },
+    {
+      "command": "AST KISS check for src/agentops_harness/kodus_agent.py",
+      "status": "passed",
+      "summary": "299 lines; no functions over 20 lines or 4 parameters"
+    },
+    {
+      "command": "git diff --check",
+      "status": "passed"
+    },
+    {
+      "command": "PYTHONPATH=src python3 -m agentops_harness.kodus_agent --help",
+      "status": "passed"
+    }
+  ],
+  "research_summary": "Researcher consult completed 2026-07-01. Implemented guardrails: authenticated gh open-PR check, issue-comment trigger, local/private webhook relay, cleanup of only this run's trigger comment on relay failure, branch/head-SHA stale-evidence fail-closed checks, advisory-only local status/artifacts, local webhook allowlist by default, sanitized outputs.",
+  "finding_ids_addressed": [],
+  "scope_notes": [
+    "Kodus remains optional/advisory only.",
+    "No branch protection, required checks, auto-merge, approval/request-changes automation, or debt issue automation added.",
+    "cancel_review intentionally reports unsupported until a safe Kody cancel contract is verified."
+  ]
+}

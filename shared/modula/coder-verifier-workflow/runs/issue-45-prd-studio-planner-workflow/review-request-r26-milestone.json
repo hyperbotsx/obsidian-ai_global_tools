@@ -1,0 +1,30 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Review PRD #45 checkpoint 15 milestone checkpoint.",
+  "expected_response": "Compact verdict JSON matching the supplied schema. Write full findings to verifier-report.md if not approved.",
+  "stop_condition": "Approve checkpoint 15 or request one bounded revision with finding IDs.",
+  "review_request": {
+    "prd_issue": "https://github.com/hyperbotsx/agentops-harness/issues/45",
+    "checkpoint": "15 - Milestone checkpoint",
+    "revision": 1,
+    "requested_action": "checkpoint_review",
+    "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-45-prd-studio-planner-workflow/coder-handoff.md",
+    "milestone_ledger_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-45-prd-studio-planner-workflow/milestone-ledger.json",
+    "changed_files": [
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-45-prd-studio-planner-workflow/coder-handoff.md",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-45-prd-studio-planner-workflow/milestone-ledger.json",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-45-prd-studio-planner-workflow/review-request-r26-milestone.json"
+    ],
+    "validation_results": [
+      { "command": "npm --prefix term-control-center run test", "status": "passed", "evidence": "190 tests passed" },
+      { "command": "npm --prefix term-control-center run typecheck", "status": "passed" },
+      { "command": "npm --prefix term-control-center run build", "status": "passed", "evidence": "existing Vite warnings only: term-config script and chunk size" },
+      { "command": "PYTHONPATH=src pytest tests/unit/test_prd_author.py tests/unit/test_prd_author_github.py tests/unit/test_prd_create.py tests/unit/test_prd_studio_artifacts.py tests/unit/test_prd_studio_approval.py tests/unit/test_ceo_review.py tests/unit/test_ceo_review_apply.py tests/unit/test_ceo_review_answers.py tests/unit/test_ceo_review_evonome_apply.py", "status": "passed", "evidence": "106 tests passed" },
+      { "command": "git diff --check", "status": "passed" }
+    ],
+    "finding_ids_addressed": ["V-FINAL-001"]
+  }
+}

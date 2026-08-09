@@ -1,0 +1,49 @@
+{
+  "type": "review_request",
+  "issue": 72,
+  "title": "D4-PRD: AI Co-Worker Chat Surface and Floating Launcher",
+  "checkpoint": "1 - Floating launcher/chat shell on board with desktop/mobile de-confliction vs #completion-center-btn",
+  "revision": 3,
+  "requested_action": "Re-review checkpoint 1 only after bounded fixes for tracked-diff visibility and KISS test-file scope.",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneD",
+  "branch": "prd/ai-co-worker-chat-surface-floating-launcher-72",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-72-ai-coworker-chat-surface-floating-launcher/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/coworker-launcher.js",
+    "pipeline-diagram/board.html",
+    "term-control-center/tests/coworkerLauncher.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-72-ai-coworker-chat-surface-floating-launcher/coder-handoff.md"
+  ],
+  "validation": [
+    {
+      "command": "git add -N pipeline-diagram/coworker-launcher.js term-control-center/tests/coworkerLauncher.test.ts",
+      "result": "pass"
+    },
+    {
+      "command": "node --check pipeline-diagram/coworker-launcher.js",
+      "result": "pass"
+    },
+    {
+      "command": "cd term-control-center && node --import tsx --test tests/boardGuardrails.test.ts tests/coworkerLauncher.test.ts",
+      "result": "pass"
+    },
+    {
+      "command": "git diff --check -- pipeline-diagram/board.html pipeline-diagram/coworker-launcher.js term-control-center/tests/boardGuardrails.test.ts term-control-center/tests/coworkerLauncher.test.ts",
+      "result": "pass"
+    },
+    {
+      "command": "wc -l term-control-center/tests/boardGuardrails.test.ts term-control-center/tests/coworkerLauncher.test.ts",
+      "result": "pass (314 lines existing guardrail file unchanged by checkpoint; new focused file 15 lines)"
+    }
+  ],
+  "finding_ids_addressed": [
+    "CP1-TRACK-001",
+    "CP1-KISS-001"
+  ],
+  "scope_notes": [
+    "Checkpoint 1 only: floating launcher shell and de-confliction hooks.",
+    "Moved new launcher assertions into a dedicated test file.",
+    "Used intent-to-add so new implementation/test files appear in tracked diff output for review."
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Review PRD #45 checkpoint 11 revision 2 fix for V-CP11-001.",
+  "expected_response": "Compact verdict JSON matching the supplied schema. Write full findings to verifier-report.md if not approved.",
+  "stop_condition": "Approve checkpoint 11 or request one bounded revision with finding IDs.",
+  "review_request": {
+    "prd_issue": "https://github.com/hyperbotsx/agentops-harness/issues/45",
+    "checkpoint": "11 - Approval Review checkpoint",
+    "revision": 2,
+    "requested_action": "checkpoint_review",
+    "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-45-prd-studio-planner-workflow/coder-handoff.md",
+    "changed_files": [
+      "src/agentops_harness/prd_studio_approval.py",
+      "tests/unit/test_prd_studio_approval.py",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-45-prd-studio-planner-workflow/coder-handoff.md",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-45-prd-studio-planner-workflow/review-request-r19-approval-review-fix.json"
+    ],
+    "validation_results": [
+      { "command": "PYTHONPATH=src pytest tests/unit/test_prd_studio_approval.py", "status": "passed", "evidence": "5 tests passed" },
+      { "command": "npm --prefix term-control-center run typecheck", "status": "passed" },
+      { "command": "git diff --check", "status": "passed" }
+    ],
+    "finding_ids_addressed": ["V-CP11-001"]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "type": "review_request",
+  "checkpoint": "1g-gateway-observability-operational-validation",
+  "revision": 1,
+  "requested_action": "Verify human CLI approval recording, sanitized gateway logging, timeout/concurrency/fallback validation evidence, and remaining-gate posture.",
+  "source_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/101"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "evidence_paths": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-operational-validation.md",
+    "docs/kodus-kody-sprint0-feasibility.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md"
+  ],
+  "changed_files": [
+    "src/agentops_harness/kodus_max_gateway.py",
+    "tests/unit/test_kodus_max_gateway.py",
+    "docs/kodus-kody-docker-sandbox-runbook.md",
+    "docs/kodus-kody-sprint0-feasibility.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-operational-validation.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r11-operational-validation.json"
+  ],
+  "validation_results": [
+    "Operator explicitly approved Claude/Codex CLI usage for this local gateway experiment.",
+    "Live gateway restarted with sanitized per-request logging; kodus_api GET /v1/models and POST /v1/chat/completions returned 200 through Claude CLI.",
+    "Timeout/fail-closed smoke returned 502 TimeoutExpired with zero prompt/response leakage hits.",
+    "Echo concurrency smoke returned five 200 responses with five request logs and zero private prompt leakage hits.",
+    "Provider fallback check: local OpenAI-compatible base URL set, Anthropic/Google/OpenRouter/Novita keys empty, OpenAI key is placeholder/configured for local compatible endpoint.",
+    "PYTHONPATH=src python3 -m unittest tests.unit.test_kodus_sprint0 tests.unit.test_kodus_max_gateway passed (14 tests).",
+    "PYTHONPATH=src python3 -m py_compile src/agentops_harness/kodus_sprint0.py src/agentops_harness/kodus_max_gateway.py passed.",
+    "AST KISS check passed for kodus_sprint0.py and kodus_max_gateway.py.",
+    "git diff --check passed."
+  ],
+  "finding_ids_addressed": [],
+  "notes": "Auth-refresh remains constrained by the current non-expiring token; gateway has no explicit rate limiter/queue cap yet; Codex backend is not live-smoked. Sprint 1 remains blocked pending human decision on these remaining gates."
+}

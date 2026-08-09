@@ -1,0 +1,28 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-179",
+  "checkpoint": "Final bug-check fixes",
+  "revision": 5,
+  "requested_action": "bug_check_fix_review",
+  "issue_url": "https://github.com/hyperbotsx/agentops-harness/issues/179",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-179-observable-kody/coder-handoff.md",
+  "previous_report_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-179-observable-kody/verifier-report.md",
+  "finding_ids_addressed": ["F179-R4-001", "F179-R4-002", "F179-R4-003", "F179-R4-004"],
+  "changed_files": [
+    "pipeline-diagram/completed.html",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/kodyReview.ts",
+    "term-control-center/tests/kodyReview.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-179-observable-kody/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-179-observable-kody/review-request-r5-final-bug-fixes.json"
+  ],
+  "validation_results": [
+    {"command":"cd term-control-center && node --import tsx --test --test-concurrency=1 tests/kodyReview.test.ts tests/completedKodusReview.test.ts tests/completedStatic.test.ts","status":"passed","note":"18 tests passed"},
+    {"command":"PYTHONPATH=src pytest tests/unit/test_activity_center.py -q","status":"passed","note":"10 passed"},
+    {"command":"cd term-control-center && npx tsc --noEmit --module NodeNext --moduleResolution NodeNext --target ES2022 --skipLibCheck --esModuleInterop server/kodyReview.ts server/completedKodusReview.ts","status":"passed"},
+    {"command":"python3 AST KISS check for src/agentops_harness/activity_center_kody.py","status":"passed"},
+    {"command":"git diff --check","status":"passed"}
+  ],
+  "summary": "Fixes survivor re-import state, fix-loop fail-closed JSON/session status, stored group attach resolution, and strict Kody bot attribution."
+}

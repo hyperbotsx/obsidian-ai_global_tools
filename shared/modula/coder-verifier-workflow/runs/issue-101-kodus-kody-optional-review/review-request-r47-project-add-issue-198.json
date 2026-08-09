@@ -1,0 +1,30 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-101",
+  "purpose": "Review Project 3 visibility fix for PRD #101 follow-up issue #198",
+  "checkpoint": "PRD #101 follow-up issue project visibility",
+  "revision": 1,
+  "requested_action": "Verify that issue #198 was safely added to Project 3 and no PRD #101 closeout/comment mutation occurred.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/101",
+    "https://github.com/hyperbotsx/agentops-harness/issues/198",
+    "https://github.com/users/hyperbotsx/projects/3"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r47-project-add-issue-198.json"
+  ],
+  "github_mutations": [
+    "Added issue #198 to hyperbotsx Project 3 with gh project item-add."
+  ],
+  "validation_results": [
+    "gh project item-list 3 --owner hyperbotsx --limit 200 --format json confirms issue #198 present.",
+    "Project item status is Todo; label agent:agentops is present.",
+    "Did not close/comment on issue #101."
+  ],
+  "finding_ids_addressed": [],
+  "stop_condition": "Stop after verifier approves project visibility fix or requests bounded correction; do not close PRD #101 or create/open a PR without human instruction."
+}

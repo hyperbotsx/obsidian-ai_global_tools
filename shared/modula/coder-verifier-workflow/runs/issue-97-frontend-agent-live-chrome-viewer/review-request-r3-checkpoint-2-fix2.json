@@ -1,0 +1,59 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-harness",
+  "purpose": "Checkpoint 2 revision 3 re-review for PRD #97 noVNC/full-display backend",
+  "expected_response": "Verdict JSON matching the verifier contract",
+  "stop_condition": "Approve or request bounded revision for checkpoint 2 only",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/coder-handoff.md",
+  "checkpoint": "2. noVNC/full-display backend",
+  "revision": 3,
+  "requested_action": "Re-review only the bounded checkpoint 2 follow-up for CHK2-FALLBACK-001 and CHK2-KISS-001: Xvfb readiness now re-checks the display socket even while the process stays alive, the retry path keeps the display-specific warning with regression coverage, and the remaining oversized checkpoint 2 helpers were split into smaller KISS-compliant functions/modules. Do not review later UI/delegate-pane/coms-label checkpoints yet.",
+  "issue_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/97"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/browserFeed.ts",
+    "term-control-center/server/browserCdpProxy.ts",
+    "term-control-center/server/browserControlState.ts",
+    "term-control-center/server/browserNovncPage.ts",
+    "term-control-center/server/browserRuntime.ts",
+    "term-control-center/server/browserRuntimeSupport.ts",
+    "term-control-center/server/browserRuntimeSurface.ts",
+    "term-control-center/server/browserScreencast.ts",
+    "term-control-center/server/browserStreamBackpressure.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/tests/browserFeed.test.ts",
+    "term-control-center/tests/browserRuntime.test.ts",
+    "term-control-center/tests/browserStreamBackpressure.test.ts",
+    "term-control-center/tests/server.test.ts"
+  ],
+  "validation": [
+    {
+      "command": "npm --prefix term-control-center run typecheck",
+      "result": "passed"
+    },
+    {
+      "command": "npm --prefix term-control-center run build",
+      "result": "passed"
+    },
+    {
+      "command": "npm --prefix term-control-center run test",
+      "result": "passed (393 tests)"
+    },
+    {
+      "command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/browserFeed.test.ts tests/browserRuntime.test.ts tests/browserStreamBackpressure.test.ts tests/server.test.ts tests/frontendBrowserLaunch.test.ts tests/launchPlan.test.ts",
+      "result": "passed (66 tests)"
+    },
+    {
+      "command": "git diff --check -- term-control-center/server/browserFeed.ts term-control-center/server/browserCdpProxy.ts term-control-center/server/browserControlState.ts term-control-center/server/browserNovncPage.ts term-control-center/server/browserRuntime.ts term-control-center/server/browserRuntimeSupport.ts term-control-center/server/browserRuntimeSurface.ts term-control-center/server/browserScreencast.ts term-control-center/server/browserStreamBackpressure.ts term-control-center/server/index.ts term-control-center/tests/browserFeed.test.ts term-control-center/tests/browserRuntime.test.ts term-control-center/tests/browserStreamBackpressure.test.ts term-control-center/tests/server.test.ts",
+      "result": "passed"
+    }
+  ],
+  "finding_ids_addressed": [
+    "CHK2-FALLBACK-001",
+    "CHK2-KISS-001"
+  ]
+}

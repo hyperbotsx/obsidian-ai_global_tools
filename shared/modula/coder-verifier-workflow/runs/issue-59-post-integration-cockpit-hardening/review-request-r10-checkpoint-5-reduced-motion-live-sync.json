@@ -1,0 +1,43 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-59",
+  "purpose": "Issue #59 checkpoint 5 accessibility/reduced-motion terminal hardening revision 2 review",
+  "expected_response": "Compact verifier verdict JSON matching the provided schema; full details in verifier-report.md only if not approved.",
+  "stop_condition": "Approve checkpoint 5 revision 2 or return bounded findings.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/59",
+  "checkpoint": "5 - Accessibility/reduced-motion terminal hardening",
+  "revision": 2,
+  "requested_action": "Review bounded fix for V59-R9-001: mounted xterm instances now install a cleanup-safe prefers-reduced-motion change listener that updates cursorBlink and smoothScrollDuration live; static guardrail extended.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/src/TerminalPane.tsx",
+    "term-control-center/tests/termBasePath.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/review-request-r10-checkpoint-5-reduced-motion-live-sync.json"
+  ],
+  "validation_results": [
+    {"command": "npm --prefix term-control-center run typecheck", "result": "passed"},
+    {"command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/termBasePath.test.ts", "result": "passed, 31/31"},
+    {"command": "git diff --check", "result": "passed"}
+  ],
+  "finding_ids_addressed": ["V59-R9-001"],
+  "notes": "Initial reduced-motion behavior remains; revision 2 adds live preference sync and cleanup. Full Term test/build passed before the listener fix; only the focused reduced-motion code changed afterward and focused validation passed.",
+  "response_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["decision", "checkpoint_reviewed", "revision_reviewed", "open_findings", "finding_ids", "bug_check_status", "next_actor", "report_path"],
+    "properties": {
+      "decision": {"type": "string", "enum": ["approved", "revision_requested", "needs_human", "rejected"]},
+      "checkpoint_reviewed": {"type": "string"},
+      "revision_reviewed": {"type": "integer"},
+      "open_findings": {"type": "integer"},
+      "finding_ids": {"type": "array", "items": {"type": "string"}},
+      "bug_check_status": {"type": "string", "enum": ["not_applicable", "passed", "failed", "not_run"]},
+      "next_actor": {"type": "string"},
+      "report_path": {"type": "string"}
+    }
+  }
+}

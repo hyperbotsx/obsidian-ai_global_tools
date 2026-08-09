@@ -1,0 +1,24 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-187",
+  "purpose": "Pre-final structure/hygiene review for PRD #187 before verifier bug-check.",
+  "expected_response": "Concise markdown or JSON with clean/cleanup recommendations; no edits.",
+  "stop_condition": "Return clean or bounded cleanup findings.",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-187-discovery-backlog-prd-composition/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/issue_logger.py",
+    "src/agentops_harness/discovery_backlog.py",
+    "src/agentops_harness/backlog_prd_composer.py",
+    "src/agentops_harness/review_server.py",
+    "pipeline-diagram/coworker-launcher.js",
+    "pipeline-diagram/board.html",
+    "tests/unit/test_review_server_coworker.py",
+    "tests/unit/test_pipeline_board_generation.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-187-discovery-backlog-prd-composition/"
+  ],
+  "validation_results": [
+    {"command": "PYTHONPATH=src python3 -m pytest tests/unit/test_review_server_coworker.py tests/unit/test_pipeline_board_generation.py -q && PYTHONPATH=src python3 -m compileall -q src/agentops_harness/review_server.py src/agentops_harness/issue_logger.py src/agentops_harness/discovery_backlog.py src/agentops_harness/backlog_prd_composer.py && node --check pipeline-diagram/coworker-launcher.js", "status": "passed", "detail": "92 tests passed; compileall passed; node check passed"}
+  ]
+}

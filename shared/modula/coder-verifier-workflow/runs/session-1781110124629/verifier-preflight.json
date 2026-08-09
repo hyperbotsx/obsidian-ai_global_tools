@@ -1,0 +1,61 @@
+{
+  "artifact_folder": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781110124629",
+  "branch": "prd/slack-command-center-button-integration-gaps-976",
+  "browser_qa_devtools_recommended": false,
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/session-1781109740281/",
+    "dev-plans/agentops/coder-verifier-workflow/runs/session-1781110124629/",
+    "src/agentops_harness/slack_command_center_buttons.py",
+    "src/agentops_harness/slack_command_center_handlers.py",
+    "src/agentops_harness/slack_command_center_payloads.py",
+    "tests/unit/test_slack_command_center_buttons.py"
+  ],
+  "devtools_mcp_prerequisites": {
+    "chrome": true,
+    "node": true,
+    "npm": true,
+    "npx": true
+  },
+  "files": {
+    "coder-handoff.md": {
+      "bytes": 10031,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781110124629/coder-handoff.md"
+    },
+    "coder-ready.md": {
+      "bytes": 2260,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781110124629/coder-ready.md"
+    },
+    "decision-log.md": {
+      "bytes": 7370,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781110124629/decision-log.md"
+    },
+    "verifier-report.md": {
+      "bytes": 11953,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781110124629/verifier-report.md"
+    },
+    "verifier-request.md": {
+      "bytes": 3286,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781110124629/verifier-request.md"
+    }
+  },
+  "handoff_missing_fields": [],
+  "hotspot_files": [],
+  "ready_missing_fields": [],
+  "repo_root": "/mnt/hyperliquid-data/projects/worktrees/agentops-harness",
+  "report_machine_status_missing": [],
+  "review_profiles": {},
+  "status_short": [
+    "## prd/slack-command-center-button-integration-gaps-976",
+    "?? dev-plans/agentops/coder-verifier-workflow/runs/session-1781109740281/",
+    "?? dev-plans/agentops/coder-verifier-workflow/runs/session-1781110124629/",
+    "?? src/agentops_harness/slack_command_center_buttons.py",
+    "?? src/agentops_harness/slack_command_center_handlers.py",
+    "?? src/agentops_harness/slack_command_center_payloads.py",
+    "?? tests/unit/test_slack_command_center_buttons.py"
+  ]
+}

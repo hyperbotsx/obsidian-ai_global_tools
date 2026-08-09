@@ -1,0 +1,15 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-211",
+  "purpose": "Review bounded remediation for all five Kody comments on PR #270 before push.",
+  "checkpoint": "PR #270 Kody remediation",
+  "revision": 1,
+  "requested_action": "review",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/211", "https://github.com/hyperbotsx/agentops-harness/pull/270"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-211-terminal-orchestration-batch-resume/coder-handoff.md",
+  "changed_files": ["src/agentops_harness/review_server.py", "term-control-center/server/canonicalPrdApproval.ts", "term-control-center/server/laneRequestResolution.ts", "tests/unit/test_review_server_coworker.py"],
+  "validation_results": {"focused_typescript": "72 passed", "focused_python": "106 passed", "typecheck": "passed", "build": "passed", "diff_check": "passed"},
+  "stop_condition": "Return approved with zero findings or bounded revision_requested findings."
+}

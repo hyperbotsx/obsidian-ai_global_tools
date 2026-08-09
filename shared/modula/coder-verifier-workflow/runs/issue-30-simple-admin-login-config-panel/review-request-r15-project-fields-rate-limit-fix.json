@@ -1,0 +1,26 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "checkpoint": "PRD #30 follow-up revision 15 - make project fields best-effort during GitHub Project API rate limit",
+  "revision": 15,
+  "requested_action": "review",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/30"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-30-simple-admin-login-config-panel/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/generate.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-30-simple-admin-login-config-panel/coder-handoff.md"
+  ],
+  "validation_results": [
+    { "command": "python3 -m py_compile pipeline-diagram/generate.py", "status": "passed" },
+    { "command": "cd term-control-center && HOME=$(mktemp -d) node --import tsx --test --test-concurrency=1 tests/admin.test.ts", "status": "passed", "details": "9 tests passed" },
+    { "command": "cd term-control-center && npm test", "status": "passed", "details": "141 tests passed" },
+    { "command": "cd pipeline-diagram && AGENTOPS_ADMIN_SETTINGS_FILE=/home/hyperbots/.local/state/agentops/term-control-center/admin-settings.json python3 generate.py", "status": "passed", "details": "Project fields skipped due current GitHub API rate limit; wrote 8 open PRDs / 0 in progress" },
+    { "command": "cd /mnt/hyperliquid-data/projects/repos/agentops-harness/pipeline-diagram && AGENTOPS_ADMIN_SETTINGS_FILE=/home/hyperbots/.local/state/agentops/term-control-center/admin-settings.json python3 generate.py", "status": "passed", "details": "Live root regenerated; Project fields skipped due current GitHub API rate limit; wrote 8 open PRDs / 0 in progress" },
+    { "command": "git diff --check", "status": "passed" }
+  ],
+  "finding_ids_addressed": [],
+  "notes": "During live deploy, gh project item-list hit GraphQL rate limit. project_fields_by_number now catches gh failures and returns an empty field map so board/pipeline generation remains available from configured repo issues. Term Control was rebuilt/restarted and live static outputs were copied/regenerated."
+}

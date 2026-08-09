@@ -1,0 +1,84 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-231",
+  "purpose": "Issue #231 checkpoint 2 revision 2 adapter conformance review",
+  "checkpoint": "2 - Adapter conformance + interop",
+  "revision": 2,
+  "requested_action": "Review only the bounded fixes for V231-C2-001 through V231-C2-007. Verify live Pi/native interop evidence, correlation schemas, pre-await outbound reservation and rollback, hop context lifecycle, registry collisions/liveness, mirrored tool semantics, guards, and focused tests.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/231",
+    "docs/coms-wire-contract.md"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/coder-handoff.md",
+  "interop_evidence_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/interop-smoke-result.json",
+  "changed_files": [
+    "term-control-center/package.json",
+    "term-control-center/package-lock.json",
+    "term-control-center/server/comsAdapter.ts",
+    "term-control-center/server/comsMcp.ts",
+    "term-control-center/tests/comsAdapter.test.ts",
+    "term-control-center/tests/comsAdapter.conformance.test.ts",
+    "term-control-center/tests/comsMcp.test.ts",
+    "term-control-center/tests/comsTestFixture.ts",
+    "docs/coms-wire-contract.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/interop-smoke-result.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/review-request-r2-checkpoint-2.json"
+  ],
+  "validation_results": [
+    {
+      "command": "cd term-control-center && node --import tsx --test tests/comsAdapter.test.ts tests/comsAdapter.conformance.test.ts tests/comsMcp.test.ts",
+      "status": "passed",
+      "notes": "20 focused adapter/MCP conformance tests."
+    },
+    {
+      "command": "cd term-control-center && npm run typecheck",
+      "status": "passed"
+    },
+    {
+      "command": "cd term-control-center && npm run build:server",
+      "status": "passed"
+    },
+    {
+      "command": "live scratch-pool Pi/native smoke",
+      "status": "passed",
+      "notes": "Pi -> native MCP await/respond -> Pi await and native adapter -> live Pi peer -> native await; sanitized evidence path supplied."
+    },
+    {
+      "command": "npm --prefix term-control-center run test",
+      "status": "blocked",
+      "notes": "591 passed; 20 node-pty-dependent failures before assertions because dependencies were installed with --ignore-scripts and the native binary is absent."
+    },
+    {
+      "command": "git diff --check",
+      "status": "passed"
+    }
+  ],
+  "finding_ids_addressed": [
+    "V231-C2-001",
+    "V231-C2-002",
+    "V231-C2-003",
+    "V231-C2-004",
+    "V231-C2-005",
+    "V231-C2-006",
+    "V231-C2-007"
+  ],
+  "stop_condition": "Approve checkpoint 2 or return only remaining bounded findings. Checkpoint 2 remains incomplete until approval.",
+  "response_schema": {
+    "type": "object",
+    "required": ["decision", "checkpoint_reviewed", "revision_reviewed", "open_findings", "finding_ids", "bug_check_status", "next_actor", "report_path"],
+    "properties": {
+      "decision": {"type": "string", "enum": ["approved", "revision_requested", "needs_human"]},
+      "checkpoint_reviewed": {"type": "string"},
+      "revision_reviewed": {"type": "integer"},
+      "open_findings": {"type": "integer", "minimum": 0},
+      "finding_ids": {"type": "array", "items": {"type": "string"}},
+      "bug_check_status": {"type": "string"},
+      "next_actor": {"type": "string"},
+      "report_path": {"type": "string"}
+    },
+    "additionalProperties": false
+  }
+}

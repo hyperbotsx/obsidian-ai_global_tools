@@ -1,0 +1,31 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-119",
+  "purpose": "Review Issue #119 terminal active-jobs sidebar implementation across PRD checkpoints 1-6.",
+  "expected_response": "Compact JSON verdict per coms contract; full findings in verifier-report.md only if not approved.",
+  "stop_condition": "Approve implementation or request bounded revisions with finding IDs.",
+  "checkpoint": "Implementation checkpoints 1-6: data, layout, switching, regression, project isolation, responsive/security",
+  "revision": 1,
+  "requested_action": "implementation_review",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/119"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-119-terminal-active-jobs/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/src/App.tsx",
+    "term-control-center/src/styles.css",
+    "term-control-center/tests/terminalJobSidebar.test.ts",
+    "docs/agentops-terminal-sessions.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-119-terminal-active-jobs/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-119-terminal-active-jobs/validation-ledger-log.md"
+  ],
+  "validation_results": [
+    { "command": "npm --prefix term-control-center run typecheck", "status": "pass" },
+    { "command": "cd term-control-center && node --import tsx --test tests/terminalJobSidebar.test.ts", "status": "pass" },
+    { "command": "cd term-control-center && node --import tsx --test tests/terminalJobSidebar.test.ts tests/termBasePath.test.ts", "status": "pass" },
+    { "command": "npm --prefix term-control-center run build", "status": "pass" },
+    { "command": "npm --prefix term-control-center run test", "status": "fail_unrelated_or_environment", "notes": "Full suite times out after 300s and reports launch/runtime fixture failures outside sidebar scope; examples recorded in handoff." }
+  ],
+  "finding_ids_addressed": [],
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-119-terminal-active-jobs/coder-handoff.md"
+}

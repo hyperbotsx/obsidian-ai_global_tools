@@ -1,0 +1,41 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "issue": {
+    "number": 40,
+    "url": "https://github.com/hyperbotsx/agentops-harness/issues/40",
+    "title": "PRD: AgentOps Secure Access Layer with YubiKey WebAuthn"
+  },
+  "checkpoint": "3 - Reverse proxy/security route templates",
+  "revision": 1,
+  "requested_action": "Review nginx Authentik forward-auth template and route protection inventory before deployment/runbook checkpoint.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-yubikey-webauthn/coder-handoff.md",
+  "changed_files": [
+    "config/templates/secure-access/nginx-agentops-authentik-forward-auth.template.conf",
+    "config/templates/secure-access/agentops-route-protection.template.yaml",
+    "config/templates/secure-access/authentik-agentops-identity.template.yaml",
+    "docs/runbooks/secure-access-identity.md",
+    "docs/secure-access-yubikey-webauthn.md",
+    "docs/security.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-yubikey-webauthn/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-yubikey-webauthn/review-request-r3.json"
+  ],
+  "validation_results": [
+    "git diff --check passed",
+    "Reverse-proxy template static checks passed for auth_request, WebSocket Upgrade, strict Origin denial, CDP denial, secure headers, noindex, anonymous denial, and app-token preservation inventory",
+    "Docs/template-only checkpoint; no live host mutation and no product code introduced"
+  ],
+  "finding_ids_addressed": [],
+  "scope_controls": {
+    "allowed": "repo/config/templates/runbooks only",
+    "forbidden": "no live host mutations, sudo, nginx reloads, DNS/firewall/cert changes, Docker/systemd changes, identity-provider bootstrap, secrets, .env files, or PR creation"
+  },
+  "preflight": {
+    "identity": "coder@agentops-term",
+    "verifier_live_in_pool": true,
+    "checkpoint_1_approved": true,
+    "checkpoint_2_approved": true,
+    "researcher_consult_recorded": true
+  }
+}

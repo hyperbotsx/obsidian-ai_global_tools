@@ -1,0 +1,83 @@
+{
+  "artifact_folder": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602",
+  "branch": "prd/ai-maestro-readonly-dashboard-integration-934",
+  "browser_qa_devtools_recommended": false,
+  "changed_files": [
+    ".pi/",
+    "README.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/",
+    "dev-plans/agentops/coder-verifier-workflow/templates/",
+    "dev-plans/prd-backlog.md",
+    "docs/ai-maestro-readonly-integration.md",
+    "docs/ai-maestro-runbook.md",
+    "docs/operations.md",
+    "docs/security.md",
+    "scripts/agentops/",
+    "src/agentops_harness/ai_maestro_bridge.py",
+    "src/agentops_harness/ai_maestro_coordination.py",
+    "src/agentops_harness/ai_maestro_enforcement.py",
+    "src/agentops_harness/ai_maestro_plan.py",
+    "src/agentops_harness/ai_maestro_runtime.py",
+    "src/agentops_harness/cli.py",
+    "tests/unit/test_cli.py"
+  ],
+  "devtools_mcp_prerequisites": {
+    "chrome": true,
+    "node": true,
+    "npm": true,
+    "npx": true
+  },
+  "files": {
+    "coder-handoff.md": {
+      "bytes": 10550,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/coder-handoff.md"
+    },
+    "coder-ready.md": {
+      "bytes": 2341,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/coder-ready.md"
+    },
+    "decision-log.md": {
+      "bytes": 1957,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/decision-log.md"
+    },
+    "verifier-report.md": {
+      "bytes": 10154,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/verifier-report.md"
+    },
+    "verifier-request.md": {
+      "bytes": 3367,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/verifier-request.md"
+    }
+  },
+  "handoff_missing_fields": [],
+  "hotspot_files": [],
+  "ready_missing_fields": [],
+  "repo_root": "/mnt/hyperliquid-data/projects/worktrees/agentops-harness",
+  "report_machine_status_missing": [],
+  "review_profiles": {},
+  "status_short": [
+    "## prd/ai-maestro-readonly-dashboard-integration-934",
+    " M README.md",
+    " M docs/operations.md",
+    " M docs/security.md",
+    " M src/agentops_harness/cli.py",
+    " M tests/unit/test_cli.py",
+    "?? .pi/",
+    "?? dev-plans/agentops/coder-verifier-workflow/runs/session-1780870565602/",
+    "?? dev-plans/agentops/coder-verifier-workflow/templates/",
+    "?? dev-plans/prd-backlog.md",
+    "?? docs/ai-maestro-readonly-integration.md",
+    "?? docs/ai-maestro-runbook.md",
+    "?? scripts/agentops/",
+    "?? src/agentops_harness/ai_maestro_bridge.py",
+    "?? src/agentops_harness/ai_maestro_coordination.py",
+    "?? src/agentops_harness/ai_maestro_enforcement.py",
+    "?? src/agentops_harness/ai_maestro_plan.py",
+    "?? src/agentops_harness/ai_maestro_runtime.py"
+  ]
+}

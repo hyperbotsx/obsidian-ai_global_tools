@@ -1,0 +1,46 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-148",
+  "purpose": "Final bug-check for completed PRD 148 implementation after all checkpoint approvals and steward cleanup",
+  "expected_response": "Compact verdict JSON matching the provided schema; write full findings to verifier-report.md if not approved.",
+  "stop_condition": "Approve final bug-check or request bounded bug-check fixes with finding IDs.",
+  "canonical_issue": "https://github.com/hyperbotsx/agentops-harness/issues/148",
+  "checkpoint": "final bug-check",
+  "revision": 1,
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-148-launch-metadata-hygiene/coder-handoff.md",
+  "checkpoint_approvals": [
+    "checkpoint 1 audit approved after fixes",
+    "checkpoints 2-4 repair/bulk/safety approved after fixes",
+    "checkpoints 5-10 approved at revision 11"
+  ],
+  "steward_status": "Pre-final steward review returned cleanup_recommended only; ignored local artifacts were removed after validation.",
+  "changed_files": [
+    "docs/worktree-branch-ownership.md",
+    "pipeline-diagram/board.html",
+    "pipeline-diagram/generate.py",
+    "src/agentops_harness/cli.py",
+    "src/agentops_harness/github_project.py",
+    "src/agentops_harness/prd_launch_metadata_audit.py",
+    "src/agentops_harness/prd_launch_metadata_repair.py",
+    "src/agentops_harness/prd_launch_metadata_repair_safety.py",
+    "src/agentops_harness/prd_studio_approval.py",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/launchMetadataFix.ts",
+    "term-control-center/tests/launchMetadataFix.test.ts",
+    "tests/unit/test_pipeline_board_generation.py",
+    "tests/unit/test_prd_launch_metadata_audit.py",
+    "tests/unit/test_prd_launch_metadata_repair.py",
+    "tests/unit/test_prd_studio_approval.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-148-launch-metadata-hygiene/"
+  ],
+  "validation_results": [
+    "Final targeted Python validation with env sanitized: passed (93 tests)",
+    "npm --prefix term-control-center run typecheck: passed before cleanup",
+    "term-control-center launchMetadataFix node test: passed before cleanup (7 tests)",
+    "npm --prefix term-control-center run build: passed before cleanup with existing Vite warnings",
+    "git diff --check: passed",
+    "Full Python unit sweep: 932/936 passed under ambient harness env; sanitized rerun 934/936 with two existing github_cli_env expectation failures outside issue 148 scope"
+  ]
+}

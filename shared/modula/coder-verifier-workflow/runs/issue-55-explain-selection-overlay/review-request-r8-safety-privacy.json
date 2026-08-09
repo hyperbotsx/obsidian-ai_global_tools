@@ -1,0 +1,30 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Verifier checkpoint review for issue #55 safety, rate-limit, and privacy tests",
+  "expected_response": "Compact verdict JSON per coms-transport.md; write full findings to verifier-report.md only if not approved",
+  "stop_condition": "Approve checkpoint 5 or request bounded safety/privacy corrections",
+  "checkpoint": "5 - Safety/rate-limit/privacy tests",
+  "revision": 8,
+  "requested_action": "review",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/55"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-55-explain-selection-overlay/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/tests/diffExplain.test.ts",
+    "term-control-center/server/diffExplain.ts",
+    "term-control-center/server/explainSafety.ts",
+    "term-control-center/server/explainSelectionBinding.ts",
+    "term-control-center/server/explainProvider.ts",
+    "term-control-center/src/DiffExplainOverlay.tsx",
+    "term-control-center/tests/termBasePath.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-55-explain-selection-overlay/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-55-explain-selection-overlay/review-request-r8-safety-privacy.json"
+  ],
+  "validation_results": [
+    { "command": "npm --prefix term-control-center run typecheck", "result": "passed" },
+    { "command": "npm --prefix term-control-center test", "result": "passed (263/263)" }
+  ],
+  "finding_ids_addressed": ["V55-CP1-001", "V55-CP1-002", "V55-CP2-001", "V55-CP2-002", "V55-CP2-003", "V55-CP3-001"]
+}

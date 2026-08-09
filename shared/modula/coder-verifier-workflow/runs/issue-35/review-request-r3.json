@@ -1,0 +1,36 @@
+{
+  "type": "review_request",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "checkpoint": "2 - Persistent top navigation checkpoint",
+  "revision": 3,
+  "requested_action": "revision_review",
+  "prd": "https://github.com/hyperbotsx/agentops-harness/issues/35",
+  "issue": "https://github.com/hyperbotsx/agentops-harness/issues/35",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-35/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/agentops-theme.css",
+    "pipeline-diagram/board.html",
+    "pipeline-diagram/global-nav.js",
+    "pipeline-diagram/pipeline.html",
+    "pipeline-diagram/review-notify.js",
+    "pipeline-diagram/wip.html",
+    "term-control-center/src/App.tsx",
+    "term-control-center/src/styles.css",
+    "term-control-center/tests/boardGuardrails.test.ts",
+    "term-control-center/tests/reviewNotify.test.ts",
+    "term-control-center/tests/termBasePath.test.ts",
+    "docs/agentops-visual-system.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-35/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-35/review-request-r1.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-35/review-request-r2.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-35/review-request-r3.json"
+  ],
+  "validation_results": [
+    {"command": "npm --prefix term-control-center run typecheck", "result": "pass"},
+    {"command": "npm --prefix term-control-center run test", "result": "pass_102_of_102"},
+    {"command": "npm --prefix term-control-center run build", "result": "pass_with_existing_vite_warnings"},
+    {"command": "git diff --check", "result": "pass"},
+    {"command": "git status --short", "result": "pass_with_caveat_pre_existing_untracked_files"}
+  ],
+  "finding_ids_addressed": ["CF-35-CP2-001"]
+}

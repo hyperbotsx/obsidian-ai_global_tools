@@ -1,0 +1,81 @@
+{
+  "artifact_folder": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781177036637",
+  "branch": "prd/slack-prd-draft-proposal-flow-990",
+  "browser_qa_devtools_recommended": false,
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/session-1781177036637/",
+    "docs/slack-operator-gateway.md",
+    "src/agentops_harness/action_assistant.py",
+    "src/agentops_harness/slack_command_center_buttons.py",
+    "src/agentops_harness/slack_command_center_handlers.py",
+    "src/agentops_harness/slack_gateway_policy.py",
+    "src/agentops_harness/slack_prd_drafts.py",
+    "src/agentops_harness/slack_prd_github_creation.py",
+    "src/agentops_harness/slack_prd_preview.py",
+    "src/agentops_harness/slack_prd_proposals.py",
+    "src/agentops_harness/slack_prd_revisions.py",
+    "tests/unit/test_slack_command_center_buttons.py",
+    "tests/unit/test_slack_gateway_policy.py",
+    "tests/unit/test_slack_prd_github_creation.py"
+  ],
+  "devtools_mcp_prerequisites": {
+    "chrome": true,
+    "node": true,
+    "npm": true,
+    "npx": true
+  },
+  "files": {
+    "coder-handoff.md": {
+      "bytes": 11576,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781177036637/coder-handoff.md"
+    },
+    "coder-ready.md": {
+      "bytes": 2604,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781177036637/coder-ready.md"
+    },
+    "decision-log.md": {
+      "bytes": 15827,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781177036637/decision-log.md"
+    },
+    "verifier-report.md": {
+      "bytes": 8691,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781177036637/verifier-report.md"
+    },
+    "verifier-request.md": {
+      "bytes": 3630,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781177036637/verifier-request.md"
+    }
+  },
+  "handoff_missing_fields": [],
+  "hotspot_files": [],
+  "ready_missing_fields": [],
+  "repo_root": "/mnt/hyperliquid-data/projects/worktrees/agentops-harness",
+  "report_machine_status_missing": [],
+  "review_profiles": {
+    "llm_assistant": [
+      "src/agentops_harness/action_assistant.py"
+    ]
+  },
+  "status_short": [
+    "## prd/slack-prd-draft-proposal-flow-990",
+    " M docs/slack-operator-gateway.md",
+    " M src/agentops_harness/action_assistant.py",
+    " M src/agentops_harness/slack_command_center_buttons.py",
+    " M src/agentops_harness/slack_command_center_handlers.py",
+    " M src/agentops_harness/slack_gateway_policy.py",
+    " M tests/unit/test_slack_command_center_buttons.py",
+    " M tests/unit/test_slack_gateway_policy.py",
+    "?? dev-plans/agentops/coder-verifier-workflow/runs/session-1781177036637/",
+    "?? src/agentops_harness/slack_prd_drafts.py",
+    "?? src/agentops_harness/slack_prd_github_creation.py",
+    "?? src/agentops_harness/slack_prd_preview.py",
+    "?? src/agentops_harness/slack_prd_proposals.py",
+    "?? src/agentops_harness/slack_prd_revisions.py",
+    "?? tests/unit/test_slack_prd_github_creation.py"
+  ]
+}

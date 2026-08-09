@@ -1,0 +1,44 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-118",
+  "purpose": "Re-review Issue #118 checkpoint 7 after latest origin/main sync",
+  "expected_response": "Compact verdict JSON per coms transport; write full findings to verifier-report.md only if not approved.",
+  "stop_condition": "Approve checkpoint 7 revision 4 or return bounded findings.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/118",
+  "checkpoint": "7 - Integration checkpoint",
+  "revision": 4,
+  "requested_action": "Verify F118-R10-001 is resolved: branch is current with origin/main after PRD #105 merge, validation passed, no closeout-file overlap.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-118-eisenhower-matrix/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/.gitignore",
+    "pipeline-diagram/README.md",
+    "pipeline-diagram/agentops-nav.js",
+    "pipeline-diagram/coworker-launcher.js",
+    "pipeline-diagram/generate.py",
+    "pipeline-diagram/matrix.html",
+    "src/agentops_harness/review_server.py",
+    "tests/unit/test_pipeline_board_generation.py",
+    "tests/unit/test_pipeline_generate.py",
+    "tests/unit/test_review_server_coworker.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-118-eisenhower-matrix/coder-handoff.md",
+    "/mnt/hyperliquid-data/projects/repos/agentops-harness/dev-plans/agentops/open-prd-sweep-ledger-2026-06-28.md"
+  ],
+  "validation_results": [
+    {"command": "git stash push -u; git fetch origin; git merge --ff-only origin/main; git stash pop", "result": "passed: fast-forwarded to bd758e6, stash reapplied without conflicts"},
+    {"command": "git rev-list --left-right --count HEAD...origin/main", "result": "0 0"},
+    {"command": "git diff --name-only | grep -Ei 'closeout|prd_closeout|validation_ledger_closeout' || true", "result": "no closeout-related changed files"},
+    {"command": "python3 -m unittest tests.unit.test_pipeline_generate", "result": "passed: 8 tests"},
+    {"command": "PYTHONPATH=src pytest -q tests/unit/test_pipeline_board_generation.py tests/unit/test_review_server_coworker.py", "result": "passed: 30 tests"},
+    {"command": "python3 pipeline-diagram/generate.py", "result": "passed: wrote generated data for 10 open PRDs; no --issue used"},
+    {"command": "local HTTP smoke on alternate port 9876", "result": "matrix.html, board.html, pipeline.html, wip.html all 200 text/html"},
+    {"command": "git diff --check", "result": "passed"}
+  ],
+  "finding_ids_addressed": ["F118-R10-001"],
+  "notes": [
+    "Human visual validation for F118-R9-001 already passed by operator report: 'it looks good'.",
+    "Shared open PRD sweep ledger was updated at the user-requested canonical repo path; it is outside this implementation worktree and currently untracked in that checkout.",
+    "Do not create PR until final verifier bug-check approval and explicit human instruction."
+  ]
+}

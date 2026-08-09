@@ -1,0 +1,22 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-193",
+  "purpose": "Review changed-file placement, schema/docs/fixture locations, run artifacts, and hygiene before final verifier bug-check for issue #193.",
+  "expected_response": "Compact JSON with decision clean|cleanup_requested|needs_human and findings; write any detailed notes to steward-report.md if needed.",
+  "stop_condition": "Return clean or bounded cleanup recommendations.",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-193-trajectory-eval/coder-handoff.md",
+  "prd_ref": "https://github.com/hyperbotsx/agentops-harness/issues/193",
+  "changed_files": [
+    "src/agentops_harness/cli.py",
+    "src/agentops_harness/trajectory_eval.py",
+    "src/agentops_harness/trajectory_eval_artifacts.py",
+    "schemas/trajectory-eval.v1.schema.json",
+    "docs/trajectory-evaluation-receipts.md",
+    "tests/fixtures/trajectory/",
+    "tests/unit/test_trajectory_eval.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-193-trajectory-eval/"
+  ],
+  "validation_summary": "70 unit tests passed for trajectory_eval and cli; CLI pass JSON exits 0; CLI blocked Markdown exits 1; py_compile passed; ruff passed on touched Python files."
+}

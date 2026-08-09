@@ -1,0 +1,25 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-187",
+  "purpose": "Review PRD #187 checkpoint 1: Issue Logger intent handling, active-session context capture, issue draft rendering, redaction, and preview behavior.",
+  "expected_response": "Compact verdict JSON matching the provided schema. Write full findings to verifier-report.md in the run folder; coder will read it only if revision is requested.",
+  "stop_condition": "Approve checkpoint 1 or return bounded findings.",
+  "checkpoint": "1 - Issue Logger intent handling, active-session context capture, issue draft rendering, redaction, and preview behavior",
+  "revision": 1,
+  "requested_action": "checkpoint_review",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/187"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-187-discovery-backlog-prd-composition/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/review_server.py",
+    "tests/unit/test_review_server_coworker.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-187-discovery-backlog-prd-composition/coder-handoff.md"
+  ],
+  "validation_results": [
+    {"command": "python -m pytest tests/unit/test_review_server_coworker.py -q", "status": "failed", "detail": "python not available"},
+    {"command": "PYTHONPATH=src python3 -m pytest tests/unit/test_review_server_coworker.py -q", "status": "passed", "detail": "61 passed"},
+    {"command": "PYTHONPATH=src python3 -m compileall -q src/agentops_harness/review_server.py", "status": "passed"}
+  ],
+  "finding_ids_addressed": []
+}

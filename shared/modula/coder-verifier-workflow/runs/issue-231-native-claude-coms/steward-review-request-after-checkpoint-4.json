@@ -1,0 +1,10 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-231",
+  "purpose": "Issue #231 required post-checkpoint-4 structure and hygiene review",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/coder-handoff.md",
+  "expected_response": "Concise decision clean, cleanup_recommended, or needs_human; findings with paths; and whether verifier recheck is required before final bug-check.",
+  "stop_condition": "Inspect only placement, artifacts, generated output, stale temporary/private data, and scope hygiene. Do not replace verifier or approve checkpoint 5."
+}

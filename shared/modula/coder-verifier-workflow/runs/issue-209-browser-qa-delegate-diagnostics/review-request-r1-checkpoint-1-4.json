@@ -1,0 +1,45 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-209",
+  "purpose": "Checkpoint review for Issue #209 Browser QA fail-closed diagnostics implementation",
+  "checkpoint": "1-4 preflight taxonomy, URL/auth/MCP validation, initial delegate lifecycle and human-control classification",
+  "revision": 1,
+  "requested_action": "Review changed code/tests/docs against PRD #209 acceptance criteria covered by this checkpoint. Approve or request bounded revisions; write full details to verifier-report.md.",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/209"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-209-browser-qa-delegate-diagnostics/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/browserQaLifecycle.ts",
+    "term-control-center/server/frontendBrowserLaunch.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/server/serverMonitors.ts",
+    "term-control-center/tests/browserQaLifecycle.test.ts",
+    "term-control-center/README.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-209-browser-qa-delegate-diagnostics/coder-handoff.md"
+  ],
+  "validation_results": [
+    {
+      "command": "NODE_PATH=/mnt/hyperliquid-data/projects/repos/agentops-harness/term-control-center/node_modules node --import /mnt/hyperliquid-data/projects/repos/agentops-harness/term-control-center/node_modules/tsx/dist/loader.mjs --test --test-concurrency=1 term-control-center/tests/browserQaLifecycle.test.ts term-control-center/tests/launchPlan.test.ts",
+      "status": "pass",
+      "summary": "33/33 tests passed"
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "summary": "No whitespace errors"
+    },
+    {
+      "command": "cd term-control-center && /mnt/hyperliquid-data/projects/repos/agentops-harness/term-control-center/node_modules/.bin/tsc -p tsconfig.server.json --noEmit --typeRoots /mnt/hyperliquid-data/projects/repos/agentops-harness/term-control-center/node_modules/@types",
+      "status": "blocked_preexisting",
+      "summary": "Blocked by pre-existing missing node-pty/react-dom server types and related existing implicit-any errors"
+    },
+    {
+      "command": "npm --prefix term-control-center test -- --test-name-pattern='Browser QA|browser qa|Browser-QA'",
+      "status": "blocked_preexisting",
+      "summary": "Local node_modules absent; tsx cannot be resolved in this worktree"
+    }
+  ],
+  "finding_ids_addressed": [],
+  "stop_condition": "Return compact JSON verdict; full report path should be verifier-report.md in the same run folder."
+}

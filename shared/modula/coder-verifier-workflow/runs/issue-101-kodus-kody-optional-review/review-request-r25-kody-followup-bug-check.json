@@ -1,0 +1,39 @@
+{
+  "type": "review_request",
+  "checkpoint": "1o-pr177-kody-followup-cli-log-fix-bug-check",
+  "revision": 1,
+  "requested_action": "Run default bounded bug-check on the approved checkpoint 1o CLI output sanitization fixes before commit/push/rerun.",
+  "source_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/101",
+    "https://github.com/hyperbotsx/agentops-harness/pull/177"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "evidence_paths": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r24-kody-followup-cli-log-fix-revision2.json"
+  ],
+  "changed_files": [
+    "src/agentops_harness/kodus_sprint0.py",
+    "tests/unit/test_kodus_sprint0.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/verifier-report.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r22-kody-followup-cli-log-fix.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r23-kody-followup-cli-log-fix-revision.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r24-kody-followup-cli-log-fix-revision2.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r25-kody-followup-bug-check.json"
+  ],
+  "validation_results": [
+    "Checkpoint 1o revision 3 implementation review approved with zero findings.",
+    "PYTHONPATH=src python3 -m unittest tests.unit.test_kodus_sprint0 tests.unit.test_kodus_max_gateway passed (17 tests).",
+    "PYTHONPATH=src python3 -m py_compile src/agentops_harness/kodus_sprint0.py src/agentops_harness/kodus_max_gateway.py passed.",
+    "cd term-control-center && npm run typecheck passed.",
+    "cd term-control-center && node --import tsx --test tests/completedKodusReview.test.ts tests/completedStatic.test.ts passed (10 tests).",
+    "git diff --check passed."
+  ],
+  "finding_ids_addressed": [
+    "KODY-005 kodus_sprint0 main print/leaks captured command output",
+    "CK1O-001 command failure exceptions leak captured stdout/stderr",
+    "CK1O-002 public command errors expose full command arguments"
+  ],
+  "notes": "Bug-check scope is limited to checkpoint 1o CLI output sanitization and associated handoff artifacts."
+}

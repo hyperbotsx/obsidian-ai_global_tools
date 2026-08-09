@@ -1,0 +1,23 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "checkpoint": "PRD #30 follow-up revision 14 - final bug-check after dynamic generator fix approval",
+  "revision": 14,
+  "requested_action": "bug_check",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/30"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-30-simple-admin-login-config-panel/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/generate.py",
+    "term-control-center/tests/admin.test.ts"
+  ],
+  "validation_results": [
+    { "command": "cd term-control-center && npm test", "status": "passed", "details": "141 tests passed" },
+    { "command": "cd pipeline-diagram && AGENTOPS_ADMIN_SETTINGS_FILE=/home/hyperbots/.local/state/agentops/term-control-center/admin-settings.json python3 generate.py", "status": "passed", "details": "Wrote pipeline.mmd, pipeline-data.js, board-data.js, wip-data.js (8 open PRDs, 0 in progress)." },
+    { "command": "git diff --check", "status": "passed" }
+  ],
+  "finding_ids_addressed": ["V30-R12-001"],
+  "notes": "Implementation approval received for revision 13. Requesting final bug-check confirmation for dynamic generator crash fix."
+}

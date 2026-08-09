@@ -1,0 +1,36 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-101",
+  "purpose": "Re-review PRD #101 checkpoint 1d after KISS-002 and CK1D-003 fixes",
+  "expected_response": "Compact verifier verdict JSON matching the response schema; write detailed findings to verifier-report.md if not approved.",
+  "stop_condition": "Confirm requested fixes are complete or request one bounded revision.",
+  "checkpoint": "1d - Live Kodus startup with local Claude gateway",
+  "revision": 3,
+  "requested_action": "Verify gateway_compose_override KISS issue and unused import are fixed, runbook smoke uses DOCKER_HOST_GATEWAY consistently, and live private gateway behavior remains intact.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/101",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "review_request_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r7-runbook-kiss-fixes.json",
+  "changed_files": [
+    "docs/kodus-kody-docker-sandbox-runbook.md",
+    "src/agentops_harness/kodus_sprint0.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-runbook-gateway-smoke.txt",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r7-runbook-kiss-fixes.json"
+  ],
+  "validation_results": [
+    {"command": "PYTHONPATH=src python3 -m unittest tests.unit.test_kodus_sprint0 tests.unit.test_kodus_max_gateway", "result": "passed, 12 tests"},
+    {"command": "PYTHONPATH=src python3 -m py_compile src/agentops_harness/kodus_sprint0.py src/agentops_harness/kodus_max_gateway.py", "result": "passed"},
+    {"command": "AST KISS check for kodus_sprint0.py and kodus_max_gateway.py", "result": "passed; no functions over 20 lines or 4 parameters"},
+    {"command": "runbook gateway smoke with DOCKER_HOST_GATEWAY=172.17.0.1", "result": "passed; /v1/chat/completions returned 200 and included runbook-gateway-ok"},
+    {"command": "git diff --check", "result": "passed"}
+  ],
+  "finding_ids_addressed": ["KISS-002", "CK1D-003"],
+  "preflight": {
+    "identity": "coder@agentops-prd-101",
+    "pi_coms_dir": "/tmp/agentops/coms/agentops-prd-101",
+    "verifier_live": true
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Verifier re-review for issue #55 checkpoint 1 design findings",
+  "expected_response": "Compact verdict JSON per coms-transport.md; write full findings to verifier-report.md only if not approved",
+  "stop_condition": "Approve checkpoint 1 revision 2 or request bounded design corrections",
+  "checkpoint": "1 - Research + provider/safety design",
+  "revision": 2,
+  "requested_action": "review",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/55"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-55-explain-selection-overlay/coder-handoff.md",
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-55-explain-selection-overlay/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-55-explain-selection-overlay/review-request-r1-research-design.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-55-explain-selection-overlay/review-request-r2-research-design-fix.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-55-explain-selection-overlay/verifier-report.md"
+  ],
+  "validation_results": [
+    { "command": "claude --help | sed -n '112,126p'", "result": "Confirmed --no-session-persistence is the installed non-persistence flag." },
+    { "command": "not run", "result": "No product code changed for checkpoint 1." }
+  ],
+  "finding_ids_addressed": ["V55-CP1-001", "V55-CP1-002"]
+}

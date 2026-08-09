@@ -1,0 +1,36 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-210",
+  "purpose": "Checkpoint review for Issue #210 project-scoped durable dependency state model",
+  "checkpoint": "1 - State model checkpoint",
+  "revision": 1,
+  "requested_action": "Review the dependency store and focused tests against PRD #210 state-model acceptance: project scope, durable persistence, self/cycle rejection, manual clear, malformed-state tolerance, and auto-release only on verified completion. Approve or request a bounded revision; write full details to verifier-report.md.",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/210"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-210-active-jobs-dependency-nesting/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/jobDependencyStore.ts",
+    "term-control-center/tests/jobDependencyStore.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-210-active-jobs-dependency-nesting/coder-handoff.md"
+  ],
+  "validation_results": [
+    {
+      "command": "NODE_PATH=/mnt/hyperliquid-data/projects/repos/agentops-harness/term-control-center/node_modules node --import /mnt/hyperliquid-data/projects/repos/agentops-harness/term-control-center/node_modules/tsx/dist/loader.mjs --test --test-concurrency=1 term-control-center/tests/jobDependencyStore.test.ts",
+      "status": "pass",
+      "summary": "5/5 tests passed"
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "summary": "No whitespace errors"
+    },
+    {
+      "command": "/mnt/hyperliquid-data/projects/repos/agentops-harness/term-control-center/node_modules/.bin/tsc -p term-control-center/tsconfig.server.json --noEmit --typeRoots /mnt/hyperliquid-data/projects/repos/agentops-harness/term-control-center/node_modules/@types",
+      "status": "blocked_preexisting",
+      "summary": "Existing missing node-pty/react-dom server types and existing implicit-any errors outside this checkpoint"
+    }
+  ],
+  "finding_ids_addressed": [],
+  "stop_condition": "Return the compact verdict JSON; full details belong in verifier-report.md in this run folder."
+}

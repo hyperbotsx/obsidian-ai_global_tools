@@ -1,0 +1,50 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-101",
+  "purpose": "Re-review PRD #101 checkpoint 1d after CK1D-001 and CK1D-002 fixes",
+  "expected_response": "Compact verifier verdict JSON matching the response schema; write detailed findings to verifier-report.md if not approved.",
+  "stop_condition": "Confirm requested fixes are complete or request one bounded revision.",
+  "checkpoint": "1d - Live Kodus startup with local Claude gateway",
+  "revision": 2,
+  "requested_action": "Verify live sandbox exposure is now private/loopback bounded, stale/unlisted artifacts were removed or listed, RabbitMQ queue-bind readiness risk is recorded, and the live container-to-gateway smoke still passes.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/101",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "review_request_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r6-private-live-fixes.json",
+  "changed_files": [
+    "docs/kodus-kody-sprint0-feasibility.md",
+    "docs/kodus-kody-docker-sandbox-runbook.md",
+    "src/agentops_harness/kodus_sprint0.py",
+    "tests/unit/test_kodus_sprint0.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-local-adapter-test.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-sandbox-start-report.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-docker-ps-private.txt",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-listeners-private-relevant.txt",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-http-smoke-private.txt",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-container-gateway-smoke-private.txt",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-logs-private-recent.txt",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-env-safety-check.txt",
+    "dev-plans/agentops/open-prd-sweep-ledger-2026-06-28.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r6-private-live-fixes.json"
+  ],
+  "validation_results": [
+    {"command": "docker ps filtered for Kodus services after private restart", "result": "passed; web/API/webhooks/MCP publish on 127.0.0.1; RabbitMQ/Postgres/Mongo publish no Kodus host ports"},
+    {"command": "ss listener check for relevant ports", "result": "passed; gateway listens on 172.17.0.1:18082; web/API/webhooks/MCP listen on 127.0.0.1 only"},
+    {"command": "HTTP smoke for http://127.0.0.1:13000, :3001, :13332", "result": "passed; web returned 200 HTML; API/webhook roots returned expected 404"},
+    {"command": "docker exec kodus_api Node fetch to http://host.docker.internal:18082/v1/models and /v1/chat/completions", "result": "passed; models 200 and completion returned private-gateway-ok"},
+    {"command": "recent sanitized Kodus logs grep", "result": "passed; no recent QueueBind errors after private rerun; expected root 404 logs from smoke requests remain"},
+    {"command": "PYTHONPATH=src python3 -m unittest tests.unit.test_kodus_sprint0 tests.unit.test_kodus_max_gateway", "result": "passed, 12 tests"},
+    {"command": "PYTHONPATH=src python3 -m py_compile src/agentops_harness/kodus_sprint0.py src/agentops_harness/kodus_max_gateway.py", "result": "passed"},
+    {"command": "git diff --check", "result": "passed"},
+    {"command": "secret-pattern grep over changed docs/code/artifacts", "result": "passed; no secret values detected"}
+  ],
+  "finding_ids_addressed": ["CK1D-001", "CK1D-002"],
+  "preflight": {
+    "identity": "coder@agentops-prd-101",
+    "pi_coms_dir": "/tmp/agentops/coms/agentops-prd-101",
+    "verifier_live": true
+  }
+}

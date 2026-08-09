@@ -1,0 +1,33 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-160",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/160",
+  "checkpoint": "3 - Readiness panel checkpoint",
+  "revision": 8,
+  "requested_action": "Re-review bounded cleanup for F160-C3-002: split oversized projectMemory.test coverage into focused Admin UX test file.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-160-memory-admin-ux/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/adminCss.ts",
+    "term-control-center/server/adminHtml.ts",
+    "term-control-center/server/adminMemoryClient.ts",
+    "term-control-center/server/adminProjectMemory.ts",
+    "term-control-center/server/adminProjects.ts",
+    "term-control-center/server/adminRoutes.ts",
+    "term-control-center/tests/admin.test.ts",
+    "term-control-center/tests/projectMemory.test.ts",
+    "term-control-center/tests/projectMemoryAdminUx.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-160-memory-admin-ux/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-160-memory-admin-ux/review-request-r8-f160-c3-002.json"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck — passed",
+    "cd term-control-center && env -u TERM_CONTROL_ADMIN_AUTH_MODE -u TERM_CONTROL_ADMIN_TRUSTED_PROXY_ADDRESSES node --import tsx --test --test-concurrency=1 --test-name-pattern='admin static assets|admin memory API|operator remember|capture writes' tests/admin.test.ts tests/projectMemory.test.ts tests/projectMemoryAdminUx.test.ts — passed 4/4",
+    "wc -l term-control-center/tests/projectMemory.test.ts term-control-center/tests/projectMemoryAdminUx.test.ts — 229 and 124 lines"
+  ],
+  "finding_ids_addressed": ["F160-C3-002"],
+  "constraints": [
+    "No live enablement/deploy/PR/merge/Project mutation",
+    "Only bounded checkpoint 3 cleanup applied"
+  ]
+}

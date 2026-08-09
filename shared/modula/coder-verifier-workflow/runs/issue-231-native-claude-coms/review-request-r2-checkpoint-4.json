@@ -1,0 +1,67 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-231",
+  "purpose": "Issue #231 checkpoint 4 revision 2 native inbound await-loop and transparency review",
+  "checkpoint": "4 - Inbound mechanism + transparency",
+  "revision": 2,
+  "requested_action": "Review only the bounded resolution of V231-C4-001 through V231-C4-003. Confirm the prompt explicitly re-awaits after a completed response and maps inbound request.msgId to coms_respond.msg_id, and assess the sanitized human-visible receipt recorded in the handoff for the direct native-pane flow: registration, bounded timeout/re-wait, first response, second post-response re-wait/response, visible tool activity, and cleanup. Confirm no checkpoint-5 implementation has begun.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/231",
+    "docs/coms-wire-contract.md"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/delegationPrompts.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/tests/nativeClaudeLaunchPlan.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/review-request-r2-checkpoint-4.json"
+  ],
+  "validation_results": [
+    {
+      "command": "cd term-control-center && node --import tsx --test tests/nativeClaudeLaunchPlan.test.ts tests/launchPlan.test.ts tests/frontendBrowserLaunch.test.ts",
+      "status": "passed",
+      "notes": "33 focused tests."
+    },
+    {
+      "command": "npm --prefix term-control-center run typecheck",
+      "status": "passed"
+    },
+    {
+      "command": "npm --prefix term-control-center run build:server",
+      "status": "passed"
+    },
+    {
+      "command": "npm --prefix term-control-center run test",
+      "status": "blocked",
+      "notes": "597 passed; 20 failures: 18 node-pty native-binary file-load blockers and 2 unrelated baseline assertions."
+    },
+    {
+      "command": "git diff --check",
+      "status": "passed"
+    }
+  ],
+  "finding_ids_addressed": [
+    "V231-C4-001",
+    "V231-C4-002",
+    "V231-C4-003"
+  ],
+  "stop_condition": "Approve checkpoint 4 or return only bounded checkpoint-4 findings. Do not start checkpoint 5; its implementation requires separate explicit operator authorization after checkpoint-4 approval.",
+  "response_schema": {
+    "type": "object",
+    "required": ["decision", "checkpoint_reviewed", "revision_reviewed", "open_findings", "finding_ids", "bug_check_status", "next_actor", "report_path"],
+    "properties": {
+      "decision": {"type": "string", "enum": ["approved", "revision_requested", "needs_human"]},
+      "checkpoint_reviewed": {"type": "string"},
+      "revision_reviewed": {"type": "integer"},
+      "open_findings": {"type": "integer", "minimum": 0},
+      "finding_ids": {"type": "array", "items": {"type": "string"}},
+      "bug_check_status": {"type": "string"},
+      "next_actor": {"type": "string"},
+      "report_path": {"type": "string"}
+    },
+    "additionalProperties": false
+  }
+}

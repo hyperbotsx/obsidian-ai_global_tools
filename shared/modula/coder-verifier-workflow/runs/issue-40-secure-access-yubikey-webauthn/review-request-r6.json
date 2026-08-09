@@ -1,0 +1,39 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "issue": {
+    "number": 40,
+    "url": "https://github.com/hyperbotsx/agentops-harness/issues/40",
+    "title": "PRD: AgentOps Secure Access Layer with YubiKey WebAuthn"
+  },
+  "checkpoint": "4 - Deployment/runbook/rollback validation",
+  "revision": 1,
+  "requested_action": "Review deployment/runbook/rollback validation before final security validation checkpoint.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-yubikey-webauthn/coder-handoff.md",
+  "changed_files": [
+    "docs/runbooks/secure-access-deployment.md",
+    "config/templates/secure-access/validate-secure-access-templates.py",
+    "docs/secure-access-yubikey-webauthn.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-yubikey-webauthn/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-yubikey-webauthn/review-request-r6.json"
+  ],
+  "validation_results": [
+    "python3 config/templates/secure-access/validate-secure-access-templates.py passed",
+    "git diff --check passed",
+    "Docs/template validation only; no live host mutation and no product code introduced"
+  ],
+  "finding_ids_addressed": [],
+  "scope_controls": {
+    "allowed": "repo/config/templates/runbooks only",
+    "forbidden": "no live host mutations, sudo, nginx reloads, DNS/firewall/cert changes, Docker/systemd changes, identity-provider bootstrap, secrets, .env files, or PR creation"
+  },
+  "preflight": {
+    "identity": "coder@agentops-term",
+    "verifier_live_in_pool": true,
+    "checkpoint_1_approved": true,
+    "checkpoint_2_approved": true,
+    "checkpoint_3_approved": true,
+    "researcher_consult_recorded": true
+  }
+}

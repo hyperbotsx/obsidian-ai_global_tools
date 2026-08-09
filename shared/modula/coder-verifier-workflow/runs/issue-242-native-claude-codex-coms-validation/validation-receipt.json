@@ -1,0 +1,169 @@
+{
+  "prd": "https://github.com/hyperbotsx/agentops-harness/issues/242",
+  "session_kind": "runtime-validation",
+  "worktree": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-242",
+  "branch": "prd/native-claude-codex-coms-validation-242",
+  "base_commit": "2e80015; rebased 2026-07-19 onto origin/main fb58ade (#252 merge)",
+  "result_classification": "passed_candidate_pending_verifier_final_approval",
+  "result_authority": "verifier transport-checkpoint passed under the amended canonical contract (2026-07-19); AC-6 final classification remains the verifier's to render",
+  "canonical_amendment": {
+    "applied": "2026-07-19",
+    "authorized_by": "operator (explicit authorization to apply via gh)",
+    "scope": "FR-4, FR-7, AC-3 accept the verifier runtime's supported same-pool inbound and reply paths (harness-native where the coms-MCP inbound coms_await/coms_respond surface is not exposed); invariants unchanged (same-pool isolation, exactly one msg_id-correlated response, no coms_send to answer, sanitized evidence)",
+    "record": "issue #242 section 'CEO review amendment (transport contract)'",
+    "effect": "resolves PRD242-F1; pre-amendment needs_human classifications in this receipt are historical"
+  },
+  "sanitization_note": "Only sanitized outcomes, message ids, tool statuses, peer identities, timestamps, validation commands, and failure classifications are recorded. No prompts, response bodies, tokens, secrets, or transcripts are stored (PRD FR-8).",
+  "pool": {
+    "project": "agentops-prd-242",
+    "isolation": "per-worktree coms pool; all peers share the same worktree cwd",
+    "same_pool_confirmed": true,
+    "off_pool_peers_seen": 0,
+    "peers": [
+      { "name": "coder", "runtime": "native-claude", "role": "initiator (this pane)" },
+      { "name": "verifier", "model": "gpt-5.6-sol", "runtime": "codex", "role": "responder" },
+      { "name": "researcher", "model": "gpt-5.6-terra", "role": "optional/unused" },
+      { "name": "steward", "model": "gpt-5.6-luna", "role": "optional/unused" }
+    ]
+  },
+  "transport_steps": [
+    {
+      "step": "coms_list",
+      "at": "2026-07-17T23:49:07Z",
+      "status": "ok",
+      "outcome": "same-pool peers researcher, steward, verifier confirmed alive; no off-pool agents",
+      "fr": ["FR-2"],
+      "ac": ["AC-2"]
+    },
+    {
+      "step": "coms_send",
+      "at": "2026-07-17T23:49:07Z",
+      "target": "verifier",
+      "conversation_id": "prd242-transport-check-1",
+      "msg_id": "86d49087-c811-4916-b662-97b9bd5d04ea",
+      "response_schema_supplied": true,
+      "status": "ok",
+      "outcome": "single bounded review request delivered and acknowledged (one outbound in flight)",
+      "fr": ["FR-3"],
+      "ac": ["AC-3 (request side)"]
+    },
+    {
+      "step": "coms_await (deliberate short timeout)",
+      "timeout_ms": 250,
+      "expected": "timeout",
+      "observed": "complete",
+      "status": "not_demonstrated",
+      "outcome": "verifier reply was already delivered during coder turn latency between coms_send and this await, so awaitReply returned the cached correlated result immediately; the intended timeout-first observation could not be produced",
+      "fr": ["FR-6"],
+      "ac": ["AC-4 (short-timeout half not demonstrated)"]
+    },
+    {
+      "step": "coms_await / coms_get (correlation retrieval)",
+      "at": "2026-07-17T23:53:10Z",
+      "status": "complete",
+      "correlation": "matched msg_id 86d49087-... and conversation_id prd242-transport-check-1",
+      "outcome": "validated same-pool response envelope retrieved; wire-level request/response correlation succeeded",
+      "fr": ["FR-5"],
+      "ac": ["AC-3 (correlation)"]
+    }
+  ],
+  "verifier_response_outcome": {
+    "delivery": "one validated same-pool response envelope reached the coder endpoint for the single request",
+    "coms_send_used_to_answer": false,
+    "sanitized_status_fields": {
+      "received": true,
+      "in_scope": true,
+      "same_pool_confirmed": true,
+      "received_via_coms_await": false,
+      "status": "needs_human",
+      "failure_classification": "missing_coms_respond_tool"
+    },
+    "paraphrased_reason": "Verifier reports its tool surface does not expose a discretely-named coms_respond (and did not receive via coms_await); it answered through its harness's native inbound response path rather than the PRD-named coms tools."
+  },
+  "re_validation_fr6": {
+    "at": "2026-07-18T17:36:10Z",
+    "purpose": "Demonstrate the FR-6/AC-4 timeout-retention half that run 1 could not produce (PRD242-F2). Responder deliberately delayed per the CEO-reviewed delayed-reply path.",
+    "steps": [
+      {
+        "step": "coms_send",
+        "target": "verifier",
+        "conversation_id": "prd242-transport-check-2",
+        "msg_id": "3a25afbb-2b6f-4d34-9b88-09f9a8ab2106",
+        "response_schema_supplied": true,
+        "status": "ok",
+        "outcome": "one bounded synthetic request; verifier instructed to deliberately delay ~25s before its single response"
+      },
+      {
+        "step": "coms_await (deliberate short timeout)",
+        "timeout_ms": 250,
+        "expected": "timeout",
+        "observed": "timeout",
+        "status": "demonstrated",
+        "fr": ["FR-6"],
+        "ac": ["AC-4 (short-timeout half)"]
+      },
+      {
+        "step": "coms_await (retrieval, second/third await)",
+        "timeout_ms": 30000,
+        "observed": "first 30s await timed out during the verifier's model turn plus 25s deliberate delay; next await returned complete",
+        "status": "complete",
+        "correlation": "matched msg_id 3a25afbb-2b6f-4d34-9b88-09f9a8ab2106; conversation_id sent as prd242-transport-check-2 (verifier's response body echoed its own label prd242-timeout-retention-check-2; envelope correlation is by msg_id and matched)",
+        "fr": ["FR-6", "FR-5"],
+        "ac": ["AC-4 (later structured completion, same correlation id)"]
+      }
+    ],
+    "verifier_sanitized_fields": {
+      "received": true,
+      "in_scope": true,
+      "same_pool_confirmed": true,
+      "delayed_seconds": 25,
+      "responded_once": true,
+      "response_path": "normal_inbound_reply",
+      "coms_await_exposed": true,
+      "coms_respond_exposed": false,
+      "transport_response_status": "complete",
+      "prd_classification": "needs_human",
+      "failure_classification": "missing_coms_respond_tool"
+    },
+    "outcome": "FR-6/AC-4 fully demonstrated (PRD242-F2 resolved). Historical tool-surface observation (superseded interpretation corrected per PRD242-F3, then mooted by the 2026-07-19 amendment): the verifier's coms_await_exposed=true was tool-name exposure of the outbound-correlation form only; it had no inbound-await surface and no coms_respond tool. Under the amended contract these are acceptable runtime paths, not gaps."
+  },
+  "findings": [
+    {
+      "id": "PRD242-F1",
+      "severity": "resolved",
+      "resolution": "Resolved by the canonical transport amendment applied 2026-07-19 (operator-authorized; see canonical_amendment above): the harness-native inbound/reply path is an accepted runtime path under amended FR-4/FR-7/AC-3. Tool-surface parity continues as the non-blocking Option A follow-up proposal. All fields below are the historical pre-amendment record.",
+      "summary": "Wire transport between native-Claude coder and Codex verifier works (request delivered, one validated same-pool response correlated by msg_id/conversation_id, no coms_send used to answer), BUT the Codex verifier reports it does not expose the PRD-named coms_await/coms_respond MCP tools and instead uses its harness's native inbound response path.",
+      "implicates": ["FR-2", "FR-4", "FR-7", "AC-2", "AC-3"],
+      "confirmed_root_cause": "Source-verified: term-control-center/server/launchPlan.ts:213-216 (nativeComsMcpServer) attaches the coms-mcp server (which registers coms_list/coms_send/coms_await/coms_get/coms_respond) ONLY when nativeClaude(profile) is true. Non-native (Codex/Pi) verifier panes receive no coms-mcp server, so the PRD-named coms_* MCP tools are absent by design; the Codex verifier participates via its harness-native coms path. This makes FR-2/FR-4/FR-7's literal 'both peers call coms_list / coms_await / coms_respond' expectation unsatisfiable on the Codex side even though wire-level interop works.",
+      "adjudication_needed": "Whether FR-2/FR-4/FR-7 require the literally named coms_* MCP tools on the Codex verifier (implying a follow-up PRD to widen the coms-mcp surface to non-native runtimes, or a PRD wording change), or are satisfied by the functionally equivalent single correlated same-pool response with no coms_send used.",
+      "update_2026_07_18": "Clarified per verifier checkpoint (PRD242-F3 correction): the verifier's coms_await_exposed=true proves tool-NAME exposure only. Its exposed coms_await requires an outbound msg_id (outbound-correlation await); it is NOT the adapter's optional-msg_id inbound-await surface, and both inbound requests arrived via the harness listener, not an inbound coms_await call. Therefore FR-4 failed on BOTH halves under the pre-amendment literal wording, even though functional interop (one correlated same-pool response, no coms_send) worked. Superseded 2026-07-19: the applied amendment accepts these runtime paths; see resolution above."
+    },
+    {
+      "id": "PRD242-F2",
+      "severity": "resolved",
+      "summary": "FR-6/AC-4 timeout-first behavior was not demonstrated in run 1 because the fast verifier replied during coder turn latency. RESOLVED 2026-07-18: re-validation with a deliberately delayed responder (25s) observed timeout on a 250ms coms_await, then retrieved the correlated completion for the same msg_id (see re_validation_fr6).",
+      "implicates": ["FR-6", "AC-4"],
+      "resolution": "demonstrated in re_validation_fr6; AC-4 met"
+    }
+  ],
+  "authority_boundary_evidence": {
+    "source_code_changed": false,
+    "config_changed": false,
+    "service_restarted": false,
+    "github_mutated": "one authorized lifecycle mutation only: the issue #242 body amendment (transport contract), applied 2026-07-19 by the coder under explicit operator authorization via gh api PATCH and recorded in canonical_amendment above. No other GitHub mutation (no PR, merge, label, project, comment, or close) at any point.",
+    "deploy_performed": false,
+    "browser_or_secrets_accessed": false,
+    "transcripts_retained": false,
+    "git_status": "committed scope on branch prd/native-claude-codex-coms-validation-242 (rebased 2026-07-19 onto origin/main fb58ade, the #252 merge): commit 1b0827f (initial evidence bundle: five run-folder files plus dev-plans/drafts/prd242-coms-tool-surface-followup-proposal.md as the operator-authorized bounded deviation per the PRD242-F4 disposition — related follow-up draft retained, unrelated autonomy draft relocated out of the worktree), commit b6e2948 (post-amendment evidence reconciliation of the same file set), plus the final reconciliation commit containing this receipt revision and the verifier's revision-4 report. No paths outside the run folder and that one draft are touched on this branch.",
+    "fr0_ac0_note": "native-claude runtime already supported in launchProfiles.ts (PR #241); exposing it via TERM_CONTROL_MODEL_PROFILES is a human-gated operator config action, not performed by the coder. Evidence it succeeded: this pane runs as native-claude coder with no nested-Claude delegate fallback, alongside the Codex verifier."
+  },
+  "validation_commands": [
+    "date -u (timestamps)",
+    "git status --short --branch (run 1: clean except this artifact folder; final state: committed scope per authority_boundary_evidence.git_status — run folder plus the one authorized draft)",
+    "coms_list, coms_send, coms_await(250ms), coms_await/coms_get (coms MCP tool statuses recorded above)",
+    "gh api PATCH issues/242 body amendment + gh api read-back verification (2026-07-19, operator-authorized)",
+    "node JSON.parse validation of this receipt after each revision"
+  ],
+  "stop_reason_historical": "Run 1 (2026-07-17), pre-amendment: PRD FR-9 stop on the then-missing literal MCP tool path; verifier self-classified needs_human; no code patched, no scope expansion. Superseded by the 2026-07-19 amendment (see canonical_amendment).",
+  "current_status": "All acceptance criteria AC-0 through AC-5 pass under the amended contract per verifier final-review revisions 3 and 4 (transport checkpoint: passed in both). Candidate overall result: passed, pending the verifier's AC-6 final classification after evidence reconciliation. Tool-surface parity proceeds as the separate Option A follow-up proposal (non-blocking)."
+}

@@ -1,0 +1,36 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-283",
+  "checkpoint": "CP-3 — FR-6 / FR-7 / FR-8 / FR-9 / FR-12",
+  "revision": 10,
+  "requested_action": "Review only V283-CP3-001 model/effort Settings binding and V283-CP3-008 KISS repairs; CP3-006 is operator-deferred.",
+  "prd_issue_refs": ["GitHub issue #283", "V283-CP3-001", "V283-CP3-008"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-283-page-bot-platform/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/page-bot-panel.js",
+    "pipeline-diagram/coworker-launcher.js",
+    "term-control-center/src/PageBotPanel.tsx",
+    "term-control-center/server/pageBotModelSettings.ts",
+    "term-control-center/server/pageBotRuntime.ts",
+    "term-control-center/server/pageBotLazyPool.ts",
+    "term-control-center/server/pageBotInjection.ts",
+    "src/agentops_harness/review_server.py",
+    "term-control-center/tests/pageBotPlatform.test.ts",
+    "term-control-center/tests/coworkerLauncher.test.ts",
+    "tests/unit/test_review_server_coworker.py"
+  ],
+  "validation_results": [
+    "focused Node 19/19 passed",
+    "focused Python 95/95 passed",
+    "typecheck passed",
+    "build passed with existing Vite warnings",
+    "design-token gate 11/11 passed",
+    "npm test: 1137 passed, five documented baselines only",
+    "pytest: 1326 passed plus 60 subtests, one documented baseline only",
+    "diff check and JS/Python syntax checks passed"
+  ],
+  "finding_ids_addressed": ["V283-CP3-001", "V283-CP3-008"],
+  "operator_deferred": ["V283-CP3-006"]
+}

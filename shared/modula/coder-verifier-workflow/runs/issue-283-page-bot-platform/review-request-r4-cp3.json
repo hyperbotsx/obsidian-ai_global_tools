@@ -1,0 +1,47 @@
+{
+  "checkpoint": "CP-3 \u2014 FR-6 / FR-7 / FR-8 / FR-9 / FR-12",
+  "revision": 4,
+  "requested_action": "Recheck bounded revision-4 fixes for V283-CP3-005 and V283-CP3-009; retain other round-3 findings if unresolved",
+  "prd_ref": "GitHub issue #283",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-283-page-bot-platform/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/page-bot-panel.js",
+    "pipeline-diagram/{board,completed,matrix,timeline}.html",
+    "pipeline-diagram/coworker-launcher.js",
+    "term-control-center/src/{PageBotPanel.tsx,pageBotPanelContract.js,pageBotPanelContract.d.ts,App.tsx}",
+    "term-control-center/server/{conversationStore.ts,pageBotInjection.ts,pageBotLazyPool.ts,pageBotRuntime.ts,index.ts}",
+    "term-control-center/vite.config.ts",
+    "term-control-center/tests/{conversationStore,pageBotInjection,pageBotLazyPool,pageBotPlatform}.test.ts",
+    "src/agentops_harness/{conversation_store.py,review_server.py}",
+    "tests/unit/test_conversation_store.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-283-page-bot-platform/{coder-handoff.md,review-request-r3-cp3.json}"
+  ],
+  "finding_ids_addressed": [
+    "V283-CP3-005",
+    "V283-CP3-009"
+  ],
+  "operator_pending": [
+    "V283-CP3-006"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 -m pytest -p no:cacheprovider tests/unit/test_conversation_store.py -q",
+      "status": "passed",
+      "detail": "4/4; suite conftest now isolates XDG_STATE_HOME before review_server import"
+    },
+    {
+      "command": "node --check pipeline-diagram/page-bot-panel.js && grep design-token guard",
+      "status": "passed",
+      "detail": "no --ao- references, hex fallbacks, or raw pixel font sizes in canonical shared panel"
+    },
+    {
+      "command": "cd term-control-center && npm run typecheck",
+      "status": "passed",
+      "detail": "ephemeral sibling dependency symlink removed"
+    },
+    {
+      "command": "git diff --check",
+      "status": "passed"
+    }
+  ]
+}

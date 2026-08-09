@@ -1,0 +1,47 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-192",
+  "purpose": "Final verifier bug-check revision 14 for issue #192 after bug fixes",
+  "checkpoint": "6 - Final bug-check",
+  "revision": 14,
+  "requested_action": "Review bounded fixes for F192-FINAL-001, F192-FINAL-002, and F192-FINAL-003, then rerun/complete final bug-check approval if satisfied.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/192"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/draftComs.ts",
+    "term-control-center/server/draftJobs.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/tests/agentopsComsLabel.test.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "term-control-center/tests/server.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/review-request-r14-final-bug-fixes.json"
+  ],
+  "validation_results": [
+    {
+      "command": "cd term-control-center && node --import tsx --test --test-name-pattern \"non-draft authoring|records created issue metadata|long draft-scoped|board CEO review handoff|hand off to CEO review|PRD review launch prompt|parallel PRD authoring drafts|parallel draft PRD Studio|logical draft job row|authoring launch failure|PRD Author launch prompt|pi-agent wrapper honors draft-scoped|PRD planning execute fails closed|seed-only drafts|unsafe pre-issue\" tests/server.test.ts tests/launchPlan.test.ts tests/agentopsComsLabel.test.ts tests/terminalJobSidebar.test.ts tests/launcher.test.ts && git diff --check",
+      "status": "passed",
+      "notes": "16 focused tests passed and diff check passed."
+    },
+    {
+      "command": "cd term-control-center && npx tsc -p tsconfig.app.json --noEmit && npx tsc -p tsconfig.server.json --noEmit --pretty false",
+      "status": "failed",
+      "notes": "App typecheck passed; server typecheck failed only on known unrelated tests/contextRenewal.test.ts outside-rootDir/.ts import issue."
+    }
+  ],
+  "steward_result": {
+    "decision": "clean",
+    "notes": "Prior final hygiene review was clean."
+  },
+  "finding_ids_addressed": [
+    "F192-FINAL-001",
+    "F192-FINAL-002",
+    "F192-FINAL-003"
+  ],
+  "stop_condition": "Verifier final bug-check approval or bounded revision findings."
+}

@@ -1,0 +1,26 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "checkpoint": "PRD #30 follow-up revision 10 - fix V30-R9-001 product-name test literal",
+  "revision": 10,
+  "requested_action": "review",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/30"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-30-simple-admin-login-config-panel/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/tests/admin.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-30-simple-admin-login-config-panel/coder-handoff.md"
+  ],
+  "validation_results": [
+    { "command": "rg \"SoldierOne|hyperbotsx/SoldierOne\" pipeline-diagram/generate.py term-control-center/tests/admin.test.ts || true", "status": "passed", "details": "no output" },
+    { "command": "cd term-control-center && npm run typecheck", "status": "passed" },
+    { "command": "cd term-control-center && npm test", "status": "passed", "details": "141 tests passed" },
+    { "command": "python3 -m py_compile pipeline-diagram/generate.py", "status": "passed" },
+    { "command": "python3 config/templates/secure-access/validate-secure-access-templates.py", "status": "passed" },
+    { "command": "git diff --check", "status": "passed" }
+  ],
+  "finding_ids_addressed": ["V30-R9-001"],
+  "notes": "Removed the forbidden product-name assertion literal from admin.test.ts. Generator regression coverage still verifies missing-settings AgentOps default and configured settings load path."
+}

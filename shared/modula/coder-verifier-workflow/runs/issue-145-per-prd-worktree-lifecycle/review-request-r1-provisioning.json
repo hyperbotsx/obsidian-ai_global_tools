@@ -1,0 +1,50 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-145",
+  "purpose": "Review PRD #145 checkpoint 1 provisioning implementation",
+  "expected_response": "Compact verifier verdict JSON matching schema; write full details to verifier-report.md",
+  "stop_condition": "Approve checkpoint 1 or request one bounded revision with finding IDs",
+  "issue_ref": "https://github.com/hyperbotsx/agentops-harness/issues/145",
+  "checkpoint": "1 - Provisioning checkpoint",
+  "revision": 1,
+  "requested_action": "checkpoint_review",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-145-per-prd-worktree-lifecycle/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/prd_worktree_provision.py",
+    "src/agentops_harness/cli.py",
+    "tests/unit/test_prd_worktree_provision.py",
+    "README.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-145-per-prd-worktree-lifecycle/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-145-per-prd-worktree-lifecycle/review-request-r1-provisioning.json"
+  ],
+  "validation_results": [
+    {
+      "command": "python -m pytest tests/unit/test_prd_worktree_provision.py tests/unit/test_cli.py -q",
+      "status": "failed_environment",
+      "summary": "python executable not found"
+    },
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests/unit/test_prd_worktree_provision.py tests/unit/test_cli.py -q",
+      "status": "passed",
+      "summary": "59 tests passed"
+    },
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests/unit/test_prd_worktree_provision.py tests/unit/test_prd_preflight.py -q && git diff --check",
+      "status": "passed",
+      "summary": "23 tests passed and diff whitespace check passed"
+    },
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests/unit/test_prd_worktree_provision.py tests/unit/test_prd_preflight.py tests/unit/test_cli.py -q && git diff --check",
+      "status": "passed",
+      "summary": "74 tests passed and diff whitespace check passed"
+    },
+    {
+      "command": "PYTHONPATH=src python3 -m agentops_harness.cli prd-worktree prepare --help | head -40",
+      "status": "passed",
+      "summary": "CLI help renders"
+    }
+  ],
+  "finding_ids_addressed": []
+}

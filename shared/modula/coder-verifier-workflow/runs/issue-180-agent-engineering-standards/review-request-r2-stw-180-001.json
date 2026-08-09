@@ -1,0 +1,23 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-180",
+  "purpose": "Checkpoint 1 revision review after addressing STW-180-001 cleanup",
+  "expected_response": "Compact verifier verdict JSON matching schema; write full findings to verifier-report.md only if needed",
+  "stop_condition": "Approve implementation checkpoint or request bounded revisions with finding IDs",
+  "checkpoint": "1 - Agent Engineering Standards Pack v1 implementation",
+  "revision": 2,
+  "requested_action": "finding_recheck",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/180"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-180-agent-engineering-standards/coder-handoff.md",
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-180-agent-engineering-standards/coder-handoff.md",
+    "removed ignored validation caches: .pytest_cache/, src/agentops_harness/__pycache__/, tests/unit/__pycache__/"
+  ],
+  "validation_results": [
+    "git status --short --ignored=matching no longer lists ignored validation caches"
+  ],
+  "finding_ids_addressed": ["STW-180-001"],
+  "report_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-180-agent-engineering-standards/verifier-report.md"
+}

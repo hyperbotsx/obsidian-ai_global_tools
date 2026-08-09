@@ -1,0 +1,29 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-167",
+  "purpose": "Final structure/hygiene review before verifier final bug-check for issue #167.",
+  "expected_response": "Concise JSON or markdown: clean, or bounded cleanup recommendations with file paths.",
+  "stop_condition": "Return clean or actionable placement/hygiene findings only.",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-167-ai-coworker-slot-queues/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/board.html",
+    "pipeline-diagram/coworker-launcher.js",
+    "pipeline-diagram/generate.py",
+    "src/agentops_harness/lane_plan.py",
+    "src/agentops_harness/review_server.py",
+    "src/agentops_harness/slot_queues.py",
+    "term-control-center/tests/coworkerLauncher.test.ts",
+    "tests/unit/test_lane_plan.py",
+    "tests/unit/test_pipeline_board_generation.py",
+    "tests/unit/test_pipeline_generate.py",
+    "tests/unit/test_review_server_coworker.py",
+    "tests/unit/test_slot_queues.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-167-ai-coworker-slot-queues/*"
+  ],
+  "validation_summary": [
+    "All verifier checkpoints 1-7 approved.",
+    "Latest CP7 regression: PYTHONPATH=.:src:pipeline-diagram pytest tests/unit/test_prd_create.py tests/unit/test_prd_launch_metadata_audit.py tests/unit/test_prd_launch_metadata_repair.py tests/unit/test_review_server_coworker.py tests/unit/test_slot_queues.py tests/unit/test_lane_plan.py tests/unit/test_pipeline_generate.py tests/unit/test_pipeline_board_generation.py -q -> 126 passed."
+  ]
+}

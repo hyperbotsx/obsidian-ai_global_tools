@@ -1,0 +1,83 @@
+{
+  "artifact_folder": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780984810902",
+  "branch": "prd/agentops-harness-multi-project-profile-initialization-945",
+  "browser_qa_devtools_recommended": false,
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/session-1780984810902/",
+    "src/agentops_harness/action_assistant_cli.py",
+    "src/agentops_harness/cli.py",
+    "src/agentops_harness/profile_commands.py",
+    "src/agentops_harness/profile_schema.py",
+    "src/agentops_harness/profile_setup.py",
+    "src/agentops_harness/slack_gateway_cli.py",
+    "tests/unit/test_action_assistant_cli.py",
+    "tests/unit/test_cli.py",
+    "tests/unit/test_profile_commands.py",
+    "tests/unit/test_profile_schema.py",
+    "tests/unit/test_profile_setup.py",
+    "tests/unit/test_slack_gateway_policy.py"
+  ],
+  "devtools_mcp_prerequisites": {
+    "chrome": true,
+    "node": true,
+    "npm": true,
+    "npx": true
+  },
+  "files": {
+    "coder-handoff.md": {
+      "bytes": 8917,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780984810902/coder-handoff.md"
+    },
+    "coder-ready.md": {
+      "bytes": 1682,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780984810902/coder-ready.md"
+    },
+    "decision-log.md": {
+      "bytes": 6748,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780984810902/decision-log.md"
+    },
+    "verifier-report.md": {
+      "bytes": 9658,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780984810902/verifier-report.md"
+    },
+    "verifier-request.md": {
+      "bytes": 2708,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780984810902/verifier-request.md"
+    }
+  },
+  "handoff_missing_fields": [],
+  "hotspot_files": [
+    "src/agentops_harness/profile_schema.py",
+    "tests/unit/test_profile_schema.py"
+  ],
+  "ready_missing_fields": [],
+  "repo_root": "/mnt/hyperliquid-data/projects/worktrees/agentops-harness",
+  "report_machine_status_missing": [],
+  "review_profiles": {
+    "llm_assistant": [
+      "src/agentops_harness/action_assistant_cli.py",
+      "tests/unit/test_action_assistant_cli.py"
+    ]
+  },
+  "status_short": [
+    "## prd/agentops-harness-multi-project-profile-initialization-945",
+    " M src/agentops_harness/action_assistant_cli.py",
+    " M src/agentops_harness/cli.py",
+    " M src/agentops_harness/profile_setup.py",
+    " M src/agentops_harness/slack_gateway_cli.py",
+    " M tests/unit/test_action_assistant_cli.py",
+    " M tests/unit/test_cli.py",
+    " M tests/unit/test_profile_setup.py",
+    " M tests/unit/test_slack_gateway_policy.py",
+    "?? dev-plans/agentops/coder-verifier-workflow/runs/session-1780984810902/",
+    "?? src/agentops_harness/profile_commands.py",
+    "?? src/agentops_harness/profile_schema.py",
+    "?? tests/unit/test_profile_commands.py",
+    "?? tests/unit/test_profile_schema.py"
+  ]
+}

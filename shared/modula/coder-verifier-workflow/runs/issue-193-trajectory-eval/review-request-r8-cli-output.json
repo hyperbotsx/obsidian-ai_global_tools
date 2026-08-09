@@ -1,0 +1,58 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-193",
+  "purpose": "Review checkpoint 4 for issue #193 trajectory evaluation CLI and output behavior.",
+  "expected_response": "Compact verifier verdict JSON per coms transport contract; update verifier-report.md.",
+  "stop_condition": "Approve checkpoint 4 or return bounded findings for revision.",
+  "checkpoint": "4 - CLI/output checkpoint",
+  "revision": 1,
+  "requested_action": "Verify JSON and Markdown outputs are stable, concise, useful, and missing evidence fails closed through CLI exit status.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/193"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-193-trajectory-eval/coder-handoff.md",
+  "report_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-193-trajectory-eval/verifier-report.md",
+  "changed_files": [
+    "src/agentops_harness/cli.py",
+    "tests/unit/test_trajectory_eval.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-193-trajectory-eval/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-193-trajectory-eval/review-request-r8-cli-output.json"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests/unit/test_trajectory_eval.py",
+      "status": "passed",
+      "summary": "17 passed"
+    },
+    {
+      "command": "PYTHONPATH=src python3 -m agentops_harness.cli trajectory-eval --issue 191 --artifact-folder tests/fixtures/trajectory/pass --format json",
+      "status": "passed",
+      "summary": "Exit 0; JSON receipt rendered"
+    },
+    {
+      "command": "PYTHONPATH=src python3 -m agentops_harness.cli trajectory-eval --issue 191 --artifact-folder tests/fixtures/trajectory/blocked --format markdown",
+      "status": "passed",
+      "summary": "Exit 1 as expected; blocked Markdown rendered"
+    },
+    {
+      "command": "python3 -m py_compile src/agentops_harness/trajectory_eval.py src/agentops_harness/trajectory_eval_artifacts.py src/agentops_harness/cli.py",
+      "status": "passed",
+      "summary": "No syntax errors"
+    },
+    {
+      "command": "python3 -m ruff check src/agentops_harness/trajectory_eval.py src/agentops_harness/trajectory_eval_artifacts.py tests/unit/test_trajectory_eval.py",
+      "status": "passed",
+      "summary": "All checks passed"
+    }
+  ],
+  "finding_ids_addressed": [],
+  "isolation_preflight": {
+    "worktree_root": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-193",
+    "branch": "prd/workflow-trajectory-evaluation-receipt-193",
+    "coms_project": "agentops-prd-193",
+    "intended_identity": "coder@agentops-prd-193",
+    "verifier_live_in_pool": true
+  }
+}

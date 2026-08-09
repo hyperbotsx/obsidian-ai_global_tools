@@ -1,0 +1,63 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-231",
+  "purpose": "Issue #231 checkpoint 5 security and authority parity review",
+  "checkpoint": "5 - Security and authority parity",
+  "revision": 1,
+  "requested_action": "Review only native-pane security and authority parity. Confirm existing adapter send/receive same-worktree guards, one-outbound/no-ping-pong behavior, native browser human-control and allowlisted-navigation preservation, role/human gate preservation, explicit no-secrets/transcript-over-coms guidance, and fail-closed native permission-bypass rejection. Confirm no PR, merge, deploy, GitHub mutation, approval, trading, or backtest action occurred.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/231",
+    "docs/coms-wire-contract.md"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/delegationPrompts.ts",
+    "term-control-center/tests/nativeClaudeLaunchPlan.test.ts",
+    "term-control-center/tests/nativeClaudeLauncher.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/review-request-r1-checkpoint-5.json"
+  ],
+  "validation_results": [
+    {
+      "command": "cd term-control-center && node --import tsx --test tests/comsAdapter.test.ts tests/comsAdapter.conformance.test.ts tests/nativeClaudeLaunchPlan.test.ts tests/nativeClaudeLauncher.test.ts tests/browserQaLifecycle.test.ts",
+      "status": "passed",
+      "notes": "35 focused security/authority tests."
+    },
+    {
+      "command": "npm --prefix term-control-center run typecheck",
+      "status": "passed"
+    },
+    {
+      "command": "npm --prefix term-control-center run build:server",
+      "status": "passed"
+    },
+    {
+      "command": "npm --prefix term-control-center run test",
+      "status": "blocked",
+      "notes": "597 passed; 20 failures: 18 node-pty native-binary file-load blockers and 2 unrelated baseline assertions."
+    },
+    {
+      "command": "git diff --check",
+      "status": "passed"
+    }
+  ],
+  "finding_ids_addressed": [],
+  "stop_condition": "Approve checkpoint 5 or return only bounded checkpoint-5 findings. After approval, request the required final verifier bug-check; do not create a PR.",
+  "response_schema": {
+    "type": "object",
+    "required": ["decision", "checkpoint_reviewed", "revision_reviewed", "open_findings", "finding_ids", "bug_check_status", "next_actor", "report_path"],
+    "properties": {
+      "decision": {"type": "string", "enum": ["approved", "revision_requested", "needs_human"]},
+      "checkpoint_reviewed": {"type": "string"},
+      "revision_reviewed": {"type": "integer"},
+      "open_findings": {"type": "integer", "minimum": 0},
+      "finding_ids": {"type": "array", "items": {"type": "string"}},
+      "bug_check_status": {"type": "string"},
+      "next_actor": {"type": "string"},
+      "report_path": {"type": "string"}
+    },
+    "additionalProperties": false
+  }
+}

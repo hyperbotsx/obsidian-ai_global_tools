@@ -1,0 +1,30 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-211",
+  "purpose": "Final continuation-authorized review of PRD #211 checkpoint 3",
+  "checkpoint": "3 - Injection",
+  "revision": 4,
+  "requested_action": "Recheck the final bounded F211-C3-001/F211-C3-005 fixes. Same-action cache/rate limiting begins only at PTY write or immediately before paste-buffer; tmux liveness/capture/set-buffer failures are retryable. Shared records clear in common disposeSession lifecycle. Current active project/recovery state uses bounded coherent double reads, and live map/project/gate state is rechecked after echo polling before Enter. Please probe transient liveness/capture/setup retry, manual/dead session disposal cleanup, gate change during project lookup, and project/map removal during echo.",
+  "prd_ref": "https://github.com/hyperbotsx/agentops-harness/issues/211",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-211-terminal-orchestration-batch-resume/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/contextBriefTransition.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/launchGroup.ts",
+    "term-control-center/server/orchestrator/paneInjection.ts",
+    "term-control-center/server/orchestrator/paneInjectionGuard.ts",
+    "term-control-center/server/orchestrator/paneInjectionRunner.ts",
+    "term-control-center/tests/paneInjection.test.ts"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck: passed",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/paneInjection.test.ts: passed (21)",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 --test-name-pattern='fix-and-execute' tests/server.test.ts: passed (4)",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/contextBrief.test.ts: passed (6)",
+    "git diff --check: passed"
+  ],
+  "finding_ids_addressed": ["F211-C3-001", "F211-C3-005"],
+  "stop_condition": "Return the compact verifier verdict; record detailed findings only in verifier-report.md."
+}

@@ -1,0 +1,25 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Review bounded fix for issue #99 final bug-check finding V99-FINAL-003.",
+  "expected_response": "Compact verifier verdict JSON per coms contract; write details to verifier-report.md.",
+  "stop_condition": "Approve final bug-check if V99-FINAL-003 is fixed, or request bounded revision if still open.",
+  "checkpoint": "5 - Final bug-check V99-FINAL-003 fix",
+  "revision": 5,
+  "requested_action": "bug_fix_review",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/99"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-99/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/adminPipeline.ts",
+    "term-control-center/tests/admin.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-99/coder-handoff.md"
+  ],
+  "validation_results": [
+    "cd term-control-center && npm run typecheck && npm test -- --test-name-pattern \"pipeline refresh queue records timeout\" — passed (runner executed full suite: 437 pass, 0 fail)",
+    "No lingering generate.py processes after timeout overlap regression"
+  ],
+  "finding_ids_addressed": ["V99-FINAL-003"],
+  "report_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-99/verifier-report.md"
+}

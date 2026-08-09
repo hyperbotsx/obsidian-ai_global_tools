@@ -1,0 +1,48 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-101",
+  "checkpoint": "5 - Debt issue dry-run/manual-approval pilot controls",
+  "revision": 4,
+  "requested_action": "post_steward_final_recheck",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/101"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "previous_review_request_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r36-debt-dry-run-bug-fix.json",
+  "steward_request_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/steward-request-r2-debt-dry-run.md",
+  "steward_response_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/steward-response-r2-debt-dry-run.md",
+  "changed_files": [
+    "src/agentops_harness/kodus_debt.py",
+    "tests/unit/test_kodus_debt.py",
+    "docs/kodus-debt-dry-run.md",
+    "docs/kodus-agent.md",
+    "pyproject.toml",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r33-debt-dry-run.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r34-debt-dry-run-revision.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r35-debt-dry-run-bug-check.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r36-debt-dry-run-bug-fix.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r37-debt-dry-run-post-steward.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/steward-request-r2-debt-dry-run.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/steward-response-r2-debt-dry-run.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/verifier-report.md"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONPATH=src python3 -m unittest tests.unit.test_kodus_debt tests.unit.test_kodus_agent tests.unit.test_kodus_sprint0 tests.unit.test_kodus_max_gateway tests.unit.test_activity_center",
+      "status": "passed",
+      "note": "40 tests"
+    },
+    {
+      "command": "git diff --check",
+      "status": "passed"
+    }
+  ],
+  "finding_ids_addressed": [
+    "CK5-001",
+    "BUG-CK5-001"
+  ],
+  "summary": "Implementation review and bug-check passed after bounded fixes. Steward hygiene review returned clean. Requesting final post-steward recheck because steward artifacts were added after r36; no product docs/code changed after bug-check except handoff/steward artifacts."
+}

@@ -1,0 +1,32 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-167",
+  "purpose": "Review checkpoint 4 revision fixes for findings V167-CP4-F1, V167-CP4-F2, and V167-CP4-F3.",
+  "expected_response": "Compact verifier verdict JSON matching the supplied schema; write full details to verifier-report.md.",
+  "stop_condition": "Approve checkpoint 4 or request bounded revision/human escalation.",
+  "checkpoint": "4 - Background launch of queue heads only",
+  "revision": 2,
+  "requested_action": "checkpoint_review_revision",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/167"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-167-ai-coworker-slot-queues/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/review_server.py",
+    "tests/unit/test_review_server_coworker.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-167-ai-coworker-slot-queues/coder-handoff.md"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONPATH=src:pipeline-diagram python3 -m py_compile src/agentops_harness/slot_queues.py src/agentops_harness/lane_plan.py src/agentops_harness/review_server.py pipeline-diagram/generate.py && PYTHONPATH=src:pipeline-diagram pytest tests/unit/test_review_server_coworker.py tests/unit/test_slot_queues.py tests/unit/test_lane_plan.py tests/unit/test_pipeline_generate.py tests/unit/test_pipeline_board_generation.py -q",
+      "status": "passed",
+      "summary": "93 passed"
+    }
+  ],
+  "finding_ids_addressed": ["V167-CP4-F1", "V167-CP4-F2", "V167-CP4-F3"],
+  "preflight": {
+    "coms_project": "agentops-prd-167",
+    "identity": "coder@agentops-prd-167 (role skill/frontmatter; PI_COMS_DIR=/tmp/agentops/coms/agentops-prd-167)",
+    "verifier_live": true
+  }
+}

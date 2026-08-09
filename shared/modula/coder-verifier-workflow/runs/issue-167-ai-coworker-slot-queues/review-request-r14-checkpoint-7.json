@@ -1,0 +1,35 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-167",
+  "purpose": "Review checkpoint 7 for issue #167: regression pass on PRD creation and launch metadata.",
+  "expected_response": "Compact verifier verdict JSON matching the supplied schema; write full details to verifier-report.md.",
+  "stop_condition": "Approve checkpoint 7/final implementation readiness or request bounded revision/human escalation.",
+  "checkpoint": "7 - Regression pass on PRD creation and launch metadata",
+  "revision": 1,
+  "requested_action": "checkpoint_review",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/167"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-167-ai-coworker-slot-queues/coder-handoff.md",
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-167-ai-coworker-slot-queues/coder-handoff.md"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONPATH=.:src:pipeline-diagram pytest tests/unit/test_prd_create.py tests/unit/test_prd_launch_metadata_audit.py tests/unit/test_prd_launch_metadata_repair.py tests/unit/test_review_server_coworker.py tests/unit/test_slot_queues.py tests/unit/test_lane_plan.py tests/unit/test_pipeline_generate.py tests/unit/test_pipeline_board_generation.py -q",
+      "status": "passed",
+      "summary": "126 passed"
+    },
+    {
+      "command": "PYTHONPATH=src:pipeline-diagram pytest tests/unit/test_prd_create.py tests/unit/test_prd_launch_metadata_audit.py tests/unit/test_prd_launch_metadata_repair.py tests/unit/test_prd_launch_metadata.py tests/unit/test_review_server_coworker.py tests/unit/test_slot_queues.py tests/unit/test_lane_plan.py tests/unit/test_pipeline_generate.py tests/unit/test_pipeline_board_generation.py -q",
+      "status": "blocked",
+      "summary": "Blocked because tests/unit/test_prd_launch_metadata.py does not exist; reran with actual metadata test files and passed."
+    }
+  ],
+  "finding_ids_addressed": [],
+  "preflight": {
+    "coms_project": "agentops-prd-167",
+    "identity": "coder@agentops-prd-167 (role skill/frontmatter; PI_COMS_DIR=/tmp/agentops/coms/agentops-prd-167)",
+    "verifier_live": true
+  }
+}

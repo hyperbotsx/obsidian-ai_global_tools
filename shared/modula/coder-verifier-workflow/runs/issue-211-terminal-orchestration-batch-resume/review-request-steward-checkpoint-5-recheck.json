@@ -1,0 +1,30 @@
+{
+  "type": "verifier_hygiene_recheck_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-211",
+  "purpose": "Verify required Steward hygiene gate after approved checkpoint 5",
+  "prd_issue_ref": "https://github.com/hyperbotsx/agentops-harness/issues/211",
+  "checkpoint": "5 - Assistant tools and operator UI",
+  "revision": 3,
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-211-terminal-orchestration-batch-resume/coder-handoff.md",
+  "steward_report_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-211-terminal-orchestration-batch-resume/steward-response-checkpoint-5.md",
+  "steward_decision": "clean",
+  "requested_action": "Recheck Steward hygiene gate only. If clean, authorize the subsequent final bug-check request; do not run bug-check in this request.",
+  "stop_condition": "Return compact hygiene recheck verdict.",
+  "response_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["decision", "checkpoint_reviewed", "revision_reviewed", "open_findings", "finding_ids", "bug_check_status", "next_actor", "report_path"],
+    "properties": {
+      "decision": {"type": "string", "enum": ["approved", "revision_requested", "needs_human"]},
+      "checkpoint_reviewed": {"type": "string"},
+      "revision_reviewed": {"type": "integer", "minimum": 1},
+      "open_findings": {"type": "integer", "minimum": 0},
+      "finding_ids": {"type": "array", "items": {"type": "string"}},
+      "bug_check_status": {"type": "string"},
+      "next_actor": {"type": "string"},
+      "report_path": {"type": "string"}
+    }
+  }
+}

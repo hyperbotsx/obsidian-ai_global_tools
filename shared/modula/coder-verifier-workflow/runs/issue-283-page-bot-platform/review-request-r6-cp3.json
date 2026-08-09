@@ -1,0 +1,19 @@
+{
+  "checkpoint": "CP-3 \u2014 FR-6 / FR-7 / FR-8 / FR-9 / FR-12",
+  "revision": 6,
+  "requested_action": "Recheck CP3-001 shared-shell adaptation/pickers and CP3-008 KISS",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-283-page-bot-platform/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/page-bot-panel.js",
+    "pipeline-diagram/coworker-launcher.js",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-283-page-bot-platform/coder-handoff.md"
+  ],
+  "operator_pending": [
+    "V283-CP3-006"
+  ],
+  "validation_results": [
+    "node --check shared/vanilla files passed",
+    "npm run typecheck passed",
+    "prior house-gate evidence retained"
+  ]
+}

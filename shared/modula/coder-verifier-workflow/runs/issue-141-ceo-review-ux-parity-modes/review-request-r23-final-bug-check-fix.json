@@ -1,0 +1,58 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Final verifier bug-check re-review for issue 141",
+  "expected_response": "Compact verifier verdict JSON matching the response schema; write details to verifier-report.md",
+  "stop_condition": "Final bug-check approval or bounded bug findings",
+  "checkpoint": "Final bug-check",
+  "revision": 2,
+  "requested_action": "Re-review bounded fixes for F141-FINAL-001 and F141-FINAL-002 only unless a new concrete regression is introduced.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/141"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/ceoReviewRuntime.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "src/agentops_harness/github_cli_env.py",
+    "src/agentops_harness/health.py",
+    "tests/unit/test_agent_github_health.py",
+    "docs/admin-configuration.md",
+    "pipeline-diagram/board.html",
+    "term-control-center/tests/boardGuardrails.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/review-request-r23-final-bug-check-fix.json"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests/unit/test_agent_github_health.py tests/unit/test_ceo_review_apply.py tests/unit/test_ceo_review_apply_cli.py tests/unit/test_ceo_review_answers.py tests/unit/test_ceo_review.py",
+      "status": "pass",
+      "summary": "61 tests passed"
+    },
+    {
+      "command": "cd term-control-center && node --import tsx --test tests/launchPlan.test.ts tests/launcher.test.ts tests/boardGuardrails.test.ts",
+      "status": "pass",
+      "summary": "80 tests passed"
+    },
+    {
+      "command": "cd term-control-center && npm run typecheck",
+      "status": "pass",
+      "summary": "app/server TypeScript typecheck passed"
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "summary": "no whitespace errors"
+    }
+  ],
+  "finding_ids_addressed": [
+    "F141-FINAL-001",
+    "F141-FINAL-002"
+  ],
+  "notes": [
+    "F141-FINAL-001: AGENTOPS_GITHUB_TOKEN is now required; config-dir-only auth is rejected; gh env strips ambient enterprise/host/repo variables and disables prompts.",
+    "F141-FINAL-002: error groups and unrecoverable panes are classified as recovery/not-normal for active roster paths."
+  ]
+}

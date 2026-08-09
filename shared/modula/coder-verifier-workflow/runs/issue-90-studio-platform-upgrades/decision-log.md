@@ -1,0 +1,40 @@
+# Decision Log — PRD #90
+
+- 2026-06-21: Read canonical PRD issue #90, confirmed clean branch `feat/prd-studio-platform-upgrades-90`, and scoped the work to the PRD-defined verifier checkpoints.
+- 2026-06-21: Selected `dev-plans/agentops/coder-verifier-workflow/runs/issue-90-studio-platform-upgrades` as the durable artifact folder.
+- 2026-06-21: Chose checkpoint 1 (project isolation) as the first implementation slice because it is the highest-priority prerequisite and removes the known cross-project leakage root cause.
+- 2026-06-21: Established local project context as the first shared source of truth for selected repo/project/worktree metadata, then threaded `project_id` through review/create/apply and discussion/coworker flows.
+- 2026-06-21: Preserved compatibility fallbacks (`REPO`, `REPO_CHECKOUT`) for legacy tests/callers while tightening active-project routing for the modern UI paths.
+- 2026-06-21: Validation for checkpoint 1 revision 2 passed: targeted Python tests, targeted board/coworker JS tests, full `tests/unit` pytest run, full `term-control-center` test run, TypeScript typecheck, client/server build, and `git diff --check`.
+- 2026-06-21: Preflight before first review request confirmed live local peers in the `agentops-laneD` coms pool: `verifier`, `researcher`, `steward`.
+- 2026-06-21: Verifier finding `V-CP1-001` showed explicit unresolved `project_id` values still diverged between `review_server` and `ceo_review_evonome_apply` because each module used a different fallback policy.
+- 2026-06-21: Added strict `require_project_context(...)`, switched explicit selected-project callers in `review_server` and `ceo_review_evonome_apply` to fail closed on missing/unknown/archived ids, and added regression coverage for fail-closed behavior plus cross-module consistency.
+- 2026-06-21: Validation for checkpoint 1 revision 3 passed: focused regression suites, full `tests/unit` pytest run, previously passing full `term-control-center` test run, build/typecheck, and `git diff --check`.
+- 2026-06-21: Checkpoint 1 verifier recheck approved.
+- 2026-06-21: Researcher confirmed the supported Claude subscription path is OAuth/subscription auth (`CLAUDE_CODE_OAUTH_TOKEN` from `claude setup-token` or interactive `claude auth login`), while console/API/cloud env auth indicates non-subscription billing.
+- 2026-06-21: Implemented checkpoint 2 by marking Claude panes as subscription-only, adding wrapper-side fail-closed auth checks for known API/cloud envs and ambiguous `claude auth status --text` output, and documenting the supported path in `term-control-center/README.md`.
+- 2026-06-21: Validation for checkpoint 2 revision 4 passed: targeted Claude launch/script tests, full `term-control-center` test run, typecheck, build, and `git diff --check`.
+- 2026-06-21: Checkpoint 2 verifier review approved.
+- 2026-06-21: For checkpoint 3, preserved the existing real board approval path and added prompt/test guardrails so `ceo review` shortcut language in PRD Author panes cannot devolve into a label-only workaround.
+- 2026-06-21: Validation for checkpoint 3 revision 5 passed: targeted approval-flow tests, full `term-control-center` test run, typecheck, build, and `git diff --check`.
+- 2026-06-21: Checkpoint 3 verifier review approved.
+- 2026-06-21: For checkpoint 4, replaced exact-phrase launch/create gates with low-friction `launch` / `create` confirmations while keeping legacy phrases accepted, added a planning-brief gate before downstream authoring launch, and registered clickable terminal URLs.
+- 2026-06-21: Validation for checkpoint 4 revision 6 passed: targeted UX/launcher/server/terminal tests, full `tests/unit` pytest run, full `term-control-center` test run, typecheck, build, and `git diff --check`.
+- 2026-06-21: Checkpoint 4 verifier review approved.
+- 2026-06-21: For checkpoint 5, switched the `frontend-expert` default lane to Claude Code Opus with Chrome-required guidance and the existing subscription-auth guard env, while keeping the broader authoring peer topology intact.
+- 2026-06-21: Validation for checkpoint 5 revision 7 passed: targeted launch/default-profile tests, server/board guardrails, typecheck, build, and prior checkpoint-4 full regressions remained green.
+- 2026-06-21: Checkpoint 5 verifier review approved.
+- 2026-06-21: Researcher confirmed `codebase-memory-mcp@0.8.1` is MIT-licensed, local-only, stdio-MCP compatible with Claude Code, and should be isolated per project via a unique `CBM_CACHE_DIR`; default shared caches can create cross-repo results.
+- 2026-06-21: Implemented checkpoint 6 by adding `codebase-memory-mcp` as a project-bound provider option, materializing a project-scoped Claude MCP config with strict `mcp_config`, and prompting Claude panes to use MCP search/index/detect tools before grep/file-by-file exploration.
+- 2026-06-21: Validation for checkpoint 6 revision 8 passed: targeted project-memory + launch-plan + board/server guardrail tests, full `term-control-center` test run, build/typecheck, and `git diff --check`.
+- 2026-06-21: Verifier finding `V-CP6-001` showed non-Claude panes still received MCP-first instructions despite not receiving MCP access.
+- 2026-06-21: Narrowed codebase-memory guidance so only Claude-integrated panes are told to use MCP tools first; non-Claude panes now explicitly point to Claude-integrated peers or normal repo inspection.
+- 2026-06-21: Validation for checkpoint 6 revision 9 passed: targeted launch-plan/project-memory/board tests, full `term-control-center` test run, typecheck, and `git diff --check`.
+- 2026-06-21: Checkpoint 6 verifier recheck approved.
+- 2026-06-21: Steward pre-bug-check review found changed-file placement clean and requested only that intended new source/test/artifact files be resolved from untracked status.
+- 2026-06-21: Staged the intended new deliverables (`project_context.py`, `planningBrief.ts`, `test_project_context.py`, and the run-folder artifacts). No additional code changes were needed after the steward pass.
+- 2026-06-21: Final verifier bug-check requested over the full resolved diff.
+- 2026-06-21: Verifier finding `V-FINAL-001` showed agent-side GitHub traffic still relied on the ambient operator `gh` auth context and rate-limit bucket.
+- 2026-06-21: Added `agent_gh_env(...)`, forced agent-side `GH_CONFIG_DIR` to a dedicated path, stripped ambient `GH_TOKEN` / `GITHUB_TOKEN`, supported optional `AGENTOPS_GITHUB_TOKEN`, threaded that env through agent-side `gh` read/write calls, and documented the runtime config in `docs/operations.md`.
+- 2026-06-21: Validation for final revision 11 passed: focused GitHub-auth tests, full `tests/unit` pytest run, full `term-control-center` test run, build/typecheck, and `git diff --check`.
+- 2026-06-21: Final verifier bug-check recheck approved; PRD #90 implementation stop condition reached.

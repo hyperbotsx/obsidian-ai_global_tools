@@ -1,0 +1,17 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-199",
+  "purpose": "Verifier checkpoint 1 design review for issue #199",
+  "expected_response": "Compact verdict JSON matching schema; full report in verifier-report.md only if not approved",
+  "stop_condition": "Approve design or request bounded design revisions before implementation edits",
+  "checkpoint": "1 - Evidence model and registry/reconciliation design",
+  "revision": 1,
+  "requested_action": "review",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/199"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-199-guaranteed-completed-jobs/coder-handoff.md",
+  "changed_files": ["dev-plans/agentops/coder-verifier-workflow/runs/issue-199-guaranteed-completed-jobs/coder-handoff.md"],
+  "validation_results": ["git status --short --branch clean before artifact", "researcher freshness consult completed 2026-07-13"],
+  "finding_ids_addressed": []
+}

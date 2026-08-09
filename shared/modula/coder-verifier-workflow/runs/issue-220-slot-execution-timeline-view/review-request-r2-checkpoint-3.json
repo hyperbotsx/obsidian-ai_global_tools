@@ -1,0 +1,16 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-220",
+  "purpose": "Re-review checkpoint 3 revision 2",
+  "checkpoint": "3 - Static Timeline and live-state adapter",
+  "revision": 2,
+  "requested_action": "checkpoint_review",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/220", "/home/hyperbots/.local/state/agentops/term-control-center/runtime/agentops-prd-220-0dfd1ab872de/artifacts/project-context-brief.md"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-220-slot-execution-timeline-view/coder-handoff.md",
+  "changed_files": ["pipeline-diagram/{timeline.html,timeline.js,live-sessions.js,agentops-nav.js,board.html}", "term-control-center/{server/adminPipeline.ts,server/completionRoutes.ts,tests/timelineLiveState.test.ts,tests/completion-routes.test.ts,tests/admin.test.ts,tests/boardGuardrails.test.ts}"],
+  "validation": ["39 focused Python tests passed", "96 focused TypeScript tests passed with a temporary canonical dependency symlink removed afterward", "typecheck passed", "live-session and Timeline JavaScript syntax checks passed", "git diff --check passed", "ignored Python/Ruff caches removed"],
+  "finding_ids_addressed": ["V220-CP3-001", "V220-CP3-002", "V220-CP3-003", "V220-CP3-004", "V220-CP3-005", "V220-CP3-006", "V220-CP3-007"],
+  "stop_condition": "Return compact verifier verdict JSON; write full report only for a non-approved verdict."
+}

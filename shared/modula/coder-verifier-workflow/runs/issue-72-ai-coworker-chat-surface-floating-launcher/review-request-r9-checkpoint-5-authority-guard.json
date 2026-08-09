@@ -1,0 +1,49 @@
+{
+  "type": "review_request",
+  "issue": 72,
+  "title": "D4-PRD: AI Co-Worker Chat Surface and Floating Launcher",
+  "checkpoint": "5 - Code-enforced authority allowlist + denylist with 403 coverage across Python + TCC",
+  "revision": 9,
+  "requested_action": "Review checkpoint 5 only. Verify coworker-tagged requests are now code-enforced through allowlist/denylist guards, including 403 rejection for PR/merge/approve surfaces across Python and TCC.",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneD",
+  "branch": "prd/ai-co-worker-chat-surface-floating-launcher-72",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-72-ai-coworker-chat-surface-floating-launcher/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/coworker-launcher.js",
+    "src/agentops_harness/review_server.py",
+    "term-control-center/server/index.ts",
+    "term-control-center/tests/coworkerLauncher.test.ts",
+    "term-control-center/tests/coworkerGuard.test.ts",
+    "tests/unit/test_review_server_coworker.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-72-ai-coworker-chat-surface-floating-launcher/coder-handoff.md"
+  ],
+  "validation": [
+    {
+      "command": "git add -N term-control-center/tests/coworkerGuard.test.ts",
+      "result": "pass"
+    },
+    {
+      "command": "node --check pipeline-diagram/coworker-launcher.js",
+      "result": "pass"
+    },
+    {
+      "command": "cd term-control-center && node --import tsx --test tests/coworkerLauncher.test.ts tests/coworkerGuard.test.ts",
+      "result": "pass"
+    },
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests/unit/test_review_server_coworker.py -q",
+      "result": "pass"
+    },
+    {
+      "command": "git diff --check -- pipeline-diagram/coworker-launcher.js src/agentops_harness/review_server.py term-control-center/server/index.ts term-control-center/tests/coworkerLauncher.test.ts term-control-center/tests/coworkerGuard.test.ts tests/unit/test_review_server_coworker.py",
+      "result": "pass"
+    }
+  ],
+  "finding_ids_addressed": [],
+  "scope_notes": [
+    "Checkpoint 5 only: code-enforced allowlist/denylist and 403 coverage.",
+    "No privacy/redaction persistence work or docs yet.",
+    "Coworker-marked traffic is identified with x-agentops-surface: coworker."
+  ]
+}

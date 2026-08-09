@@ -1,0 +1,18 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-153",
+  "purpose": "Final structure/hygiene review before verifier bug-check for issue #153.",
+  "expected_response": "Concise JSON or markdown with clean/cleanup findings; do not edit files.",
+  "stop_condition": "Return clean or bounded cleanup recommendations.",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/coder-handoff.md",
+  "changed_file_groups": {
+    "docs": ["docs/agentops-context-renewal.md"],
+    "pi_package": ["pi-packages/agentops-context-renewal/package.json", "pi-packages/agentops-context-renewal/lib/policy.ts", "pi-packages/agentops-context-renewal/extensions/context-renewal.ts"],
+    "scripts": ["scripts/agentops/context-renewal-preflight.py", "scripts/agentops/context-renewal-pack.py", "scripts/agentops/context-renewal-boundary.py", "scripts/agentops/context-renewal-resume.py", "scripts/agentops/pi-agent.sh"],
+    "python_modules": ["src/agentops_harness/context_renewal_preflight.py", "src/agentops_harness/context_renewal_pack.py", "src/agentops_harness/context_renewal_boundary.py", "src/agentops_harness/context_renewal_resume.py"],
+    "tests": ["tests/unit/test_context_renewal_preflight.py", "tests/unit/test_context_renewal_pack.py", "tests/unit/test_context_renewal_boundary.py", "tests/unit/test_context_renewal_resume.py", "term-control-center/tests/contextRenewal.test.ts"],
+    "run_artifacts": ["dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/"]
+  }
+}

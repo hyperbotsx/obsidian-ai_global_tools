@@ -1,0 +1,82 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-harness",
+  "checkpoint": "6 - Final regression/security",
+  "revision": 1,
+  "requested_action": "Review checkpoint 6 only: final regression/security validation for PRD #97, including existing peer launch behavior, no public browser/CDP/VNC/terminal exposure, no committed secrets/private artifacts, display-label-only coms propagation, and browser/noVNC/human-control capture protections.",
+  "prd_issue": "https://github.com/hyperbotsx/agentops-harness/issues/97",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/coder-handoff.md",
+  "verifier_report_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/verifier-report.md",
+  "changed_files": [
+    "term-control-center/server/browserFeed.ts",
+    "term-control-center/server/frontendBrowserLaunch.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/server/browserCdpProxy.ts",
+    "term-control-center/server/browserControlState.ts",
+    "term-control-center/server/browserNovncPage.ts",
+    "term-control-center/server/browserRuntime.ts",
+    "term-control-center/server/browserRuntimeSupport.ts",
+    "term-control-center/server/browserRuntimeSurface.ts",
+    "term-control-center/server/browserScreencast.ts",
+    "term-control-center/server/browserStreamBackpressure.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/src/App.tsx",
+    "term-control-center/src/BrowserPane.tsx",
+    "term-control-center/src/TerminalPane.tsx",
+    "term-control-center/src/browserPaneState.ts",
+    "term-control-center/src/styles.css",
+    "scripts/agentops/pi-agent.sh",
+    "scripts/agentops/patch-pi-coms-local.sh",
+    "term-control-center/tests/browserFeed.test.ts",
+    "term-control-center/tests/frontendBrowserLaunch.test.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "term-control-center/tests/browserRuntime.test.ts",
+    "term-control-center/tests/browserStreamBackpressure.test.ts",
+    "term-control-center/tests/server.test.ts",
+    "term-control-center/tests/browserPaneState.test.ts",
+    "term-control-center/tests/termBasePath.test.ts",
+    "term-control-center/tests/agentopsComsLabel.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/decision-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/review-request-r8-checkpoint-6.json"
+  ],
+  "pre_existing_dirty_files": [],
+  "validation_results": [
+    { "command": "git status --short --branch --untracked-files=all", "status": "passed", "evidence": "clean before checkpoint 6 artifact updates; branch ahead 2 from origin/main at fae9947" },
+    { "command": "npm --prefix term-control-center run typecheck", "status": "passed" },
+    { "command": "npm --prefix term-control-center run build", "status": "passed", "notes": "existing Vite chunk-size warning only" },
+    { "command": "npm --prefix term-control-center run test", "status": "passed", "evidence": "405 tests passed" },
+    { "command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/browserFeed.test.ts tests/browserRuntime.test.ts tests/browserStreamBackpressure.test.ts tests/server.test.ts tests/browserPaneState.test.ts tests/termBasePath.test.ts tests/frontendBrowserLaunch.test.ts tests/launchPlan.test.ts tests/agentopsComsLabel.test.ts", "status": "passed", "evidence": "103 targeted browser/feed/control/launch/coms tests passed" },
+    { "command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/launcher.test.ts tests/agentopsComsLabel.test.ts tests/launchPlan.test.ts", "status": "passed", "evidence": "38 launch/contract/coms tests passed" },
+    { "command": "bash -n scripts/agentops/pi-agent.sh scripts/agentops/patch-pi-coms-local.sh", "status": "passed" },
+    { "command": "static regression/security check for browser-feed locality, noVNC/CDP gating, human-control capture pause, noVNC no-store, display-label-only coms env propagation, and absence of public bind patterns", "status": "passed" },
+    { "command": "privacy artifact scan over branch diff for secret/cookie/screenshot/recording/raw-transcript artifact paths and common secret literals", "status": "passed" },
+    { "command": "git diff --check", "status": "passed" }
+  ],
+  "finding_ids_addressed": [],
+  "research_consults": [
+    {
+      "peer": "researcher",
+      "date": "2026-06-25",
+      "summary": "Prior required consult covered Chrome DevTools MCP, dedicated Chrome profiles, noVNC embedding, CDP fallback, human-auth capture pause, and iPad/noVNC caveats."
+    },
+    {
+      "peer": "researcher",
+      "date": "2026-06-25",
+      "summary": "Prior checkpoint 4 consult covered visible frontend-expert delegate tmux pane behavior and recommended scoped tmux_display=pane with autoclose=true."
+    },
+    {
+      "peer": "researcher",
+      "date": "2026-06-26",
+      "summary": "Prior checkpoint 5 consult covered pi-coms label propagation across extension reinstall/deploy and display-label-only patching."
+    }
+  ],
+  "notes": [
+    "Checkpoint 6 made no product-code changes; only run artifacts were updated after validation.",
+    "Existing coder/verifier/researcher/steward launch behavior is covered by launcher/launchPlan contract tests and pi-agent wrapper tests.",
+    "No live deployment, public exposure, PR creation, merge, or ops.evono.me deploy was performed.",
+    "Manual live noVNC/iPad/frontend-expert/coms-panel smoke remains blocked until checkpoint 6 and final bug-check approval."
+  ],
+  "stop_condition": "On checkpoint 6 approval, proceed only to the verifier final bug-check workflow; do not create a PR, merge, deploy, or expose browser/CDP/VNC publicly."
+}

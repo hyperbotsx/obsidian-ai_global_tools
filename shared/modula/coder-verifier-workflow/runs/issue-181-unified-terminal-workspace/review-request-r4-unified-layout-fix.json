@@ -1,0 +1,34 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-181",
+  "purpose": "Review issue #181 checkpoint 2 revision 2 layout fix",
+  "expected_response": "Compact verifier verdict JSON per coms contract; write full findings to verifier-report.md",
+  "stop_condition": "Approve checkpoint 2 or request bounded revisions with finding IDs",
+  "checkpoint": "2 - Unified layout checkpoint",
+  "revision": 2,
+  "requested_action": "review",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/181"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-181-unified-terminal-workspace/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/src/App.tsx",
+    "term-control-center/src/TerminalPane.tsx",
+    "term-control-center/src/styles.css",
+    "term-control-center/tests/termBasePath.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-181-unified-terminal-workspace/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-181-unified-terminal-workspace/review-request-r3-unified-layout.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-181-unified-terminal-workspace/review-request-r4-unified-layout-fix.json"
+  ],
+  "validation_results": [
+    "PASS: cd term-control-center && npx tsc -p tsconfig.app.json --noEmit && node --import tsx --test tests/termBasePath.test.ts tests/terminalJobSidebar.test.ts && npm run build:client && git diff --check",
+    "BLOCKED/pre-existing: npm --prefix term-control-center run typecheck fails in server config due tests/contextRenewal.test.ts importing ../../pi-packages/agentops-context-renewal/lib/policy.ts outside rootDir and without allowImportingTsExtensions",
+    "BLOCKED/pre-existing/env: npm --prefix term-control-center test reports unrelated admin/auth/pipeline-generator failures and timed out at 120s"
+  ],
+  "finding_ids_addressed": [
+    "F-181-LAYOUT-001"
+  ],
+  "notes": "Bounded revision only: maximize now routes standard two-pane layout through FocusedPaneStack; tests assert both TerminalArea and visiblePaneIds maximize branches."
+}

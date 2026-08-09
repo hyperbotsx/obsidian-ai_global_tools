@@ -1,0 +1,61 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-192",
+  "purpose": "Final verifier bug-check for issue #192 after all checkpoint approvals and steward clean review",
+  "checkpoint": "6 - Final bug-check",
+  "revision": 13,
+  "requested_action": "Run the default final bug-check pass on the complete issue #192 diff. Check for regressions, lifecycle edge cases, stale rows/tokens, cross-draft isolation breaks, unsafe metadata, recovery/focus issues, and validation gaps. Return compact verdict and write full report if findings exist.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/192"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/board.html",
+    "scripts/agentops/pi-agent.sh",
+    "term-control-center/server/draftComs.ts",
+    "term-control-center/server/draftJobs.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/launchGroup.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/src/App.tsx",
+    "term-control-center/tests/agentopsComsLabel.test.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "term-control-center/tests/launcher.test.ts",
+    "term-control-center/tests/server.test.ts",
+    "term-control-center/tests/terminalJobSidebar.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/**"
+  ],
+  "validation_results": [
+    {
+      "command": "npm --prefix term-control-center ci",
+      "status": "passed",
+      "notes": "Dependency install validation passed earlier in run."
+    },
+    {
+      "command": "cd term-control-center && node --import tsx --test --test-name-pattern \"board CEO review handoff|hand off to CEO review|PRD review launch prompt|parallel PRD authoring drafts|parallel draft PRD Studio|logical draft job row|authoring launch failure|PRD Author launch prompt|pi-agent wrapper honors draft-scoped|PRD planning execute fails closed|seed-only drafts|unsafe pre-issue\" tests/server.test.ts tests/launchPlan.test.ts tests/agentopsComsLabel.test.ts tests/terminalJobSidebar.test.ts tests/launcher.test.ts && git diff --check",
+      "status": "passed",
+      "notes": "Final focused validation: 13 tests passed and diff check passed."
+    },
+    {
+      "command": "cd term-control-center && npx tsc -p tsconfig.app.json --noEmit && npx tsc -p tsconfig.server.json --noEmit --pretty false",
+      "status": "failed",
+      "notes": "App typecheck passed; server typecheck failed only on known unrelated tests/contextRenewal.test.ts outside-rootDir/.ts import issue."
+    }
+  ],
+  "steward_result": {
+    "decision": "clean",
+    "notes": "Changed-file placement and run artifact hygiene approved; no cleanup required before final verifier bug-check."
+  },
+  "finding_ids_addressed": [
+    "F192-CP1-001",
+    "F192-CP2-001",
+    "F192-CP3-001",
+    "F192-CP3-002",
+    "F192-CP5-001",
+    "F192-CP5-002"
+  ],
+  "stop_condition": "Verifier final bug-check approval or bounded revision findings."
+}

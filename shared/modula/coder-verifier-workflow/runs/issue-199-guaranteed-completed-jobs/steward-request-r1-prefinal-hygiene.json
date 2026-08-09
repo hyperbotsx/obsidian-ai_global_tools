@@ -1,0 +1,31 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-199",
+  "purpose": "Pre-final hygiene/structure review before verifier final bug-check for issue #199",
+  "expected_response": "Concise markdown or JSON with clean/findings and bounded cleanup recommendations",
+  "stop_condition": "Return clean or actionable structure/hygiene findings",
+  "context": {
+    "prd": "https://github.com/hyperbotsx/agentops-harness/issues/199",
+    "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-199-guaranteed-completed-jobs/coder-handoff.md",
+    "changed_files": [
+      "pipeline-diagram/.gitignore",
+      "pipeline-diagram/completed.html",
+      "pipeline-diagram/completed_work.py",
+      "pipeline-diagram/completed_links.py",
+      "pipeline-diagram/completed_registry.py",
+      "pipeline-diagram/generate.py",
+      "tests/unit/test_completed_work.py",
+      "tests/unit/test_completed_generate.py",
+      "tests/unit/test_completed_html_static.py",
+      "tests/unit/test_pipeline_generate.py",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-199-guaranteed-completed-jobs/"
+    ],
+    "validation": [
+      "python3 -m pytest tests/unit/test_completed_work.py tests/unit/test_completed_generate.py tests/unit/test_completed_html_static.py tests/unit/test_pipeline_generate.py -q — passed",
+      "python3 -m py_compile ... — passed",
+      "git diff --check — passed"
+    ]
+  }
+}

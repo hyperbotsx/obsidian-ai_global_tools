@@ -1,0 +1,48 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-218",
+  "purpose": "Final bug-check after approved terminal output, explicit OSC copy, 44px target, stable layout identity, documentation, and Steward recheck",
+  "expected_response": "Verifier final bug-check verdict JSON conforming to the requested schema; write full findings to verifier-report.md if not approved.",
+  "stop_condition": "Approve the code bug-check or identify bounded defects/human gates without claiming unavailable validation passes.",
+  "checkpoint": "5 - Final bug-check",
+  "revision": 1,
+  "requested_action": "bug_check",
+  "prd_issue_ref": "https://github.com/hyperbotsx/agentops-harness/issues/218",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-218-terminal-selection-stability/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/src/App.tsx",
+    "term-control-center/src/TerminalPane.tsx",
+    "term-control-center/src/styles.css",
+    "term-control-center/src/terminalClipboard.ts",
+    "term-control-center/src/terminalDeck.ts",
+    "term-control-center/src/terminalInteractions.ts",
+    "term-control-center/src/terminalOutput.ts",
+    "term-control-center/tests/termBasePath.test.ts",
+    "term-control-center/tests/terminalClipboardCopy.test.ts",
+    "term-control-center/tests/terminalRobustness.test.ts",
+    "term-control-center/tests/terminalScrollHold.test.ts",
+    "term-control-center/README.md"
+  ],
+  "validation_results": [
+    "PASS typecheck",
+    "PASS focused seven terminal suites 60/60",
+    "PASS build with existing Vite non-module script and >500kB chunk warnings only",
+    "PASS git diff --check",
+    "PASS Steward final recheck clean",
+    "INCOMPLETE full suite: timeout 900s exited 124 after 311 passing subtests/no reported failure",
+    "ISOLATED baseline hang: coworkerGuard.test.ts timeout 60s exited 124 after 2 passing assertions",
+    "PENDING human physical Chrome/Safari/iPad Safari/iPhone Safari matrix"
+  ],
+  "finding_ids_addressed": [
+    "BC218-CURRENT-001",
+    "BC218-CURRENT-002",
+    "BC218-CURRENT-003",
+    "BC218-CURRENT-004",
+    "BC218-CURRENT-005",
+    "V218-DOC-001"
+  ],
+  "open_human_gate_ids": ["V218-FULLSUITE-001", "V218-MANUAL-001"],
+  "context_path": "/home/hyperbots/.local/state/agentops/term-control-center/runtime/agentops-prd-218-47c15734d86e/artifacts/project-context-brief.md"
+}

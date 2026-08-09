@@ -1,0 +1,39 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-harness",
+  "checkpoint": "6 - Final regression/security",
+  "revision": 2,
+  "requested_action": "Re-review checkpoint 6 after bounded cleanup for CHK6-SCOPE-001 only. Confirm dev-plans/prd-backlog.md is absent from the branch diff and checkpoint 6 can be approved, then proceed only to final verifier bug-check.",
+  "prd_issue": "https://github.com/hyperbotsx/agentops-harness/issues/97",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/coder-handoff.md",
+  "verifier_report_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/verifier-report.md",
+  "changed_files": [
+    "dev-plans/prd-backlog.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/decision-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/verifier-report.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/review-request-r8-checkpoint-6.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/review-request-r9-checkpoint-6-fix.json"
+  ],
+  "pre_existing_dirty_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/decision-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/verifier-report.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/review-request-r8-checkpoint-6.json"
+  ],
+  "validation_results": [
+    { "command": "git checkout origin/main -- dev-plans/prd-backlog.md && git commit -m 'chore(agentops): remove unrelated backlog timestamp' -- dev-plans/prd-backlog.md", "status": "passed", "evidence": "commit 3685ca7" },
+    { "command": "git diff --name-only origin/main...HEAD -- dev-plans/prd-backlog.md", "status": "passed", "evidence": "no output" },
+    { "command": "git diff --check", "status": "passed" }
+  ],
+  "finding_ids_addressed": [
+    "CHK6-SCOPE-001"
+  ],
+  "notes": [
+    "Bounded fix only reverted the unrelated generated backlog timestamp to origin/main and committed that cleanup so branch diff no longer includes dev-plans/prd-backlog.md.",
+    "No product code changed after checkpoint 6 revision 1 validation.",
+    "Full validation from revision 1 remains valid and is recorded in coder-handoff.md and review-request-r8-checkpoint-6.json."
+  ],
+  "stop_condition": "On checkpoint 6 approval, proceed only to the verifier final bug-check workflow; do not create a PR, merge, deploy, or expose browser/CDP/VNC publicly."
+}

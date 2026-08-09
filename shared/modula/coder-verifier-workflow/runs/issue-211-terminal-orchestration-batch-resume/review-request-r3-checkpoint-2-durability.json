@@ -1,0 +1,26 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-211",
+  "purpose": "Re-review PRD #211 checkpoint 2 durability and ledger-readback fixes",
+  "checkpoint": "2 - Proposal/approval",
+  "revision": 3,
+  "requested_action": "Recheck F211-C2-002, F211-C2-003, and F211-C2-004. Verify explicit initialization versus missing authority, exact persisted schemas, pending-transition replay with idempotent ledger event IDs before recovery, and complete retained lifecycle readback by proposal/group/issue including rotation and event-specific validation.",
+  "prd_ref": "https://github.com/hyperbotsx/agentops-harness/issues/211",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-211-terminal-orchestration-batch-resume/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/orchestrator/proposalStore.ts",
+    "term-control-center/server/orchestrator/proposalPersistence.ts",
+    "term-control-center/server/orchestrator/proposalLedger.ts",
+    "term-control-center/server/orchestrator/proposalLock.ts",
+    "term-control-center/tests/proposalStore.test.ts"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck: passed",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/proposalStore.test.ts tests/orchestratorPanes.test.ts tests/validationReceipt.test.ts tests/heartbeatClassifier.test.ts: passed (34)",
+    "git diff --check: passed"
+  ],
+  "finding_ids_addressed": ["F211-C2-002", "F211-C2-003", "F211-C2-004"],
+  "stop_condition": "Return the compact verifier verdict; record detailed findings only in verifier-report.md."
+}

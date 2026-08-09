@@ -1,0 +1,33 @@
+{
+  "name": "agent-engineering-standards",
+  "version": "1.0.0",
+  "pack_title": "Agent Engineering Standards Pack v1",
+  "canonical_path": "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/shared/standards/agent-engineering/v1",
+  "skill_entrypoint": "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/shared/skills/agent-engineering-standards/SKILL.md",
+  "pi_wrapper": "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/pi/skills/agent-engineering-standards/SKILL.md",
+  "owner": "agent:agentops",
+  "source_prd": "https://github.com/hyperbotsx/agentops-harness/issues/180",
+  "status": "v1-published-for-human-reviewed-agent-workflows",
+  "updated_at": "2026-06-30",
+  "intended_consumers": ["researcher", "coder", "verifier", "steward", "prd-author", "human-operator"],
+  "source_of_truth_policy": "Reusable standards and skills live in AI Global Tools shared paths. Repo-local files may reference this pack but must not duplicate it.",
+  "files": [
+    {"path": "README.md", "responsibility": "overview, users, source-of-truth, quick start"},
+    {"path": "manifest.json", "responsibility": "version, inventory, canonical path, owners, consumers, update metadata"},
+    {"path": "canonical-standards.md", "responsibility": "full human-readable standards source"},
+    {"path": "researcher-instructions.md", "responsibility": "Exa research workflow, evidence expectations, fail-closed behavior"},
+    {"path": "coder-rules.md", "responsibility": "concise implementation rules for coding agents"},
+    {"path": "verifier-checklist.md", "responsibility": "review checklist for architecture, boundaries, tests, APIs, migrations, state, exceptions"},
+    {"path": "steward-checklist.md", "responsibility": "file placement, artifacts, cleanup, source-of-truth drift"},
+    {"path": "exception-policy.md", "responsibility": "bounded exception process and human escalation"},
+    {"path": "integration-guide.md", "responsibility": "AgentOps loading and reference plan"},
+    {"path": "update-process.md", "responsibility": "versioning, ownership, review, change process"},
+    {"path": "validation-checklist.md", "responsibility": "manual and automated readiness checks"}
+  ],
+  "update_rules": {
+    "patch": "Clarifications that do not change obligations.",
+    "minor": "New guidance or role checklists that remain backward-compatible.",
+    "major": "Breaking standards, new mandatory gates, or changed source-of-truth layout requiring human approval."
+  },
+  "non_authority": ["no autonomous PRD approval", "no PR creation", "no merge", "no deployment", "no production rollout", "no hard-blocking enforcement without separate approval", "no trading", "no backtesting"]
+}

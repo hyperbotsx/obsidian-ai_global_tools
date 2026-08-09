@@ -1,0 +1,22 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-210",
+  "purpose": "Issue #210 Steward-cleanup verifier recheck",
+  "checkpoint": "Steward hygiene recheck",
+  "revision": 28,
+  "requested_action": "Recheck the Steward cleanup only: generated build/dist/__pycache__ artifacts are absent, and session-persistence documentation accurately names job-dependencies.json and job-folders.json with 0600 permissions and privacy-limited contents. If clean, proceed to the required final bug-check.",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/210"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-210-active-jobs-dependency-nesting/coder-handoff.md",
+  "changed_files": [
+    "docs/agentops-terminal-sessions.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-210-active-jobs-dependency-nesting/coder-handoff.md"
+  ],
+  "validation_results": [
+    {"command": "test ! -e term-control-center/build && test ! -e term-control-center/dist && test ! -e pipeline-diagram/__pycache__", "status": "pass"},
+    {"command": "git diff --check", "status": "pass"}
+  ],
+  "finding_ids_addressed": ["steward-generated-artifacts", "steward-documentation-accuracy"],
+  "stop_condition": "Return compact verdict JSON; write details to verifier-report.md only for non-approval."
+}

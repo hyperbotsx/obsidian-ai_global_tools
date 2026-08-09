@@ -1,0 +1,43 @@
+{
+  "receipt": "receipt-243-r3",
+  "issue": 243,
+  "round": "r3",
+  "date": "2026-07-18",
+  "kind": "bounded-native-to-codex-coms-validation",
+  "final": "passed",
+  "scope": "liveness + one-correlated-response probe only; no implementation, no repo/GitHub mutation, no side effects",
+  "pool": "agentops-prd-243-native-receipt-r3",
+  "worktree": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-243",
+  "sender": {
+    "role": "coder",
+    "runtime": "native-claude",
+    "coms_surface": "named MCP coms tools"
+  },
+  "verifier": {
+    "role": "verifier",
+    "session_id": "01KXVBX583KR56VPZEXWV3SC6V",
+    "model": "gpt-5.6-sol",
+    "runtime": "codex-harness-native",
+    "cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-243",
+    "alive_pre": true,
+    "alive_post": true
+  },
+  "exchange": {
+    "conversation_id": "receipt-243-r3",
+    "outbound_msg_id": "278e195c-8c0a-4c7c-8295-e36ace1d6c7a",
+    "outbound_count": 1,
+    "reply_path": "harness-native (not coms_send)",
+    "await_status": "complete",
+    "correlated_response_count": 1,
+    "response_payload_shape": {"status": "ok", "round": "r3", "correlated": true}
+  },
+  "structural_findings": [
+    "Exactly one same-pool, same-worktree peer discovered (verifier); no second logical peer, no forked pool.",
+    "One outbound request honored; one correlated reply retrieved across native-Claude -> Codex boundary.",
+    "Codex replied via harness-native path, not coms_send, per contract.",
+    "Response payload is functionally-equivalent, NOT field-identical to the requested schema: requested fields ack/responder_role/conversation_id/status were not echoed; responder returned {status, round, correlated}. Documented A/B/C contract gap, not a regression.",
+    "Same-worktree/same-pool isolation held before and after; verifier remained live."
+  ],
+  "human_gates": "all preserved; no gated action attempted",
+  "audit_note": "sanitized: policy/action class, decision, IDs, statuses, identities, timestamps only; no prompts, responses text, raw transcripts, tokens, or secrets retained"
+}

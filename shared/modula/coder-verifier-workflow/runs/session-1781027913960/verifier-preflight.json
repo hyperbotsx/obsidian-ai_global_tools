@@ -1,0 +1,70 @@
+{
+  "artifact_folder": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781027913960",
+  "branch": "prd/claude-code-browser-visual-qa-agent-948",
+  "browser_qa_devtools_recommended": false,
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/session-1781027913960/",
+    "src/agentops_harness/browser_qa.py",
+    "src/agentops_harness/browser_qa_report.py",
+    "src/agentops_harness/browser_qa_runtime.py",
+    "src/agentops_harness/cli.py",
+    "src/agentops_harness/profile_schema.py",
+    "tests/unit/test_browser_qa.py",
+    "tests/unit/test_browser_qa_report.py",
+    "tests/unit/test_profile_schema.py"
+  ],
+  "devtools_mcp_prerequisites": {
+    "chrome": true,
+    "node": true,
+    "npm": true,
+    "npx": true
+  },
+  "files": {
+    "coder-handoff.md": {
+      "bytes": 10738,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781027913960/coder-handoff.md"
+    },
+    "coder-ready.md": {
+      "bytes": 2211,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781027913960/coder-ready.md"
+    },
+    "decision-log.md": {
+      "bytes": 3153,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781027913960/decision-log.md"
+    },
+    "verifier-report.md": {
+      "bytes": 4741,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781027913960/verifier-report.md"
+    },
+    "verifier-request.md": {
+      "bytes": 3237,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781027913960/verifier-request.md"
+    }
+  },
+  "handoff_missing_fields": [],
+  "hotspot_files": [
+    "src/agentops_harness/profile_schema.py",
+    "tests/unit/test_profile_schema.py"
+  ],
+  "ready_missing_fields": [],
+  "repo_root": "/mnt/hyperliquid-data/projects/worktrees/agentops-harness",
+  "report_machine_status_missing": [],
+  "review_profiles": {},
+  "status_short": [
+    "## prd/claude-code-browser-visual-qa-agent-948",
+    " M src/agentops_harness/cli.py",
+    " M src/agentops_harness/profile_schema.py",
+    " M tests/unit/test_profile_schema.py",
+    "?? dev-plans/agentops/coder-verifier-workflow/runs/session-1781027913960/",
+    "?? src/agentops_harness/browser_qa.py",
+    "?? src/agentops_harness/browser_qa_report.py",
+    "?? src/agentops_harness/browser_qa_runtime.py",
+    "?? tests/unit/test_browser_qa.py",
+    "?? tests/unit/test_browser_qa_report.py"
+  ]
+}

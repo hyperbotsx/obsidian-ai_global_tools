@@ -1,0 +1,25 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-179",
+  "checkpoint": "Final bug-check fixes",
+  "revision": 6,
+  "requested_action": "bug_check_fix_review",
+  "issue_url": "https://github.com/hyperbotsx/agentops-harness/issues/179",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-179-observable-kody/coder-handoff.md",
+  "previous_report_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-179-observable-kody/verifier-report.md",
+  "finding_ids_addressed": ["F179-R5-001", "F179-R5-002"],
+  "changed_files": [
+    "pipeline-diagram/completed.html",
+    "term-control-center/server/kodyReview.ts",
+    "term-control-center/tests/kodyReview.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-179-observable-kody/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-179-observable-kody/review-request-r6-final-bug-fixes.json"
+  ],
+  "validation_results": [
+    {"command":"cd term-control-center && node --import tsx --test --test-concurrency=1 tests/kodyReview.test.ts tests/completedKodusReview.test.ts tests/completedStatic.test.ts","status":"passed","note":"18 tests passed"},
+    {"command":"PYTHONPATH=src pytest tests/unit/test_activity_center.py -q","status":"passed","note":"10 passed"},
+    {"command":"cd term-control-center && npx tsc --noEmit --module NodeNext --moduleResolution NodeNext --target ES2022 --skipLibCheck --esModuleInterop server/kodyReview.ts server/completedKodusReview.ts && git diff --check","status":"passed"}
+  ],
+  "summary": "Allows survived_re_review actionable findings to be selected before the max loop brake, and blocks stored group attach URLs unless panes include sessionId and attachToken."
+}

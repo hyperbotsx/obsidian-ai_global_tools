@@ -1,0 +1,38 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-211",
+  "purpose": "Run final post-context bug-check revision 3 after bounded remediation of the five revision-2 findings.",
+  "expected_response": "Compact verdict JSON; write verifier-report.md only when the decision is not approved.",
+  "stop_condition": "Return approved with zero findings, or bounded revision_requested/needs_human findings.",
+  "checkpoint": "Final - Post-context bug-check",
+  "revision": 3,
+  "requested_action": "final-bug-check",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/211"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-211-terminal-orchestration-batch-resume/coder-handoff.md",
+  "prior_report_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-211-terminal-orchestration-batch-resume/verifier-report.md",
+  "finding_ids_addressed": ["F211-FINAL-001", "F211-FINAL-003", "F211-FINAL-004", "F211-FINAL-005", "F211-FINAL-KISS-001"],
+  "validation_results": {
+    "focused_typescript": "85 passed, 0 failed",
+    "focused_python": "102 passed",
+    "typecheck": "passed",
+    "build": "passed; documented non-fatal Vite warnings only",
+    "diff_check": "passed",
+    "artifact_cleanup": "removed generated term-control-center/dist and term-control-center/build"
+  },
+  "changed_files": [
+    "term-control-center/server/orchestrator/delegatedActions.ts",
+    "term-control-center/server/orchestrator/proposalValidation.ts",
+    "term-control-center/server/kodyReview.ts",
+    "term-control-center/server/kodyReviewStore.ts",
+    "term-control-center/server/kodyReviewTrigger.ts",
+    "term-control-center/server/orchestrator/proposalPersistence.ts",
+    "src/agentops_harness/kodus_state.py",
+    "src/agentops_harness/kodus_agent.py",
+    "term-control-center/tests/delegatedActions.test.ts",
+    "term-control-center/tests/proposalStore.test.ts",
+    "term-control-center/tests/kodyReviewTrigger.test.ts",
+    "tests/unit/test_kodus_agent.py"
+  ]
+}

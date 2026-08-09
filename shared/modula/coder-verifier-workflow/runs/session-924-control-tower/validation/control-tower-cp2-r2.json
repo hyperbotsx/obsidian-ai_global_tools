@@ -1,0 +1,2262 @@
+{
+  "active_work": [
+    {
+      "blocker_text": "deterministic blocker fixes and false-positive reducer checks",
+      "branch": "feat/admin-adversarial-hardening-dashboard",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/564",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgrqwAA"
+      },
+      "labels": [
+        "type:task",
+        "status:in-progress",
+        "area:adversarial-debate",
+        "phase:1"
+      ],
+      "number": 564,
+      "owner": "active: pi session in Evonome-adversarial-hardening",
+      "pipeline_status": "In Progress",
+      "prd_review_status": null,
+      "project_status": "In Progress",
+      "title": "[Task] Finish Phase 1 config completeness hardening",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/564",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-adversarial-hardening"
+    },
+    {
+      "blocker_text": null,
+      "branch": "feat/tiktape-backed-datafeed-catalog-enablement-612",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/612",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgr7l38"
+      },
+      "labels": [
+        "type:prd",
+        "status:in-progress",
+        "area:datafeed",
+        "agent:evonome-data"
+      ],
+      "number": 612,
+      "owner": "Evonome-data agent",
+      "pipeline_status": "In Progress",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD] TikTape-backed Hyperliquid datafeed catalog enablement",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/612",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": null,
+      "branch": "dev-frontend",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/641",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgsDecQ"
+      },
+      "labels": [
+        "type:prd",
+        "status:in-progress",
+        "area:strategy-discovery",
+        "agent:evonome-frontend"
+      ],
+      "number": 641,
+      "owner": "Evonome-frontend agent",
+      "pipeline_status": "Done",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "PRD: Frontend layout responsiveness and job-loading fixes",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/641",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-frontend"
+    },
+    {
+      "blocker_text": "implementation_status: approved for Checkpoint A no-code baseline audit; product-code changes remain blocked until baseline target UX approval",
+      "branch": "feat/nome-chat-responsive-polish",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/646",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgsE_rM"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "agent:evonome-frontend",
+        "area:frontend"
+      ],
+      "number": 646,
+      "owner": "Evonome-frontend coder session issue-646-nome-chat-responsive-polish",
+      "pipeline_status": "In Progress",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "PRD: NOME chat integration UX across desktop and mobile",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/646",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-frontend"
+    },
+    {
+      "blocker_text": "Known limitations, license restrictions, and blocked symbols.",
+      "branch": "feat/dsp-data-foundation-681",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/681",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgsPzLE"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:predict",
+        "area:datafeed",
+        "area:model-training",
+        "agent:evonome-data"
+      ],
+      "number": 681,
+      "owner": "Evonome-data agent \u2014 queued behind #730",
+      "pipeline_status": "In Progress",
+      "prd_review_status": "Approved",
+      "project_status": "In Progress",
+      "title": "[PRD] DSP-ready market data foundation for algorithmic trading research",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/681",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": "The job launcher should show compatible datasets and fail before execution if requirements are missing, stale, or license-blocked.",
+      "branch": "feat/datafeed-multiresolution-coexistence-682",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/682",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgsP06A"
+      },
+      "labels": [
+        "type:prd",
+        "status:in-progress",
+        "area:predict",
+        "area:datafeed",
+        "area:model-training",
+        "agent:evonome-data",
+        "area:frontend"
+      ],
+      "number": 682,
+      "owner": "Evonome-data agent \u2014 in progress on feat/datafeed-multiresolution-coexistence-682; parent/alignment only",
+      "pipeline_status": "In Progress",
+      "prd_review_status": "Approved",
+      "project_status": "In Progress",
+      "title": "[PRD] Datafeed multi-resolution extension and UI coexistence",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/682",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": "blocked_by_prd: https://github.com/hyperbotsx/SoldierOne/issues/725",
+      "branch": "feat/701-atr-volatility-overlays",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/701",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgswEik"
+      },
+      "labels": [
+        "type:prd",
+        "status:in-progress",
+        "agent:evonome-frontend",
+        "area:frontend"
+      ],
+      "number": 701,
+      "owner": "Evonome-frontend agent",
+      "pipeline_status": "Done",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD] Chart Grid Overlays V2: Volatility (ATR)",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/701",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-frontend"
+    },
+    {
+      "blocker_text": "Storage space is not expected to be a blocker as long as data lands on the `/mnt/hyperliquid-data` drive. The agent must still refuse or pause if:",
+      "branch": "feat/all-tiktape-historical-backfill-730",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/730",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgtjmno"
+      },
+      "labels": [
+        "type:prd",
+        "status:in-progress",
+        "area:predict",
+        "area:datafeed",
+        "agent:evonome-data"
+      ],
+      "number": 730,
+      "owner": "Evonome-data agent \u2014 active focus before Discovery resumes",
+      "pipeline_status": "Done",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD] Safe all-asset/all-timeframe TikTape historical backfill",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/730",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": "Connection state for each supported exchange/broker: unavailable, not connected, sandbox-ready, connected-read-only, blocked, or error.",
+      "branch": "feat/trading-section-foundation",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/756",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgtrezo"
+      },
+      "labels": [
+        "type:prd",
+        "status:in-progress",
+        "agent:evonome-trading",
+        "area:frontend",
+        "area:trading"
+      ],
+      "number": 756,
+      "owner": "Evonome-trading agent",
+      "pipeline_status": "Done",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD] Trading Section Foundation: Paper, Live, and Portfolio",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/756",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-trading"
+    },
+    {
+      "blocker_text": "| 3a | Family 3 Funding/carry canonical activation/F2 smoke | Done | PR #669 merged; promotion remains blocked by expected immutable funding artifact gate. |",
+      "branch": "chore/genesis-phase1-final-evidence",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/766",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgtt4kI"
+      },
+      "labels": [
+        "type:follow-up",
+        "status:in-progress",
+        "area:adversarial-debate",
+        "area:admin-hardening",
+        "agent:evonome-admin"
+      ],
+      "number": 766,
+      "owner": "Human-approved Phase 1 closure complete; Phase 2 not approved",
+      "pipeline_status": "Done",
+      "prd_review_status": null,
+      "project_status": "Done",
+      "title": "[Tracker] Adversarial debate hardening execution order",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/766",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-adversarial-hardening"
+    },
+    {
+      "blocker_text": "| Data-preview API times out | Treat as blocker; do not fall back to full candle scans. |",
+      "branch": "feat/validated-chart-market-catalog-820",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/820",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczguEbqE"
+      },
+      "labels": [
+        "type:prd",
+        "status:in-progress",
+        "area:datafeed",
+        "agent:evonome-data"
+      ],
+      "number": 820,
+      "owner": "Evonome-data coder full-auto; artifact: dev-plans/agentops/coder-verifier-workflow/runs/prd-820-validated-chart-market-catalog-20260531-015417; verifier socket: /tmp/agentops/pi-verifier-Evonome-data-820-20260531-015417.sock; coder socket: /tmp/agentops/pi-coder-Evonome-data-820-20260531-015417.sock",
+      "pipeline_status": "In Progress",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "PRD: Validated chart market catalog for asset dropdowns",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/820",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": null,
+      "branch": "feat/canonical-candle-writer-contract-824",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/824",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczguFoD4"
+      },
+      "labels": [
+        "type:prd",
+        "status:in-progress",
+        "area:datafeed",
+        "agent:evonome-data"
+      ],
+      "number": 824,
+      "owner": "Evonome-data agent",
+      "pipeline_status": "In Progress",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "PRD: Canonical candle adapter readiness and controlled writer contract",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/824",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": "what must remain blocked without explicit approval,",
+      "branch": "tracker/adversarial-debate-production-readiness-860",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/860",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczguVpuE"
+      },
+      "labels": [
+        "type:follow-up",
+        "status:in-progress",
+        "area:adversarial-debate",
+        "area:admin-hardening",
+        "area:governance",
+        "agent:evonome-adversarial-hardening"
+      ],
+      "number": 860,
+      "owner": "Evonome-adversarial-hardening",
+      "pipeline_status": "In Progress",
+      "prd_review_status": null,
+      "project_status": "In Progress",
+      "title": "[Tracker] Adversarial debate production readiness execution order",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/860",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-adversarial-hardening"
+    }
+  ],
+  "approved_not_started": [
+    {
+      "blocker_text": "Relationship to #898: this PRD may represent `training_export_prepared`, but Training import remains blocked pending #898 and explicit human approval.",
+      "branch": "feat/adversarial-debate-readiness-contracts-897",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/897",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczguxHf4"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:adversarial-debate",
+        "area:workflow",
+        "phase:2",
+        "area:datafeed",
+        "area:backtest",
+        "agent:evonome-adversarial-hardening"
+      ],
+      "number": 897,
+      "owner": "Evonome-adversarial-hardening agent/process",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Todo",
+      "title": "PRD: Adversarial Debate Backtest Readiness Backend Contracts",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/897",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-adversarial-hardening"
+    },
+    {
+      "blocker_text": "the blocker and why local attempts were insufficient;",
+      "branch": "feat/adversarial-debate-workflow-copy-896",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/896",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczguxHcc"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:adversarial-debate",
+        "area:workflow",
+        "phase:2",
+        "agent:evonome-frontend",
+        "area:frontend"
+      ],
+      "number": 896,
+      "owner": "Evonome-frontend agent/process",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Todo",
+      "title": "PRD: Adversarial Debate Workflow Nodes and User-Facing Copy",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/896",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-frontend"
+    },
+    {
+      "blocker_text": "7. Required audit fields are approver identity, approval timestamp, source package version/hash, source debate job, explicit non-approval marker, and rejection reason when blocked.",
+      "branch": "feat/training-handoff-human-import-898",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/898",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczguxHjs"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:adversarial-debate",
+        "area:workflow",
+        "phase:2",
+        "area:model-training",
+        "area:backtest",
+        "agent:evonome-training"
+      ],
+      "number": 898,
+      "owner": "Evonome-training agent/process",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Todo",
+      "title": "PRD: Training Handoff Export and Human Import Handshake",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/898",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-training"
+    },
+    {
+      "blocker_text": "Implementation status: Complete for approved readiness/schema-only scope: validation-admissibility ingestion, blocked-family visibility, provider-neutral validation input contracts, and scorecard schema readiness. Validation/backtest execution remains blocked until at least one selected family has `artifact_gate_passed` or a separately approved named exception.",
+      "branch": "prd/genesis-cross-family-validation-scorecard-870",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/870",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgubMM8"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:adversarial-debate",
+        "phase:2",
+        "area:admin-hardening",
+        "area:datafeed",
+        "area:backtest",
+        "area:governance",
+        "agent:evonome-admin"
+      ],
+      "number": 870,
+      "owner": "Evonome-admin agent / Evonome-adversarial-hardening process",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "In Progress",
+      "title": "PRD: Genesis Cross-Family Validation, Backtest, and Robustness Scorecard",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/870",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-adversarial-hardening"
+    },
+    {
+      "blocker_text": "3. Make current gate states, verifier reports, PR links, blockers, and downstream approval boundaries easy to find.",
+      "branch": "prd/genesis-evidence-index-discoverability-pass-899",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/899",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczguztgg"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:adversarial-debate",
+        "area:workflow",
+        "phase:2",
+        "area:governance",
+        "agent:evonome-adversarial-hardening"
+      ],
+      "number": 899,
+      "owner": "Evonome-adversarial-hardening agent/process",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Todo",
+      "title": "PRD: Genesis Evidence Index and Discoverability Pass",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/899",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-adversarial-hardening"
+    },
+    {
+      "blocker_text": null,
+      "branch": "feat/admin-hardening-v2-foundation",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/569",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgrqxVw"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:admin-hardening"
+      ],
+      "number": 569,
+      "owner": "PR open: https://github.com/hyperbotsx/SoldierOne/pull/581",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD 1] Admin Hardening V2.0 Foundation \u2014 Track Registry, DTOs, Run History, and Runner Controls",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/569",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-admin-hardening-v2-foundation"
+    },
+    {
+      "blocker_text": "PRD approved on 2026-05-03 for product shape. Implementation depends on stable PRD 1 DTO/taxonomy foundation. Readiness is deterministic; blocker harvest is post-readiness; validator enforcement requires separate human-approved decision or PRD.",
+      "branch": "feat/admin-hardening-v2-foundation",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/570",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgrqxV8"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:admin-hardening"
+      ],
+      "number": 570,
+      "owner": "ready for PRD2 implementation in new chat; shared V2 PR #581 branch",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD 2] Admin Hardening Seed Readiness and Golden Corpus",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/570",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-admin-hardening-v2-foundation"
+    },
+    {
+      "blocker_text": "PRD approved on 2026-05-03 for product shape as an MVP Operator Matrix after PRD 1\u20132 foundations are stable. Blocker harvest, validator coverage, and lane coverage are enhanced optional fields and must not block MVP implementation.",
+      "branch": "feat/admin-hardening-v2-foundation",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/571",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgrqxWQ"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:admin-hardening"
+      ],
+      "number": 571,
+      "owner": "ready for CEO review / implementation planning",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD 3] Admin Hardening Operator Matrix Dashboard",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/571",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-admin-hardening-v2-foundation"
+    },
+    {
+      "blocker_text": "artifact type, family, readiness, support, run-status, blocker, and stale/fresh filters",
+      "branch": null,
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/580",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgrrVls"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:admin-hardening"
+      ],
+      "number": 580,
+      "owner": null,
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD 3.1] Admin Hardening Coverage Browser",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/580",
+      "worktree_path": null
+    },
+    {
+      "blocker_text": "Operators want deeper automation than the normal bounded cap, but longer autonomous runs can edit code, test, deploy, launch rechecks, commit, push, and affect PR state. This PRD defines deliberate extended autonomous mode with initial cap 10, elevated permissions, enforceable cycle/recheck/deploy/wall-clock budgets, durable notification/webhook events, terminal-only or human-reviewed push policy, resume semantics, archival, and advisory blocker harvest by default.",
+      "branch": "feat/admin-hardening-v2-foundation",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/572",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgrqxWY"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:admin-hardening"
+      ],
+      "number": 572,
+      "owner": "ready for CEO review / implementation planning",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD 4] Admin Hardening Extended Autonomous Operations",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/572",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-admin-hardening-v2-foundation"
+    },
+    {
+      "blocker_text": "Approve this PRD for future product shape only. Keep the first four PRDs focused, then add this fifth PRD because parallel hardening lanes with independent branches, worktrees, runtime directories, logs, restart controls, and dashboard sub-pages are a major operational capability. Implementation is blocked until PRD 1\u20134 are stable, extended-operations safety is proven where longer lane runs are used, and one isolated lane mutation has passed cleanly.",
+      "branch": "feat/admin-hardening-v2-foundation",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/579",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgrrL9E"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:admin-hardening",
+        "agent:evonome-admin"
+      ],
+      "number": 579,
+      "owner": "Evonome-admin agent",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "In Progress",
+      "title": "[PRD 5] Admin Hardening Parallel Lane Operations and Observability",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/579",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-admin"
+    },
+    {
+      "blocker_text": null,
+      "branch": "historical/feat-strategy-configuration-contract-575",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/575",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgrq2kM"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:model-training",
+        "area:strategy-discovery",
+        "area:governance",
+        "agent:evonome-training"
+      ],
+      "number": 575,
+      "owner": "Evonome-training agent",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Todo",
+      "title": "PRD: Strategy Configuration Contract Program Overview",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/575",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-training"
+    },
+    {
+      "blocker_text": "blocked/missing-state handling",
+      "branch": "historical/feat-strategy-configuration-contract-576",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/576",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgrq2ks"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:adversarial-debate",
+        "area:model-training",
+        "area:strategy-discovery",
+        "agent:evonome-training"
+      ],
+      "number": 576,
+      "owner": "Evonome-training agent",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Todo",
+      "title": "PRD: Strategy Configuration Contract",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/576",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-training"
+    },
+    {
+      "blocker_text": null,
+      "branch": "chore/genesis-mean-reversion-lane-proof-591",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/591",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgrwgBc"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:datafeed",
+        "agent:evonome-data"
+      ],
+      "number": 591,
+      "owner": "Evonome-data agent",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Todo",
+      "title": "[PRD] Data Feed Quality Tab Truthful Recovery State",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/591",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": null,
+      "branch": "feat/coder-verifier-workflow-poc",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/599",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgr3-LM"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:workflow"
+      ],
+      "number": 599,
+      "owner": "pi coding session",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "PRD5: Coder-Verifier Agent Workflow POC",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/599",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-AgentOps"
+    },
+    {
+      "blocker_text": null,
+      "branch": null,
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/613",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgr7yf4"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:adversarial-debate",
+        "area:strategy-discovery",
+        "agent:evonome-frontend"
+      ],
+      "number": 613,
+      "owner": "Evonome-frontend agent",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "PRD: Discovery Debate Frontend Fixes",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/613",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-frontend"
+    },
+    {
+      "blocker_text": null,
+      "branch": null,
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/633",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgr_SPM"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:datafeed",
+        "agent:evonome-data"
+      ],
+      "number": 633,
+      "owner": "Evonome-data",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "PRD: Chart indicator/data foundation \u2014 backend V1",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/633",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": null,
+      "branch": "chore/frontend-shell-cleanup",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/631",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgr_E_c"
+      },
+      "labels": [
+        "tech-debt",
+        "KISS",
+        "type:prd",
+        "status:approved",
+        "agent:evonome-frontend"
+      ],
+      "number": 631,
+      "owner": "Evonome-frontend",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD] Frontend Responsiveness, Tokens, and Component Reuse Cleanup",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/631",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-frontend"
+    },
+    {
+      "blocker_text": "2. V1 audits every cataloged Hyperliquid pair/timeframe, including hidden and blocked statuses, as diagnostic rows.",
+      "branch": "feat/datafeed-gap-assurance",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/659",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgsJdyY"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:datafeed",
+        "agent:evonome-data"
+      ],
+      "number": 659,
+      "owner": "Evonome-data agent",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD] Datafeed gap assurance and archive-to-live continuity checks",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/659",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": null,
+      "branch": "fix/chart-page-visual-polish",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/663",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgsKQFo"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "agent:evonome-frontend",
+        "area:frontend"
+      ],
+      "number": 663,
+      "owner": "Evonome-frontend agent",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "PRD: Chart page visual polish fixes",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/663",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-chart-page-visual-polish"
+    },
+    {
+      "blocker_text": "Initial investigation suggests this is not primarily a candlestick renderer defect. The chart can silently render sparse live DB candles as a continuous series when the archive source for the selected pair/timeframe is blocked or partial. For example, `BTC 5m` is currently cataloged as partial/blocked in the archive policy, yet the chart can still display live DB candles for that pair/timeframe. Missing intervals are compressed on the category x-axis, so sparse data appears as discontinuous price action without an explicit data-quality warning.",
+      "branch": "fix/hyperliquid-chart-gap-guard",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/666",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgsK71I"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:datafeed",
+        "agent:evonome-data"
+      ],
+      "number": 666,
+      "owner": "Evonome-data",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD] Hyperliquid chart gap visualization and source-quality guard",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/666",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": null,
+      "branch": "feat/chunked-candlestick-lod-670",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/670",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgsNCOY"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:datafeed",
+        "agent:evonome-data",
+        "area:frontend"
+      ],
+      "number": 670,
+      "owner": "Evonome-data",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Todo",
+      "title": "PRD: Chunked candlestick chart loading and level-of-detail rendering",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/670",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": "6. Safety clarity is mandatory: warnings, destructive-action consequences, data-risk states, and operational blockers must remain explicit.",
+      "branch": "docs/frontend-product-copy-guidelines",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/696",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgsuplQ"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:workflow",
+        "agent:evonome-frontend",
+        "area:frontend"
+      ],
+      "number": 696,
+      "owner": "Evonome-frontend agent",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD] Frontend product copy and UI clarity guidelines for coding agents",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/696",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-frontend"
+    },
+    {
+      "blocker_text": null,
+      "branch": "feat/volume-profile-v3-order-flow-liquidity",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/723",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgtaRG4"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:datafeed",
+        "agent:evonome-frontend",
+        "area:frontend"
+      ],
+      "number": 723,
+      "owner": "Evonome-frontend agent",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD] Volume Profile V3: Session Order Flow and Liquidity",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/723",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-frontend"
+    },
+    {
+      "blocker_text": "Discovery preview originally blocked #637 execution-to-output QA because the preview backend had no OHLCV candles for the tested market contexts. That original zero-data blocker was manually mitigated for the current BTC preview QA path on 2026-05-23 by seeding Hyperliquid BTC candles:",
+      "branch": "fix/discovery-preview-execution-qa-740",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/740",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgtntbk"
+      },
+      "labels": [
+        "bug",
+        "type:prd",
+        "status:blocked",
+        "area:strategy-discovery",
+        "agent:evonome-discovery"
+      ],
+      "number": 740,
+      "owner": "Evonome-discovery",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD] Discovery preview execution QA re-check after DATA backfill",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/740",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-discovery"
+    },
+    {
+      "blocker_text": null,
+      "branch": "feat/ehlers-dsp-indicator-addons-750",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/750",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgtpVPE"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:datafeed",
+        "agent:evonome-data",
+        "area:frontend"
+      ],
+      "number": 750,
+      "owner": "Evonome-data agent",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Todo",
+      "title": "PRD: Optional Ehlers DSP Addons for Chart Indicators",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/750",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": null,
+      "branch": "feat/training-chart-overlays",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/781",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgtwPYk"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:model-training",
+        "agent:evonome-training",
+        "area:frontend"
+      ],
+      "number": 781,
+      "owner": "Evonome-training agent",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "PRD: Training Chart Overlay API and Chart Integration",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/781",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-training"
+    },
+    {
+      "blocker_text": null,
+      "branch": "feat/shared-section-page-header",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/787",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgt0NsI"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "agent:evonome-frontend",
+        "area:frontend"
+      ],
+      "number": 787,
+      "owner": "Evonome-frontend agent",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD] Shared Section Page Header and Breadcrumb Consistency",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/787",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-frontend"
+    },
+    {
+      "blocker_text": null,
+      "branch": "feat/canonical-candlestick-store-796",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/796",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgt4Q_A"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:datafeed",
+        "agent:evonome-data"
+      ],
+      "number": 796,
+      "owner": "Evonome-data agent",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD] Canonical candlestick database for production and preview domains",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/796",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": "Discovery execution or data blockers, including #740.",
+      "branch": "chore/discovery-canvas-shell-source-truth-798",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/798",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgt6w94"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:strategy-discovery",
+        "agent:evonome-discovery",
+        "area:frontend"
+      ],
+      "number": 798,
+      "owner": "Evonome-discovery agent",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD] Discovery canvas shell source-of-truth hardening",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/798",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-discovery"
+    },
+    {
+      "blocker_text": "if the user is on Evaluation or Artifacts, those pages should use the selected experiment context and show empty/blocker states if required records are missing,",
+      "branch": "feat/training-experiment-intake-context-flow-814",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/814",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgt9758"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:model-training",
+        "area:strategy-discovery",
+        "agent:evonome-training",
+        "area:frontend"
+      ],
+      "number": 814,
+      "owner": "Evonome-training agent",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD] Training Experiment Intake, Context Selector, and Discovery Import Flow",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/814",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-training"
+    },
+    {
+      "blocker_text": "Raw-event-dependent modules remain blocked until #810 or successor work provides verified raw-event foundations.",
+      "branch": "feat/adaptive-signal-modules-program-827",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/827",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczguGf8k"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:predict",
+        "area:datafeed",
+        "area:strategy-discovery",
+        "agent:evonome-data"
+      ],
+      "number": 827,
+      "owner": "Evonome-data agent \u2014 approved; ready for branch setup when selected",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Todo",
+      "title": "[PRD] Adaptive Signal Modules Program Umbrella",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/827",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": "Discovery and Training jobs can run in the background while users move between pages. Today, job state is mostly page-local. A user may start a Signal Discovery run, move to another method or training workflow, and miss that a job completed, failed, or became blocked. During development this also slows QA because operators need to keep multiple pages or API checks open.",
+      "branch": "feat/global-activity-console-842",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/842",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczguSF1o"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:workflow",
+        "agent:evonome-frontend",
+        "area:frontend"
+      ],
+      "number": 842,
+      "owner": "Evonome-frontend",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "PRD: Global Activity Console for background jobs",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/842",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-frontend"
+    },
+    {
+      "blocker_text": null,
+      "branch": "fix/genesis-phase1-suite-failures-852",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/852",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczguTT4w"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:adversarial-debate",
+        "phase:1",
+        "area:admin-hardening",
+        "agent:evonome-admin"
+      ],
+      "number": 852,
+      "owner": "Evonome-admin agent",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "PRD: Genesis Phase 1 Full Suite Failure Cleanup",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/852",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-adversarial-hardening"
+    },
+    {
+      "blocker_text": "Approval notes: Approved after CEO-requested revisions added a narrow pass definition, no-close-after-first-failure lifecycle guard, retry-wave governance, escalation rules, blocker inventory, execution-cost decision path, and narrower predecessor-update requirements. Approval does not authorize validation/backtest execution or downstream deployment.",
+      "branch": "prd/genesis-trend-momentum-persistent-source-resolution-883",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/883",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgusAlo"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:adversarial-debate",
+        "phase:2",
+        "area:admin-hardening",
+        "area:datafeed",
+        "area:governance",
+        "agent:evonome-adversarial-hardening"
+      ],
+      "number": 883,
+      "owner": "Evonome-adversarial-hardening",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "PRD: Genesis Trend Momentum Persistent Source-Authority Resolution Loop",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/883",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-adversarial-hardening"
+    },
+    {
+      "blocker_text": "Approval boundary: this PRD approves the product workflow contract, user-facing copy direction, status semantics, blocker taxonomy, and handoff boundary. It does not approve coding the full workflow in one implementation pass.",
+      "branch": "prd/adversarial-debate-backtest-readiness-training-handoff-889",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/889",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgutOO8"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:adversarial-debate",
+        "area:workflow",
+        "phase:2",
+        "area:datafeed",
+        "area:model-training",
+        "area:backtest",
+        "area:frontend",
+        "agent:evonome-adversarial-hardening"
+      ],
+      "number": 889,
+      "owner": "Evonome-adversarial-hardening agent/process",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Todo",
+      "title": "PRD: Adversarial Debate Backtest Readiness and Training Handoff Workflow",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/889",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-adversarial-hardening"
+    },
+    {
+      "blocker_text": "> Historical evidence: PRD #911 artifacts under `docs/evonome/genesis/phase-2/source-manifests/portfolio_ensemble_allocation/source-authority/prd911/` and #887 blocker update https://github.com/hyperbotsx/SoldierOne/issues/887#issuecomment-4637821600.",
+      "branch": "prd/genesis-component-return-source-owner-authority-resolution-912",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/912",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgu5aSQ"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:adversarial-debate",
+        "area:datafeed",
+        "area:governance",
+        "agent:evonome-adversarial-hardening"
+      ],
+      "number": 912,
+      "owner": "Evonome-adversarial-hardening agent/process",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Todo",
+      "title": "PRD: Genesis Component-Return Source Owner Authority Resolution",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/912",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-adversarial-hardening"
+    },
+    {
+      "blocker_text": "blocker and local attempts;",
+      "branch": "prd/hermes-safe-runtime-activation-922",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/922",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgu8iVc"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:workflow",
+        "area:admin-hardening",
+        "area:governance",
+        "agent:evonome-admin"
+      ],
+      "number": 922,
+      "owner": "Evonome-admin agent/process",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Todo",
+      "title": "PRD: Hermes-safe runtime activation and sandbox verification",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/922",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-admin"
+    },
+    {
+      "blocker_text": "What is blocked and why?",
+      "branch": "prd/project2-readonly-control-tower-924",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/924",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgu8iWI"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:workflow",
+        "area:admin-hardening",
+        "area:governance",
+        "agent:evonome-admin"
+      ],
+      "number": 924,
+      "owner": "Evonome-admin agent/process",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Todo",
+      "title": "PRD: Read-only Project 2 orchestration control tower",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/924",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/agentops-harness"
+    },
+    {
+      "blocker_text": "If implementation is blocked after bounded local attempts, run Exa Search before declaring this infeasible or requesting terminal deferral.",
+      "branch": "prd/human-confirmed-orchestration-assistant-925",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/925",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgu8iWY"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:workflow",
+        "area:admin-hardening",
+        "area:governance",
+        "agent:evonome-admin"
+      ],
+      "number": 925,
+      "owner": "Evonome-admin agent/process",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Todo",
+      "title": "PRD: Human-confirmed orchestration action assistant",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/925",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-admin"
+    },
+    {
+      "blocker_text": "Non-zero component-return rows are desired but not pass-forcing; a verifier-approved fail-closed blocker packet is the correct outcome if selected-input authority cannot be proven.",
+      "branch": "prd/genesis-component-return-selected-inputs-source-authority-929",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/929",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgu8roA"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:adversarial-debate",
+        "area:datafeed",
+        "area:governance",
+        "agent:evonome-adversarial-hardening"
+      ],
+      "number": 929,
+      "owner": "Evonome-adversarial-hardening agent/process",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "PRD: Genesis Component-Return Selected Inputs Source Authority",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/929",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-adversarial-hardening"
+    },
+    {
+      "blocker_text": "The selector is interactive and not blocked by overlay pointer-event layers.",
+      "branch": "feat/main-chart-dataset-selector-integration-930",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/930",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgu9AgQ"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "agent:evonome-frontend",
+        "area:frontend"
+      ],
+      "number": 930,
+      "owner": "Evonome-frontend agent",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Todo",
+      "title": "PRD: Main chart dataset selector integration and UI alignment",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/930",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-frontend"
+    },
+    {
+      "blocker_text": "#930 remains a separate frontend PRD for main chart placement and styling. It is not a blocker for backend read-path delivery unless the implementation explicitly targets the #930 main chart surface.",
+      "branch": "feat/tick-data-derived-read-path-931",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/931",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgu9Agc"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:datafeed",
+        "agent:evonome-data"
+      ],
+      "number": 931,
+      "owner": "Evonome-data agent",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Todo",
+      "title": "PRD: Provider-neutral tick data pilot and derived tick-bar read path",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/931",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": "If implementation is blocked after bounded local attempts, run Exa Search before declaring the integration infeasible or requesting terminal deferral.",
+      "branch": "prd/ai-maestro-readonly-dashboard-934",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/934",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgu9lqY"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:workflow",
+        "area:admin-hardening",
+        "area:governance",
+        "agent:evonome-admin"
+      ],
+      "number": 934,
+      "owner": "Evonome-admin agent/process",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Todo",
+      "title": "PRD: AI Maestro read-only orchestration dashboard integration",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/934",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-admin"
+    },
+    {
+      "blocker_text": "deliver concise notifications about blockers, verifier findings, and next human decisions;",
+      "branch": "prd/telegram-operator-gateway-935",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/935",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgu9nE8"
+      },
+      "labels": [
+        "type:prd",
+        "status:approved",
+        "area:workflow",
+        "area:admin-hardening",
+        "area:governance",
+        "agent:evonome-admin"
+      ],
+      "number": 935,
+      "owner": "Evonome-admin agent/process",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Todo",
+      "title": "PRD: Telegram operator gateway for orchestration questions and instructions",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/935",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-admin"
+    }
+  ],
+  "blocked": [
+    {
+      "blocker_text": "Implementation status: Blocked at Checkpoint 2 \u2014 #894 is CEO-approved, but `portfolio_ensemble_allocation` remains fail-closed until #894 implementation produces a verifier-approved `portfolio_component_registry_v1` artifact.",
+      "branch": "prd/genesis-portfolio-ensemble-allocation-persistent-source-resolution-887",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/887",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgus6V0"
+      },
+      "labels": [
+        "type:prd",
+        "status:blocked",
+        "area:adversarial-debate",
+        "phase:2",
+        "area:admin-hardening",
+        "area:datafeed",
+        "area:governance",
+        "agent:evonome-adversarial-hardening"
+      ],
+      "number": 887,
+      "owner": "Evonome-adversarial-hardening agent/process",
+      "pipeline_status": "Blocked",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "PRD: Genesis Portfolio Ensemble Allocation Persistent Source-Authority Resolution Loop",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/887",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-adversarial-hardening"
+    },
+    {
+      "blocker_text": "Mirrored lessons use the existing hardening lesson schema and include source family, track, run, attempt, blocker title, outcome, transferability, and sanitized artifact references.",
+      "branch": "chore/genesis-family-module-refactor",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/586",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgruKyo"
+      },
+      "labels": [
+        "type:prd",
+        "status:prd-draft",
+        "area:adversarial-debate",
+        "phase:1",
+        "area:admin-hardening",
+        "agent:evonome-admin"
+      ],
+      "number": 586,
+      "owner": "Evonome-admin agent",
+      "pipeline_status": "Blocked",
+      "prd_review_status": "Approved",
+      "project_status": "In Progress",
+      "title": "PRD: Genesis ideator family module refactor and 50-cycle hardening gate",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/586",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-admin"
+    },
+    {
+      "blocker_text": "Truthful handoff readiness: `ready` only with a valid Strategy Configuration / Handoff Package; otherwise `unavailable`, `blocked`, `incomplete`, or `decision_required`.",
+      "branch": "feat/pattern-discovery-native-method",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/611",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgr7fSc"
+      },
+      "labels": [
+        "type:prd",
+        "status:blocked",
+        "area:strategy-discovery",
+        "agent:evonome-discovery"
+      ],
+      "number": 611,
+      "owner": "Evonome-discovery agent \u2014 paused until Data #730 completes",
+      "pipeline_status": "Done",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD] Pattern Discovery Native Method",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/611",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-discovery"
+    },
+    {
+      "blocker_text": "CEO approval: Approved for V1 chart indicator foundation, blocked until #633 lands",
+      "branch": null,
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/632",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgr_Na8"
+      },
+      "labels": [
+        "enhancement",
+        "type:prd",
+        "status:blocked",
+        "area:datafeed",
+        "agent:evonome-frontend"
+      ],
+      "number": 632,
+      "owner": "Evonome-frontend",
+      "pipeline_status": "Blocked",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "PRD: Charts page indicator foundation \u2014 frontend V1",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/632",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-frontend"
+    },
+    {
+      "blocker_text": "If the method is not ready to emit a valid configuration package, it must fail closed through the shared readiness vocabulary (`unavailable`, `incomplete`, `blocked`, or `decision_required`). Candidate previews, local `config_ready` booleans, and method-specific preview JSON are not valid configuration output by themselves.",
+      "branch": "fix/discovery-signal-job-creation",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/647",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgsFB2E"
+      },
+      "labels": [
+        "type:prd",
+        "status:blocked",
+        "area:strategy-discovery",
+        "agent:evonome-discovery"
+      ],
+      "number": 647,
+      "owner": "Evonome-discovery agent \u2014 paused until Data #730 completes",
+      "pipeline_status": "Done",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD] Signal Discovery Job Creation Verification and Repair",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/647",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-discovery"
+    },
+    {
+      "blocker_text": "If the method is not ready to emit a valid configuration package, it must fail closed through the shared readiness vocabulary (`unavailable`, `incomplete`, `blocked`, or `decision_required`). Candidate previews, local `config_ready` booleans, and method-specific preview JSON are not valid configuration output by themselves.",
+      "branch": "fix/discovery-system-builder-job-creation",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/649",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgsFCBA"
+      },
+      "labels": [
+        "type:prd",
+        "status:blocked",
+        "area:strategy-discovery",
+        "agent:evonome-discovery"
+      ],
+      "number": 649,
+      "owner": "Evonome-discovery agent \u2014 paused until Data #730 completes",
+      "pipeline_status": "Blocked",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD] System Builder Job Creation Verification and Repair",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/649",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-discovery"
+    },
+    {
+      "blocker_text": "If the method is not ready to emit a valid configuration package, it must fail closed through the shared readiness vocabulary (`unavailable`, `incomplete`, `blocked`, or `decision_required`). Candidate previews, local `config_ready` booleans, and method-specific preview JSON are not valid configuration output by themselves.",
+      "branch": "fix/discovery-evolutionary-strategy-job-creation",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/650",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgsFCGw"
+      },
+      "labels": [
+        "type:prd",
+        "status:blocked",
+        "area:strategy-discovery",
+        "agent:evonome-discovery"
+      ],
+      "number": 650,
+      "owner": "Evonome-discovery agent \u2014 paused until Data #730 completes",
+      "pipeline_status": "Blocked",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD] Evolutionary Strategy Discovery-Owned Job Creation Verification and Repair",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/650",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-discovery"
+    },
+    {
+      "blocker_text": "This PRD defines the shared runtime foundation that the method-specific runtime PRDs (#676-#679) should use. The goal is to avoid four different lifecycle implementations and instead provide one Discovery-owned execution, progress, blocker, readiness, and artifact contract.",
+      "branch": "feat/discovery-runtime-foundation",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/705",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgsxvzQ"
+      },
+      "labels": [
+        "type:prd",
+        "status:blocked",
+        "area:strategy-discovery",
+        "agent:evonome-discovery"
+      ],
+      "number": 705,
+      "owner": "Evonome-discovery agent \u2014 paused until Data #730 completes",
+      "pipeline_status": "Blocked",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD] Discovery Runtime Foundation for Method-Owned Execution",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/705",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-discovery"
+    },
+    {
+      "blocker_text": "Discovery preview originally blocked #637 execution-to-output QA because the preview backend had no OHLCV candles for the tested market contexts. That original zero-data blocker was manually mitigated for the current BTC preview QA path on 2026-05-23 by seeding Hyperliquid BTC candles:",
+      "branch": "fix/discovery-preview-execution-qa-740",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/740",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgtntbk"
+      },
+      "labels": [
+        "bug",
+        "type:prd",
+        "status:blocked",
+        "area:strategy-discovery",
+        "agent:evonome-discovery"
+      ],
+      "number": 740,
+      "owner": "Evonome-discovery",
+      "pipeline_status": "Approved",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD] Discovery preview execution QA re-check after DATA backfill",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/740",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-discovery"
+    },
+    {
+      "blocker_text": "> Status: CEO approved for bounded implementation; blocked until the #776 PR is merged to `main`.",
+      "branch": "chore/trading-route-qa-hardening",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/777",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgtv7gI"
+      },
+      "labels": [
+        "type:prd",
+        "status:blocked",
+        "agent:evonome-trading",
+        "area:frontend",
+        "area:trading"
+      ],
+      "number": 777,
+      "owner": "Evonome-trading agent",
+      "pipeline_status": "Blocked",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD] Trading Route QA and Safety Hardening Pass",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/777",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-trading"
+    }
+  ],
+  "drift_warnings": [],
+  "mode": "read_only",
+  "prd_drafts": [
+    {
+      "blocker_text": "Phase 1 config completeness and blocker taxonomy",
+      "branch": null,
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/563",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgrqv_w"
+      },
+      "labels": [
+        "type:prd",
+        "status:prd-draft",
+        "area:adversarial-debate",
+        "agent:evonome-admin",
+        "agent:needs-decision"
+      ],
+      "number": 563,
+      "owner": "Evonome-admin agent",
+      "pipeline_status": "PRD Draft",
+      "prd_review_status": "Draft",
+      "project_status": "Todo",
+      "title": "[PRD] Adversarial debate operational matrix and portable config artifacts",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/563",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-admin"
+    },
+    {
+      "blocker_text": null,
+      "branch": "fix/admin-hardening-v2-preview-polish",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/584",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgrtmWU"
+      },
+      "labels": [
+        "type:prd",
+        "status:prd-draft",
+        "area:admin-hardening"
+      ],
+      "number": 584,
+      "owner": null,
+      "pipeline_status": "PRD Draft",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD] Operator Matrix category expansion",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/584",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome"
+    },
+    {
+      "blocker_text": "Create a PRD for hardening-specific LCM blocker memory and cross-family lesson retrieval.",
+      "branch": "fix/admin-hardening-v2-preview-polish",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/585",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgrtnzI"
+      },
+      "labels": [
+        "type:prd",
+        "status:prd-draft",
+        "area:admin-hardening",
+        "area:knowledge-base"
+      ],
+      "number": 585,
+      "owner": null,
+      "pipeline_status": "PRD Draft",
+      "prd_review_status": "Approved",
+      "project_status": "Done",
+      "title": "[PRD] Hardening LCM blocker memory",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/585",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome"
+    },
+    {
+      "blocker_text": "Mirrored lessons use the existing hardening lesson schema and include source family, track, run, attempt, blocker title, outcome, transferability, and sanitized artifact references.",
+      "branch": "chore/genesis-family-module-refactor",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/586",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgruKyo"
+      },
+      "labels": [
+        "type:prd",
+        "status:prd-draft",
+        "area:adversarial-debate",
+        "phase:1",
+        "area:admin-hardening",
+        "agent:evonome-admin"
+      ],
+      "number": 586,
+      "owner": "Evonome-admin agent",
+      "pipeline_status": "Blocked",
+      "prd_review_status": "Approved",
+      "project_status": "In Progress",
+      "title": "PRD: Genesis ideator family module refactor and 50-cycle hardening gate",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/586",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-admin"
+    },
+    {
+      "blocker_text": "As a hardening operator, I want complexity profile metadata recorded now, so future corpus/reporting work can analyze blocker rates by complexity profile.",
+      "branch": "TBD",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/621",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgr9zwY"
+      },
+      "labels": [
+        "type:prd",
+        "status:future",
+        "area:adversarial-debate",
+        "area:strategy-discovery",
+        "agent:evonome-discovery"
+      ],
+      "number": 621,
+      "owner": "Evonome-discovery agent",
+      "pipeline_status": "Future",
+      "prd_review_status": "Draft",
+      "project_status": "Todo",
+      "title": "PRD: Strategy complexity profiles for seed generation",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/621",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-discovery"
+    },
+    {
+      "blocker_text": null,
+      "branch": null,
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/623",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgr-NhM"
+      },
+      "labels": [
+        "type:prd",
+        "status:prd-draft",
+        "area:governance",
+        "agent:evonome-trading"
+      ],
+      "number": 623,
+      "owner": null,
+      "pipeline_status": "Todo",
+      "prd_review_status": null,
+      "project_status": "Todo",
+      "title": "[PRD] Portfolio Management Agent Council",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/623",
+      "worktree_path": null
+    },
+    {
+      "blocker_text": "Add a compatibility gate to strategy and training launch flows so jobs declare data requirements, show compatible datasets, and block runs with missing, stale, low-quality, or license-blocked data.",
+      "branch": "feat/data-compatibility-gate-688",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/688",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgsSDEs"
+      },
+      "labels": [
+        "type:prd",
+        "status:prd-draft",
+        "area:predict",
+        "area:datafeed",
+        "area:model-training",
+        "agent:evonome-data",
+        "area:frontend"
+      ],
+      "number": 688,
+      "owner": "Evonome-data agent",
+      "pipeline_status": "PRD Draft",
+      "prd_review_status": "Draft",
+      "project_status": "Todo",
+      "title": "[PRD] Strategy and training data compatibility gate",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/688",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": null,
+      "branch": "TBD by Evonome-data after approval",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/745",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgtoK5Q"
+      },
+      "labels": [
+        "enhancement",
+        "type:prd",
+        "status:prd-draft",
+        "area:admin-hardening",
+        "area:datafeed",
+        "agent:evonome-data"
+      ],
+      "number": 745,
+      "owner": "Evonome-data",
+      "pipeline_status": "PRD Draft",
+      "prd_review_status": "Draft",
+      "project_status": "Todo",
+      "title": "[PRD] Account AI provider connections and routing",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/745",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": null,
+      "branch": "TBD after CEO approval",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/799",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgt6_DY"
+      },
+      "labels": [
+        "type:prd",
+        "status:prd-draft",
+        "area:datafeed",
+        "area:knowledge-base",
+        "agent:evonome-data"
+      ],
+      "number": 799,
+      "owner": "Evonome-data agent",
+      "pipeline_status": "PRD Draft",
+      "prd_review_status": "Draft",
+      "project_status": "Todo",
+      "title": "[PRD] DATA Knowledge Foundation: IA, Ownership, and Compatibility Map",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/799",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": null,
+      "branch": "TBD after CEO approval",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/800",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgt7HKo"
+      },
+      "labels": [
+        "type:prd",
+        "status:prd-draft",
+        "area:datafeed",
+        "area:knowledge-base",
+        "agent:evonome-data"
+      ],
+      "number": 800,
+      "owner": "Evonome-data agent",
+      "pipeline_status": "PRD Draft",
+      "prd_review_status": "Draft",
+      "project_status": "Todo",
+      "title": "[PRD] Canonical Knowledge Read API and Schema Contracts",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/800",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": "Promotion requires a source locator that can be resolved or clearly marked as stale/missing. If the source cannot be resolved, promotion must fail or produce a visible blocked state; it must not silently create trusted Knowledge.",
+      "branch": "TBD after CEO approval",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/801",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgt7HRQ"
+      },
+      "labels": [
+        "type:prd",
+        "status:prd-draft",
+        "area:knowledge-base",
+        "agent:evonome-data"
+      ],
+      "number": 801,
+      "owner": "Evonome-data agent",
+      "pipeline_status": "PRD Draft",
+      "prd_review_status": "Draft",
+      "project_status": "Todo",
+      "title": "[PRD] Knowledge Provenance and Promotion Contract",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/801",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": null,
+      "branch": "TBD after CEO approval",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/802",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgt7HWw"
+      },
+      "labels": [
+        "type:prd",
+        "status:prd-draft",
+        "area:datafeed",
+        "area:knowledge-base",
+        "agent:evonome-data"
+      ],
+      "number": 802,
+      "owner": "Evonome-data agent",
+      "pipeline_status": "PRD Draft",
+      "prd_review_status": "Draft",
+      "project_status": "Todo",
+      "title": "[PRD] Shared Signals Neutral Registry Surface",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/802",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": null,
+      "branch": "TBD after CEO approval",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/803",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgt7Hc0"
+      },
+      "labels": [
+        "type:prd",
+        "status:prd-draft",
+        "area:datafeed",
+        "area:knowledge-base",
+        "agent:evonome-data",
+        "area:frontend"
+      ],
+      "number": 803,
+      "owner": "Evonome-data agent",
+      "pipeline_status": "PRD Draft",
+      "prd_review_status": "Draft",
+      "project_status": "Todo",
+      "title": "[PRD] DATA Section Shell and Knowledge Page Foundation",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/803",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": null,
+      "branch": "TBD after CEO approval",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/805",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgt8Gmk"
+      },
+      "labels": [
+        "type:prd",
+        "status:prd-draft",
+        "area:datafeed",
+        "area:knowledge-base",
+        "agent:evonome-data",
+        "area:frontend"
+      ],
+      "number": 805,
+      "owner": "Evonome-data",
+      "pipeline_status": "PRD Draft",
+      "prd_review_status": "Draft",
+      "project_status": "Todo",
+      "title": "[PRD] Active Market Workspace Foundation and Scope Contract",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/805",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": null,
+      "branch": "TBD after CEO approval",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/806",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgt8Gtg"
+      },
+      "labels": [
+        "type:prd",
+        "status:prd-draft",
+        "area:datafeed",
+        "area:model-training",
+        "area:strategy-discovery",
+        "agent:evonome-data",
+        "area:trading"
+      ],
+      "number": 806,
+      "owner": "Evonome-data",
+      "pipeline_status": "PRD Draft",
+      "prd_review_status": "Draft",
+      "project_status": "Todo",
+      "title": "[PRD] Provider Context Metadata and Backend Filtering Contract",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/806",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": null,
+      "branch": "TBD after CEO approval",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/807",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgt8G0I"
+      },
+      "labels": [
+        "type:prd",
+        "status:prd-draft",
+        "area:datafeed",
+        "area:knowledge-base",
+        "agent:evonome-data"
+      ],
+      "number": 807,
+      "owner": "Evonome-data",
+      "pipeline_status": "PRD Draft",
+      "prd_review_status": "Draft",
+      "project_status": "Todo",
+      "title": "[PRD] Memory and Knowledge Provider-Aware Retrieval",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/807",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": "blocked / not recommended",
+      "branch": "TBD after CEO approval",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/808",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgt8G5g"
+      },
+      "labels": [
+        "type:prd",
+        "status:prd-draft",
+        "area:datafeed",
+        "area:model-training",
+        "area:strategy-discovery",
+        "agent:evonome-data",
+        "area:trading"
+      ],
+      "number": 808,
+      "owner": "Evonome-data",
+      "pipeline_status": "PRD Draft",
+      "prd_review_status": "Draft",
+      "project_status": "Todo",
+      "title": "[PRD] Cross-Provider Strategy Portability and Validation Gate",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/808",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": null,
+      "branch": "TBD after CEO approval",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/809",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgt8G_4"
+      },
+      "labels": [
+        "type:prd",
+        "status:prd-draft",
+        "area:datafeed",
+        "area:knowledge-base",
+        "agent:evonome-data",
+        "area:frontend"
+      ],
+      "number": 809,
+      "owner": "Evonome-data",
+      "pipeline_status": "PRD Draft",
+      "prd_review_status": "Draft",
+      "project_status": "Todo",
+      "title": "[PRD] App-Wide Provider Context UI Adoption",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/809",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": "Raw-event support is blocked until #810 or a successor provider-neutral raw-event PRD provides:",
+      "branch": "feat/provider-neutral-cpp-dsp-runtime-826",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/826",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczguGavg"
+      },
+      "labels": [
+        "type:prd",
+        "status:prd-draft",
+        "area:predict",
+        "area:datafeed",
+        "agent:evonome-data"
+      ],
+      "number": 826,
+      "owner": "Evonome-data agent",
+      "pipeline_status": "PRD Draft",
+      "prd_review_status": "Draft",
+      "project_status": "Todo",
+      "title": "[PRD] Provider-Neutral C++ Cipher DSP Adaptive Signal Runtime",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/826",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": null,
+      "branch": "feat/grid-layouts-v3-831",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/831",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczguKc98"
+      },
+      "labels": [
+        "type:prd",
+        "status:prd-draft",
+        "agent:evonome-frontend",
+        "area:frontend"
+      ],
+      "number": 831,
+      "owner": "agent:evonome-frontend",
+      "pipeline_status": "Done",
+      "prd_review_status": "Ready for CEO Review",
+      "project_status": "Done",
+      "title": "PRD: Proportional and Adaptive Grid Overlays",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/831",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-frontend"
+    },
+    {
+      "blocker_text": null,
+      "branch": "feat/order-flow-footprint-delta-832",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/832",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczguNDig"
+      },
+      "labels": [
+        "type:prd",
+        "status:prd-draft",
+        "area:datafeed",
+        "agent:evonome-data",
+        "area:frontend"
+      ],
+      "number": 832,
+      "owner": "Evonome-data agent",
+      "pipeline_status": "PRD Draft",
+      "prd_review_status": "Draft",
+      "project_status": "Todo",
+      "title": "PRD: Footprint Chart and Volume Delta Order Flow Indicators",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/832",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data"
+    },
+    {
+      "blocker_text": null,
+      "branch": "prd/genesis-adversarial-debate-maintainability-consolidation-890",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/890",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgutTEM"
+      },
+      "labels": [
+        "type:prd",
+        "status:prd-draft",
+        "area:adversarial-debate",
+        "area:workflow",
+        "phase:2",
+        "area:datafeed",
+        "area:model-training",
+        "area:backtest",
+        "area:governance",
+        "area:frontend"
+      ],
+      "number": 890,
+      "owner": "Evonome-adversarial-hardening agent/process",
+      "pipeline_status": "PRD Draft",
+      "prd_review_status": "Draft",
+      "project_status": "Todo",
+      "title": "PRD: Genesis Adversarial Debate Maintainability Consolidation Pass",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/890",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-adversarial-hardening"
+    },
+    {
+      "blocker_text": "Proposed working branch: `prd/fix-with-nome-gate-blocker-architecture-891`",
+      "branch": "prd/fix-with-nome-gate-blocker-architecture-891",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/891",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgutfu4"
+      },
+      "labels": [
+        "type:prd",
+        "status:prd-draft",
+        "area:adversarial-debate",
+        "area:workflow",
+        "area:strategy-discovery",
+        "agent:evonome-discovery"
+      ],
+      "number": 891,
+      "owner": "Evonome-discovery agent",
+      "pipeline_status": "PRD Draft",
+      "prd_review_status": "Draft",
+      "project_status": "Todo",
+      "title": "PRD: Fix with Nome gate-blocker architecture hardening",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/891",
+      "worktree_path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-discovery"
+    }
+  ],
+  "project": {
+    "number": 2,
+    "owner": "hyperbotsx"
+  },
+  "ready_for_agent": [
+    {
+      "blocker_text": null,
+      "branch": "TBD when started",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/565",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgrqwAU"
+      },
+      "labels": [
+        "type:task",
+        "status:ready-for-agent",
+        "area:adversarial-debate",
+        "phase:1",
+        "topic:import-smoke-test"
+      ],
+      "number": 565,
+      "owner": "ready for agent; not started",
+      "pipeline_status": "Ready for Agent",
+      "prd_review_status": null,
+      "project_status": "Todo",
+      "title": "[Task] Add Phase 1 config import smoke test",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/565",
+      "worktree_path": "TBD when started"
+    },
+    {
+      "blocker_text": null,
+      "branch": "TBD when started",
+      "evidence": {
+        "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/566",
+        "project_item_id": "PVTI_lAHOC4NXx84BWhXczgrqwAo"
+      },
+      "labels": [
+        "type:task",
+        "status:ready-for-agent",
+        "area:adversarial-debate"
+      ],
+      "number": 566,
+      "owner": "ready for agent; not started",
+      "pipeline_status": "Ready for Agent",
+      "prd_review_status": null,
+      "project_status": "Todo",
+      "title": "[Task] Define portable config artifact schema",
+      "url": "https://github.com/hyperbotsx/SoldierOne/issues/566",
+      "worktree_path": "TBD when started"
+    }
+  ],
+  "recommended_next_human_action": "Review blocked items and choose whether a human decision is needed.",
+  "repo": null,
+  "report_timestamp": "2026-06-07T21:12:44.308712Z",
+  "system_health": {
+    "project_2_read": {
+      "message": "read succeeded",
+      "name": "project_2_read",
+      "status": "ok"
+    },
+    "status": "ok",
+    "worktree_read": {
+      "status": "ok"
+    }
+  },
+  "worktree_health": [
+    {
+      "branch": "prd/project2-readonly-control-tower-924",
+      "dirty": true,
+      "error": null,
+      "exists": true,
+      "name": "agentops-harness",
+      "path": "/mnt/hyperliquid-data/projects/worktrees/agentops-harness",
+      "status": "dirty"
+    },
+    {
+      "branch": "prd/agentops-harness-repo-foundation-936",
+      "dirty": true,
+      "error": null,
+      "exists": true,
+      "name": "Evonome-admin",
+      "path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-admin",
+      "status": "dirty"
+    },
+    {
+      "branch": "feat/datafeed-multiresolution-coexistence-682",
+      "dirty": true,
+      "error": null,
+      "exists": true,
+      "name": "Evonome-data",
+      "path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-data",
+      "status": "dirty"
+    },
+    {
+      "branch": "feat/main-chart-dataset-selector-integration-930",
+      "dirty": true,
+      "error": null,
+      "exists": true,
+      "name": "Evonome-frontend",
+      "path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-frontend",
+      "status": "dirty"
+    },
+    {
+      "branch": "chore/training-discovery-handoff-readiness-867",
+      "dirty": false,
+      "error": null,
+      "exists": true,
+      "name": "Evonome-training",
+      "path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-training",
+      "status": "clean"
+    },
+    {
+      "branch": "feat/live-readiness-paper-evidence-source",
+      "dirty": false,
+      "error": null,
+      "exists": true,
+      "name": "Evonome-trading",
+      "path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-trading",
+      "status": "clean"
+    },
+    {
+      "branch": "fix/discovery-preview-execution-qa-740",
+      "dirty": false,
+      "error": null,
+      "exists": true,
+      "name": "Evonome-discovery",
+      "path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-discovery",
+      "status": "clean"
+    },
+    {
+      "branch": "feat/adversarial-debate-readiness-contracts-897",
+      "dirty": false,
+      "error": null,
+      "exists": true,
+      "name": "Evonome-adversarial-hardening",
+      "path": "/mnt/hyperliquid-data/projects/worktrees/Evonome-adversarial-hardening",
+      "status": "clean"
+    }
+  ]
+}

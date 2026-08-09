@@ -1,0 +1,74 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-195",
+  "purpose": "Issue #195 checkpoint 2 copy review",
+  "expected_response": "Compact verifier verdict JSON matching schema; full report written to verifier-report.md",
+  "stop_condition": "Approve copy cleanup or request bounded copy revision",
+  "checkpoint": "2 - Copy checkpoint",
+  "revision": 1,
+  "requested_action": "Review active docs/source/help copy for Project 3 / active Project / canonical GitHub issue PRD wording. Guardrail checkpoint is next and intentionally not implemented yet.",
+  "prd_issue": "https://github.com/hyperbotsx/agentops-harness/issues/195",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-195-source-of-truth-wording/coder-handoff.md",
+  "review_request_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-195-source-of-truth-wording/review-request-r2-copy.json",
+  "inventory_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-195-source-of-truth-wording/inventory.md",
+  "changed_files": [
+    "README.md",
+    "docs/agentops-context-renewal.md",
+    "docs/ai-maestro-readonly-integration.md",
+    "docs/ai-maestro-runbook.md",
+    "docs/architecture.md",
+    "docs/human-confirmed-action-assistant.md",
+    "docs/operations.md",
+    "docs/skills.md",
+    "docs/slack-operator-gateway.md",
+    "pipeline-diagram/README.md",
+    "src/agentops_harness/action_assistant.py",
+    "src/agentops_harness/ai_maestro_bridge.py",
+    "src/agentops_harness/ai_maestro_coordination.py",
+    "src/agentops_harness/ai_maestro_plan.py",
+    "src/agentops_harness/ceo_review_evonome_apply.py",
+    "src/agentops_harness/cli.py",
+    "src/agentops_harness/cli_runtime.py",
+    "src/agentops_harness/control_tower.py",
+    "src/agentops_harness/control_tower_cli.py",
+    "src/agentops_harness/daily_report.py",
+    "src/agentops_harness/lead_dev_inbox.py",
+    "src/agentops_harness/lead_dev_memory.py",
+    "src/agentops_harness/review_server.py",
+    "src/agentops_harness/slack_gateway.py",
+    "src/agentops_harness/slack_gateway_health.py",
+    "src/agentops_harness/slack_prd_drafts.py",
+    "src/agentops_harness/slack_prd_github_creation.py",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "tests/unit/test_action_proposals.py",
+    "tests/unit/test_ceo_review_answers.py",
+    "tests/unit/test_ceo_review_evonome_apply.py",
+    "tests/unit/test_lead_dev_confirmation.py",
+    "tests/unit/test_slack_gateway_policy.py",
+    "tests/unit/test_slack_prd_github_creation.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-195-source-of-truth-wording/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-195-source-of-truth-wording/review-request-r2-copy.json"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 -m pytest -q -p no:cacheprovider tests/unit/test_slack_prd_github_creation.py tests/unit/test_slack_gateway_policy.py tests/unit/test_action_assistant.py tests/unit/test_action_proposals.py tests/unit/test_lead_dev_confirmation.py tests/unit/test_ceo_review_evonome_apply.py tests/unit/test_ceo_review_answers.py tests/unit/test_control_tower.py tests/unit/test_daily_report.py tests/unit/test_lead_dev_operations.py tests/unit/test_slack_gateway.py tests/unit/test_slack_gateway_health.py",
+      "result": "196 passed, 11 subtests passed in 0.98s"
+    },
+    {
+      "command": "cd term-control-center && TMPDIR=$(mktemp -d) tsx --test --test-name-pattern \"PRD review launch prompt drives CEO review engine\" tests/launchPlan.test.ts",
+      "result": "passed (1 test)"
+    },
+    {
+      "command": "cd term-control-center && TMPDIR=$(mktemp -d) tsx --test tests/launchPlan.test.ts",
+      "result": "failed in unrelated existing environment/config assertions; touched PRD review prompt test passed"
+    },
+    {
+      "command": "rg -n \"Project 2|projects/2|SoldierOne|#862\" README.md docs profiles pipeline-diagram src tests",
+      "result": "no matches (rg exit 1)"
+    }
+  ],
+  "finding_ids_addressed": []
+}

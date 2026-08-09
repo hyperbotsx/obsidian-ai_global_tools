@@ -1,0 +1,39 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-249",
+  "purpose": "Review Issue #249 P4 / DIFF-3 renderer revision 1",
+  "checkpoint": "P4 — DIFF-3 renderer",
+  "revision": 1,
+  "requested_action": "Verify the single active persisted renderer, N-delete/M-add pairing, bounded intraline and syntax rendering, stable keys/memoization, and P4-only scope.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/249",
+    "/home/hyperbots/.local/state/agentops/term-control-center/runtime/agentops-prd-249-d3da57bf19fa/artifacts/project-context-brief.md"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-249-term-diff-view-improvements/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/src/DiffPatchView.tsx",
+    "term-control-center/src/DiffPatchRows.tsx",
+    "term-control-center/src/diffPatchRows.ts",
+    "term-control-center/src/diffIntraline.ts",
+    "term-control-center/src/diffSyntax.ts",
+    "term-control-center/src/diffViewMode.ts",
+    "term-control-center/src/styles.css",
+    "term-control-center/tests/diffPatchView.test.ts",
+    "term-control-center/tests/diffPatchRows.test.ts",
+    "term-control-center/tests/diffIntraline.test.ts",
+    "term-control-center/tests/diffSyntax.test.ts",
+    "term-control-center/tests/diffViewMode.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-249-term-diff-view-improvements/coder-handoff.md"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck — passed",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/diff*.test.ts — passed 83/83",
+    "npm --prefix term-control-center run build — passed (existing Vite warnings only)",
+    "git diff --check — passed"
+  ],
+  "finding_ids_addressed": [],
+  "expected_response": "Verifier verdict JSON matching the supplied schema",
+  "stop_condition": "Return approved, revision_requested, or needs_human with report path."
+}

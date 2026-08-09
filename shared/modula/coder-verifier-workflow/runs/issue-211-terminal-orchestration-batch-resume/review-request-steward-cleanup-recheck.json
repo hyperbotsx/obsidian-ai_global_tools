@@ -1,0 +1,30 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-211",
+  "purpose": "Verify required Steward cleanup after approved checkpoint 4",
+  "checkpoint": "4 - Delegated actions / Steward hygiene recheck",
+  "revision": 4,
+  "requested_action": "Verify only the Steward cleanup: listed ignored generated pipeline data and Python caches are absent; node_modules remains ignored/untracked; no product behavior changed. On approval, proceed with the default final bug-check pass.",
+  "prd_ref": "https://github.com/hyperbotsx/agentops-harness/issues/211",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-211-terminal-orchestration-batch-resume/coder-handoff.md",
+  "validation_results": ["listed cache/runtime paths absent", "git diff --check passed"],
+  "finding_ids_addressed": ["STEWARD-CLEANUP-211-C4"],
+  "stop_condition": "Return compact hygiene recheck verdict, then run the default final bug-check when clean.",
+  "response_schema": {
+    "type": "object",
+    "required": ["decision", "checkpoint_reviewed", "revision_reviewed", "open_findings", "finding_ids", "bug_check_status", "next_actor", "report_path"],
+    "properties": {
+      "decision": {"enum": ["approved", "revision_requested", "needs_human"]},
+      "checkpoint_reviewed": {"type": "string"},
+      "revision_reviewed": {"type": "number"},
+      "open_findings": {"type": "number"},
+      "finding_ids": {"type": "array", "items": {"type": "string"}},
+      "bug_check_status": {"type": "string"},
+      "next_actor": {"type": "string"},
+      "report_path": {"type": "string"}
+    },
+    "additionalProperties": false
+  }
+}

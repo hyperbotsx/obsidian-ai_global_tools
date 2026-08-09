@@ -1,0 +1,16 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-211",
+  "purpose": "Re-review only F270-KODY-001 and F270-KODY-003 before commit/push to PR #270.",
+  "checkpoint": "PR #270 Kody remediation",
+  "revision": 2,
+  "requested_action": "review",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/211", "https://github.com/hyperbotsx/agentops-harness/pull/270"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-211-terminal-orchestration-batch-resume/coder-handoff.md",
+  "finding_ids_addressed": ["F270-KODY-001", "F270-KODY-003"],
+  "changed_files": ["src/agentops_harness/review_server.py", "term-control-center/server/laneRequestResolution.ts", "tests/unit/test_review_server_coworker.py"],
+  "validation_results": {"targeted_typescript": "74 passed; one documented unrelated Browser-QA environment preflight failure", "focused_python": "106 passed", "typecheck": "passed", "build": "passed", "diff_check": "passed"},
+  "stop_condition": "Return approved with zero findings or bounded revision_requested findings."
+}

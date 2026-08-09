@@ -1,0 +1,45 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Verifier checkpoint review for GitHub issue #54 Live Branch Diff Inspector",
+  "expected_response": "Compact verdict JSON matching the supplied schema; full details in verifier-report.md",
+  "stop_condition": "Approve checkpoint 1 or return bounded findings for revision",
+  "checkpoint": "1 - Server API safety",
+  "revision": 1,
+  "requested_action": "Review branch/worktree verification, group-id authorization, path handling, shared blocked paths, safe errors, and size limits for the read-only diff API slice.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/54"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-54-live-branch-diff-inspector/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/shared/blockedPaths.ts",
+    "term-control-center/shared/diff.ts",
+    "term-control-center/server/diffConfig.ts",
+    "term-control-center/server/diffFailure.ts",
+    "term-control-center/server/diffPaths.ts",
+    "term-control-center/server/diffParsers.ts",
+    "term-control-center/server/gitDiffReader.ts",
+    "term-control-center/server/diffState.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/preparePr.ts",
+    "term-control-center/tests/diffState.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-54-live-branch-diff-inspector/coder-handoff.md"
+  ],
+  "validation_results": [
+    {
+      "command": "npm --prefix term-control-center run typecheck",
+      "status": "passed"
+    },
+    {
+      "command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/diffState.test.ts",
+      "status": "passed"
+    }
+  ],
+  "finding_ids_addressed": [],
+  "notes": [
+    "Research-first consult completed; custom renderer retained and no diff-rendering dependency added.",
+    "No fetch/pull or git mutation commands were introduced."
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "issue": {
+    "number": 40,
+    "url": "https://github.com/hyperbotsx/agentops-harness/issues/40",
+    "title": "PRD: AgentOps Secure Access Layer with YubiKey WebAuthn"
+  },
+  "checkpoint": "2 - Identity/WebAuthn policy templates",
+  "revision": 1,
+  "requested_action": "Review identity/WebAuthn policy template and identity runbook before checkpoint 3 reverse-proxy templates.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-yubikey-webauthn/coder-handoff.md",
+  "changed_files": [
+    "config/templates/secure-access/authentik-agentops-identity.template.yaml",
+    "docs/runbooks/secure-access-identity.md",
+    "docs/secure-access-yubikey-webauthn.md",
+    "docs/security.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-yubikey-webauthn/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-yubikey-webauthn/review-request-r2.json"
+  ],
+  "validation_results": [
+    "git diff --check passed",
+    "Secret-like marker scan passed for secure-access docs/templates",
+    "Docs/template-only checkpoint; no product code introduced"
+  ],
+  "finding_ids_addressed": [],
+  "scope_controls": {
+    "allowed": "repo/config/templates/runbooks only",
+    "forbidden": "no live host mutations, sudo, nginx reloads, DNS/firewall/cert changes, Docker/systemd changes, identity-provider bootstrap, secrets, .env files, or PR creation"
+  },
+  "preflight": {
+    "identity": "coder@agentops-term",
+    "verifier_live_in_pool": true,
+    "checkpoint_1_approved": true,
+    "researcher_consult_recorded": true
+  }
+}

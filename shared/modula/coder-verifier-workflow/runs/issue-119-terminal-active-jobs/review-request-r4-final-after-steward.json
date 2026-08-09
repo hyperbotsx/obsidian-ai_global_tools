@@ -1,0 +1,35 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-119",
+  "purpose": "Final verifier confirmation after required steward hygiene review for Issue #119.",
+  "expected_response": "Compact JSON verdict per coms contract; full findings in verifier-report.md only if not approved.",
+  "stop_condition": "Confirm final implementation and bug-check approval can stand after steward clean response, or request bounded revision.",
+  "checkpoint": "Final after steward hygiene review",
+  "revision": 4,
+  "requested_action": "final_bug_check_confirmation",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/119"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-119-terminal-active-jobs/coder-handoff.md",
+  "steward_result": "clean; no bounded cleanup required",
+  "changed_files": [
+    "term-control-center/src/App.tsx",
+    "term-control-center/src/styles.css",
+    "term-control-center/tests/terminalJobSidebar.test.ts",
+    "docs/agentops-terminal-sessions.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-119-terminal-active-jobs/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-119-terminal-active-jobs/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-119-terminal-active-jobs/review-request-r1-implementation.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-119-terminal-active-jobs/review-request-r2-fixes.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-119-terminal-active-jobs/review-request-r3-remembered-merge.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-119-terminal-active-jobs/steward-request-r1-prefinal-hygiene.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-119-terminal-active-jobs/review-request-r4-final-after-steward.json"
+  ],
+  "validation_results": [
+    { "command": "npm --prefix term-control-center run typecheck", "status": "pass" },
+    { "command": "cd term-control-center && node --import tsx --test tests/terminalJobSidebar.test.ts tests/termBasePath.test.ts", "status": "pass" },
+    { "command": "npm --prefix term-control-center run build", "status": "pass" }
+  ],
+  "finding_ids_addressed": ["F119-R1-001", "F119-R1-002", "F119-R2-001"],
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-119-terminal-active-jobs/coder-handoff.md"
+}

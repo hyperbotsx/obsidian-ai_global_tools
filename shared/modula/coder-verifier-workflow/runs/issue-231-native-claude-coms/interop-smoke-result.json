@@ -1,0 +1,39 @@
+{
+  "checkpoint": "2 - Adapter conformance + interop",
+  "revision": 2,
+  "status": "passed",
+  "executed_at": "2026-07-17",
+  "pool": "agentops-prd-231",
+  "sanitization": "No prompts, replies, paths beyond the configured pool name, credentials, or transcripts are recorded.",
+  "pi_to_native": {
+    "status": "passed",
+    "flow": "Pi coms_send -> native MCP coms_await -> native MCP coms_respond -> Pi coms_await",
+    "correlation_id": "Pi ULID accepted",
+    "result": "Pi received the native JSON response."
+  },
+  "native_to_pi": {
+    "status": "passed",
+    "flow": "native adapter coms_send -> live Pi peer -> native adapter coms_await",
+    "result": "Native adapter received a live Pi reply."
+  },
+  "cleanup": {
+    "status": "passed",
+    "result": "Both temporary native registry entries and sockets were absent after the smoke processes closed."
+  },
+  "deterministic_coverage": [
+    "Pi-style ULID response round trip",
+    "concurrent outbound rejection and immediate reply correlation",
+    "nested hop propagation, ceiling enforcement, and active-context reset",
+    "inbound and outbound worktree guards",
+    "live name collision, explicit listing, and session-ID targeting",
+    "heartbeat self-heal, queue depth, ESRCH pruning, and socket cleanup",
+    "malformed and oversized framing",
+    "MCP correlation and list parameter schemas"
+  ],
+  "validation": {
+    "focused": "20 passed",
+    "typecheck": "passed",
+    "server_build": "passed",
+    "full_suite": "592 passed; 20 failed: 18 files cannot load node-pty because dependencies were installed with --ignore-scripts and the native binary is absent, plus 2 unrelated baseline assertion failures"
+  }
+}

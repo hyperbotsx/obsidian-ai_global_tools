@@ -1,0 +1,55 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-193",
+  "purpose": "Review checkpoint 1 for issue #193 trajectory evaluation schema and fixtures.",
+  "expected_response": "Compact verifier verdict JSON per coms transport contract; write details to verifier-report.md.",
+  "stop_condition": "Approve checkpoint 1 or return bounded findings for revision.",
+  "checkpoint": "1 - Schema and fixture checkpoint",
+  "revision": 1,
+  "requested_action": "Verify trajectory-eval.v1 schema and pass/warn/blocked fixtures; verify unit tests require no live GitHub access.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/193",
+    "https://github.com/hyperbotsx/agentops-harness/issues/191"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-193-trajectory-eval/coder-handoff.md",
+  "report_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-193-trajectory-eval/verifier-report.md",
+  "changed_files": [
+    "src/agentops_harness/trajectory_eval.py",
+    "schemas/trajectory-eval.v1.schema.json",
+    "tests/fixtures/trajectory/pass/project-context-brief.md",
+    "tests/fixtures/trajectory/pass/coder-handoff.md",
+    "tests/fixtures/trajectory/pass/verifier-report.md",
+    "tests/fixtures/trajectory/pass/validation-receipt.md",
+    "tests/fixtures/trajectory/blocked/project-context-brief.md",
+    "tests/fixtures/trajectory/blocked/coder-handoff.md",
+    "tests/fixtures/trajectory/blocked/validation-receipt.md",
+    "tests/fixtures/trajectory/warn/coder-handoff.md",
+    "tests/fixtures/trajectory/warn/verifier-report.md",
+    "tests/fixtures/trajectory/warn/validation-receipt.md",
+    "tests/unit/test_trajectory_eval.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-193-trajectory-eval/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-193-trajectory-eval/review-request-r1-schema-fixtures.json"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests/unit/test_trajectory_eval.py",
+      "status": "passed",
+      "summary": "7 passed"
+    },
+    {
+      "command": "python3 -m py_compile src/agentops_harness/trajectory_eval.py",
+      "status": "passed",
+      "summary": "No syntax errors"
+    }
+  ],
+  "finding_ids_addressed": [],
+  "isolation_preflight": {
+    "worktree_root": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-193",
+    "branch": "prd/workflow-trajectory-evaluation-receipt-193",
+    "coms_project": "agentops-prd-193",
+    "intended_identity": "coder@agentops-prd-193",
+    "verifier_live_in_pool": true
+  }
+}

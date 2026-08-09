@@ -1,0 +1,21 @@
+{
+  "type": "steward_hygiene_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-211",
+  "purpose": "Required post-checkpoint-5 hygiene review before verifier recheck and final bug-check",
+  "prd_issue_ref": "https://github.com/hyperbotsx/agentops-harness/issues/211",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-211-terminal-orchestration-batch-resume/coder-handoff.md",
+  "scope": [
+    "assistant adapter and route topology",
+    "proposal-card UI module placement",
+    "tests/docs/run artifacts",
+    "generated/cache/runtime artifact cleanup",
+    "KISS placement and changed-file hygiene"
+  ],
+  "stop_condition": "Return clean or bounded cleanup recommendations. Do not modify coder-owned files.",
+  "known_validation_exceptions": [
+    "Python full suite has the unrelated stale test_completed_work.py::CompletedWorkTests::test_unlinked_merged_pr_emits_warning_row assertion.",
+    "Term full suite remains bounded by the unrelated profile-default/live-process baseline limitation."
+  ]
+}

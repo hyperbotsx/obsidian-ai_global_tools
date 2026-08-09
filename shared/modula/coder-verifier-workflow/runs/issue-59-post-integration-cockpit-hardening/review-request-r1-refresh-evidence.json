@@ -1,0 +1,86 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-59",
+  "purpose": "Issue #59 checkpoint 1 refresh evidence and dependency handoff review",
+  "expected_response": "Compact verifier verdict JSON matching the provided schema; full details in verifier-report.md only if not approved.",
+  "stop_condition": "Approve checkpoint 1 refresh evidence or return bounded findings to fix before implementation slices.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/59",
+  "checkpoint": "1 - Refresh evidence and dependency handoff review",
+  "revision": 1,
+  "requested_action": "Review PRD refresh evidence, dependency PR/handoff/report evidence, branch/base verification, pre-edit dirty-state recording, allowed/forbidden paths, validation commands, stop condition, and checkpoint plan before implementation begins.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/59",
+    "https://github.com/hyperbotsx/agentops-harness/pull/74",
+    "https://github.com/hyperbotsx/agentops-harness/pull/79",
+    "https://github.com/hyperbotsx/agentops-harness/pull/84",
+    "https://github.com/hyperbotsx/agentops-harness/pull/76",
+    "https://github.com/hyperbotsx/agentops-harness/pull/82",
+    "https://github.com/hyperbotsx/agentops-harness/pull/63"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/coder-handoff.md",
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/review-request-r1-refresh-evidence.json"
+  ],
+  "validation_results": [
+    {
+      "command": "gh issue view 59 --repo hyperbotsx/agentops-harness --json title,body,number,state,labels,url,assignees,comments",
+      "result": "passed; PRD body read first"
+    },
+    {
+      "command": "git status --short --branch",
+      "result": "passed; clean before editing"
+    },
+    {
+      "command": "gh pr view 74/79/84/76/82/63",
+      "result": "passed; dependency PRs confirmed merged"
+    },
+    {
+      "command": "read dependency final handoffs/reports for issues 54,55,56,57,58,60",
+      "result": "completed"
+    },
+    {
+      "command": "git ls-remote origin refs/heads/main plus local HEAD/origin checks",
+      "result": "passed after fast-forward; branch equals current remote main at f2efad1abace6819e09a9f3d874e59b4fdb1abd5"
+    },
+    {
+      "command": "rg prefers-reduced-motion surfaces",
+      "result": "passed; current main already has reduced-motion global rules"
+    }
+  ],
+  "finding_ids_addressed": [],
+  "notes": "No implementation code changed yet. Human explicitly asked to start now; handoff records that PRD addendum sequencing dependency issues #190/#191/#199/#209/#210 still appear open, treated as operator sequencing override for starting #59 only. Mandatory researcher freshness consults remain pending before implementation slices touching browser/Slack/local-AI/accessibility surfaces.",
+  "response_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "decision",
+      "checkpoint_reviewed",
+      "revision_reviewed",
+      "open_findings",
+      "finding_ids",
+      "bug_check_status",
+      "next_actor",
+      "report_path"
+    ],
+    "properties": {
+      "decision": {
+        "type": "string",
+        "enum": ["approved", "revision_requested", "needs_human", "rejected"]
+      },
+      "checkpoint_reviewed": {"type": "string"},
+      "revision_reviewed": {"type": "integer"},
+      "open_findings": {"type": "integer"},
+      "finding_ids": {"type": "array", "items": {"type": "string"}},
+      "bug_check_status": {
+        "type": "string",
+        "enum": ["not_applicable", "passed", "failed", "not_run"]
+      },
+      "next_actor": {"type": "string"},
+      "report_path": {"type": "string"}
+    }
+  }
+}

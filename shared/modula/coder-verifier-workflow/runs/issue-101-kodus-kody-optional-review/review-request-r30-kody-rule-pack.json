@@ -1,0 +1,32 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-101",
+  "checkpoint": "3 - Kody rule pack and repo overlay process",
+  "revision": 1,
+  "requested_action": "implementation_review",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/101"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "changed_files": [
+    "docs/kody-rule-pack.md",
+    "docs/kodus-kody-sprint1-advisory-pilot.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r30-kody-rule-pack.json"
+  ],
+  "validation_results": [
+    {
+      "command": "git diff --check",
+      "status": "passed"
+    },
+    {
+      "command": "rg -n \"SoldierOne|soldierone|soldier|@kody-sync\" docs/kody-rule-pack.md docs/kodus-kody-sprint1-advisory-pilot.md dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md || true",
+      "status": "passed",
+      "note": "No matches."
+    }
+  ],
+  "finding_ids_addressed": [],
+  "summary": "Added inactive advisory Kody rule pack documentation with six base plain-language rules, documented activation/import mapping and repo overlay/tuning process, and linked it from the Sprint 1 advisory pilot plan. Templates remain outside active auto-sync paths and preserve optional/advisory guardrails."
+}

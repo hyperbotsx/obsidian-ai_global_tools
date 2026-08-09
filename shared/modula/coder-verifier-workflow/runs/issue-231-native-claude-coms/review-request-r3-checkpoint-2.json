@@ -1,0 +1,71 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-231",
+  "purpose": "Issue #231 checkpoint 2 revision 3 bounded recheck",
+  "checkpoint": "2 - Adapter conformance + interop",
+  "revision": 3,
+  "requested_action": "Review only V231-C2-005, V231-C2-007, V231-C2-008, V231-C2-009, and V231-C2-010. Confirm native MCP coms_list returns a record result, startup fails closed for a local cwd outside the configured worktree, KISS cleanup is complete, the receipt exactly classifies full-suite failures, and generated delegate artifacts are absent.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/231",
+    "docs/coms-wire-contract.md"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/coder-handoff.md",
+  "interop_evidence_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/interop-smoke-result.json",
+  "changed_files": [
+    "term-control-center/package.json",
+    "term-control-center/package-lock.json",
+    "term-control-center/server/comsAdapter.ts",
+    "term-control-center/server/comsMcp.ts",
+    "term-control-center/tests/comsAdapter.test.ts",
+    "term-control-center/tests/comsAdapter.conformance.test.ts",
+    "term-control-center/tests/comsMcp.test.ts",
+    "term-control-center/tests/comsTestFixture.ts",
+    "docs/coms-wire-contract.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/interop-smoke-result.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/review-request-r3-checkpoint-2.json"
+  ],
+  "cleanup_removed": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/claude-cp2-revision/"
+  ],
+  "validation_results": [
+    {
+      "command": "cd term-control-center && node --import tsx --test tests/comsAdapter.test.ts tests/comsAdapter.conformance.test.ts tests/comsMcp.test.ts",
+      "status": "passed",
+      "notes": "21 focused tests, including successful structured MCP coms_list and local-cwd startup guard."
+    },
+    {"command": "cd term-control-center && npm run typecheck", "status": "passed"},
+    {"command": "cd term-control-center && npm run build:server", "status": "passed"},
+    {
+      "command": "npm --prefix term-control-center run test",
+      "status": "blocked",
+      "notes": "592 passed; 20 failures: 18 absent-node-pty load failures from --ignore-scripts plus 2 unrelated baseline assertion failures."
+    },
+    {"command": "git diff --check", "status": "passed"}
+  ],
+  "finding_ids_addressed": [
+    "V231-C2-005",
+    "V231-C2-007",
+    "V231-C2-008",
+    "V231-C2-009",
+    "V231-C2-010"
+  ],
+  "stop_condition": "Approve checkpoint 2 or return only remaining bounded findings. Checkpoint 2 remains incomplete until approval.",
+  "response_schema": {
+    "type": "object",
+    "required": ["decision", "checkpoint_reviewed", "revision_reviewed", "open_findings", "finding_ids", "bug_check_status", "next_actor", "report_path"],
+    "properties": {
+      "decision": {"type": "string", "enum": ["approved", "revision_requested", "needs_human"]},
+      "checkpoint_reviewed": {"type": "string"},
+      "revision_reviewed": {"type": "integer"},
+      "open_findings": {"type": "integer", "minimum": 0},
+      "finding_ids": {"type": "array", "items": {"type": "string"}},
+      "bug_check_status": {"type": "string"},
+      "next_actor": {"type": "string"},
+      "report_path": {"type": "string"}
+    },
+    "additionalProperties": false
+  }
+}

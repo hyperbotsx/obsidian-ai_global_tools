@@ -1,0 +1,37 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Retry checkpoint 4 review for PRD #56 test-impact hints after invalid JSON transport response",
+  "expected_response": "Strict JSON verdict matching the provided schema; update full details in verifier-report.md.",
+  "stop_condition": "Approve checkpoint 4 or return bounded findings for test-impact hints only.",
+  "request": {
+    "issue": 56,
+    "issue_url": "https://github.com/hyperbotsx/agentops-harness/issues/56",
+    "checkpoint": "4 - Test-impact hints derived from existing repo patterns, copy-only, existence-checked",
+    "revision": 6,
+    "requested_action": "checkpoint_review",
+    "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/coder-handoff.md",
+    "changed_files": [
+      "term-control-center/shared/diff.ts",
+      "term-control-center/server/diffTestHints.ts",
+      "term-control-center/server/gitDiffReader.ts",
+      "term-control-center/src/DiffReviewAids.tsx",
+      "term-control-center/src/styles.css",
+      "term-control-center/tests/diffTestHints.test.ts",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/coder-handoff.md"
+    ],
+    "validation_results": [
+      { "command": "npm --prefix term-control-center run typecheck", "result": "passed" },
+      { "command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/diffTestHints.test.ts tests/diffState.test.ts tests/termBasePath.test.ts", "result": "passed (30/30)" },
+      { "command": "git diff --check", "result": "passed" }
+    ],
+    "finding_ids_addressed": [],
+    "notes": [
+      "Retry is due to invalid JSON response from previous coms reply; no code changed between r5 and r6 except this request artifact.",
+      "Hints are generated server-side from existing package.json scripts and existing nearby test files only.",
+      "The UI copies hint values via clipboard; there is no execution or run-action integration."
+    ]
+  }
+}

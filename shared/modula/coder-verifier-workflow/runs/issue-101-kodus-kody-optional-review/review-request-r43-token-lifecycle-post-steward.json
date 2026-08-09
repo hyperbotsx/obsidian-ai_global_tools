@@ -1,0 +1,50 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-101",
+  "checkpoint": "Token expiry/refresh validation controls",
+  "revision": 5,
+  "requested_action": "post_steward_final_recheck",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/101"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "previous_review_request_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r42-token-lifecycle-bug-fix.json",
+  "steward_request_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/steward-request-r3-token-lifecycle.md",
+  "steward_response_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/steward-response-r3-token-lifecycle.md",
+  "changed_files": [
+    "src/agentops_harness/kodus_token_smoke.py",
+    "tests/unit/test_kodus_token_smoke.py",
+    "docs/kodus-token-lifecycle.md",
+    "docs/kodus-kody-sprint1-advisory-pilot.md",
+    "pyproject.toml",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r38-token-lifecycle-controls.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r39-token-lifecycle-revision.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r40-token-lifecycle-revision2.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r41-token-lifecycle-bug-check.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r42-token-lifecycle-bug-fix.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r43-token-lifecycle-post-steward.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/steward-request-r3-token-lifecycle.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/steward-response-r3-token-lifecycle.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/verifier-report.md"
+  ],
+  "validation_results": [
+    {
+      "command": "git diff --check",
+      "status": "passed"
+    },
+    {
+      "command": "find src/agentops_harness tests/unit -type d -name __pycache__ -print | head",
+      "status": "passed",
+      "note": "No output after steward cleanup."
+    }
+  ],
+  "finding_ids_addressed": [
+    "TK5-001",
+    "TK5-002",
+    "BUG-TK5-001"
+  ],
+  "summary": "Implementation review and bug-check passed after bounded fixes. Steward recommended cache cleanup only; caches removed. Requesting final post-steward recheck because steward artifacts were added after r42."
+}

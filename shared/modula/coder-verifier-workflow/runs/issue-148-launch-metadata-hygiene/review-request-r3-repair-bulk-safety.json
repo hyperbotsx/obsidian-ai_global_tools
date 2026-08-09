@@ -1,0 +1,28 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-148",
+  "purpose": "Issue 148 checkpoints 2-4 review: single repair, bulk repair, and safety/fail-closed",
+  "expected_response": "Compact verdict JSON matching the provided schema; write full findings to verifier-report.md if not approved.",
+  "stop_condition": "Approve checkpoints 2-4 or request one bounded revision with finding IDs.",
+  "canonical_issue": "https://github.com/hyperbotsx/agentops-harness/issues/148",
+  "checkpoint": "2-4 - Single repair, bulk repair, safety/fail-closed",
+  "revision": 3,
+  "requested_action": "Review backend/CLI repair planning/execution and fail-closed behavior.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-148-launch-metadata-hygiene/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/prd_launch_metadata_repair.py",
+    "src/agentops_harness/prd_launch_metadata_audit.py",
+    "src/agentops_harness/cli.py",
+    "tests/unit/test_prd_launch_metadata_repair.py",
+    "tests/unit/test_prd_launch_metadata_audit.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-148-launch-metadata-hygiene/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-148-launch-metadata-hygiene/review-request-r3-repair-bulk-safety.json"
+  ],
+  "validation_results": [
+    "PYTHONPATH=src:. python3 -m pytest tests/unit/test_prd_launch_metadata_repair.py tests/unit/test_prd_launch_metadata_audit.py tests/unit/test_cli.py: passed (65 tests)",
+    "PYTHONPATH=src python3 -m agentops_harness.cli prd-worktree metadata-repair ... #116-style lane item: passed, status=ready"
+  ],
+  "finding_ids_addressed": []
+}

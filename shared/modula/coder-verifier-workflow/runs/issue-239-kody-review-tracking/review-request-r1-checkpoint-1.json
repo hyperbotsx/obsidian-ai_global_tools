@@ -1,0 +1,41 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-239",
+  "purpose": "Verify PRD #239 checkpoint 1 parser/status scope",
+  "checkpoint": "1 - parsing/status",
+  "revision": 1,
+  "requested_action": "Review marker-or-author admission, strict trigger/lifecycle exclusion, status preservation, severity/path/line/URL parsing, and deterministic tests. Confirm no sync, route, UI, completion, board, or Python scope entered.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/239",
+  "context_path": "/home/hyperbots/.local/state/agentops/term-control-center/runtime/agentops-prd-239-ab17c3bfbb4f/artifacts/project-context-brief.md",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-239-kody-review-tracking/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/kodyReview.ts",
+    "term-control-center/tests/kodyReview.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-239-kody-review-tracking/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-239-kody-review-tracking/review-request-r1-checkpoint-1.json"
+  ],
+  "validation_results": [
+    "Targeted parser/status test selection passed: 11/11.",
+    "npm --prefix term-control-center run typecheck passed.",
+    "git diff --check passed.",
+    "Full kodyReview test file has one existing unrelated static launchPlan assertion failure; documented in handoff."
+  ],
+  "finding_ids_addressed": [],
+  "response_schema": {
+    "type": "object",
+    "required": ["decision", "checkpoint_reviewed", "revision_reviewed", "open_findings", "finding_ids", "bug_check_status", "next_actor", "report_path"],
+    "properties": {
+      "decision": {"enum": ["approved", "revision_requested", "needs_human", "rejected"]},
+      "checkpoint_reviewed": {"type": "string"},
+      "revision_reviewed": {"type": "integer"},
+      "open_findings": {"type": "integer"},
+      "finding_ids": {"type": "array", "items": {"type": "string"}},
+      "bug_check_status": {"enum": ["not_applicable", "pending", "passed", "findings", "blocked"]},
+      "next_actor": {"type": "string"},
+      "report_path": {"type": "string"}
+    }
+  },
+  "stop_condition": "Return compact verifier verdict; write detailed non-approved findings to the run verifier-report.md."
+}

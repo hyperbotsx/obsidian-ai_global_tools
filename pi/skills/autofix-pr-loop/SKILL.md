@@ -16,6 +16,7 @@ If the user invokes this skill, treat that as approval to:
 - create commits
 - push the branch
 - open a PR
+- complete Evonome PRD closeout updates when the branch maps to a PRD
 
 Do not pause for confirmation unless you hit a destructive or ambiguous situation that cannot be resolved safely.
 
@@ -155,6 +156,21 @@ git push -u origin $(git branch --show-current)
 gh pr create --base main --title "<title>" --body "<body>"
 ```
 
+Capture the PR URL.
+
+## Phase 7. Evonome PRD closeout
+
+If the work came from an Evonome PRD issue or the branch/PR identifies a PRD number:
+
+1. Ensure the PR body references the PRD with a closing keyword, for example `Resolves hyperbotsx/SoldierOne#977`, so GitHub populates the Project `Linked pull requests` field.
+2. Update GitHub Project 2 for the PRD item:
+   - `Status` → `Done`
+   - `Pipeline Status` → `Done`
+   - `PR URL` → the PR URL when that custom field exists
+3. Close the PRD issue as completed.
+4. Update the tracker source, usually tracker issue `#862`, with the PRD number, PR URL, PR state, and final validation summary. If a repo-local tracker file is used for the run, update that too.
+5. Report any unavailable field, missing PRD number, or mutation error as a closeout blocker.
+
 ## Output format
 
 At the end, report:
@@ -165,6 +181,7 @@ At the end, report:
 - final checks run and status
 - final commit hash and message
 - PR URL
+- PRD closeout result when applicable
 
 ## Stop Conditions
 

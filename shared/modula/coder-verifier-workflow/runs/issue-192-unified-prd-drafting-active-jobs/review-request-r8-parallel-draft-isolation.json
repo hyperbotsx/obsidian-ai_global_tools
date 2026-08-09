@@ -1,0 +1,37 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-192",
+  "purpose": "Checkpoint 4 review for issue #192 parallel draft isolation",
+  "checkpoint": "4 - Parallel draft isolation",
+  "revision": 8,
+  "requested_action": "Review parallel draft isolation coverage: distinct logical draft rows, no same-draft row duplication across authoring/planning, distinct draft-scoped coms projects/dirs, and safe draft ID validation for physical identifiers.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/192"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/tests/launchPlan.test.ts",
+    "term-control-center/tests/server.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/review-request-r8-parallel-draft-isolation.json"
+  ],
+  "validation_results": [
+    {
+      "command": "cd term-control-center && node --import tsx --test --test-name-pattern \"parallel PRD authoring drafts|parallel draft PRD Studio|logical draft job row|authoring launch failure|PRD Author launch prompt|pi-agent wrapper honors draft-scoped|PRD planning execute fails closed|seed-only drafts|unsafe pre-issue\" tests/server.test.ts tests/launchPlan.test.ts tests/agentopsComsLabel.test.ts tests/terminalJobSidebar.test.ts tests/launcher.test.ts && git diff --check",
+      "status": "passed",
+      "notes": "9 focused tests passed and diff check passed."
+    },
+    {
+      "command": "cd term-control-center && npx tsc -p tsconfig.app.json --noEmit && npx tsc -p tsconfig.server.json --noEmit --pretty false",
+      "status": "failed",
+      "notes": "App typecheck passed first; server typecheck failed only on known tests/contextRenewal.test.ts outside-rootDir import."
+    }
+  ],
+  "finding_ids_addressed": [
+    "F192-CP3-001",
+    "F192-CP3-002"
+  ],
+  "stop_condition": "Verifier approves checkpoint 4 or returns bounded findings."
+}

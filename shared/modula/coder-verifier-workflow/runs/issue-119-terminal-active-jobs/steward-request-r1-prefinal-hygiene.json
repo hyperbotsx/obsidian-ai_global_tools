@@ -1,0 +1,23 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-119",
+  "purpose": "Prefinal hygiene review for Issue #119 changed-file placement and run artifacts before accepting final verifier bug-check.",
+  "expected_response": "Concise JSON or markdown: clean or bounded cleanup recommendations.",
+  "stop_condition": "Confirm changed-file placement/artifacts are clean or identify bounded cleanup required.",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-119-terminal-active-jobs/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/src/App.tsx",
+    "term-control-center/src/styles.css",
+    "term-control-center/tests/terminalJobSidebar.test.ts",
+    "docs/agentops-terminal-sessions.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-119-terminal-active-jobs/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-119-terminal-active-jobs/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-119-terminal-active-jobs/review-request-r1-implementation.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-119-terminal-active-jobs/review-request-r2-fixes.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-119-terminal-active-jobs/review-request-r3-remembered-merge.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-119-terminal-active-jobs/verifier-report.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-119-terminal-active-jobs/steward-request-r1-prefinal-hygiene.json"
+  ]
+}

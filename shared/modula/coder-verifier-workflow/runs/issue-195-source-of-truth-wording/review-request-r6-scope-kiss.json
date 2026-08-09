@@ -1,0 +1,43 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-195",
+  "purpose": "Issue #195 checkpoints 4 and 5 scope/KISS review",
+  "expected_response": "Compact verifier verdict JSON matching schema; full report written to verifier-report.md",
+  "stop_condition": "Approve implementation completeness for scope/KISS or request bounded revision",
+  "checkpoint": "4/5 - Scope and KISS checkpoints",
+  "revision": 1,
+  "requested_action": "Review that changes stay docs/copy/config scoped, avoid behavior migration beyond wording constants, avoid external profile/project mutation, and remain KISS. Steward review will run next before final bug-check.",
+  "prd_issue": "https://github.com/hyperbotsx/agentops-harness/issues/195",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-195-source-of-truth-wording/coder-handoff.md",
+  "review_request_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-195-source-of-truth-wording/review-request-r6-scope-kiss.json",
+  "validation_results": [
+    {
+      "command": "focused Python validation for changed surfaces",
+      "result": "196 passed, 11 subtests; follow-up Slack subset 67 passed; guardrail 1 passed"
+    },
+    {
+      "command": "focused Term Control touched test",
+      "result": "passed (1 test)"
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 -m pytest -q -p no:cacheprovider",
+      "result": "1174 passed, 60 subtests, 7 failed; failures recorded in handoff as unrelated environment/state issues"
+    },
+    {
+      "command": "npm --prefix term-control-center run test",
+      "result": "failed because worktree-local node_modules lacks tsx; focused PATH-resolved tsx test passed"
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed"
+    }
+  ],
+  "finding_ids_addressed": [
+    "F195-CP2-R1-001",
+    "F195-CP2-R1-002",
+    "F195-CP3-R1-001",
+    "F195-CP3-R1-002"
+  ]
+}

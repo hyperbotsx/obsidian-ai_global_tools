@@ -1,0 +1,46 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Verifier checkpoint review for GitHub issue #54 Live Branch Diff Inspector",
+  "expected_response": "Compact verdict JSON matching the supplied schema; full details in verifier-report.md",
+  "stop_condition": "Approve checkpoint 2 or return bounded findings for revision",
+  "checkpoint": "2 - Git coverage",
+  "revision": 3,
+  "requested_action": "Review committed branch diff/local base behavior, dirty diff coverage, staged files, unstaged files, untracked files, binary/deleted/renamed support, no fetch/pull behavior, and per-path dedupe/combined precedence.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/54"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-54-live-branch-diff-inspector/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/shared/blockedPaths.ts",
+    "term-control-center/shared/diff.ts",
+    "term-control-center/server/diffConfig.ts",
+    "term-control-center/server/diffFailure.ts",
+    "term-control-center/server/diffPaths.ts",
+    "term-control-center/server/diffParsers.ts",
+    "term-control-center/server/gitDiffReader.ts",
+    "term-control-center/server/diffState.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/preparePr.ts",
+    "term-control-center/tests/diffState.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-54-live-branch-diff-inspector/coder-handoff.md"
+  ],
+  "validation_results": [
+    {
+      "command": "npm --prefix term-control-center run typecheck",
+      "status": "passed"
+    },
+    {
+      "command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/diffState.test.ts",
+      "status": "passed",
+      "notes": "7/7"
+    }
+  ],
+  "finding_ids_addressed": [],
+  "notes": [
+    "Checkpoint 1 was approved at revision 2.",
+    "Added coverage for local main fallback, committed rename, working delete, untracked binary metadata, staged/unstaged/untracked union, and combined source precedence."
+  ]
+}

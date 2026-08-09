@@ -1,0 +1,29 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-148",
+  "purpose": "Issue 148 checkpoints 5-10 revision 9 fixes",
+  "expected_response": "Compact verdict JSON matching the provided schema; write full findings to verifier-report.md if not approved.",
+  "stop_condition": "Approve checkpoints 5-10 or request one bounded revision with finding IDs.",
+  "canonical_issue": "https://github.com/hyperbotsx/agentops-harness/issues/148",
+  "checkpoint": "5-10 - Guardrails, repair-and-launch, refresh, mirror diagnostics",
+  "revision": 9,
+  "requested_action": "Review fixes for F148-R8-001 through F148-R8-003.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-148-launch-metadata-hygiene/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/launchMetadataFix.ts",
+    "term-control-center/tests/launchMetadataFix.test.ts",
+    "pipeline-diagram/generate.py",
+    "tests/unit/test_pipeline_board_generation.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-148-launch-metadata-hygiene/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-148-launch-metadata-hygiene/review-request-r9-surface-fixes.json"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck: passed",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/launchMetadataFix.test.ts: passed (6 tests)",
+    "PYTHONPATH=src:. python3 -m pytest tests/unit/test_prd_studio_approval.py tests/unit/test_prd_author_github.py tests/unit/test_pipeline_board_generation.py tests/unit/test_pipeline_generate.py tests/unit/test_prd_launch_metadata_repair.py tests/unit/test_prd_launch_metadata_audit.py tests/unit/test_cli.py: passed (98 tests)",
+    "git diff --check: passed"
+  ],
+  "finding_ids_addressed": ["F148-R8-001", "F148-R8-002", "F148-R8-003"]
+}

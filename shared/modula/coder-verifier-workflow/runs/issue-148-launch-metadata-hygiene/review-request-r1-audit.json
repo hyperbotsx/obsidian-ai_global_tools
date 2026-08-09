@@ -1,0 +1,29 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-148",
+  "purpose": "Checkpoint 1 audit review for issue 148 launch metadata hygiene",
+  "expected_response": "Compact verdict JSON matching the provided schema; write full findings to verifier-report.md if not approved.",
+  "stop_condition": "Approve checkpoint 1 or request one bounded revision with finding IDs.",
+  "canonical_issue": "https://github.com/hyperbotsx/agentops-harness/issues/148",
+  "checkpoint": "1 - Audit checkpoint",
+  "revision": 1,
+  "requested_action": "Review read-only Project PRD launch metadata audit implementation and tests.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-148-launch-metadata-hygiene/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/prd_launch_metadata_audit.py",
+    "src/agentops_harness/cli.py",
+    "src/agentops_harness/github_project.py",
+    "tests/unit/test_prd_launch_metadata_audit.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-148-launch-metadata-hygiene/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-148-launch-metadata-hygiene/review-request-r1-audit.json"
+  ],
+  "validation_results": [
+    "python -m pytest ... failed: python executable is unavailable in this environment",
+    "git diff --check: passed",
+    "PYTHONPATH=src python3 -m pytest tests/unit/test_prd_launch_metadata_audit.py tests/unit/test_prd_worktree_project.py tests/unit/test_cli.py: passed (69 tests)",
+    "PYTHONPATH=src python3 -m agentops_harness.cli prd-worktree metadata-audit --worktrees-root /mnt/hyperliquid-data/projects/worktrees --format json > /tmp/prd148-audit.json: passed; summary status=ok,total_items=56,audited_items=56,healthy_items=3,repairable_items=51,blocked_items=53"
+  ],
+  "finding_ids_addressed": []
+}

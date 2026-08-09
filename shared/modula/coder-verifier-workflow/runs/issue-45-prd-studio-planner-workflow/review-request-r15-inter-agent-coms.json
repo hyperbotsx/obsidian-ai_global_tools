@@ -1,0 +1,30 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Review PRD #45 checkpoint 9 inter-agent coms implementation.",
+  "expected_response": "Compact verdict JSON matching the supplied schema. Write full findings to verifier-report.md if not approved.",
+  "stop_condition": "Approve checkpoint 9 or request one bounded revision with finding IDs.",
+  "review_request": {
+    "prd_issue": "https://github.com/hyperbotsx/agentops-harness/issues/45",
+    "checkpoint": "9 - Inter-agent coms checkpoint",
+    "revision": 1,
+    "requested_action": "checkpoint_review",
+    "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-45-prd-studio-planner-workflow/coder-handoff.md",
+    "changed_files": [
+      "term-control-center/server/launchPlan.ts",
+      "term-control-center/tests/launchPlan.test.ts",
+      "term-control-center/tests/launcher.test.ts",
+      "dev-plans/agentops/coder-verifier-workflow/coms-transport.md",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-45-prd-studio-planner-workflow/coder-handoff.md",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-45-prd-studio-planner-workflow/review-request-r15-inter-agent-coms.json"
+    ],
+    "validation_results": [
+      { "command": "npm --prefix term-control-center run test -- --test-name-pattern=\"peer coms|PRD Author launch prompt|Multi-model\"", "status": "passed", "evidence": "188 tests passed" },
+      { "command": "npm --prefix term-control-center run typecheck", "status": "passed" },
+      { "command": "git diff --check", "status": "passed" }
+    ],
+    "finding_ids_addressed": []
+  }
+}

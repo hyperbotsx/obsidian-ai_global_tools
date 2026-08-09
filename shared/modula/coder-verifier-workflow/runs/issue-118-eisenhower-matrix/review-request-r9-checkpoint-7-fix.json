@@ -1,0 +1,29 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-118",
+  "purpose": "Re-review Issue #118 checkpoint 7 after F118-R8-001/F118-R8-002 handling",
+  "expected_response": "Compact verdict JSON per coms transport; write full findings to verifier-report.md only if not approved.",
+  "stop_condition": "Approve checkpoint 7 revision 2 or return bounded findings.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/118",
+  "checkpoint": "7 - Integration checkpoint",
+  "revision": 2,
+  "requested_action": "Verify Co-Worker reprioritize action wiring and manual visual validation handling.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-118-eisenhower-matrix/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/coworker-launcher.js",
+    "pipeline-diagram/matrix.html",
+    "tests/unit/test_pipeline_board_generation.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-118-eisenhower-matrix/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-118-eisenhower-matrix/review-request-r9-checkpoint-7-fix.json"
+  ],
+  "validation_results": [
+    {"command": "PYTHONPATH=src pytest -q tests/unit/test_pipeline_board_generation.py tests/unit/test_review_server_coworker.py", "result": "passed: 30 tests"},
+    {"command": "git diff --check", "result": "passed"},
+    {"command": "headless Chrome screenshots with isolated profile/safe flags", "result": "failed: exit code -5, no screenshots"},
+    {"command": "headless Firefox screenshots", "result": "failed to produce artifacts: exit code 0 but no screenshots written"}
+  ],
+  "finding_ids_addressed": ["F118-R8-001", "F118-R8-002"],
+  "fix_summary": "Wired Reprioritize matrix into bottom-right Co-Worker launcher, loaded launcher on matrix.html, added static action tests, and recorded automated browser capture unavailable with explicit human-visible desktop/tablet validation request rather than completed claim."
+}

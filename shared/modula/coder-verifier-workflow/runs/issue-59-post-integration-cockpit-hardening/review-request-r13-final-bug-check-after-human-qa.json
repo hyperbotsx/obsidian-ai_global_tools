@@ -1,0 +1,39 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-59",
+  "purpose": "Issue #59 final bug-check after human QA acceptance",
+  "expected_response": "Compact verifier verdict JSON matching schema; full details in verifier-report.md only if not approved.",
+  "stop_condition": "Run/complete final bug-check and approve or return bounded findings.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/59",
+  "checkpoint": "final bug-check",
+  "revision": 1,
+  "requested_action": "Human accepted automated Playwright Chromium + guardrail checks as sufficient substitute for manual mobile/iPad QA. Please proceed with final verifier bug-check for issue #59.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/coder-handoff.md",
+  "human_decision": "Accepted automated checks as sufficient substitute for PRD manual mobile/iPad QA matrix.",
+  "validation_results": [
+    {"command": "npm --prefix term-control-center run typecheck", "result": "passed"},
+    {"command": "npm --prefix term-control-center test", "result": "passed, 593/593"},
+    {"command": "npm --prefix term-control-center run build", "result": "passed with existing Vite warnings"},
+    {"command": "PYTHONPATH=src python3 -m pytest tests/unit -q", "result": "passed, 1187 tests and 60 subtests"},
+    {"command": "git diff --check", "result": "passed"},
+    {"command": "Playwright Chromium mobile/iPad smoke", "result": "passed for Board/Pipeline/WIP/Completed/Term at 320/375/390/430/520/768/1024"}
+  ],
+  "finding_ids_addressed": ["V59-FINAL-001", "V59-FINAL-002"],
+  "response_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["decision", "checkpoint_reviewed", "revision_reviewed", "open_findings", "finding_ids", "bug_check_status", "next_actor", "report_path"],
+    "properties": {
+      "decision": {"type": "string", "enum": ["approved", "revision_requested", "needs_human", "rejected"]},
+      "checkpoint_reviewed": {"type": "string"},
+      "revision_reviewed": {"type": "integer"},
+      "open_findings": {"type": "integer"},
+      "finding_ids": {"type": "array", "items": {"type": "string"}},
+      "bug_check_status": {"type": "string", "enum": ["not_applicable", "passed", "failed", "not_run"]},
+      "next_actor": {"type": "string"},
+      "report_path": {"type": "string"}
+    }
+  }
+}

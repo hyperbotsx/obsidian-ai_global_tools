@@ -1,0 +1,40 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-118",
+  "purpose": "Review Issue #118 checkpoint 7 - integration/docs",
+  "expected_response": "Compact verdict JSON per coms transport; write full findings to verifier-report.md only if not approved.",
+  "stop_condition": "Approve checkpoint 7 or return bounded findings.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/118",
+  "checkpoint": "7 - Integration checkpoint",
+  "revision": 1,
+  "requested_action": "Verify nav/docs integration, generated/view smoke results, and no GitHub mutation or Hermes action introduced by matrix recommendations.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-118-eisenhower-matrix/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/.gitignore",
+    "pipeline-diagram/README.md",
+    "pipeline-diagram/agentops-nav.js",
+    "pipeline-diagram/generate.py",
+    "pipeline-diagram/matrix.html",
+    "src/agentops_harness/review_server.py",
+    "tests/unit/test_pipeline_board_generation.py",
+    "tests/unit/test_pipeline_generate.py",
+    "tests/unit/test_review_server_coworker.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-118-eisenhower-matrix/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-118-eisenhower-matrix/review-request-r8-checkpoint-7.json"
+  ],
+  "validation_results": [
+    {"command": "python3 -m unittest tests.unit.test_pipeline_generate", "result": "passed: 8 tests"},
+    {"command": "PYTHONPATH=src pytest -q tests/unit/test_pipeline_board_generation.py tests/unit/test_review_server_coworker.py", "result": "passed: 29 tests"},
+    {"command": "python3 pipeline-diagram/generate.py", "result": "passed: wrote matrix-data.js and existing data files; no --issue used"},
+    {"command": "local HTTP smoke on alternate port 9876", "result": "matrix.html, board.html, pipeline.html, wip.html all 200 text/html"},
+    {"command": "headless Chrome screenshots for 1200x900 and 820x900", "result": "failed: Chrome exit code -5, no screenshots written"},
+    {"command": "git diff --check", "result": "passed"}
+  ],
+  "finding_ids_addressed": ["F118-R1-001"],
+  "notes": [
+    "README now documents matrix regeneration/viewing and Co-Worker read-only reprioritize proposal rail.",
+    "No Hermes action, GitHub mutation, issue close, plan-order/lane-plan write, PRD approval, launch, PR, merge, deploy, trading, or backtest behavior was added."
+  ]
+}

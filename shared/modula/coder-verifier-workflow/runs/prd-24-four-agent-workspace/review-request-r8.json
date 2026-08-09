@@ -1,0 +1,18 @@
+{
+  "type": "review_request",
+  "checkpoint": "4 - Peer coms checkpoint",
+  "revision": 1,
+  "requested_action": "initial_review",
+  "prd": "https://github.com/hyperbotsx/agentops-harness/issues/24",
+  "issue": "https://github.com/hyperbotsx/agentops-harness/issues/24",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/coder-handoff.md",
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/coms-transport.md",
+    "term-control-center/tests/launcher.test.ts"
+  ],
+  "validation_results": [
+    { "command": "cd term-control-center && npm run typecheck", "result": "pass" },
+    { "command": "cd term-control-center && npm test", "result": "pass" }
+  ],
+  "finding_ids_addressed": []
+}

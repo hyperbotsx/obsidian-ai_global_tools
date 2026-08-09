@@ -1,0 +1,54 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Phase 2 assisted draft checkpoint for issue 141",
+  "expected_response": "Compact verifier verdict JSON matching the response schema; write details to verifier-report.md",
+  "stop_condition": "Approve checkpoint or request bounded revision findings",
+  "checkpoint": "Phase 2 assisted draft checkpoint",
+  "revision": 1,
+  "requested_action": "Verify proposed answers are generated up front and Assisted Draft Review supports accept all, accept individual, and amend individual controls before human-answer finalization.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/141"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/ceo_review_answers.py",
+    "tests/unit/test_ceo_review_answers.py",
+    "src/agentops_harness/ceo_review.py",
+    "tests/unit/test_ceo_review.py",
+    "pipeline-diagram/board.html",
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/server/launchPlan.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/review-request-r8-phase2-assisted-draft.json"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests/unit/test_ceo_review.py tests/unit/test_ceo_review_answers.py",
+      "status": "pass",
+      "summary": "27 tests passed, including assisted draft accept-all/accept-one/amend coverage"
+    },
+    {
+      "command": "cd term-control-center && node --import tsx --test tests/launchPlan.test.ts tests/launcher.test.ts tests/boardGuardrails.test.ts",
+      "status": "pass",
+      "summary": "78 tests passed"
+    },
+    {
+      "command": "cd term-control-center && npm run typecheck",
+      "status": "pass",
+      "summary": "tsconfig app/server typecheck passed"
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "summary": "no whitespace errors"
+    }
+  ],
+  "finding_ids_addressed": [],
+  "notes": [
+    "Guided questionnaire checkpoint is approved.",
+    "This checkpoint claims draft answer package controls, not preview/apply execution gates."
+  ]
+}

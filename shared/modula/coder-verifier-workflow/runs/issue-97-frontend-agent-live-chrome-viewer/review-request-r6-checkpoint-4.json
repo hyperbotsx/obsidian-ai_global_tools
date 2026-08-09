@@ -1,0 +1,58 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-harness",
+  "purpose": "Review PRD #97 checkpoint 4 visible delegate pane implementation",
+  "checkpoint": "4 - Visible delegate pane",
+  "revision": 1,
+  "requested_action": "checkpoint_review",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/97",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/coder-handoff.md"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/coder-handoff.md",
+  "report_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/verifier-report.md",
+  "decision_log_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/decision-log.md",
+  "changed_files": [
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/decision-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-97-frontend-agent-live-chrome-viewer/review-request-r6-checkpoint-4.json"
+  ],
+  "validation_results": [
+    {
+      "command": "npm --prefix term-control-center run typecheck",
+      "result": "passed"
+    },
+    {
+      "command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/launchPlan.test.ts",
+      "result": "passed (9 tests)"
+    },
+    {
+      "command": "git diff --check -- term-control-center/server/launchPlan.ts term-control-center/tests/launchPlan.test.ts",
+      "result": "passed"
+    },
+    {
+      "command": "npm --prefix term-control-center run build",
+      "result": "passed"
+    },
+    {
+      "command": "npm --prefix term-control-center run test",
+      "result": "passed (401 tests)"
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed"
+    }
+  ],
+  "finding_ids_addressed": [],
+  "stop_condition": "Return compact verdict JSON. If not approved, write findings to verifier-report.md; coder will read the full report only for non-approved decisions.",
+  "notes": [
+    "Checkpoint 1, checkpoint 2, and checkpoint 3 are already approved in verifier-report.md.",
+    "Researcher freshness consult for tmux visible delegate behavior completed before implementation; recommendation was frontend-expert prompt-only tmux_display=\"pane\" with autoclose=true, not a global default or new control route.",
+    "No live frontend-expert consult was launched in checkpoint 4; validation is prompt/static and automated tests.",
+    "No PR creation, merge, deploy, public browser exposure, raw private transcript, secret, screenshot, frame recording, or production validation was performed."
+  ]
+}

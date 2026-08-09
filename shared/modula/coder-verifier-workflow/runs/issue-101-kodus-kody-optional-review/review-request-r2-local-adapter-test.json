@@ -1,0 +1,40 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-101",
+  "purpose": "Follow-up review for PRD #101 human-approved local Claude/Codex MAX CLI adapter experiment",
+  "expected_response": "Compact verifier verdict JSON matching the response schema; write detailed findings to verifier-report.md if not approved.",
+  "stop_condition": "Confirm whether the local adapter evidence is acceptable as a partial Sprint 0 result and whether the remaining Docker-capable Kodus instance test is correctly blocked/escalated.",
+  "checkpoint": "1b - Human-approved local MAX CLI adapter test",
+  "revision": 1,
+  "requested_action": "Verify the experimental gateway is bounded/local-only, evidence supports a plausible OpenAI-compatible Claude CLI path, Kodus env validation evidence is sufficient, no secrets or paid fallback were added, and Docker-unavailable escalation is correct.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/101",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "review_request_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r2-local-adapter-test.json",
+  "changed_files": [
+    "docs/kodus-kody-sprint0-feasibility.md",
+    "src/agentops_harness/kodus_max_gateway.py",
+    "tests/unit/test_kodus_max_gateway.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-local-adapter-test.md",
+    "dev-plans/agentops/open-prd-sweep-ledger-2026-06-28.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r2-local-adapter-test.json"
+  ],
+  "validation_results": [
+    {"command": "PYTHONPATH=src python3 -m unittest tests.unit.test_kodus_max_gateway", "result": "passed, 5 tests"},
+    {"command": "PYTHONPATH=src python3 -m py_compile src/agentops_harness/kodus_max_gateway.py", "result": "passed"},
+    {"command": "echo-mode gateway HTTP smoke", "result": "passed"},
+    {"command": "Claude-backed gateway HTTP smoke", "result": "passed; returned expected OpenAI-compatible chat.completion response"},
+    {"command": "Kodus installer validate-env.sh in /tmp/agentops-kodus-101/env-validation", "result": "passed; expected warning that Docker was unavailable for runtime drift check"},
+    {"command": "git diff --check", "result": "passed"},
+    {"command": "secret-pattern grep over changed docs/code/artifacts", "result": "passed; no secret values or placeholder key values in tracked files"}
+  ],
+  "finding_ids_addressed": [],
+  "preflight": {
+    "identity": "coder@agentops-prd-101",
+    "pi_coms_dir": "/tmp/agentops/coms/agentops-prd-101",
+    "verifier_live": true
+  }
+}

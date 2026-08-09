@@ -1,0 +1,35 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-145",
+  "purpose": "Re-review PRD #145 checkpoint 6 after bounded fix F145-R11-001",
+  "expected_response": "Compact verifier verdict JSON matching schema; write full details to verifier-report.md",
+  "stop_condition": "Approve checkpoint 6 or request one bounded revision with finding IDs",
+  "issue_ref": "https://github.com/hyperbotsx/agentops-harness/issues/145",
+  "checkpoint": "6 - Runtime isolation checkpoint",
+  "revision": 12,
+  "requested_action": "checkpoint_recheck",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-145-per-prd-worktree-lifecycle/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/prd_worktree_runtime.py",
+    "src/agentops_harness/cli.py",
+    "tests/unit/test_prd_worktree_runtime.py",
+    "term-control-center/server/runtimeIsolation.ts",
+    "term-control-center/server/launchGroup.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/server/frontendBrowserLaunch.ts",
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/tests/runtimeIsolation.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-145-per-prd-worktree-lifecycle/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-145-per-prd-worktree-lifecycle/review-request-r12-f145-r11-001.json"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests/unit/test_prd_worktree_runtime.py tests/unit/test_prd_worktree_lease.py tests/unit/test_prd_worktree_freshness.py tests/unit/test_prd_worktree_project.py tests/unit/test_prd_worktree_provision.py tests/unit/test_cli.py -q && cd term-control-center && node --import tsx --test --test-concurrency=1 tests/runtimeIsolation.test.ts tests/implementationWorktreeSync.test.ts tests/launcher.test.ts && npm run typecheck && cd .. && git diff --check",
+      "status": "passed",
+      "summary": "87 Python tests passed, 41 Term Control tests passed, TypeScript typecheck passed, and diff whitespace check passed after F145-R11-001 fix"
+    }
+  ],
+  "finding_ids_addressed": ["F145-R11-001"]
+}

@@ -1,0 +1,89 @@
+{
+  "artifact_folder": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780913181396",
+  "branch": "prd/human-confirmed-orchestration-assistant-925",
+  "browser_qa_devtools_recommended": false,
+  "changed_files": [
+    "README.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/session-1780913181396/",
+    "docs/human-confirmed-action-assistant.md",
+    "pyproject.toml",
+    "schemas/proposal.schema.json",
+    "src/agentops_harness/action_assistant.py",
+    "src/agentops_harness/action_assistant_cli.py",
+    "src/agentops_harness/action_execution.py",
+    "src/agentops_harness/action_health.py",
+    "src/agentops_harness/action_proposals.py",
+    "tests/unit/test_action_assistant.py",
+    "tests/unit/test_action_assistant_cli.py",
+    "tests/unit/test_action_execution.py",
+    "tests/unit/test_action_health.py",
+    "tests/unit/test_action_proposals.py"
+  ],
+  "devtools_mcp_prerequisites": {
+    "chrome": true,
+    "node": true,
+    "npm": true,
+    "npx": true
+  },
+  "files": {
+    "coder-handoff.md": {
+      "bytes": 18767,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780913181396/coder-handoff.md"
+    },
+    "coder-ready.md": {
+      "bytes": 2781,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780913181396/coder-ready.md"
+    },
+    "decision-log.md": {
+      "bytes": 7818,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780913181396/decision-log.md"
+    },
+    "verifier-report.md": {
+      "bytes": 10588,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780913181396/verifier-report.md"
+    },
+    "verifier-request.md": {
+      "bytes": 3807,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780913181396/verifier-request.md"
+    }
+  },
+  "handoff_missing_fields": [],
+  "hotspot_files": [
+    "schemas/proposal.schema.json"
+  ],
+  "ready_missing_fields": [],
+  "repo_root": "/mnt/hyperliquid-data/projects/worktrees/agentops-harness",
+  "report_machine_status_missing": [],
+  "review_profiles": {
+    "llm_assistant": [
+      "docs/human-confirmed-action-assistant.md",
+      "src/agentops_harness/action_assistant.py",
+      "src/agentops_harness/action_assistant_cli.py",
+      "tests/unit/test_action_assistant.py",
+      "tests/unit/test_action_assistant_cli.py"
+    ]
+  },
+  "status_short": [
+    "## prd/human-confirmed-orchestration-assistant-925",
+    " M README.md",
+    " M pyproject.toml",
+    " M schemas/proposal.schema.json",
+    "?? dev-plans/agentops/coder-verifier-workflow/runs/session-1780913181396/",
+    "?? docs/human-confirmed-action-assistant.md",
+    "?? src/agentops_harness/action_assistant.py",
+    "?? src/agentops_harness/action_assistant_cli.py",
+    "?? src/agentops_harness/action_execution.py",
+    "?? src/agentops_harness/action_health.py",
+    "?? src/agentops_harness/action_proposals.py",
+    "?? tests/unit/test_action_assistant.py",
+    "?? tests/unit/test_action_assistant_cli.py",
+    "?? tests/unit/test_action_execution.py",
+    "?? tests/unit/test_action_health.py",
+    "?? tests/unit/test_action_proposals.py"
+  ]
+}

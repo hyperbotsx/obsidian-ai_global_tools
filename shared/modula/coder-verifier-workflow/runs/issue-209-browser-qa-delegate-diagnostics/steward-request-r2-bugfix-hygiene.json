@@ -1,0 +1,15 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-209",
+  "purpose": "Quick hygiene recheck after final bug-check fix BC209-001",
+  "expected_response": "Concise clean/cleanup findings. Do not edit files.",
+  "stop_condition": "Return clean or bounded cleanup recommendations.",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-209-browser-qa-delegate-diagnostics/coder-handoff.md",
+  "changed_since_prior_steward": [
+    "term-control-center/server/frontendBrowserLaunch.ts",
+    "term-control-center/tests/browserQaLifecycle.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-209-browser-qa-delegate-diagnostics/coder-handoff.md"
+  ]
+}

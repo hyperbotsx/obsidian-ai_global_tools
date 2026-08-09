@@ -1,0 +1,69 @@
+{
+  "artifact_folder": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780919757537",
+  "branch": "prd/lead-developer-conversational-workflow-layer-938",
+  "browser_qa_devtools_recommended": false,
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/session-1780919757537/",
+    "src/agentops_harness/cli.py",
+    "src/agentops_harness/lead_dev.py",
+    "src/agentops_harness/lead_dev_confirmation.py",
+    "src/agentops_harness/lead_dev_scenarios.py",
+    "src/agentops_harness/slack_gateway_policy.py",
+    "tests/unit/test_cli.py",
+    "tests/unit/test_lead_dev.py",
+    "tests/unit/test_lead_dev_confirmation.py",
+    "tests/unit/test_slack_gateway_policy.py"
+  ],
+  "devtools_mcp_prerequisites": {
+    "chrome": true,
+    "node": true,
+    "npm": true,
+    "npx": true
+  },
+  "files": {
+    "coder-handoff.md": {
+      "bytes": 7266,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780919757537/coder-handoff.md"
+    },
+    "coder-ready.md": {
+      "bytes": 2456,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780919757537/coder-ready.md"
+    },
+    "decision-log.md": {
+      "bytes": 5014,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780919757537/decision-log.md"
+    },
+    "verifier-report.md": {
+      "bytes": 8734,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780919757537/verifier-report.md"
+    },
+    "verifier-request.md": {
+      "bytes": 3482,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780919757537/verifier-request.md"
+    }
+  },
+  "handoff_missing_fields": [],
+  "hotspot_files": [],
+  "ready_missing_fields": [],
+  "repo_root": "/mnt/hyperliquid-data/projects/worktrees/agentops-harness",
+  "report_machine_status_missing": [],
+  "review_profiles": {},
+  "status_short": [
+    "## prd/lead-developer-conversational-workflow-layer-938",
+    " M src/agentops_harness/cli.py",
+    " M src/agentops_harness/slack_gateway_policy.py",
+    " M tests/unit/test_cli.py",
+    " M tests/unit/test_slack_gateway_policy.py",
+    "?? dev-plans/agentops/coder-verifier-workflow/runs/session-1780919757537/",
+    "?? src/agentops_harness/lead_dev.py",
+    "?? src/agentops_harness/lead_dev_confirmation.py",
+    "?? src/agentops_harness/lead_dev_scenarios.py",
+    "?? tests/unit/test_lead_dev.py",
+    "?? tests/unit/test_lead_dev_confirmation.py"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "checkpoint": "PRD #40 Admin page logout button removal",
+  "revision": 6,
+  "requested_action": "Review the small Admin page UI change that removes the page-local Logout button while preserving hosted main-nav logout and the logout API route.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/40",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-cutover-ops/coder-handoff.md"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-cutover-ops/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/adminRoutes.ts",
+    "term-control-center/server/adminAssets.ts",
+    "term-control-center/tests/admin.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-cutover-ops/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-cutover-ops/review-request-r6.json"
+  ],
+  "finding_ids_addressed": [],
+  "validation_results": [
+    "User confirmed authenticated browser smoke: Board, Pipeline, Admin without local password login, Admin settings save, and main-nav Logout all work",
+    "Removed /admin/ page-local Logout button from admin header",
+    "Removed Admin JS references to the removed #logout element",
+    "Kept /api/admin/logout route intact",
+    "Added regression assertion that /admin/ HTML does not render id=\"logout\"",
+    "npm --prefix term-control-center test -- tests/admin.test.ts passed; package script ran 144 tests, all passed",
+    "npm --prefix term-control-center run typecheck passed",
+    "git diff --check passed"
+  ],
+  "known_remaining_manual_smoke": [
+    "If user approves another live restart, deploy this UI change and confirm /admin/ no longer displays the page-local Logout button"
+  ],
+  "notes": "Source change is not yet live-restarted after this final edit; live restart requires explicit human approval."
+}

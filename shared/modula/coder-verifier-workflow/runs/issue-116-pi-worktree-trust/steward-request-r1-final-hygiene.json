@@ -1,0 +1,18 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-116",
+  "purpose": "Pre-final hygiene review for Issue #116 because run artifacts and shared ledger changed.",
+  "expected_response": "Concise markdown or JSON with clean/cleanup recommendations; do not edit files.",
+  "stop_condition": "Return clean or bounded cleanup recommendations before final verifier closeout.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/116",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-116-pi-worktree-trust/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "dev-plans/agentops/open-prd-sweep-ledger-2026-06-28.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-116-pi-worktree-trust/"
+  ]
+}

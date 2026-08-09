@@ -1,0 +1,49 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Final verifier bug-check for PRD #56 Diff Inspector Review Aids after checkpoints 1-7 and steward clean review",
+  "expected_response": "JSON verdict matching the provided schema; update full details in verifier-report.md.",
+  "stop_condition": "Return final bug-check passed/approved or bounded actionable findings.",
+  "request": {
+    "issue": 56,
+    "issue_url": "https://github.com/hyperbotsx/agentops-harness/issues/56",
+    "checkpoint": "8 - Final validation and verifier bug-check",
+    "revision": 11,
+    "requested_action": "final_bug_check",
+    "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/coder-handoff.md",
+    "steward_review": "clean",
+    "changed_files": [
+      "term-control-center/shared/diff.ts",
+      "term-control-center/server/gitDiffReader.ts",
+      "term-control-center/server/diffTestHints.ts",
+      "term-control-center/src/diffReviewState.ts",
+      "term-control-center/src/diffOutline.ts",
+      "term-control-center/src/diffRisk.ts",
+      "term-control-center/src/DiffReviewAids.tsx",
+      "term-control-center/src/DiffPatchView.tsx",
+      "term-control-center/src/DiffInspector.tsx",
+      "term-control-center/src/styles.css",
+      "term-control-center/tests/diffReviewState.test.ts",
+      "term-control-center/tests/diffOutline.test.ts",
+      "term-control-center/tests/diffRisk.test.ts",
+      "term-control-center/tests/diffTestHints.test.ts",
+      "term-control-center/tests/termBasePath.test.ts",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/"
+    ],
+    "validation_results": [
+      { "command": "npm --prefix term-control-center run typecheck", "result": "passed" },
+      { "command": "npm --prefix term-control-center test", "result": "passed (311/311)" },
+      { "command": "npm --prefix term-control-center run build", "result": "passed with existing Vite warnings about non-module scripts and chunk size" },
+      { "command": "git diff --check", "result": "passed" }
+    ],
+    "finding_ids_addressed": ["V56-C1-001", "V56-C1-002", "V56-C1-003", "V56-C1-004", "V56-C5-001", "V56-C5-002"],
+    "notes": [
+      "All PRD #56 verifier checkpoints 1-7 are approved.",
+      "Steward final hygiene review returned clean; no cleanup required.",
+      "Generated build artifacts were removed after validation.",
+      "Do not create a PR; stop after final bug-check approval."
+    ]
+  }
+}

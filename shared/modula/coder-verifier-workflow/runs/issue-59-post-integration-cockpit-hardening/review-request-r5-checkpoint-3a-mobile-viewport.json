@@ -1,0 +1,49 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-59",
+  "purpose": "Issue #59 checkpoint 3a mobile viewport hardening review revision 2",
+  "expected_response": "Compact verifier verdict JSON matching the provided schema; full details in verifier-report.md only if not approved.",
+  "stop_condition": "Approve bounded checkpoint 3a or return bounded findings.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/59",
+  "checkpoint": "3a - Mobile viewport hardening",
+  "revision": 2,
+  "requested_action": "Review bounded revision addressing V59-R4-001: this is explicitly a 3a viewport/keyboard hardening slice, not the full mobile/iPad manual QA matrix. The full mobile/iPad QA checkpoint remains open for later review. Handoff research status now marks mobile/browser freshness complete for this slice and leaves Slack/local-AI/accessibility-reduced-motion/new-dependency consults pending for future slices.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/global-nav-ui.js",
+    "term-control-center/src/nav.css",
+    "term-control-center/src/navigation/TopNav.tsx",
+    "term-control-center/tests/boardGuardrails.test.ts",
+    "term-control-center/tests/browserRuntime.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/review-request-r5-checkpoint-3a-mobile-viewport.json"
+  ],
+  "validation_results": [
+    {"command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/boardGuardrails.test.ts", "result": "passed, 36/36"},
+    {"command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/browserRuntime.test.ts", "result": "passed, 6/6"},
+    {"command": "npm --prefix term-control-center run typecheck", "result": "passed"},
+    {"command": "npm --prefix term-control-center test", "result": "passed, 592/592"},
+    {"command": "npm --prefix term-control-center run build", "result": "passed with existing Vite warnings"},
+    {"command": "git diff --check", "result": "passed"}
+  ],
+  "finding_ids_addressed": ["V59-R4-001"],
+  "notes": "No code changes after r4 beyond handoff/ledger/request clarification. Full mobile/iPad manual QA matrix remains a later checkpoint; current request is for the viewport hardening slice only.",
+  "response_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["decision", "checkpoint_reviewed", "revision_reviewed", "open_findings", "finding_ids", "bug_check_status", "next_actor", "report_path"],
+    "properties": {
+      "decision": {"type": "string", "enum": ["approved", "revision_requested", "needs_human", "rejected"]},
+      "checkpoint_reviewed": {"type": "string"},
+      "revision_reviewed": {"type": "integer"},
+      "open_findings": {"type": "integer"},
+      "finding_ids": {"type": "array", "items": {"type": "string"}},
+      "bug_check_status": {"type": "string", "enum": ["not_applicable", "passed", "failed", "not_run"]},
+      "next_actor": {"type": "string"},
+      "report_path": {"type": "string"}
+    }
+  }
+}

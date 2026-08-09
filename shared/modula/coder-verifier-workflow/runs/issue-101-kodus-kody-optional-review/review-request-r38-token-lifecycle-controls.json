@@ -1,0 +1,48 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-101",
+  "checkpoint": "Token expiry/refresh validation controls",
+  "revision": 1,
+  "requested_action": "implementation_review",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/101"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/kodus_token_smoke.py",
+    "tests/unit/test_kodus_token_smoke.py",
+    "docs/kodus-token-lifecycle.md",
+    "docs/kodus-kody-sprint1-advisory-pilot.md",
+    "pyproject.toml",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r38-token-lifecycle-controls.json"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONPATH=src python3 -m unittest tests.unit.test_kodus_token_smoke tests.unit.test_kodus_debt tests.unit.test_kodus_agent tests.unit.test_kodus_sprint0 tests.unit.test_kodus_max_gateway tests.unit.test_activity_center",
+      "status": "passed",
+      "note": "44 tests"
+    },
+    {
+      "command": "PYTHONPATH=src python3 -m py_compile src/agentops_harness/kodus_token_smoke.py src/agentops_harness/kodus_debt.py src/agentops_harness/kodus_agent.py",
+      "status": "passed"
+    },
+    {
+      "command": "AST KISS check for kodus_token_smoke.py and kodus_debt.py",
+      "status": "passed",
+      "note": "No functions over 20 lines or 4 parameters; kodus_token_smoke.py 101 lines; kodus_debt.py 118 lines."
+    },
+    {
+      "command": "PYTHONPATH=src python3 -m agentops_harness.kodus_token_smoke --help",
+      "status": "passed"
+    },
+    {
+      "command": "git diff --check",
+      "status": "passed"
+    }
+  ],
+  "finding_ids_addressed": [],
+  "summary": "Added non-secret token lifecycle validation controls: kodus-token-smoke for replacement-token auth/repo/permission checks without printing or persisting token values, plus runbook for actual expiry/revoke validation and sanitized evidence. No live credentials, GitHub mutations, or Kodus config changes added."
+}

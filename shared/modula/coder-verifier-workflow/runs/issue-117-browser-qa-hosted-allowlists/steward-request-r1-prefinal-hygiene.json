@@ -1,0 +1,22 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-117",
+  "purpose": "Pre-final hygiene review before verifier bug-check for PRD #117.",
+  "expected_response": "Concise JSON or markdown with clean/cleanup recommendations.",
+  "stop_condition": "Return clean or bounded hygiene findings for coder cleanup.",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-117-browser-qa-hosted-allowlists/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/frontendBrowserLaunch.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/tests/frontendBrowserLaunch.test.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "dev-plans/agentops/open-prd-sweep-ledger-2026-06-28.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-117-browser-qa-hosted-allowlists/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-117-browser-qa-hosted-allowlists/review-request-r1-hosted-allowlists.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-117-browser-qa-hosted-allowlists/review-request-r2-f117-r1-001.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-117-browser-qa-hosted-allowlists/steward-request-r1-prefinal-hygiene.json"
+  ],
+  "scope_notes": "Implementation touches Browser-QA launch/MCP config diagnostics and targeted tests; run artifacts live under the issue-specific coder-verifier run folder; ledger update is required by PRD batch directive. Please check placement, generated artifacts, and cleanup needs only."
+}

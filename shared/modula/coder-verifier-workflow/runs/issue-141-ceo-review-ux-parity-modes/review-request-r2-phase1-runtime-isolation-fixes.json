@@ -1,0 +1,51 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Phase 1 review-runtime isolation checkpoint re-review for issue 141",
+  "expected_response": "Compact verifier verdict JSON matching the response schema; write details to verifier-report.md",
+  "stop_condition": "Approve checkpoint or request bounded revision findings",
+  "checkpoint": "Phase 1 review-runtime isolation checkpoint",
+  "revision": 2,
+  "requested_action": "Re-review bounded fixes for F141-P1-R1-001 and F141-P1-R1-002 only.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/141"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/ceoReviewRuntime.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "docs/admin-configuration.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/review-request-r1-phase1-runtime-isolation.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/review-request-r2-phase1-runtime-isolation-fixes.json"
+  ],
+  "validation_results": [
+    {
+      "command": "cd term-control-center && node --import tsx --test tests/launchPlan.test.ts",
+      "status": "pass",
+      "summary": "15 tests passed, including ambient operator token isolation regression"
+    },
+    {
+      "command": "cd term-control-center && npm run typecheck",
+      "status": "pass",
+      "summary": "tsconfig app/server typecheck passed"
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "summary": "no whitespace errors"
+    }
+  ],
+  "finding_ids_addressed": [
+    "F141-P1-R1-001",
+    "F141-P1-R1-002"
+  ],
+  "notes": [
+    "Scope remains Phase 1 runtime isolation only; Phase 2/3 are not claimed.",
+    "Review runtime helpers moved to ceoReviewRuntime.ts; launch prompt helpers now use LaunchContext."
+  ]
+}

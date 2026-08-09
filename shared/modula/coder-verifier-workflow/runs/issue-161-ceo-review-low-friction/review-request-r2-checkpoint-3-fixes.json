@@ -1,0 +1,37 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-161",
+  "purpose": "Checkpoint 3 revision 2 review after addressing apply execution findings",
+  "expected_response": "Compact verdict JSON per coms-transport; write full findings to verifier-report.md",
+  "stop_condition": "Approve checkpoint 3 or request bounded revisions with finding IDs",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-161-ceo-review-low-friction/coder-handoff.md",
+  "checkpoint": "3 - Apply execution checkpoint",
+  "revision": 2,
+  "requested_action": "review",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/161"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-161-ceo-review-low-friction/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/ceo_review_execute.py",
+    "src/agentops_harness/ceo_review_apply.py",
+    "src/agentops_harness/ceo_review_apply_types.py",
+    "src/agentops_harness/ceo_review_evonome_apply.py",
+    "src/agentops_harness/cli.py",
+    "term-control-center/server/launchPlan.ts",
+    "tests/unit/test_ceo_review_execute.py",
+    "tests/unit/test_ceo_review_apply.py",
+    "tests/unit/test_ceo_review_apply_cli.py",
+    "term-control-center/tests/launchPlan.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-161-ceo-review-low-friction/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-161-ceo-review-low-friction/review-request-r2-checkpoint-3-fixes.json"
+  ],
+  "validation_results": [
+    {"command": "PYTHONPATH=src python3 -m pytest tests/unit/test_prd_create.py tests/unit/test_prd_author_github.py tests/unit/test_review_server_coworker.py tests/unit/test_ceo_review_intent.py tests/unit/test_ceo_review_apply.py tests/unit/test_ceo_review_execute.py tests/unit/test_ceo_review_apply_cli.py -q", "status": "passed", "summary": "110 passed"},
+    {"command": "cd term-control-center && node --import tsx --test --test-name-pattern \"PRD review launch prompt|PRD Author launch prompt supports direct\" tests/launchPlan.test.ts", "status": "passed", "summary": "3 passed"},
+    {"command": "git diff --check", "status": "passed", "summary": "no whitespace errors"},
+    {"command": "npm --prefix term-control-center run typecheck", "status": "blocked_unrelated", "summary": "fails on existing contextRenewal rootDir/allowImportingTsExtensions errors outside touched files"},
+    {"command": "cd term-control-center && node --import tsx --test tests/launchPlan.test.ts", "status": "blocked_unrelated", "summary": "full file has environment-sensitive review auth/browser QA failures; targeted changed tests passed"}
+  ],
+  "finding_ids_addressed": ["F161-C3-001", "F161-C3-002", "F161-C3-003", "F161-C3-004"]
+}

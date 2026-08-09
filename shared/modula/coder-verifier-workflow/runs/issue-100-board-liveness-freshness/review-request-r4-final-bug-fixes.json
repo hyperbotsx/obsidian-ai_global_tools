@@ -1,0 +1,30 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Recheck final bug-check fixes for issue #100.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/100",
+  "checkpoint": "7 final validation and bug-check fixes",
+  "revision": 4,
+  "requested_action": "verify BUG100-R3-001 and BUG100-R3-002 fixes; approve final bug-check if satisfied",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-100-board-liveness-freshness/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/freshness.js",
+    "pipeline-diagram/generate.py",
+    "term-control-center/tests/admin.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-100-board-liveness-freshness/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-100-board-liveness-freshness/review-request-r4-final-bug-fixes.json"
+  ],
+  "validation_results": [
+    "node --check pipeline-diagram/freshness.js && python3 -m py_compile pipeline-diagram/generate.py — passed",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/admin.test.ts — passed (26/26)",
+    "cd term-control-center && npm run typecheck — passed",
+    "pytest -q tests/unit/test_pipeline_generate.py tests/unit/test_pipeline_board_generation.py — passed (6/6)",
+    "cd term-control-center && npm run build — passed with existing Vite warnings",
+    "python3 pipeline-diagram/deploy/sync-public-assets.py --check && git diff --check — passed"
+  ],
+  "finding_ids_addressed": ["BUG100-R3-001", "BUG100-R3-002"],
+  "expected_response": "Compact JSON verdict per coms-transport.md.",
+  "stop_condition": "Final bug-check approval or bounded revision request."
+}

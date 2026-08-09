@@ -1,0 +1,34 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Checkpoint 5 revision review for PRD #56 findings V56-C5-001 and V56-C5-002",
+  "expected_response": "JSON verdict matching the provided schema; update full details in verifier-report.md.",
+  "stop_condition": "Approve checkpoint 5 or return bounded remaining findings for read-surface safety only.",
+  "request": {
+    "issue": 56,
+    "issue_url": "https://github.com/hyperbotsx/agentops-harness/issues/56",
+    "checkpoint": "5 - Read-surface safety: operates on #54 payload/safe read path, reuses blocked-path module, no unguarded reads",
+    "revision": 8,
+    "requested_action": "checkpoint_review",
+    "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/coder-handoff.md",
+    "changed_files": [
+      "term-control-center/server/diffTestHints.ts",
+      "term-control-center/tests/diffTestHints.test.ts",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/coder-handoff.md",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/review-request-r8-checkpoint-5-read-safety-fixes.json"
+    ],
+    "validation_results": [
+      { "command": "npm --prefix term-control-center run typecheck", "result": "passed" },
+      { "command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/diffTestHints.test.ts tests/diffState.test.ts", "result": "passed (11/11)" },
+      { "command": "git diff --check", "result": "passed" }
+    ],
+    "finding_ids_addressed": ["V56-C5-001", "V56-C5-002"],
+    "notes": [
+      "Package script discovery now resolves package.json through normalizeGitPath, rejects blocked paths, and skips files over 256 KB before readFileSync.",
+      "collectDiffTestHints now skips DiffFileSummary entries where blocked is already true.",
+      "Focused tests cover oversized package metadata and blocked summaries with non-blocked-looking current paths."
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "type": "review_request",
+  "checkpoint": "2 - Four-role launch checkpoint",
+  "revision": 1,
+  "requested_action": "initial_review",
+  "prd": "https://github.com/hyperbotsx/agentops-harness/issues/24",
+  "issue": "https://github.com/hyperbotsx/agentops-harness/issues/24",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/board.html",
+    "scripts/agentops/pi-agent.sh",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/launchGroup.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/shared/protocol.ts",
+    "term-control-center/src/App.tsx",
+    "term-control-center/src/TerminalPane.tsx",
+    "term-control-center/tests/boardGuardrails.test.ts",
+    "term-control-center/tests/launcher.test.ts",
+    "term-control-center/tests/server.test.ts",
+    "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/pi/skills/steward/SKILL.md"
+  ],
+  "validation_results": [
+    { "command": "cd term-control-center && npm run typecheck", "result": "pass" },
+    { "command": "cd term-control-center && npm test", "result": "pass" },
+    { "command": "bash -n scripts/agentops/pi-agent.sh", "result": "pass" }
+  ],
+  "finding_ids_addressed": []
+}

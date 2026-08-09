@@ -1,0 +1,47 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-59",
+  "purpose": "Issue #59 checkpoint 4 Slack activity sink delivery hardening review",
+  "expected_response": "Compact verifier verdict JSON matching the provided schema; full details in verifier-report.md only if not approved.",
+  "stop_condition": "Approve checkpoint 4 Slack activity sink delivery hardening or return bounded findings.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/59",
+  "checkpoint": "4 - Slack activity sink delivery hardening",
+  "revision": 1,
+  "requested_action": "Review Slack delivery hardening after mandatory researcher consult: per-destination send budget, HTTP 429 Retry-After deferral, Slack message size bounds, and ambient Python test isolation fixes discovered during validation.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/slack_activity_sink.py",
+    "tests/unit/test_slack_activity_sink.py",
+    "tests/unit/test_activity_center.py",
+    "tests/unit/test_agent_github_health.py",
+    "tests/unit/test_ai_maestro_handoff_emit.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-59-post-integration-cockpit-hardening/review-request-r6-checkpoint-4-slack-sink.json"
+  ],
+  "validation_results": [
+    {"command": "PYTHONPATH=src python3 -m pytest tests/unit/test_slack_activity_sink.py tests/unit/test_slack_activity_sink_guardrails.py -q", "result": "passed, 14/14"},
+    {"command": "PYTHONPATH=src python3 -m pytest tests/unit/test_activity_center.py tests/unit/test_agent_github_health.py tests/unit/test_ai_maestro_handoff_emit.py -q", "result": "passed, 20/20"},
+    {"command": "PYTHONPATH=src python3 -m pytest tests/unit -q", "result": "passed, 1187 tests and 60 subtests"},
+    {"command": "git diff --check", "result": "passed"}
+  ],
+  "finding_ids_addressed": [],
+  "notes": "Slack remains disabled by default, outbound-only, read-only, and destination-allowlisted. No Slack approval, merge, deploy, PR creation, trading, or backtest authority added. Token/webhook values are not logged or surfaced.",
+  "response_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["decision", "checkpoint_reviewed", "revision_reviewed", "open_findings", "finding_ids", "bug_check_status", "next_actor", "report_path"],
+    "properties": {
+      "decision": {"type": "string", "enum": ["approved", "revision_requested", "needs_human", "rejected"]},
+      "checkpoint_reviewed": {"type": "string"},
+      "revision_reviewed": {"type": "integer"},
+      "open_findings": {"type": "integer"},
+      "finding_ids": {"type": "array", "items": {"type": "string"}},
+      "bug_check_status": {"type": "string", "enum": ["not_applicable", "passed", "failed", "not_run"]},
+      "next_actor": {"type": "string"},
+      "report_path": {"type": "string"}
+    }
+  }
+}

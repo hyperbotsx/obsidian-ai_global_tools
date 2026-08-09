@@ -1,0 +1,42 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-115",
+  "purpose": "Final verifier bug-check re-review for issue #115 after fixing F115-FINAL-001.",
+  "expected_response": "Compact verifier verdict JSON per coms-transport.md; write details to verifier-report.md.",
+  "stop_condition": "Return approved if final bug-check passes, or revision_requested with bounded finding IDs.",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-115-project-launch-metadata/coder-handoff.md",
+  "checkpoint": "7 - Final validation and bug-check",
+  "revision": 2,
+  "requested_action": "Verify F115-FINAL-001 is fixed and run final bug-check re-review. Approval-time Project Worktree Path now uses canonical <worktrees_root>/agentops-prd-<issue> with regression coverage.",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/115"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-115-project-launch-metadata/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/ceo_review_evonome_apply.py",
+    "tests/unit/test_ceo_review_evonome_apply.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-115-project-launch-metadata/coder-handoff.md"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src pytest -q -p no:cacheprovider tests/unit/test_ceo_review_evonome_apply.py tests/unit/test_prd_create.py tests/unit/test_prd_author_github.py tests/unit/test_prd_author.py tests/unit/test_prd_worktree_project.py tests/unit/test_review_server_coworker.py",
+      "status": "passed",
+      "summary": "79 passed in 3.94s"
+    },
+    {
+      "command": "cd term-control-center && TMPDIR=<temp> tsx --test tests/launchMetadataFix.test.ts tests/boardGuardrails.test.ts tests/implementationWorktreeSync.test.ts tests/launcher.test.ts",
+      "status": "passed",
+      "summary": "76 passed"
+    },
+    {
+      "command": "git diff --check",
+      "status": "passed"
+    },
+    {
+      "command": "find cache cleanup targets",
+      "status": "passed",
+      "summary": "No .pytest_cache, src/agentops_harness/__pycache__, or tests/unit/__pycache__ remained after cleanup"
+    }
+  ],
+  "finding_ids_addressed": ["F115-FINAL-001"]
+}

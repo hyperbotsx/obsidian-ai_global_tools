@@ -1,0 +1,31 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-211",
+  "purpose": "Human-authorized controller correction review for PRD #211 checkpoint 3",
+  "checkpoint": "3 - Injection",
+  "revision": 7,
+  "requested_action": "Review the authorized F211-C3-005/C3-008/C3-009 correction. ProjectScopeController now distinguishes uninitialized/refreshing/stable/selecting/failed; every refresh/selection invalidates its token before awaits; refresh only publishes its matching refreshing token; selection rejects concurrently and restores archived rejection; refresh errors return fail-closed false so injection yields structured stale_state. Please adversarially test: uninitialized old read starts, selection begins before commit, old read returns; concurrent initial selection; archived selection; registry refresh failure; and verify no paste/Enter on any unavailable scope.",
+  "prd_ref": "https://github.com/hyperbotsx/agentops-harness/issues/211",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-211-terminal-orchestration-batch-resume/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/adminProjectSelection.ts",
+    "term-control-center/server/adminRoutes.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/planningBrief.ts",
+    "term-control-center/server/projectScope.ts",
+    "term-control-center/server/orchestrator/paneInjection.ts",
+    "term-control-center/tests/paneInjection.test.ts",
+    "term-control-center/tests/projectScope.test.ts"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck: passed",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/paneInjection.test.ts tests/projectScope.test.ts tests/admin.test.ts: passed (51)",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 --test-name-pattern='fix-and-execute' tests/server.test.ts: passed (4)",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/contextBrief.test.ts: passed (6)",
+    "git diff --check: passed"
+  ],
+  "finding_ids_addressed": ["F211-C3-005", "F211-C3-008", "F211-C3-009"],
+  "stop_condition": "Return the compact verifier verdict; record detailed findings only in verifier-report.md."
+}

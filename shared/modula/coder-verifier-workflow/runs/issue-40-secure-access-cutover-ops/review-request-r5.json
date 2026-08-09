@@ -1,0 +1,43 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "checkpoint": "PRD #40 V40-R4-001 hosted admin group parsing fix",
+  "revision": 5,
+  "requested_action": "Verify V40-R4-001 is fixed, review live redeploy evidence, and rerun bug-check for bounded hosted-admin changes.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/40",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-cutover-ops/verifier-report.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-cutover-ops/coder-handoff.md"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-cutover-ops/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/adminAuth.ts",
+    "term-control-center/tests/admin.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-cutover-ops/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-cutover-ops/review-request-r5.json"
+  ],
+  "finding_ids_addressed": ["V40-R4-001"],
+  "validation_results": [
+    "Updated group parsing to split X-Authentik-Groups on pipe, comma, or semicolon and still require exact token match",
+    "Updated hosted admin test fixture to use pipe-delimited groups: agentops-admin|agentops-operator",
+    "npm --prefix term-control-center test -- tests/admin.test.ts passed; package script ran 144 tests, all passed",
+    "npm --prefix term-control-center run typecheck passed",
+    "git diff --check passed",
+    "npm --prefix term-control-center run build passed",
+    "Rebuilt and restarted live Term Control with hosted admin env; new PID 1866723 listens on 127.0.0.1:3032",
+    "Direct trusted-proxy simulation with pipe-delimited groups returns hosted session for akadmin with CSRF present",
+    "Direct trusted-proxy /api/admin/settings with hosted cookie returns 200",
+    "Direct trusted-proxy PUT /api/admin/settings without CSRF returns 403",
+    "Public spot checks after redeploy: /api/admin/session and /admin/ redirect to Authentik; /json/version and /browser-live-feed/ return 403; no Basic Auth challenge or app markers",
+    "Temporary curl header/body files containing local validation cookies/CSRF values removed from /tmp"
+  ],
+  "known_remaining_manual_smoke": [
+    "Authenticated admin browser session through Authentik/WebAuthn should confirm Board, Pipeline, and Admin load",
+    "Admin page should not show local password login after Authentik sign-in",
+    "Browser /api/admin/session should show Authentik username and CSRF token",
+    "Admin settings mutation should succeed only with app CSRF token"
+  ],
+  "notes": "No PR requested. Remaining manual browser smoke cannot be performed from this CLI session without the human's authenticated browser session."
+}

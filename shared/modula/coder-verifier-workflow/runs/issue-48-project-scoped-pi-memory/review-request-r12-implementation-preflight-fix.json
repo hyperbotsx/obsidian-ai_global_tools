@@ -1,0 +1,34 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Review issue #48 implementation preflight checkpoint revision 12 after fixing V48-CP9-001.",
+  "expected_response": "Compact verifier verdict JSON only; write details to verifier-report.md if not approved.",
+  "stop_condition": "Approve implementation preflight checkpoint or request bounded fixes.",
+  "issue_ref": "https://github.com/hyperbotsx/agentops-harness/issues/48",
+  "checkpoint": "9 - Implementation preflight checkpoint",
+  "revision": 12,
+  "requested_action": "checkpoint_review",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-48-project-scoped-pi-memory/coder-handoff.md",
+  "review_request_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-48-project-scoped-pi-memory/review-request-r12-implementation-preflight-fix.json",
+  "changed_files": [
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/tests/launcher.test.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "term-control-center/tests/server.test.ts",
+    "term-control-center/tests/completion-server.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-48-project-scoped-pi-memory/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-48-project-scoped-pi-memory/review-request-r12-implementation-preflight-fix.json"
+  ],
+  "validation_results": [
+    { "command": "npm --prefix term-control-center test", "status": "passed", "summary": "240 tests" },
+    { "command": "npm --prefix term-control-center run typecheck", "status": "passed" },
+    { "command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/launcher.test.ts tests/launchPlan.test.ts tests/server.test.ts tests/completion-server.test.ts", "status": "passed", "summary": "73 tests" },
+    { "command": "PYTHONPATH=src python3 -m pytest tests/unit/test_ceo_review_answers.py tests/unit/test_prd_preflight.py", "status": "passed", "summary": "29 tests" },
+    { "command": "PYTHONPATH=src python3 -m pytest tests/unit/test_prd_preflight.py", "status": "passed", "summary": "15 tests" },
+    { "command": "git diff --check", "status": "passed" }
+  ],
+  "finding_ids_addressed": ["V48-CP9-001"]
+}

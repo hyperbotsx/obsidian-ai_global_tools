@@ -1,0 +1,43 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-249",
+  "purpose": "Re-review Issue #249 P4 / DIFF-3 renderer revision 2",
+  "checkpoint": "P4 — DIFF-3 renderer",
+  "revision": 2,
+  "requested_action": "Verify bounded LCS intraline behavior, memoized review/render API, stable collision-free keys, annotation-tolerant delete/add pairing, and KISS cleanup.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/249",
+    "/home/hyperbots/.local/state/agentops/term-control-center/runtime/agentops-prd-249-d3da57bf19fa/artifacts/project-context-brief.md"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-249-term-diff-view-improvements/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/src/DiffPatchView.tsx",
+    "term-control-center/src/DiffPatchRows.tsx",
+    "term-control-center/src/DiffReviewAids.tsx",
+    "term-control-center/src/diffIntraline.ts",
+    "term-control-center/src/diffPatchRows.ts",
+    "term-control-center/src/diffViewMode.ts",
+    "term-control-center/src/styles.css",
+    "term-control-center/tests/diffIntraline.test.ts",
+    "term-control-center/tests/diffPatchRows.test.ts",
+    "term-control-center/tests/diffPatchView.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-249-term-diff-view-improvements/coder-handoff.md"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck — passed",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/diff*.test.ts — passed 85/85",
+    "npm --prefix term-control-center run build — passed (existing Vite warnings only)",
+    "git diff --check — passed"
+  ],
+  "finding_ids_addressed": [
+    "V249-P4-001",
+    "V249-P4-002",
+    "V249-P4-003",
+    "V249-P4-004",
+    "V249-P4-005"
+  ],
+  "expected_response": "Verifier verdict JSON matching the supplied schema",
+  "stop_condition": "Return approved, revision_requested, or needs_human with report path."
+}

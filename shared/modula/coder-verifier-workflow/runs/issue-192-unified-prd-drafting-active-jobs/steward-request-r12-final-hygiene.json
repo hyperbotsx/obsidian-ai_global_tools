@@ -1,0 +1,39 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-192",
+  "purpose": "Final structure/hygiene review for issue #192 before verifier bug-check",
+  "checkpoint": "6 - Steward final hygiene",
+  "revision": 12,
+  "requested_action": "Review changed-file placement, run artifacts, new draft modules, board/client/server/test placement, generated output hygiene, and cleanup timing. Do not replace verifier bug-check; return compact verdict and write report if findings exist.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/192"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/board.html",
+    "scripts/agentops/pi-agent.sh",
+    "term-control-center/server/draftComs.ts",
+    "term-control-center/server/draftJobs.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/launchGroup.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/src/App.tsx",
+    "term-control-center/tests/agentopsComsLabel.test.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "term-control-center/tests/launcher.test.ts",
+    "term-control-center/tests/server.test.ts",
+    "term-control-center/tests/terminalJobSidebar.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/**"
+  ],
+  "validation_results": [
+    {
+      "command": "cd term-control-center && node --import tsx --test --test-name-pattern \"board CEO review handoff|hand off to CEO review|PRD review launch prompt|parallel PRD authoring drafts|parallel draft PRD Studio|logical draft job row|authoring launch failure|PRD Author launch prompt|pi-agent wrapper honors draft-scoped|PRD planning execute fails closed|seed-only drafts|unsafe pre-issue\" tests/server.test.ts tests/launchPlan.test.ts tests/agentopsComsLabel.test.ts tests/terminalJobSidebar.test.ts tests/launcher.test.ts && git diff --check",
+      "status": "passed",
+      "notes": "13 focused tests passed and diff check passed."
+    }
+  ],
+  "stop_condition": "Steward approves structure/hygiene or returns bounded cleanup findings."
+}

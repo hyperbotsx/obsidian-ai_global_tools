@@ -1,0 +1,30 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-220",
+  "purpose": "Review checkpoint 3 revision 1: static Timeline and safe live-state adapter",
+  "checkpoint": "3 - Static Timeline and live-state adapter",
+  "revision": 1,
+  "requested_action": "checkpoint_review",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/220", "/home/hyperbots/.local/state/agentops/term-control-center/runtime/agentops-prd-220-0dfd1ab872de/artifacts/project-context-brief.md"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-220-slot-execution-timeline-view/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/{timeline.html,timeline.js,live-sessions.js,agentops-nav.js,freshness.js,board.html,README.md,deploy/sync-public-assets.py}",
+    "pipeline-diagram/public/{timeline.html,timeline.js,live-sessions.js}",
+    "term-control-center/server/adminPipeline.ts",
+    "term-control-center/src/navigation/navModel.ts",
+    "term-control-center/tests/{timelineLiveState.test.ts,admin.test.ts,boardGuardrails.test.ts}",
+    "tests/unit/{test_pipeline_board_generation.py,test_deploy_asset_integrity.py}",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-220-slot-execution-timeline-view/coder-handoff.md"
+  ],
+  "validation": [
+    "39 focused Python timeline/static/deploy tests passed",
+    "64 focused TypeScript guardrail/admin/live-state tests passed using a temporary canonical dependency symlink removed after validation",
+    "term-control-center typecheck passed using the same temporary symlink removed after validation",
+    "git diff --check passed",
+    "asset sync --check is blocked only by intentionally uncommitted generated runtime data; new static public symlinks resolve"
+  ],
+  "finding_ids_addressed": [],
+  "stop_condition": "Return compact verifier verdict JSON; write full report only for a non-approved verdict."
+}

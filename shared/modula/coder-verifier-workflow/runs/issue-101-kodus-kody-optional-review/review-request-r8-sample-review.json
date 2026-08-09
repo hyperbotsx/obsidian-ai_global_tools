@@ -1,0 +1,28 @@
+{
+  "type": "review_request",
+  "checkpoint": "1e-live-kodus-sample-review",
+  "revision": 1,
+  "requested_action": "Verify sample Kodus PR review/log inspection evidence and cleanup posture before Sprint 1 planning.",
+  "source_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/101",
+    "https://github.com/hyperbotsx/agentops-harness/pull/173"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "evidence_paths": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-sample-review-pr173.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md"
+  ],
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-sample-review-pr173.md"
+  ],
+  "validation_results": [
+    "Temporary PR #173 created as non-merge smoke test and closed after validation.",
+    "Remote smoke branch test/kodus-smoke-pr172-20260629201910 deleted after validation.",
+    "Kodus logs: PR #173 completed with status=success, openai_compatible:claude-cli for both review agents, one review, one line comment.",
+    "git diff --check passed."
+  ],
+  "finding_ids_addressed": [],
+  "notes": "Gateway per-request logging remains sparse; evidence relies on Kodus observability logs for configured model path. No merge was performed."
+}

@@ -1,0 +1,42 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-101",
+  "purpose": "Review PRD #101 planning refresh and closeout decision packet before any commit/PR",
+  "checkpoint": "PRD #101 planning refresh and closeout decision packet",
+  "revision": 1,
+  "requested_action": "Verify docs/artifact-only planning refresh accuracy, guardrails, and token evidence/closeout packet safety.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/101",
+    "https://github.com/hyperbotsx/agentops-harness/pull/196",
+    "https://github.com/hyperbotsx/agentops-harness/issues/179",
+    "https://github.com/hyperbotsx/agentops-harness/issues/190"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "changed_files": [
+    "dev-plans/agentops/prd-101-next-steps-plan.md",
+    "dev-plans/agentops/kody-review-session-prd-brief.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/token-lifecycle-evidence-template-20260701.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/prd-101-closeout-decision-packet-20260701.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r45-prd101-planning-refresh.json"
+  ],
+  "pre_existing_dirty_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/verifier-report.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/continuation-prompt-20260629-kody-findings.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/prd-101-closeout-assessment-20260701.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r44-prd101-closeout-assessment.json"
+  ],
+  "validation_results": [
+    "Refreshed next-steps plan from prior gh/doc inspection and verifier-approved r44 closeout assessment.",
+    "Marked old Kody review session brief as superseded by issue #179 / PR #184 while preserving it.",
+    "Added sanitized token lifecycle evidence template with explicit no-secret/no-raw-log instructions.",
+    "Added closeout decision packet with draft-only follow-up issue and closeout comment text; no GitHub mutation performed.",
+    "Markdown hygiene script passed for touched planning artifacts: final newline and no trailing whitespace.",
+    "git diff --check passed for tracked changes.",
+    "git status --short --branch reviewed after changes."
+  ],
+  "finding_ids_addressed": [],
+  "stop_condition": "Stop after verifier approves this planning-only slice or requests bounded corrections; no GitHub mutation/PRD closeout/PR creation without human instruction."
+}

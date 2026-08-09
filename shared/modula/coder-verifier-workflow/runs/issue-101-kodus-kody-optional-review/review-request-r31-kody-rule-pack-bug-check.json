@@ -1,0 +1,34 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-101",
+  "checkpoint": "3 - Kody rule pack and repo overlay process",
+  "revision": 1,
+  "requested_action": "bug_check",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/101"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "previous_review_request_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r30-kody-rule-pack.json",
+  "changed_files": [
+    "docs/kody-rule-pack.md",
+    "docs/kodus-kody-sprint1-advisory-pilot.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r30-kody-rule-pack.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r31-kody-rule-pack-bug-check.json"
+  ],
+  "validation_results": [
+    {
+      "command": "git diff --check",
+      "status": "passed"
+    },
+    {
+      "command": "rg -n \"SoldierOne|soldierone|soldier|@kody-sync\" docs/kody-rule-pack.md docs/kodus-kody-sprint1-advisory-pilot.md dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md || true",
+      "status": "passed",
+      "note": "No matches."
+    }
+  ],
+  "finding_ids_addressed": [],
+  "summary": "Implementation review r30 approved. Requesting default bug-check for docs-only Kody rule pack slice, focusing on advisory guardrails, activation safety, unsupported assumptions, and preservation of optional/non-blocking behavior."
+}

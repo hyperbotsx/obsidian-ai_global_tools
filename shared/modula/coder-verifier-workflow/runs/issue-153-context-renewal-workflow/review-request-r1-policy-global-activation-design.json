@@ -1,0 +1,48 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-153",
+  "purpose": "Checkpoint 1 review for issue #153 policy and global activation design.",
+  "checkpoint": "1 - Policy and global activation design",
+  "revision": 1,
+  "requested_action": "Verify the docs-only checkpoint against PRD #153: thresholds, state model, safe-boundary rules, artifact paths/templates, feature flags, global Pi activation mechanism, terminal Pi/hyper-pi/AgentOps coverage, Project 3 routing, and no reset automation.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/153"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/coder-handoff.md",
+  "changed_files": [
+    "docs/agentops-context-renewal.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/review-request-r1-policy-global-activation-design.json"
+  ],
+  "validation_results": [
+    {
+      "command": "git diff --check",
+      "status": "passed",
+      "summary": "No whitespace errors reported for tracked diff; new files are untracked at review time."
+    },
+    {
+      "command": "python -m pytest tests",
+      "status": "failed",
+      "summary": "python command not installed in environment."
+    },
+    {
+      "command": "python3 -m pytest tests",
+      "status": "failed",
+      "summary": "Collection failed because PYTHONPATH=src was not set."
+    },
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests",
+      "status": "failed",
+      "summary": "1007 passed, 4 failed; failures appear unrelated/environmental and are listed in handoff."
+    }
+  ],
+  "finding_ids_addressed": [],
+  "isolation_preflight": {
+    "sender_identity": "coder@agentops-prd-153",
+    "pi_coms_dir": "/tmp/agentops/coms/agentops-prd-153",
+    "verifier_live": true
+  },
+  "stop_condition": "Return compact verifier verdict JSON and write detailed report to verifier-report.md."
+}

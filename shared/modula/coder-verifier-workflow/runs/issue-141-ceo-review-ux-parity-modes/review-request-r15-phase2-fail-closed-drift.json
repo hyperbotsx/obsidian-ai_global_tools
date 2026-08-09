@@ -1,0 +1,44 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Phase 2 fail-closed/drift checkpoint for issue 141",
+  "expected_response": "Compact verifier verdict JSON matching the response schema; write details to verifier-report.md",
+  "stop_condition": "Approve checkpoint or request bounded revision findings",
+  "checkpoint": "Phase 2 fail-closed/drift checkpoint",
+  "revision": 1,
+  "requested_action": "Verify CEO review answer/apply flow fails closed for incomplete inputs, blocked issues, stale/drifted issue state, closed/status-blocked states, and missing execution prerequisites without applying mutations.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/141"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/ceo_review_apply.py",
+    "tests/unit/test_ceo_review_apply.py",
+    "tests/unit/test_ceo_review_apply_cli.py",
+    "src/agentops_harness/ceo_review_answers.py",
+    "tests/unit/test_ceo_review_answers.py",
+    "src/agentops_harness/ceo_review.py",
+    "tests/unit/test_ceo_review.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/review-request-r15-phase2-fail-closed-drift.json"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests/unit/test_ceo_review_apply.py tests/unit/test_ceo_review_apply_cli.py tests/unit/test_ceo_review_answers.py tests/unit/test_ceo_review.py",
+      "status": "pass",
+      "summary": "54 tests passed covering drift checks, blocked proposals, incomplete answers, explicit confirmation, execute sink, and fail-closed question/answer reports"
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "summary": "no whitespace errors"
+    }
+  ],
+  "finding_ids_addressed": [],
+  "notes": [
+    "Preview/apply gate checkpoint is approved after revisions.",
+    "This checkpoint does not claim Phase 3 closeout or roster behavior."
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "reasons": [
+    "safe boundary confirmed"
+  ],
+  "reset_allowed": true,
+  "safe": true,
+  "status": "safe-boundary"
+}

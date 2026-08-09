@@ -1,0 +1,32 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-191",
+  "purpose": "Review checkpoint 5 Completed Jobs Follow-Up UI and Term Control flow.",
+  "checkpoint": "5 — Completed Job Follow-Up",
+  "revision": 1,
+  "requested_action": "implementation_checkpoint_review",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/191"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-191-quality-loop/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/completed.html",
+    "pipeline-diagram/coworker-launcher.js",
+    "term-control-center/server/completedFollowUp.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/tests/completedFollowUp.test.ts",
+    "term-control-center/tests/completedStatic.test.ts",
+    "term-control-center/tests/server.test.ts",
+    "docs/implementation-quality-loop.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-191-quality-loop/coder-handoff.md"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck passed",
+    "completedFollowUp.test.ts and completedStatic.test.ts passed (19 tests)",
+    "targeted server Follow-Up Issue confirmation test passed (1 test; no GitHub mutation)",
+    "git diff --check passed"
+  ],
+  "finding_ids_addressed": []
+}

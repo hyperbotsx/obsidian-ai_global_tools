@@ -1,0 +1,27 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-160",
+  "purpose": "Pre-final hygiene review for issue #160 before verifier final bug-check",
+  "expected_response": "JSON or concise markdown with clean/finding status; write response to steward-response-r1-prefinal-hygiene.md if detailed",
+  "stop_condition": "Return clean or bounded cleanup recommendations",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-160-memory-admin-ux/coder-handoff.md",
+  "scope": [
+    "Admin Memory UI/server/test changes",
+    "Run artifacts under issue-160-memory-admin-ux"
+  ],
+  "changed_files": [
+    "term-control-center/server/adminCss.ts",
+    "term-control-center/server/adminHtml.ts",
+    "term-control-center/server/adminMemoryClient.ts",
+    "term-control-center/server/adminProjectMemory.ts",
+    "term-control-center/server/adminProjects.ts",
+    "term-control-center/server/adminRoutes.ts",
+    "term-control-center/server/projectMemory.ts",
+    "term-control-center/tests/admin.test.ts",
+    "term-control-center/tests/projectMemory.test.ts",
+    "term-control-center/tests/projectMemoryAdminUx.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-160-memory-admin-ux/"
+  ]
+}

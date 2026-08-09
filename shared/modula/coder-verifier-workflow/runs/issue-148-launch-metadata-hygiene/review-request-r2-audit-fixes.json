@@ -1,0 +1,28 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-148",
+  "purpose": "Checkpoint 1 audit revision fixes for issue 148",
+  "expected_response": "Compact verdict JSON matching the provided schema; do not include full report inline.",
+  "stop_condition": "Approve checkpoint 1 or request one bounded revision with finding IDs.",
+  "canonical_issue": "https://github.com/hyperbotsx/agentops-harness/issues/148",
+  "checkpoint": "1 - Audit checkpoint",
+  "revision": 2,
+  "requested_action": "Review bounded fixes for F148-R1-001 and F148-R1-002.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-148-launch-metadata-hygiene/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/prd_launch_metadata_audit.py",
+    "src/agentops_harness/cli.py",
+    "src/agentops_harness/github_project.py",
+    "tests/unit/test_prd_launch_metadata_audit.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-148-launch-metadata-hygiene/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-148-launch-metadata-hygiene/review-request-r2-audit-fixes.json"
+  ],
+  "validation_results": [
+    "git diff --check: passed",
+    "PYTHONPATH=src python3 -m pytest tests/unit/test_prd_launch_metadata_audit.py tests/unit/test_prd_worktree_project.py tests/unit/test_cli.py: passed (70 tests)",
+    "PYTHONPATH=src python3 -m agentops_harness.cli prd-worktree metadata-audit --worktrees-root /mnt/hyperliquid-data/projects/worktrees --format json > /tmp/prd148-audit-r2.json: passed; summary status=ok,total_items=56,audited_items=56,healthy_items=1,repairable_items=11,blocked_items=55; sample Done Project items show read_only_done"
+  ],
+  "finding_ids_addressed": ["F148-R1-001", "F148-R1-002"]
+}

@@ -1,0 +1,17 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-211",
+  "purpose": "Run final post-context bug-check revision 6 after the human-selected structured/server-rendered recovery-intent correction for F211-FINAL-003.",
+  "checkpoint": "Final - Post-context bug-check",
+  "revision": 6,
+  "requested_action": "final-bug-check",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/211"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-211-terminal-orchestration-batch-resume/coder-handoff.md",
+  "prior_report_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-211-terminal-orchestration-batch-resume/verifier-report.md",
+  "finding_ids_addressed": ["F211-FINAL-003"],
+  "validation_results": {"focused_typescript": "92 passed, 0 failed", "focused_python": "102 passed", "typecheck": "passed", "build": "passed; documented non-fatal Vite warnings only", "diff_check": "passed", "artifact_cleanup": "removed generated dist and build"},
+  "operator_authorization": "Operator selected the structured/server-rendered recovery-intent contract in this conversation.",
+  "stop_condition": "Return approved with zero findings, or needs_human for unresolved findings."
+}

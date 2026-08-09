@@ -1,0 +1,22 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-159",
+  "purpose": "Retry compact JSON verdict for final bug-check fix re-review; previous coms response was not valid JSON",
+  "expected_response": "Compact verifier verdict JSON only matching schema",
+  "stop_condition": "Return approved final bug-check verdict or revision_requested JSON with finding IDs",
+  "checkpoint": "5 - Final integration and bug-check checkpoint",
+  "revision": 10,
+  "requested_action": "bug-check-recheck-json-only",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/159"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-159-pr-dependency-merge-safety-coordinator/coder-handoff.md",
+  "prior_review_request_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-159-pr-dependency-merge-safety-coordinator/review-request-r9-final-bug-check-fix.json",
+  "finding_ids_addressed": ["F159-R8-001"],
+  "validation_results": [
+    {"command": "PYTHONPATH=src python3 -m pytest tests/unit/test_pr_coordination.py tests/unit/test_cli.py -q", "status": "passed", "summary": "65 passed, 7 subtests passed"},
+    {"command": "linked_issue ambiguous dependency body smoke", "status": "passed", "summary": "returned 159"},
+    {"command": "git diff --check", "status": "passed", "summary": "no whitespace errors"}
+  ],
+  "isolation_preflight": {"cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-159", "project": "agentops-prd-159", "identity_expected": "coder@agentops-prd-159", "pi_coms_dir": "/tmp/agentops/coms/agentops-prd-159", "verifier_live": true}
+}

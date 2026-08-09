@@ -1,0 +1,49 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Phase 2 mode-selection checkpoint re-review for issue 141",
+  "expected_response": "Compact verifier verdict JSON matching the response schema; write details to verifier-report.md",
+  "stop_condition": "Approve checkpoint or request bounded revision findings",
+  "checkpoint": "Phase 2 mode-selection checkpoint",
+  "revision": 2,
+  "requested_action": "Re-review bounded fix for F141-P2-MODE-R1-001 only: new CEO review entrypoints should present the picker before launch instead of auto-starting.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/141"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/board.html",
+    "term-control-center/tests/boardGuardrails.test.ts",
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "term-control-center/tests/launcher.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/review-request-r6-phase2-mode-selection-fix.json"
+  ],
+  "validation_results": [
+    {
+      "command": "cd term-control-center && node --import tsx --test tests/launchPlan.test.ts tests/launcher.test.ts tests/boardGuardrails.test.ts",
+      "status": "pass",
+      "summary": "78 tests passed"
+    },
+    {
+      "command": "cd term-control-center && npm run typecheck",
+      "status": "pass",
+      "summary": "tsconfig app/server typecheck passed"
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "summary": "no whitespace errors"
+    }
+  ],
+  "finding_ids_addressed": [
+    "F141-P2-MODE-R1-001"
+  ],
+  "notes": [
+    "Scope remains Phase 2 mode-selection only; no guided four-choice or assisted draft editing completion is claimed."
+  ]
+}

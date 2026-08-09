@@ -1,0 +1,31 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-195",
+  "purpose": "Issue #195 checkpoint 1 inventory review",
+  "expected_response": "Compact verifier verdict JSON matching schema; full report written to verifier-report.md",
+  "stop_condition": "Approve inventory or request bounded inventory revision",
+  "checkpoint": "1 - Inventory checkpoint",
+  "revision": 1,
+  "requested_action": "Review stale wording inventory and active-vs-historical boundary before copy edits",
+  "prd_issue": "https://github.com/hyperbotsx/agentops-harness/issues/195",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-195-source-of-truth-wording/coder-handoff.md",
+  "inventory_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-195-source-of-truth-wording/inventory.md",
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-195-source-of-truth-wording/inventory.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-195-source-of-truth-wording/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-195-source-of-truth-wording/review-request-r1-inventory.json"
+  ],
+  "validation_results": [
+    {
+      "command": "rg inventory commands for stale wording across active surfaces",
+      "result": "completed; summarized in inventory.md"
+    },
+    {
+      "command": "test suite",
+      "result": "not run; inventory-only checkpoint"
+    }
+  ],
+  "finding_ids_addressed": []
+}

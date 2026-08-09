@@ -1,0 +1,110 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-231",
+  "purpose": "Issue #231 checkpoint 3 native Claude pane launch review",
+  "checkpoint": "3 - Native pane launch",
+  "revision": 1,
+  "requested_action": "Review only checkpoint 3: opt-in native Claude pane launch, generated strict MCP configuration, subscription/OAuth-only preflight, and retained legacy claude_agent fallback. Confirm direct native CLI execution (not Pi/delegation), local coms-mcp wiring, unchanged browser/human-control guards, fail-closed invalid configuration/auth behavior, and focused validation evidence.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/231",
+    "docs/coms-wire-contract.md"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/package.json",
+    "term-control-center/package-lock.json",
+    "docs/coms-wire-contract.md",
+    "term-control-center/server/comsAdapter.ts",
+    "term-control-center/server/comsMcp.ts",
+    "term-control-center/tests/comsAdapter.conformance.test.ts",
+    "term-control-center/tests/comsAdapter.test.ts",
+    "term-control-center/tests/comsMcp.test.ts",
+    "term-control-center/tests/comsTestFixture.ts",
+    "scripts/agentops/claude-native.sh",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/server/launchProfiles.ts",
+    "term-control-center/tests/nativeClaudeLauncher.test.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "term-control-center/tests/launchProfiles.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/review-request-r1-checkpoint-3.json"
+  ],
+  "validation_results": [
+    {
+      "command": "bash -n scripts/agentops/claude-native.sh",
+      "status": "passed"
+    },
+    {
+      "command": "cd term-control-center && node --import tsx --test tests/launchProfiles.test.ts tests/launchPlan.test.ts tests/nativeClaudeLauncher.test.ts",
+      "status": "passed",
+      "notes": "38 focused tests, including native direct launch, strict config composition, browser/codebase MCP retention, profile validation, and sanitized mocked auth preflight."
+    },
+    {
+      "command": "npm --prefix term-control-center run typecheck",
+      "status": "passed"
+    },
+    {
+      "command": "npm --prefix term-control-center run build:server",
+      "status": "passed",
+      "notes": "Confirms term-control-center/build/server/comsMcp.js is present for generated native MCP config."
+    },
+    {
+      "command": "npm --prefix term-control-center run test",
+      "status": "blocked",
+      "notes": "597 passed; 20 failures: 18 absent-node-pty native-binary load failures and 2 unrelated baseline assertions. New focused tests add no failures."
+    },
+    {
+      "command": "git diff --check",
+      "status": "passed"
+    }
+  ],
+  "finding_ids_addressed": [],
+  "stop_condition": "Approve checkpoint 3 or return only bounded checkpoint-3 findings. Do not begin checkpoint 4 until checkpoint-3 approval.",
+  "response_schema": {
+    "type": "object",
+    "required": [
+      "decision",
+      "checkpoint_reviewed",
+      "revision_reviewed",
+      "open_findings",
+      "finding_ids",
+      "bug_check_status",
+      "next_actor",
+      "report_path"
+    ],
+    "properties": {
+      "decision": {
+        "type": "string",
+        "enum": ["approved", "revision_requested", "needs_human"]
+      },
+      "checkpoint_reviewed": {
+        "type": "string"
+      },
+      "revision_reviewed": {
+        "type": "integer"
+      },
+      "open_findings": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "finding_ids": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "bug_check_status": {
+        "type": "string"
+      },
+      "next_actor": {
+        "type": "string"
+      },
+      "report_path": {
+        "type": "string"
+      }
+    },
+    "additionalProperties": false
+  }
+}

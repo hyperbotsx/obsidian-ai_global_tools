@@ -1,0 +1,41 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-117",
+  "purpose": "Checkpoint review for PRD #117 Browser-QA hosted DevTools allowlists.",
+  "expected_response": "Compact verifier verdict JSON per coms-transport.md; write full report to verifier-report.md if findings exist.",
+  "stop_condition": "Approve checkpoint or return bounded findings for revision.",
+  "checkpoint": "r1-hosted-allowlists-diagnostics",
+  "revision": 1,
+  "requested_action": "Review effective allowlist merge/regeneration, Browser-QA launch diagnostics, fail-closed instruction, tests, and validation ledger update.",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/117"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-117-browser-qa-hosted-allowlists/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/frontendBrowserLaunch.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/tests/frontendBrowserLaunch.test.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "dev-plans/agentops/open-prd-sweep-ledger-2026-06-28.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-117-browser-qa-hosted-allowlists/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-117-browser-qa-hosted-allowlists/review-request-r1-hosted-allowlists.json"
+  ],
+  "validation_results": [
+    {
+      "command": "TMPDIR=$(mktemp -d) env -u AGENTOPS_GITHUB_TOKEN -u GH_TOKEN -u GITHUB_TOKEN -u TERM_CONTROL_CEO_REVIEW_WORKTREE -u TERM_CONTROL_CEO_REVIEW_REF -u TERM_CONTROL_BROWSER_ALLOWED_URL_PATTERNS -u TERM_CONTROL_BROWSER_USER_DATA_DIR -u TERM_CONTROL_BROWSER_CDP_PORT -u TERM_CONTROL_BROWSER_CDP_PROXY_PORT -u TERM_CONTROL_BROWSER_VNC_PORT -u TERM_CONTROL_BROWSER_STATE_DIR /mnt/hyperliquid-data/projects/repos/agentops-harness/term-control-center/node_modules/.bin/tsx --test term-control-center/tests/frontendBrowserLaunch.test.ts term-control-center/tests/launchPlan.test.ts",
+      "status": "pass",
+      "summary": "26/26 subtests passed."
+    },
+    {
+      "command": "npm --prefix term-control-center test -- --test-name-pattern='Browser QA|Frontend Expert'",
+      "status": "blocked",
+      "summary": "Local term-control-center/node_modules is absent; package cannot resolve tsx."
+    },
+    {
+      "command": "/mnt/hyperliquid-data/projects/repos/agentops-harness/term-control-center/node_modules/.bin/tsc -p term-control-center/tsconfig.server.json --noEmit --typeRoots /mnt/hyperliquid-data/projects/repos/agentops-harness/term-control-center/node_modules/@types",
+      "status": "blocked",
+      "summary": "Pre-existing unresolved optional packages/types: node-pty and react-dom/server plus related type errors."
+    }
+  ],
+  "finding_ids_addressed": []
+}

@@ -1,0 +1,25 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-113",
+  "purpose": "Final bug-check fix review for issue #113",
+  "expected_response": "Compact verifier verdict JSON per coms transport contract; write detailed findings to verifier-report.md",
+  "stop_condition": "Approve final bug-check or request bounded bug-check fixes",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-113-completed-work-validation-table/coder-handoff.md",
+  "checkpoint": "final bug-check",
+  "revision": 7,
+  "requested_action": "Review fixes for F113-FBC-001 and F113-FBC-002.",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/113"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-113-completed-work-validation-table/coder-handoff.md",
+  "validation_results": [
+    { "command": "npm --prefix term-control-center run typecheck", "status": "passed" },
+    { "command": "cd term-control-center && node --import tsx --test tests/completedValidationStore.test.ts tests/completedStatic.test.ts tests/completedBrowserQa.test.ts tests/completedBrowserQaReport.test.ts tests/launchProjectFallback.test.ts", "status": "passed", "notes": "17 tests" },
+    { "command": "python3 tests/unit/test_completed_work.py", "status": "passed" },
+    { "command": "npm --prefix term-control-center run build", "status": "passed" },
+    { "command": "python3 pipeline-diagram/deploy/sync-public-assets.py --root pipeline-diagram --check", "status": "passed" },
+    { "command": "git diff --check", "status": "passed" },
+    { "command": "cd pipeline-diagram && python3 generate.py", "status": "blocked", "notes": "GitHub API rate limit exceeded on rerun; earlier pass produced 51 completed rows and data remains present" }
+  ],
+  "finding_ids_addressed": ["F113-FBC-001", "F113-FBC-002"]
+}

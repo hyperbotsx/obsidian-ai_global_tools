@@ -1,0 +1,28 @@
+{
+  "checkpoint": "CP-3 \u2014 FR-6 / FR-7 / FR-8 / FR-9 / FR-12",
+  "revision": 5,
+  "requested_action": "Review lead-authorized round-5 completion; CP3-006 operator pending",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-283-page-bot-platform/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/page-bot-panel.js",
+    "pipeline-diagram/coworker-launcher.js",
+    "term-control-center/server/pageBotRuntime.ts",
+    "term-control-center/tests/pageBotInjection.test.ts",
+    "term-control-center/tests/pageBotPlatform.test.ts"
+  ],
+  "finding_ids_addressed": [
+    "V283-CP3-001",
+    "V283-CP3-002",
+    "V283-CP3-003",
+    "V283-CP3-008"
+  ],
+  "operator_pending": [
+    "V283-CP3-006"
+  ],
+  "validation_results": [
+    "typecheck passed",
+    "build passed",
+    "focused Node 10/10 passed",
+    "pytest 1325 passed + 60 subtests; documented completed-work baseline only"
+  ]
+}

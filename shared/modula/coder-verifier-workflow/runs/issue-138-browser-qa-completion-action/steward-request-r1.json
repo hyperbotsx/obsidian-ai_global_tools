@@ -1,0 +1,12 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Pre-final steward hygiene review for Issue 138 changed-file placement and artifacts before verifier bug-check.",
+  "expected_response": "Concise JSON or markdown with clean/cleanup recommendations; do not edit files.",
+  "stop_condition": "Return clean or bounded cleanup recommendations.",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-138-browser-qa-completion-action/coder-handoff.md",
+  "changed_file_count": 21,
+  "notable_changes": ["deployment nginx route", "pipeline static JS/HTML", "term-control TypeScript server/client/tests", "scripts/agentops/pi-agent.sh", "run artifacts"]
+}

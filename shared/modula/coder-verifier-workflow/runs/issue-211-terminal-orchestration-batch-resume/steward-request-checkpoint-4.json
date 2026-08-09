@@ -1,0 +1,11 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-211",
+  "purpose": "Required post-checkpoint-4 hygiene review before final verifier bug-check",
+  "checkpoint": "4 - Delegated actions",
+  "requested_action": "Review changed-file placement, semantic module boundaries, KISS/readability, run artifacts, generated/runtime output, and cleanup needs. Do not edit product files.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-211-terminal-orchestration-batch-resume/coder-handoff.md",
+  "stop_condition": "Return clean or bounded cleanup findings; detailed report stays in the run folder."
+}

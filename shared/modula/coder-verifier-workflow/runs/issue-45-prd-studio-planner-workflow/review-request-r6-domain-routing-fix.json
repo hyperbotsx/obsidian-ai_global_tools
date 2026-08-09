@@ -1,0 +1,29 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Review PRD #45 checkpoint 4 revision for V-CP4-001.",
+  "expected_response": "Compact verdict JSON matching the supplied schema. Write full findings to verifier-report.md if not approved.",
+  "stop_condition": "Approve checkpoint 4 revision or request one bounded revision with finding IDs.",
+  "review_request": {
+    "prd_issue": "https://github.com/hyperbotsx/agentops-harness/issues/45",
+    "checkpoint": "4 - Domain-routing checkpoint",
+    "revision": 2,
+    "requested_action": "checkpoint_review_fix",
+    "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-45-prd-studio-planner-workflow/coder-handoff.md",
+    "changed_files": [
+      "term-control-center/shared/launcher.ts",
+      "term-control-center/tests/launcher.test.ts",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-45-prd-studio-planner-workflow/coder-handoff.md",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-45-prd-studio-planner-workflow/review-request-r6-domain-routing-fix.json"
+    ],
+    "validation_results": [
+      { "command": "npm --prefix term-control-center run test -- --test-name-pattern=\"preview-url-only|frontend|Frontend|launcher\"", "status": "passed", "evidence": "183 tests passed" },
+      { "command": "npm --prefix term-control-center run typecheck", "status": "passed" },
+      { "command": "npm --prefix term-control-center run build", "status": "passed", "notes": "Existing Vite warnings only" },
+      { "command": "git diff --check", "status": "passed" }
+    ],
+    "finding_ids_addressed": ["V-CP4-001"]
+  }
+}

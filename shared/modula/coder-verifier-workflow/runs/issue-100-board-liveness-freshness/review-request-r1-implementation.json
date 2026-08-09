@@ -1,0 +1,35 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Review issue #100 implementation checkpoints 1-6 before final steward/bug-check.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/100",
+  "checkpoint": "1-6 implementation: #99 contract consumption, freshness module, auto-refresh, manual refresh, recent-work preservation, all-views/reconciliation",
+  "revision": 1,
+  "requested_action": "implementation checkpoint review",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-100-board-liveness-freshness/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/freshness.js",
+    "pipeline-diagram/public/freshness.js",
+    "pipeline-diagram/board.html",
+    "pipeline-diagram/wip.html",
+    "pipeline-diagram/pipeline.html",
+    "pipeline-diagram/review-notify.js",
+    "pipeline-diagram/generate.py",
+    "pipeline-diagram/README.md",
+    "term-control-center/server/adminRoutes.ts",
+    "term-control-center/tests/admin.test.ts"
+  ],
+  "validation_results": [
+    "node --check pipeline-diagram/freshness.js && node --check pipeline-diagram/review-notify.js && python3 -m py_compile pipeline-diagram/generate.py — passed",
+    "python3 pipeline-diagram/deploy/sync-public-assets.py --check — passed",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/admin.test.ts — passed (25/25)",
+    "cd term-control-center && npm run typecheck — passed",
+    "git diff --check — passed",
+    "cd term-control-center && npm test -- --test-name-pattern 'freshness|manual pipeline refresh endpoint' — attempted; runner executed broader suites and timed out with unrelated server/tmux/planning failures; targeted admin test passed"
+  ],
+  "finding_ids_addressed": [],
+  "expected_response": "Compact JSON verdict per coms-transport.md; write detailed report to verifier-report.md only if needed.",
+  "stop_condition": "Approve implementation checkpoints or request one bounded revision."
+}

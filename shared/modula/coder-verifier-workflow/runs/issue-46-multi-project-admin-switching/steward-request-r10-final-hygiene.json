@@ -1,0 +1,17 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Pre-final hygiene review for PRD #46 multi-project admin switching",
+  "requested_action": "changed-file placement and artifact hygiene review",
+  "prd_issue": "https://github.com/hyperbotsx/agentops-harness/issues/46",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-46-multi-project-admin-switching/coder-handoff.md",
+  "focus": [
+    "New files are in appropriate product/docs/test/run-artifact locations",
+    "No temporary/generated outputs outside accepted locations",
+    "Run artifacts are contained to the requested run folder",
+    "No raw transcripts/secrets/local credentials committed",
+    "No cleanup needed before final verifier bug-check"
+  ]
+}

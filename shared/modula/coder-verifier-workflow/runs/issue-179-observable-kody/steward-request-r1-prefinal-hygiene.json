@@ -1,0 +1,25 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-179",
+  "purpose": "Pre-final structure and hygiene review before final verifier bug-check for issue #179",
+  "expected_response": "Concise JSON or markdown with clean/cleanup recommendations. Do not edit files.",
+  "stop_condition": "Return clean or bounded cleanup recommendations.",
+  "issue_url": "https://github.com/hyperbotsx/agentops-harness/issues/179",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-179-observable-kody/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/completed.html",
+    "src/agentops_harness/activity_center.py",
+    "src/agentops_harness/activity_center_sources.py",
+    "src/agentops_harness/activity_center_kody.py",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/kodyReview.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/tests/completedStatic.test.ts",
+    "term-control-center/tests/kodyReview.test.ts",
+    "tests/unit/test_activity_center.py",
+    "docs/kody-review-sessions.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-179-observable-kody/"
+  ]
+}

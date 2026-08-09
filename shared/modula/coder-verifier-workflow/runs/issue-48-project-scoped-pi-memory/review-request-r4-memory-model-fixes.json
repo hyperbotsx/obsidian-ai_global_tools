@@ -1,0 +1,34 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Review issue #48 checkpoint 2 revision 4 fixes for V48-CP2-001..004.",
+  "expected_response": "Compact verifier verdict JSON only; write details to verifier-report.md if not approved.",
+  "stop_condition": "Approve checkpoint 2 or request bounded fixes.",
+  "issue_ref": "https://github.com/hyperbotsx/agentops-harness/issues/48",
+  "checkpoint": "2 - Memory model checkpoint",
+  "revision": 4,
+  "requested_action": "checkpoint_review",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-48-project-scoped-pi-memory/coder-handoff.md",
+  "changed_files": [
+    "docs/agentops-project-memory.md",
+    "term-control-center/server/projectMemory.ts",
+    "term-control-center/server/adminProjectMemory.ts",
+    "term-control-center/server/adminProjects.ts",
+    "term-control-center/server/adminRoutes.ts",
+    "term-control-center/tests/projectMemory.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-48-project-scoped-pi-memory/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-48-project-scoped-pi-memory/review-request-r1-provider-research.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-48-project-scoped-pi-memory/review-request-r2-provider-research-fix.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-48-project-scoped-pi-memory/review-request-r3-memory-model.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-48-project-scoped-pi-memory/review-request-r4-memory-model-fixes.json"
+  ],
+  "validation_results": [
+    { "command": "git diff --check", "status": "passed" },
+    { "command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/projectMemory.test.ts", "status": "passed", "summary": "6 tests" },
+    { "command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/admin.test.ts", "status": "passed", "summary": "16 tests" },
+    { "command": "npm --prefix term-control-center run typecheck", "status": "passed" }
+  ],
+  "finding_ids_addressed": ["V48-CP2-001", "V48-CP2-002", "V48-CP2-003", "V48-CP2-004"]
+}

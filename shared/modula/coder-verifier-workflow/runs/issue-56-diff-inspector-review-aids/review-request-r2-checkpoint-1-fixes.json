@@ -1,0 +1,43 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Checkpoint 1 revision review for PRD #56 findings V56-C1-001 through V56-C1-004",
+  "expected_response": "JSON verdict matching the provided schema; update full details in verifier-report.md.",
+  "stop_condition": "Approve checkpoint 1 or return bounded remaining findings for pins/reviewed state only.",
+  "request": {
+    "issue": 56,
+    "issue_url": "https://github.com/hyperbotsx/agentops-harness/issues/56",
+    "checkpoint": "1 - Review pins/bookmarks, reviewed-file local state, namespacing, and eviction caps",
+    "revision": 2,
+    "requested_action": "checkpoint_review",
+    "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/coder-handoff.md",
+    "changed_files": [
+      "term-control-center/shared/diff.ts",
+      "term-control-center/server/gitDiffReader.ts",
+      "term-control-center/src/diffReviewState.ts",
+      "term-control-center/src/DiffReviewAids.tsx",
+      "term-control-center/src/DiffPatchView.tsx",
+      "term-control-center/src/DiffInspector.tsx",
+      "term-control-center/src/styles.css",
+      "term-control-center/tests/diffReviewState.test.ts",
+      "term-control-center/tests/termBasePath.test.ts",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/coder-handoff.md",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/review-request-r1-checkpoint-1.json",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/review-request-r2-checkpoint-1-fixes.json"
+    ],
+    "validation_results": [
+      { "command": "npm --prefix term-control-center run typecheck", "result": "passed" },
+      { "command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/diffReviewState.test.ts tests/diffState.test.ts tests/termBasePath.test.ts", "result": "passed (34/34)" },
+      { "command": "git diff --check", "result": "passed" }
+    ],
+    "finding_ids_addressed": ["V56-C1-001", "V56-C1-002", "V56-C1-003", "V56-C1-004"],
+    "notes": [
+      "Missing current fingerprints no longer mark/hide files as reviewed.",
+      "Fingerprint input is now canonical patch hunk data only; path stays stored separately in reviewed entry metadata.",
+      "Destructive namespace cleanup is disabled until explicit active namespace/session data exists; entry caps still enforce per-namespace bounds.",
+      "Focused tests cover missing/mismatched fingerprints and metadata-invariant patch fingerprints."
+    ]
+  }
+}

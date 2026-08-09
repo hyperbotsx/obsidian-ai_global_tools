@@ -1,0 +1,31 @@
+{
+  "type": "review_request",
+  "checkpoint": "1e-live-kodus-sample-review",
+  "revision": 2,
+  "requested_action": "Verify bounded fixes for CK1E-001 and CK1E-002: record log-privacy blocker and update durable feasibility result after PR #173.",
+  "source_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/101",
+    "https://github.com/hyperbotsx/agentops-harness/pull/173"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "evidence_paths": [
+    "docs/kodus-kody-sprint0-feasibility.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-sample-review-pr173.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md"
+  ],
+  "changed_files": [
+    "docs/kodus-kody-sprint0-feasibility.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-sample-review-pr173.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r8-sample-review.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r9-sample-review-log-privacy.json"
+  ],
+  "validation_results": [
+    "CK1E-001 addressed by recording Kodus raw patch/suggestion logging as a Sprint 0 blocker in feasibility doc, handoff, ledger, and sample evidence.",
+    "CK1E-002 addressed by updating docs/kodus-kody-sprint0-feasibility.md with PR #173 outcome, cleanup, remaining legal/auth/concurrency/rate-limit gates, and Sprint 1 block.",
+    "git diff --check passed."
+  ],
+  "finding_ids_addressed": ["CK1E-001", "CK1E-002"],
+  "notes": "No mitigation was attempted; the bounded fix records the blocker and keeps Sprint 1+ blocked pending mitigation or explicit human acceptance."
+}

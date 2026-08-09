@@ -1,0 +1,29 @@
+{
+    "forbidden_patterns": [
+        "gh issue edit",
+        "gh issue create",
+        "gh issue comment",
+        "gh project item-edit",
+        "gh project item-add",
+        "git commit",
+        "git push",
+        "git checkout -b",
+        "git town",
+        "send-keys",
+        "sessions/create",
+        "sessions/delete",
+        "aws ec2",
+        "aws ecs",
+        "docker run"
+    ],
+    "mode": "read_only",
+    "recovery_policy": "discard_local_cache_and_rehydrate_from_control_tower_output",
+    "restart_policy": "restart_localhost_only_then_run_runtime_check_and_bridge_render",
+    "runbook": "docs/ai-maestro-runbook.md",
+    "secret_policy": "no_secrets_tokens_provider_config_raw_transcripts_or_private_account_data",
+    "service_url": "http://127.0.0.1:23000",
+    "status_source": "evonome-orchestrator-status --format json",
+    "validation_http_methods": [
+        "GET"
+    ]
+}

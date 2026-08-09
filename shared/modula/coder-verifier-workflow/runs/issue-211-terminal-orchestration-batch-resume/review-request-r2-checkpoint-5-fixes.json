@@ -1,0 +1,72 @@
+{
+  "type": "verifier_review_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-211",
+  "purpose": "Re-review checkpoint 5 revision 2 for PRD #211",
+  "checkpoint": "5 - Assistant tools and operator UI",
+  "revision": 2,
+  "requested_action": "Review only the bounded fixes for F211-C5-001 through F211-C5-007 and F211-C5-KISS-001. Do not run final bug-check yet.",
+  "prd_issue_ref": "https://github.com/hyperbotsx/agentops-harness/issues/211",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-211-terminal-orchestration-batch-resume/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/orchestrator_adapters.py",
+    "src/agentops_harness/review_server.py",
+    "tests/unit/test_review_server_coworker.py",
+    "pipeline-diagram/coworker-launcher.js",
+    "pipeline-diagram/coworker-proposals.js",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/orchestrator/orchestratorRoutes.ts",
+    "term-control-center/server/orchestrator/orchestratorProposalService.ts",
+    "term-control-center/server/orchestrator/proposalPreflight.ts",
+    "term-control-center/server/orchestrator/proposalValidation.ts",
+    "term-control-center/server/orchestrator/delegatedActions.ts",
+    "term-control-center/server/orchestrator/paneInjection.ts",
+    "term-control-center/tests/orchestratorCheckpoint5.test.ts",
+    "term-control-center/tests/proposalPreflight.test.ts",
+    "term-control-center/tests/delegatedActions.test.ts",
+    "term-control-center/tests/paneInjection.test.ts",
+    "term-control-center/tests/coworkerProposals.test.ts",
+    "term-control-center/tests/coworkerLauncher.test.ts",
+    "term-control-center/src/JobSidebar.tsx",
+    "term-control-center/src/JobSidebar.css",
+    "docs/agentops-terminal-sessions.md",
+    "term-control-center/README.md"
+  ],
+  "finding_ids_addressed": [
+    "F211-C5-001",
+    "F211-C5-002",
+    "F211-C5-003",
+    "F211-C5-004",
+    "F211-C5-005",
+    "F211-C5-006",
+    "F211-C5-007",
+    "F211-C5-KISS-001"
+  ],
+  "validation_results": {
+    "typecheck": "passed",
+    "focused_typescript": "passed: 97 tests",
+    "focused_python": "passed: 105 tests",
+    "build": "passed with existing Vite warnings",
+    "python_unit_full": "1260 passed; documented unrelated stale completed-work assertion failed",
+    "term_full": "timed out at 620 seconds; documented unrelated profile-default/live-process baseline limitation",
+    "git_diff_check": "passed",
+    "cleanup": "generated build, cache, and pipeline artifacts removed; ignored node_modules remains unstaged"
+  },
+  "stop_condition": "Return compact checkpoint verdict. If approved, coder will request required Steward hygiene review; final bug-check remains deferred.",
+  "response_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["decision", "checkpoint_reviewed", "revision_reviewed", "open_findings", "finding_ids", "bug_check_status", "next_actor", "report_path"],
+    "properties": {
+      "decision": {"type": "string", "enum": ["approved", "revision_requested", "needs_human"]},
+      "checkpoint_reviewed": {"type": "string"},
+      "revision_reviewed": {"type": "integer", "minimum": 1},
+      "open_findings": {"type": "integer", "minimum": 0},
+      "finding_ids": {"type": "array", "items": {"type": "string"}},
+      "bug_check_status": {"type": "string"},
+      "next_actor": {"type": "string"},
+      "report_path": {"type": "string"}
+    }
+  }
+}

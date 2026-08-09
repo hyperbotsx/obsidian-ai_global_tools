@@ -1,0 +1,54 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-231",
+  "purpose": "Issue #231 required final bug-check after all approved checkpoints and Steward clean review",
+  "requested_action": "Run the default final bug-check across the #231 native Claude coms adapter, native launch path, standing-peer prompt, security/authority guards, tests, contract documentation, and sanitized run artifacts. Assess protocol conformance, peer-death/stale-registry/timeout/cross-worktree edge cases, fallback correctness, auth/permission fail-closed behavior, regression risk, and documentation consistency. Return compact verdict only; do not create a PR or mutate GitHub.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/231",
+    "docs/coms-wire-contract.md"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/coder-handoff.md",
+  "steward_review": "clean; no cleanup or recheck required",
+  "validation_results": [
+    {
+      "command": "focused adapter/native/browser security suite",
+      "status": "passed",
+      "notes": "35 tests"
+    },
+    {
+      "command": "npm --prefix term-control-center run typecheck",
+      "status": "passed"
+    },
+    {
+      "command": "npm --prefix term-control-center run build:server",
+      "status": "passed"
+    },
+    {
+      "command": "npm --prefix term-control-center run test",
+      "status": "blocked",
+      "notes": "597 passed; 20 pre-existing environment/unrelated failures: 18 absent-node-pty file-load blockers and 2 baseline assertions."
+    },
+    {
+      "command": "git diff --check",
+      "status": "passed"
+    }
+  ],
+  "stop_condition": "Final bug-check approved, or return only actionable bounded findings. No PR, merge, deployment, GitHub mutation, approval, trading, or backtest action.",
+  "response_schema": {
+    "type": "object",
+    "required": ["decision", "checkpoint_reviewed", "revision_reviewed", "open_findings", "finding_ids", "bug_check_status", "next_actor", "report_path"],
+    "properties": {
+      "decision": {"type": "string", "enum": ["approved", "revision_requested", "needs_human"]},
+      "checkpoint_reviewed": {"type": "string"},
+      "revision_reviewed": {"type": "integer"},
+      "open_findings": {"type": "integer", "minimum": 0},
+      "finding_ids": {"type": "array", "items": {"type": "string"}},
+      "bug_check_status": {"type": "string"},
+      "next_actor": {"type": "string"},
+      "report_path": {"type": "string"}
+    },
+    "additionalProperties": false
+  }
+}

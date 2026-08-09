@@ -1,0 +1,27 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Review bounded fixes for issue #99 verifier findings V99-R1-001 and V99-R1-002.",
+  "expected_response": "Compact verifier verdict JSON per coms contract; write details to verifier-report.md.",
+  "stop_condition": "Approve checkpoints 1-4 revision 2 or request bounded revision if the two findings remain open.",
+  "checkpoint": "1-4 - Findings fix review",
+  "revision": 2,
+  "requested_action": "finding_fix_review",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/99"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-99/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/adminPipeline.ts",
+    "term-control-center/server/completionRoutes.ts",
+    "term-control-center/tests/admin.test.ts",
+    "term-control-center/tests/completion-routes.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-99/coder-handoff.md"
+  ],
+  "validation_results": [
+    "cd term-control-center && npm run typecheck && npm test -- --test-name-pattern \"pipeline refresh queue|completion board-visible lifecycle|merge-main resumes|teardown action coalesces|prd-closeout supports safe retry\" — passed (runner executed full suite: 437 pass, 0 fail)",
+    "git diff --check — passed"
+  ],
+  "finding_ids_addressed": ["V99-R1-001", "V99-R1-002"],
+  "report_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-99/verifier-report.md"
+}

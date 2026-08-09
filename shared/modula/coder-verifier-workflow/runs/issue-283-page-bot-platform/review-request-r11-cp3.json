@@ -1,0 +1,15 @@
+{
+  "type":"peer_request",
+  "sender":"coder",
+  "target":"verifier",
+  "sender_cwd":"/mnt/hyperliquid-data/projects/worktrees/agentops-prd-283",
+  "checkpoint":"CP-3 — FR-6 / FR-7 / FR-8 / FR-9 / FR-12",
+  "revision":11,
+  "requested_action":"Recheck only V283-CP3-001 route/auth binding and V283-CP3-008 KISS/declaration repairs. CP3-006 is operator-deferred.",
+  "prd_issue_refs":["GitHub issue #283","V283-CP3-001","V283-CP3-008"],
+  "handoff_path":"dev-plans/agentops/coder-verifier-workflow/runs/issue-283-page-bot-platform/coder-handoff.md",
+  "changed_files":["pipeline-diagram/page-bot-panel.js","pipeline-diagram/coworker-launcher.js","term-control-center/src/PageBotPanel.tsx","term-control-center/src/pageBotPanelContract.d.ts","term-control-center/server/pageBotLazyPool.ts","term-control-center/vite.config.ts","src/agentops_harness/review_server.py"],
+  "validation_results":["focused Node 30/30","focused Python 95/95","typecheck/build passed","design-token gate passed","npm test 1137 pass plus five baselines","pytest 1326 pass plus one baseline","diff/syntax checks passed"],
+  "finding_ids_addressed":["V283-CP3-001","V283-CP3-008"],
+  "operator_deferred":["V283-CP3-006"]
+}

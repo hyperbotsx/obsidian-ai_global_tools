@@ -1,0 +1,57 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Final cleanup confirmation and bug-check for PRD #57",
+  "expected_response": "Compact verifier verdict JSON matching the agreed schema",
+  "stop_condition": "Return final approval or one bounded post-bug-check finding",
+  "checkpoint": "6 - Guardrail-test rewrite, documentation, and validation evidence",
+  "revision": 12,
+  "requested_action": "Confirm the guardrail/hygiene cleanup, then run the default final bug-check for PRD #57.",
+  "issue": {
+    "number": 57,
+    "title": "B1-PRD: Responsive AgentOps Navigation Shell",
+    "url": "https://github.com/hyperbotsx/agentops-harness/issues/57"
+  },
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-57-responsive-navigation-shell/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/README.md",
+    "pipeline-diagram/agentops-nav.js",
+    "pipeline-diagram/global-nav-ui.js",
+    "pipeline-diagram/global-nav.js",
+    "pipeline-diagram/completion-center.js",
+    "pipeline-diagram/board.html",
+    "pipeline-diagram/pipeline.html",
+    "pipeline-diagram/wip.html",
+    "pipeline-diagram/public/agentops-nav.js",
+    "pipeline-diagram/public/global-nav-ui.js",
+    "term-control-center/index.html",
+    "term-control-center/public/agentops-nav.js",
+    "term-control-center/server/adminHtml.ts",
+    "term-control-center/src/App.tsx",
+    "term-control-center/src/main.tsx",
+    "term-control-center/src/nav.css",
+    "term-control-center/src/navigation/navModel.ts",
+    "term-control-center/src/navigation/ProjectSwitcher.tsx",
+    "term-control-center/src/navigation/TopNav.tsx",
+    "term-control-center/src/styles.css",
+    "term-control-center/tests/admin.test.ts",
+    "term-control-center/tests/boardGuardrails.test.ts",
+    "term-control-center/tests/termBasePath.test.ts"
+  ],
+  "validation_results": [
+    { "command": "npm --prefix term-control-center run typecheck", "status": "passed" },
+    { "command": "npm --prefix term-control-center test", "status": "passed", "note": "244 tests passed" },
+    { "command": "npm --prefix term-control-center run build", "status": "passed", "note": "Completed with existing Vite script/chunk warnings only" },
+    { "command": "rm -rf term-control-center/dist", "status": "passed" },
+    { "command": "git diff --check", "status": "passed" },
+    { "command": "git ls-files --others --exclude-standard", "status": "passed", "note": "clean after git add -N on intended new deliverables" }
+  ],
+  "finding_ids_addressed": [
+    "V57-GUARD-001",
+    "S57-HYGIENE-001",
+    "S57-HYGIENE-002"
+  ],
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-57-responsive-navigation-shell/coder-handoff.md"
+}

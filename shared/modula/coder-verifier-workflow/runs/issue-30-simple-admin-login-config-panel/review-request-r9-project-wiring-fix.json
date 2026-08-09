@@ -1,0 +1,26 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "checkpoint": "PRD #30 follow-up revision 9 - fix V30-R8-001 generator fallback",
+  "revision": 9,
+  "requested_action": "review",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/30"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-30-simple-admin-login-config-panel/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/generate.py",
+    "term-control-center/tests/admin.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-30-simple-admin-login-config-panel/coder-handoff.md"
+  ],
+  "validation_results": [
+    { "command": "cd term-control-center && npm run typecheck", "status": "passed" },
+    { "command": "cd term-control-center && npm test", "status": "passed", "details": "141 tests passed" },
+    { "command": "python3 -m py_compile pipeline-diagram/generate.py", "status": "passed" },
+    { "command": "python3 config/templates/secure-access/validate-secure-access-templates.py", "status": "passed" },
+    { "command": "git diff --check", "status": "passed" }
+  ],
+  "finding_ids_addressed": ["V30-R8-001"],
+  "notes": "Removed hardcoded legacy product repo fallback from generate.py. Defaults now use AgentOps repository/project with env override support. Added regression test that imports generate.py, checks missing-settings default, configured settings path, and asserts no SoldierOne string remains."
+}

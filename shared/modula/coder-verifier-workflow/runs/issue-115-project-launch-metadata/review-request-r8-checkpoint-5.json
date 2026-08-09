@@ -1,0 +1,28 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-115",
+  "purpose": "Review checkpoint 5 for issue #115: implementation branch freshness before agent launch.",
+  "expected_response": "Compact verifier verdict JSON per coms-transport.md; write full details to verifier-report.md.",
+  "stop_condition": "Return approved or revision_requested with finding IDs.",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-115-project-launch-metadata/coder-handoff.md",
+  "checkpoint": "5 - Branch freshness checkpoint",
+  "revision": 1,
+  "requested_action": "Verify launch freshness requires dedicated PRD worktree/current PRD branch, refreshes clean stale branches from origin/main, pushes refreshed branch, and blocks dirty/conflicting states before agents start.",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/115"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-115-project-launch-metadata/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/implementationWorktreeSync.ts",
+    "term-control-center/tests/implementationWorktreeSync.test.ts",
+    "term-control-center/shared/launcher.ts"
+  ],
+  "validation_results": [
+    {
+      "command": "cd term-control-center && TMPDIR=<temp> tsx --test tests/implementationWorktreeSync.test.ts tests/launcher.test.ts",
+      "status": "passed",
+      "summary": "39 passed"
+    }
+  ],
+  "finding_ids_addressed": []
+}

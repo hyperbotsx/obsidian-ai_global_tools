@@ -1,0 +1,27 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-159",
+  "purpose": "Final structure/hygiene review before verifier bug-check for PRD #159",
+  "expected_response": "Concise JSON or markdown with clean/finding status and bounded cleanup recommendations",
+  "stop_condition": "Return clean or actionable structure/hygiene findings",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-159-pr-dependency-merge-safety-coordinator/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/pr_coordination.py",
+    "src/agentops_harness/pr_coordination_analysis.py",
+    "src/agentops_harness/cli.py",
+    "tests/fixtures/pr_coordination_overlap_stale.json",
+    "tests/unit/test_pr_coordination.py",
+    "tests/unit/test_cli.py",
+    "docs/pr-coordination.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-159-pr-dependency-merge-safety-coordinator/**"
+  ],
+  "checks_requested": [
+    "changed-file placement",
+    "run artifact placement",
+    "docs/test fixture placement",
+    "generated output cleanup",
+    "scope/hygiene before final bug-check"
+  ]
+}

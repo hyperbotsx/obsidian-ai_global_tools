@@ -1,0 +1,38 @@
+{
+  "type": "review_request",
+  "checkpoint": "1l-completed-page-kody-review-trigger",
+  "revision": 1,
+  "requested_action": "Verify Completed page Kody review trigger behavior, fail-closed open-PR guard, local webhook relay posture, docs/handoff updates, and validation results.",
+  "source_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/101"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "evidence_paths": [
+    "docs/kodus-kody-sprint1-advisory-pilot.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md"
+  ],
+  "changed_files": [
+    "pipeline-diagram/completed.html",
+    "term-control-center/server/completedKodusReview.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/tests/completedKodusReview.test.ts",
+    "term-control-center/tests/completedStatic.test.ts",
+    "docs/kodus-kody-sprint1-advisory-pilot.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r17-completed-kody-trigger.json"
+  ],
+  "validation_results": [
+    "Completed page now shows Request Kody review and disables it unless the row has an open implementation PR.",
+    "New token-guarded term endpoint /completed-work/kodus-review posts @kody start-review through gh and relays an issue_comment webhook payload to local Kodus at KODUS_WEBHOOK_URL or http://127.0.0.1:13332/github/webhook.",
+    "Merged/closed PR rows fail closed with 'Kodus reviews require an open PR' because Kodus skipped closed PR #172 during Sprint 0.",
+    "docs/kodus-kody-sprint1-advisory-pilot.md documents the click flow and human-validation caveat.",
+    "PYTHONPATH=src python3 -m unittest tests.unit.test_kodus_sprint0 tests.unit.test_kodus_max_gateway passed (14 tests).",
+    "PYTHONPATH=src python3 -m py_compile src/agentops_harness/kodus_sprint0.py src/agentops_harness/kodus_max_gateway.py passed.",
+    "cd term-control-center && npm run typecheck passed.",
+    "cd term-control-center && node --import tsx --test tests/completedKodusReview.test.ts tests/completedStatic.test.ts passed (7 tests).",
+    "git diff --check passed."
+  ],
+  "finding_ids_addressed": [],
+  "notes": "This does not expose Kodus webhooks publicly and does not enable auto reviews. The trigger is manual, token-guarded by the term API, and advisory-only. Full term-control-center test suite was not used as gating because unrelated environment-sensitive tests fail in this worktree."
+}

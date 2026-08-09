@@ -1,0 +1,50 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Phase 3 post-approval session closeout checkpoint re-review for issue 141",
+  "expected_response": "Compact verifier verdict JSON matching the response schema; write details to verifier-report.md",
+  "stop_condition": "Approve checkpoint or request bounded revision findings",
+  "checkpoint": "Phase 3 post-approval session closeout checkpoint",
+  "revision": 2,
+  "requested_action": "Re-review bounded fix for F141-P3-CLOSEOUT-R1-001 only: successful CEO review closeout must synchronously clear local group cache/highlights and close the active terminal modal/iframe for the deleted prd-review group.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/141"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/board.html",
+    "term-control-center/tests/boardGuardrails.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/review-request-r17-phase3-post-approval-session-closeout-fix.json"
+  ],
+  "validation_results": [
+    {
+      "command": "cd term-control-center && node --import tsx --test tests/boardGuardrails.test.ts",
+      "status": "pass",
+      "summary": "33 tests passed; guardrail now covers local cache prune and modal close"
+    },
+    {
+      "command": "cd term-control-center && node --import tsx --test tests/launchPlan.test.ts tests/launcher.test.ts tests/boardGuardrails.test.ts",
+      "status": "pass",
+      "summary": "79 tests passed"
+    },
+    {
+      "command": "cd term-control-center && npm run typecheck",
+      "status": "pass",
+      "summary": "app/server TypeScript typecheck passed"
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "summary": "no whitespace errors"
+    }
+  ],
+  "finding_ids_addressed": [
+    "F141-P3-CLOSEOUT-R1-001"
+  ],
+  "notes": [
+    "Verifier4 returned invalid JSON twice for R16; verifier2 provided the actionable R16 finding."
+  ]
+}

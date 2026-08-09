@@ -1,0 +1,33 @@
+{
+  "type": "review_request",
+  "issue": 72,
+  "title": "D4-PRD: AI Co-Worker Chat Surface and Floating Launcher",
+  "checkpoint": "6 - Privacy/redaction coverage",
+  "revision": 10,
+  "requested_action": "Review checkpoint 6 only. Verify coworker transcript storage now redacts secret-like values and strips raw terminal blocks before any storage.",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneD",
+  "branch": "prd/ai-co-worker-chat-surface-floating-launcher-72",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-72-ai-coworker-chat-surface-floating-launcher/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/review_server.py",
+    "tests/unit/test_review_server_coworker.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-72-ai-coworker-chat-surface-floating-launcher/coder-handoff.md"
+  ],
+  "validation": [
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests/unit/test_review_server_coworker.py -q",
+      "result": "pass"
+    },
+    {
+      "command": "git diff --check -- src/agentops_harness/review_server.py tests/unit/test_review_server_coworker.py",
+      "result": "pass"
+    }
+  ],
+  "finding_ids_addressed": [],
+  "scope_notes": [
+    "Checkpoint 6 only: privacy/redaction coverage.",
+    "Reuses validation_ledger.redact_evidence and strips fenced terminal blocks before storage.",
+    "No docs or full-suite validation yet."
+  ]
+}

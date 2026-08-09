@@ -1,0 +1,13 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-195",
+  "purpose": "Check changed-file placement and hygiene before final verifier bug-check",
+  "expected_response": "Concise markdown with clean/finding recommendations; do not edit files",
+  "stop_condition": "Return cleanup recommendations or clean",
+  "prd_issue": "https://github.com/hyperbotsx/agentops-harness/issues/195",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-195-source-of-truth-wording/coder-handoff.md",
+  "changed_file_summary": "Docs/source wording cleanup, one static guardrail test, Term Control prompt test update, and issue run artifacts. Historical run artifacts outside this issue were not edited.",
+  "validation_summary": "Focused tests pass; full pytest/npm attempts have unrelated environment/dependency failures recorded; git diff --check passed."
+}

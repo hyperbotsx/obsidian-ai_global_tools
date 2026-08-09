@@ -1,0 +1,21 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-104",
+  "purpose": "Review final bug-check fix for F104-FBC-002 and confirm final bug-check status.",
+  "checkpoint": "7 - Final bug-check fix 2",
+  "revision": 9,
+  "requested_action": "bug_check_fix_review",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/104"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-104-project-memory-functional/coder-handoff.md",
+  "steward_status": "clean after revision 8 recheck",
+  "validation_results": [
+    {"command":"npm --prefix term-control-center run typecheck","status":"pass"},
+    {"command":"npm --prefix term-control-center run build","status":"pass"},
+    {"command":"cd term-control-center && node --import tsx --test --test-concurrency=1 tests/completion-routes.test.ts tests/projectMemory.test.ts tests/projectMemoryProvider.test.ts","status":"pass"}
+  ],
+  "finding_ids_addressed": ["F104-FBC-002"],
+  "expected_response": "Compact verifier verdict JSON per coms-transport.md; write full report to verifier-report.md.",
+  "stop_condition": "Return approved with bug_check_status passed, or findings with IDs."
+}

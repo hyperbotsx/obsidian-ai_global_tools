@@ -1,0 +1,39 @@
+{
+  "type": "review_request",
+  "checkpoint": "6 - Final bug-check",
+  "revision": 2,
+  "requested_action": "recheck_finding",
+  "prd": "https://github.com/hyperbotsx/agentops-harness/issues/24",
+  "issue": "https://github.com/hyperbotsx/agentops-harness/issues/24",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/coder-handoff.md",
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/coms-transport.md",
+    "docs/skills.md",
+    "pipeline-diagram/board.html",
+    "scripts/agentops/pi-agent.sh",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/launchGroup.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/shared/protocol.ts",
+    "term-control-center/src/App.tsx",
+    "term-control-center/src/TerminalPane.tsx",
+    "term-control-center/src/styles.css",
+    "term-control-center/tests/boardGuardrails.test.ts",
+    "term-control-center/tests/completion-server.test.ts",
+    "term-control-center/tests/launcher.test.ts",
+    "term-control-center/tests/server.test.ts",
+    "term-control-center/tests/termBasePath.test.ts",
+    "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/pi/skills/steward/SKILL.md",
+    "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/pi/skills/prd-author/SKILL.md",
+    "/mnt/hyperliquid-data/projects/obisidan/AI_Global_Tools/pi/skills/codebase-expert/SKILL.md"
+  ],
+  "validation_results": [
+    { "command": "git checkout -- dev-plans/prd-backlog.md", "result": "pass" },
+    { "command": "chmod u-w dev-plans/prd-backlog.md", "result": "pass" },
+    { "command": "git diff -- dev-plans/prd-backlog.md --exit-code", "result": "pass" },
+    { "command": "steward recheck after BUGCHECK-24-F6-001 cleanup", "result": "pass" },
+    { "command": "git status --short --branch", "result": "pass" }
+  ],
+  "finding_ids_addressed": ["BUGCHECK-24-F6-001"]
+}

@@ -1,0 +1,39 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-231",
+  "purpose": "PR #241 bounded recheck for Kodus transport findings",
+  "requested_action": "Review only V241-K-001 and V241-K-002: an outbound await timeout must preserve pending late replies, and inbound frame reads must remain bounded. Confirm the regression test is deterministic and no authority, native permission, or unrelated behavior changed.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/comsAdapter.ts",
+    "term-control-center/tests/comsAdapter.final.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/review-request-post-pr-kodus-r1.json"
+  ],
+  "validation_results": [
+    {"command": "focused adapter/MCP suite", "status": "passed", "notes": "26 tests"},
+    {"command": "npm --prefix term-control-center run typecheck", "status": "passed"},
+    {"command": "npm --prefix term-control-center run build:server", "status": "passed"},
+    {"command": "npm --prefix term-control-center run test", "status": "blocked", "notes": "Exceeded the 600-second harness timeout after local node-pty rebuild; not represented as passing."},
+    {"command": "git diff --check", "status": "passed"}
+  ],
+  "finding_ids_addressed": ["V241-K-001", "V241-K-002"],
+  "stop_condition": "Approve this bounded PR review or return only actionable findings. Do not merge or mutate GitHub.",
+  "response_schema": {
+    "type": "object",
+    "required": ["decision", "checkpoint_reviewed", "revision_reviewed", "open_findings", "finding_ids", "bug_check_status", "next_actor", "report_path"],
+    "properties": {
+      "decision": {"type": "string", "enum": ["approved", "revision_requested", "needs_human"]},
+      "checkpoint_reviewed": {"type": "string"},
+      "revision_reviewed": {"type": "integer"},
+      "open_findings": {"type": "integer", "minimum": 0},
+      "finding_ids": {"type": "array", "items": {"type": "string"}},
+      "bug_check_status": {"type": "string"},
+      "next_actor": {"type": "string"},
+      "report_path": {"type": "string"}
+    },
+    "additionalProperties": false
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-105",
+  "purpose": "Implementation checkpoint review for Issue #105 PRD body status stamping closeout automation.",
+  "expected_response": "Compact verdict JSON per coms contract; write full details to verifier-report.md only if findings exist.",
+  "stop_condition": "Approve implementation checkpoints 1-4 or return bounded findings.",
+  "checkpoint": "implementation checkpoints 1-4: stamp, robustness/idempotency, fail-safe, regression",
+  "revision": 1,
+  "requested_action": "review",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/105"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-105-prd-body-status-stamp/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/prd_closeout.py",
+    "src/agentops_harness/prd_closeout_body.py",
+    "src/agentops_harness/prd_closeout_github.py",
+    "tests/unit/test_prd_closeout_body.py",
+    "tests/unit/test_prd_closeout_github.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-105-prd-body-status-stamp/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-105-prd-body-status-stamp/review-request-r1-implementation.json"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests/unit/test_prd_closeout_body.py tests/unit/test_prd_closeout_github.py tests/unit/test_prd_closeout.py",
+      "status": "passed",
+      "summary": "31 passed"
+    },
+    {
+      "command": "python3 -m py_compile src/agentops_harness/prd_closeout.py src/agentops_harness/prd_closeout_body.py src/agentops_harness/prd_closeout_github.py tests/unit/test_prd_closeout_body.py tests/unit/test_prd_closeout_github.py",
+      "status": "passed"
+    },
+    {
+      "command": "git diff --check -- src/agentops_harness/prd_closeout.py src/agentops_harness/prd_closeout_body.py src/agentops_harness/prd_closeout_github.py tests/unit/test_prd_closeout_body.py tests/unit/test_prd_closeout_github.py",
+      "status": "passed"
+    }
+  ],
+  "finding_ids_addressed": []
+}

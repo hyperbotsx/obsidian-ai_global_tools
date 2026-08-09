@@ -1,0 +1,119 @@
+kodus-worker-prod  | [0;36mMongoose:[0m observability_metrics.countDocuments({ name: [32m'http_errors_total'[39m, recordedAt: { [32m'$gte'[39m: new Date("Mon, 29 Jun 2026 16:22:00 GMT") }}, {})
+kodus-worker-prod  | [0;36mMongoose:[0m observability_metrics.countDocuments({ name: [32m'http_request_total'[39m, recordedAt: { [32m'$gte'[39m: new Date("Mon, 29 Jun 2026 16:22:00 GMT") }}, {})
+kodus-worker-prod  | [0;36mMongoose:[0m sandbox_leases.find({ killAt: { [32m'$lte'[39m: new Date("Mon, 29 Jun 2026 16:27:30 GMT") }, sandboxId: { [32m'$exists'[39m: [33mtrue[39m, [32m'$ne'[39m: [32m''[39m }}, { projection: { _id: [33m1[39m, sandboxId: [33m1[39m, killAt: [33m1[39m } })
+kodus_api          | WRfU ——> GET / 
+kodus_api          | WRfU <—— 404 Not Found 113 B application/json; charset=utf-8 (<—> 8.9 ms)
+kodus_api          | [31mERROR[39m [2026-06-29 16:26:59.438 +0000]: [36mSYS:[ExceptionsFilter] error - ExceptionsFilter - [404] Not Found: Cannot GET /[39m
+kodus_api          |     [35mserviceName[39m: "ExceptionsFilter"
+kodus_api          |     [35mcontext[39m: "ExceptionsFilter"
+kodus_api          |     [35mpath[39m: "/"
+kodus_api          |     [35mmethod[39m: "GET"
+kodus_api          |     [35mstatus[39m: 404
+kodus_api          |     [35mexceptionType[39m: "NotFoundException"
+kodus_api          |     error: {
+kodus_api          |       "type": "Object",
+kodus_api          |       "message": "Cannot GET /",
+kodus_api          |       "stack":
+kodus_api          |           NotFoundException: Cannot GET /
+kodus_api          |               at callback (/usr/src/app/node_modules/@nestjs/core/router/routes-resolver.js:77:19)
+kodus_api          |               at /usr/src/app/node_modules/@nestjs/core/router/router-proxy.js:9:23
+kodus_api          |               at Layer.handleRequest (/usr/src/app/node_modules/router/lib/layer.js:152:17)
+kodus_api          |               at trimPrefix (/usr/src/app/node_modules/router/index.js:342:13)
+kodus_api          |               at /usr/src/app/node_modules/router/index.js:297:9
+kodus_api          |               at processParams (/usr/src/app/node_modules/router/index.js:582:12)
+kodus_api          |               at next (/usr/src/app/node_modules/router/index.js:291:5)
+kodus_api          |               at SendStream.error (/usr/src/app/node_modules/serve-static/index.js:120:7)
+kodus_api          |               at SendStream.emit (node:events:519:28)
+kodus_api          |               at SendStream.error (/usr/src/app/node_modules/send/index.js:168:17)
+kodus_api          |               at SendStream.onStatError (/usr/src/app/node_modules/send/index.js:315:12)
+kodus_api          |               at next (/usr/src/app/node_modules/send/index.js:649:28)
+kodus_api          |               at /usr/src/app/node_modules/send/index.js:657:23
+kodus_api          |               at FSReqCallback.oncomplete (node:fs:196:21)
+kodus_api          |               at FSReqCallback.callbackTrampoline (node:internal/async_hooks:130:17)
+kodus_api          |     }
+kodus_api          |     err: {
+kodus_api          |       "type": "NotFoundException",
+kodus_api          |       "message": "Cannot GET /",
+kodus_api          |       "stack":
+kodus_api            |           NotFoundException: Cannot GET /
+kodus_api            |               at callback (/usr/src/app/node_modules/@nestjs/core/router/routes-resolver.js:77:19)
+kodus_api            |               at /usr/src/app/node_modules/@nestjs/core/router/router-proxy.js:9:23
+kodus_api            |               at Layer.handleRequest (/usr/src/app/node_modules/router/lib/layer.js:152:17)
+kodus_api            |               at trimPrefix (/usr/src/app/node_modules/router/index.js:342:13)
+kodus_api            |               at /usr/src/app/node_modules/router/index.js:297:9
+kodus-webhooks-prod  | tdyP ——> GET / 
+kodus-webhooks-prod  | tdyP <—— 404 Not Found 113 B application/json; charset=utf-8 (<—> 4.4 ms)
+kodus-webhooks-prod  | [31mERROR[39m [2026-06-29 16:26:59.444 +0000]: [36mSYS:[ExceptionsFilter] error - ExceptionsFilter - [404] Not Found: Cannot GET /[39m
+kodus-webhooks-prod  |     [35mserviceName[39m: "ExceptionsFilter"
+kodus-webhooks-prod  |     [35mcontext[39m: "ExceptionsFilter"
+kodus-webhooks-prod  |     [35mpath[39m: "/"
+kodus-webhooks-prod  |     [35mmethod[39m: "GET"
+kodus-webhooks-prod  |     [35mstatus[39m: 404
+kodus-webhooks-prod  |     [35mexceptionType[39m: "NotFoundException"
+kodus-webhooks-prod  |     error: {
+kodus-webhooks-prod  |       "type": "Object",
+kodus-webhooks-prod  |       "message": "Cannot GET /",
+kodus-webhooks-prod  |       "stack":
+kodus-webhooks-prod  |           NotFoundException: Cannot GET /
+kodus-webhooks-prod  |               at callback (/usr/src/app/node_modules/@nestjs/core/router/routes-resolver.js:77:19)
+kodus-webhooks-prod  |               at /usr/src/app/node_modules/@nestjs/core/router/router-proxy.js:9:23
+kodus-webhooks-prod  |               at Layer.handleRequest (/usr/src/app/node_modules/router/lib/layer.js:152:17)
+kodus-webhooks-prod  |               at trimPrefix (/usr/src/app/node_modules/router/index.js:342:13)
+kodus-webhooks-prod  |               at /usr/src/app/node_modules/router/index.js:297:9
+kodus-webhooks-prod  |               at processParams (/usr/src/app/node_modules/router/index.js:582:12)
+kodus-webhooks-prod  |               at next (/usr/src/app/node_modules/router/index.js:291:5)
+kodus-webhooks-prod  |               at read (/usr/src/app/node_modules/body-parser/lib/read.js:53:5)
+kodus-webhooks-prod  |               at urlencodedParser (/usr/src/app/node_modules/body-parser/lib/types/urlencoded.js:57:5)
+kodus-webhooks-prod  |               at Layer.handleRequest (/usr/src/app/node_modules/router/lib/layer.js:152:17)
+kodus-webhooks-prod  |     }
+kodus-webhooks-prod  |     err: {
+kodus_api            |               at processParams (/usr/src/app/node_modules/router/index.js:582:12)
+kodus_api            |               at next (/usr/src/app/node_modules/router/index.js:291:5)
+kodus-webhooks-prod  |       "type": "NotFoundException",
+kodus-webhooks-prod  |       "message": "Cannot GET /",
+kodus-webhooks-prod  |       "stack":
+kodus-webhooks-prod  |           NotFoundException: Cannot GET /
+kodus-webhooks-prod  |               at callback (/usr/src/app/node_modules/@nestjs/core/router/routes-resolver.js:77:19)
+kodus-webhooks-prod  |               at /usr/src/app/node_modules/@nestjs/core/router/router-proxy.js:9:23
+kodus-webhooks-prod  |               at Layer.handleRequest (/usr/src/app/node_modules/router/lib/layer.js:152:17)
+kodus-webhooks-prod  |               at trimPrefix (/usr/src/app/node_modules/router/index.js:342:13)
+kodus-webhooks-prod  |               at /usr/src/app/node_modules/router/index.js:297:9
+kodus-webhooks-prod  |               at processParams (/usr/src/app/node_modules/router/index.js:582:12)
+kodus-webhooks-prod  |               at next (/usr/src/app/node_modules/router/index.js:291:5)
+kodus-webhooks-prod  |               at read (/usr/src/app/node_modules/body-parser/lib/read.js:53:5)
+kodus-webhooks-prod  |               at urlencodedParser (/usr/src/app/node_modules/body-parser/lib/types/urlencoded.js:57:5)
+kodus-webhooks-prod  |               at Layer.handleRequest (/usr/src/app/node_modules/router/lib/layer.js:152:17)
+kodus-webhooks-prod  |       "response": {
+kodus-webhooks-prod  |         "type": "Object",
+kodus-webhooks-prod  |         "message": "Cannot GET /",
+kodus-webhooks-prod  |         "stack":
+kodus-webhooks-prod  |             
+kodus-webhooks-prod  |         "error": "Not Found",
+kodus-webhooks-prod  |         "statusCode": 404
+kodus-webhooks-prod  |       },
+kodus-webhooks-prod  |       "status": 404,
+kodus-webhooks-prod  |       "options": {},
+kodus-webhooks-prod  |       "name": "NotFoundException"
+kodus-webhooks-prod  |     }
+kodus_api            |               at SendStream.error (/usr/src/app/node_modules/serve-static/index.js:120:7)
+kodus_api            |               at SendStream.emit (node:events:519:28)
+kodus_api            |               at SendStream.error (/usr/src/app/node_modules/send/index.js:168:17)
+kodus_api            |               at SendStream.onStatError (/usr/src/app/node_modules/send/index.js:315:12)
+kodus_api            |               at next (/usr/src/app/node_modules/send/index.js:649:28)
+kodus_api            |               at /usr/src/app/node_modules/send/index.js:657:23
+kodus_api            |               at FSReqCallback.oncomplete (node:fs:196:21)
+kodus_api            |               at FSReqCallback.callbackTrampoline (node:internal/async_hooks:130:17)
+kodus_api            |       "response": {
+kodus_api            |         "type": "Object",
+kodus_api            |         "message": "Cannot GET /",
+kodus_api            |         "stack":
+kodus_api            |             
+kodus_api            |         "error": "Not Found",
+kodus_api            |         "statusCode": 404
+kodus_api            |       },
+kodus_api            |       "status": 404,
+kodus_api            |       "options": {},
+kodus_api            |       "name": "NotFoundException"
+kodus_api            |     }
+kodus_api            | [0;36mMongoose:[0m sandbox_leases.find({ killAt: { [32m'$lte'[39m: new Date("Mon, 29 Jun 2026 16:27:00 GMT") }, sandboxId: { [32m'$exists'[39m: [33mtrue[39m, [32m'$ne'[39m: [32m''[39m }}, { projection: { _id: [33m1[39m, sandboxId: [33m1[39m, killAt: [33m1[39m } })
+kodus_api            | [0;36mMongoose:[0m sandbox_leases.find({ killAt: { [32m'$lte'[39m: new Date("Mon, 29 Jun 2026 16:27:30 GMT") }, sandboxId: { [32m'$exists'[39m: [33mtrue[39m, [32m'$ne'[39m: [32m''[39m }}, { projection: { _id: [33m1[39m, sandboxId: [33m1[39m, killAt: [33m1[39m } })

@@ -1,0 +1,28 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-145",
+  "purpose": "Re-review PRD #145 checkpoint 6 after bounded fix F145-R12-001",
+  "expected_response": "Compact verifier verdict JSON matching schema; write full details to verifier-report.md",
+  "stop_condition": "Approve checkpoint 6 or request one bounded revision with finding IDs",
+  "issue_ref": "https://github.com/hyperbotsx/agentops-harness/issues/145",
+  "checkpoint": "6 - Runtime isolation checkpoint",
+  "revision": 13,
+  "requested_action": "checkpoint_recheck",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-145-per-prd-worktree-lifecycle/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/server/runtimeIsolation.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-145-per-prd-worktree-lifecycle/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-145-per-prd-worktree-lifecycle/review-request-r13-f145-r12-001.json"
+  ],
+  "validation_results": [
+    {
+      "command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/runtimeIsolation.test.ts tests/implementationWorktreeSync.test.ts tests/launcher.test.ts && npm run typecheck && cd .. && git diff --check",
+      "status": "passed",
+      "summary": "41 Term Control tests passed, TypeScript typecheck passed, and diff whitespace check passed after F145-R12-001 fix"
+    }
+  ],
+  "finding_ids_addressed": ["F145-R12-001"]
+}

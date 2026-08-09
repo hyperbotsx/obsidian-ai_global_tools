@@ -1,0 +1,42 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-192",
+  "purpose": "Checkpoint 1 review for issue #192 current-state audit and lifecycle design",
+  "checkpoint": "1 - Current-state audit and lifecycle design",
+  "revision": 1,
+  "requested_action": "Review the artifact-only current-state audit/design for accuracy, minimality, and PRD alignment before product-code edits begin.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/192"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/coder-handoff.md",
+  "context_paths": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/current-state-design.md"
+  ],
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/current-state-design.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/review-request-r1-current-state-design.json"
+  ],
+  "validation_results": [
+    {
+      "command": "git status --short --branch",
+      "status": "passed",
+      "notes": "Pre-edit tree was clean before artifact creation."
+    },
+    {
+      "command": "Product test/typecheck/build",
+      "status": "not_run",
+      "notes": "Artifact-only checkpoint; no product code changed yet."
+    }
+  ],
+  "researcher_consults": [
+    "Term Control session-group/store/tmux/active jobs consult complete",
+    "prd-planning to prd-authoring/execute-authoring consult complete",
+    "CEO / Approval Review launch and closeout consult complete",
+    "Browser localStorage/session recovery consult complete"
+  ],
+  "finding_ids_addressed": [],
+  "stop_condition": "Verifier approves checkpoint 1 or requests bounded design corrections before implementation."
+}

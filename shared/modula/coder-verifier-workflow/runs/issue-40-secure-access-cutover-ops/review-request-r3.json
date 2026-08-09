@@ -1,0 +1,50 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "checkpoint": "PRD #40 Basic Auth removal validation and Admin Authentik consolidation",
+  "revision": 3,
+  "requested_action": "Review the Basic Auth removal evidence and the bounded admin hosted-auth consolidation code before any live service restart.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/40",
+    "docs/admin-configuration.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-cutover-ops/coder-handoff.md"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-cutover-ops/coder-handoff.md",
+  "changed_files": [
+    "docs/admin-configuration.md",
+    "term-control-center/server/adminAuth.ts",
+    "term-control-center/server/adminAssets.ts",
+    "term-control-center/server/adminRoutes.ts",
+    "term-control-center/tests/admin.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-cutover-ops/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-cutover-ops/review-request-r3.json"
+  ],
+  "pre_existing_dirty_files_not_owned_by_this_checkpoint": [
+    "config/templates/secure-access/agentops-route-protection.template.yaml",
+    "config/templates/secure-access/authentik-agentops-identity.template.yaml",
+    "config/templates/secure-access/authentik-agentops-route-authorization.template.py",
+    "config/templates/secure-access/nginx-agentops-authentik-forward-auth.template.conf",
+    "config/templates/secure-access/validate-secure-access-templates.py",
+    "docs/runbooks/secure-access-deployment.md",
+    "docs/runbooks/secure-access-identity.md",
+    "docs/runbooks/secure-access-validation.md",
+    "docs/secure-access-yubikey-webauthn.md",
+    "pipeline-diagram/global-nav.js"
+  ],
+  "validation_results": [
+    "grep confirmed no auth_basic or auth_basic_user_file in /etc/nginx/sites-available/ops.evono.me after user ran /tmp/remove-ops-basic-auth.sh",
+    "grep confirmed live Authentik auth_request remains and deny routes remain for /json/, /novnc/, /browser-feed/, /browser-live-feed/",
+    "public unauthenticated curl probes returned Authentik redirects for /, /board.html, /pipeline.html, /admin/, /api/admin/session, /term/groups with no app/admin/terminal body markers and no Basic Auth challenge",
+    "public deny-route curl probes returned 403 for /json/version, /novnc/, /browser-feed/, /browser-live-feed/",
+    "spoofed X-Authentik-* request to /api/admin/session still returned Authentik redirect, not app data",
+    "sudo -n nginx -t was unavailable to coder; human-run removal script itself runs nginx -t and reloads before success",
+    "npm --prefix term-control-center test -- tests/admin.test.ts passed; package script ran 144 tests, all passed",
+    "npm --prefix term-control-center run typecheck passed",
+    "python3 config/templates/secure-access/validate-secure-access-templates.py passed",
+    "git diff --check passed"
+  ],
+  "finding_ids_addressed": [],
+  "notes": "No live service restart or admin hosted env deployment has been performed by coder. Next live step remains human-gated after review."
+}

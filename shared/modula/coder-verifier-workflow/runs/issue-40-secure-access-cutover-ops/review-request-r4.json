@@ -1,0 +1,51 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "checkpoint": "PRD #40 live Term Control hosted-admin restart validation",
+  "revision": 4,
+  "requested_action": "Review live Term Control hosted-admin restart evidence and run final bug-check for the bounded code/live validation completed so far. Identify any blocker before human authenticated browser smoke.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/40",
+    "docs/admin-configuration.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-cutover-ops/coder-handoff.md"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-cutover-ops/coder-handoff.md",
+  "changed_files": [
+    "docs/admin-configuration.md",
+    "term-control-center/server/adminAuth.ts",
+    "term-control-center/server/adminAssets.ts",
+    "term-control-center/server/adminRoutes.ts",
+    "term-control-center/tests/admin.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-cutover-ops/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-cutover-ops/review-request-r4.json"
+  ],
+  "live_host_actions_after_explicit_human_approval": [
+    "npm --prefix term-control-center run build",
+    "Stopped prior node build/server/index.js listener on 127.0.0.1:3032",
+    "Started rebuilt node build/server/index.js with TERM_CONTROL_ADMIN_AUTH_MODE=hosted, TERM_CONTROL_ADMIN_TRUSTED_PROXY_ADDRESSES=127.0.0.1,::1,::ffff:127.0.0.1, TERM_CONTROL_PIPELINE_REFRESH=1",
+    "New PID 1837917 listening on 127.0.0.1:3032"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run build passed",
+    "live process env confirms hosted admin mode, trusted loopback proxy addresses, and pipeline refresh env",
+    "direct trusted-proxy simulation: /api/admin/session returns hosted authenticated session for akadmin with CSRF present",
+    "direct trusted-proxy simulation: /api/admin/settings with hosted session cookie returns 200",
+    "direct trusted-proxy simulation: PUT /api/admin/settings without CSRF returns 403",
+    "direct local POST /api/admin/login returns 403 in hosted mode",
+    "temporary curl header/body files containing local validation cookies/CSRF values removed from /tmp",
+    "public unauthenticated curl probes after restart still redirect /, /board.html, /pipeline.html, /admin/, /api/admin/session, /term/groups to Authentik with no Basic Auth challenge and no app markers",
+    "public deny-route curl probes after restart still return 403 for /json/version, /novnc/, /browser-feed/, /browser-live-feed/",
+    "public spoofed X-Authentik-* request to /api/admin/session still returns Authentik redirect, not app data",
+    "git diff --check passed"
+  ],
+  "finding_ids_addressed": [],
+  "known_remaining_manual_smoke": [
+    "Authenticated admin browser session through Authentik/WebAuthn should confirm Board, Pipeline, and Admin load",
+    "Admin page should not show local password login after Authentik sign-in",
+    "Browser /api/admin/session should show Authentik username and CSRF token",
+    "Admin settings mutation should succeed only with app CSRF token"
+  ],
+  "notes": "No PR requested. No secrets intentionally recorded; one direct curl debug output earlier exposed only ephemeral local cookie/CSRF in tool output, then temporary files were removed and later summaries omit values."
+}

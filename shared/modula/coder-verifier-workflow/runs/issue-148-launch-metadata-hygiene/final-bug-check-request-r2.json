@@ -1,0 +1,34 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-148",
+  "purpose": "Final bug-check revision 2 for PRD 148 after fixing F148-FBC-001 through F148-FBC-003",
+  "expected_response": "Compact verdict JSON matching the provided schema; write full findings to verifier-report.md if not approved.",
+  "stop_condition": "Approve final bug-check or request bounded bug-check fixes with finding IDs.",
+  "canonical_issue": "https://github.com/hyperbotsx/agentops-harness/issues/148",
+  "checkpoint": "final bug-check",
+  "revision": 2,
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-148-launch-metadata-hygiene/coder-handoff.md",
+  "finding_ids_addressed": ["F148-FBC-001", "F148-FBC-002", "F148-FBC-003"],
+  "changed_files_since_r1": [
+    "src/agentops_harness/prd_launch_metadata_repair.py",
+    "tests/unit/test_prd_launch_metadata_repair.py",
+    "pipeline-diagram/board.html",
+    "term-control-center/server/index.ts",
+    "term-control-center/tests/boardGuardrails.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-148-launch-metadata-hygiene/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-148-launch-metadata-hygiene/final-bug-check-request-r2.json"
+  ],
+  "validation_results": [
+    "env -u AGENTOPS_GH_CONFIG_DIR -u AGENTOPS_GITHUB_TOKEN -u GH_TOKEN -u GITHUB_TOKEN TMPDIR=/tmp PYTHONPATH=src:. python3 -m pytest tests/unit/test_prd_launch_metadata_repair.py: passed (14 tests)",
+    "npm --prefix term-control-center run typecheck: passed",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/launchMetadataFix.test.ts tests/boardGuardrails.test.ts: passed (42 tests)",
+    "targeted Python PRD suite: passed (95 tests)",
+    "npm --prefix term-control-center run build: passed with existing Vite script/chunk warnings",
+    "git diff --check: passed"
+  ],
+  "notes": [
+    "term-control-center/node_modules is ignored and present only because npm install was rerun so verifier can reproduce TS validation; it must not be committed."
+  ]
+}

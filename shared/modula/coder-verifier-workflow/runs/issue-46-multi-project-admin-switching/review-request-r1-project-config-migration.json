@@ -1,0 +1,34 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Checkpoint 1 review for PRD #46: existing-plan/migration and project config model",
+  "expected_response": "Compact verifier verdict JSON per coms contract; full report at verifier-report.md if not approved.",
+  "stop_condition": "Approve checkpoint 1 or return bounded findings for project config migration/model before admin CRUD work begins.",
+  "checkpoint": "1 - Existing-plan and migration / project config model",
+  "revision": 1,
+  "requested_action": "review",
+  "prd_issue": "https://github.com/hyperbotsx/agentops-harness/issues/46",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-46-multi-project-admin-switching/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/adminProjects.ts",
+    "term-control-center/server/adminConfig.ts",
+    "term-control-center/server/adminRoutes.ts",
+    "term-control-center/tests/admin.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-46-multi-project-admin-switching/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-46-multi-project-admin-switching/review-request-r1-project-config-migration.json"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck: passed",
+    "cd term-control-center && HOME=$(mktemp -d) node --import tsx --test --test-concurrency=1 tests/admin.test.ts: passed (12 tests)",
+    "npm --prefix term-control-center test: passed (196 tests)",
+    "git diff --check: passed"
+  ],
+  "finding_ids_addressed": [],
+  "notes": [
+    "Researcher freshness consult completed and summarized in handoff before implementation edits.",
+    "New hosted APIs/routes were not added outside existing /admin and /api/admin prefixes in this checkpoint.",
+    "No PRD #32/#45 launch/session broader integration in this checkpoint; planned for later checkpoints."
+  ]
+}

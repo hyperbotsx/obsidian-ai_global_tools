@@ -1,0 +1,40 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-104",
+  "purpose": "Review KISS cleanup for F104-R5-004.",
+  "checkpoint": "1-6 - KISS cleanup",
+  "revision": 6,
+  "requested_action": "implementation_review",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/104"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-104-project-memory-functional/coder-handoff.md",
+  "changed_files": [
+    "docs/agentops-project-memory.md",
+    "docs/agentops-project-memory-live-enablement.md",
+    "term-control-center/server/adminHtml.ts",
+    "term-control-center/server/adminMemoryClient.ts",
+    "term-control-center/server/adminProjectMemory.ts",
+    "term-control-center/server/adminRoutes.ts",
+    "term-control-center/server/completionCloseoutRoutes.ts",
+    "term-control-center/server/completionRoutes.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/server/projectMemory.ts",
+    "term-control-center/server/projectMemoryProvider.ts",
+    "term-control-center/server/projectMemoryProviderSmoke.ts",
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "term-control-center/tests/projectMemory.test.ts",
+    "term-control-center/tests/projectMemoryProvider.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-104-project-memory-functional/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-104-project-memory-functional/validation-ledger-log.md"
+  ],
+  "validation_results": [
+    {"command":"npm --prefix term-control-center run typecheck","status":"pass"},
+    {"command":"npm --prefix term-control-center run build","status":"pass"},
+    {"command":"cd term-control-center && node --import tsx --test --test-concurrency=1 tests/projectMemory.test.ts tests/projectMemoryProvider.test.ts","status":"pass"}
+  ],
+  "finding_ids_addressed": ["F104-R5-004"],
+  "expected_response": "Compact verifier verdict JSON per coms-transport.md; write full report to verifier-report.md.",
+  "stop_condition": "Return approved or revision_requested with finding IDs. If approved, coder will proceed to steward hygiene before final bug-check."
+}

@@ -1,0 +1,30 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Checkpoint 3 revision 5 review for PRD #57 hook anchoring fix",
+  "expected_response": "Compact verifier verdict JSON matching the agreed schema",
+  "stop_condition": "Approve checkpoint 3 or request one bounded follow-up for the hook anchoring fix only",
+  "checkpoint": "3 - Preservation of the full stable contract in PRD §4.1 and existing JS hooks",
+  "revision": 5,
+  "requested_action": "Review only the bounded V57-HOOK-001 fix that keeps legacy auxiliary surfaces anchored to a visible trigger.",
+  "issue": {
+    "number": 57,
+    "title": "B1-PRD: Responsive AgentOps Navigation Shell",
+    "url": "https://github.com/hyperbotsx/agentops-harness/issues/57"
+  },
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-57-responsive-navigation-shell/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/global-nav.js"
+  ],
+  "validation_results": [
+    { "command": "npm --prefix term-control-center run typecheck", "status": "passed" },
+    { "command": "node --check pipeline-diagram/global-nav.js", "status": "passed" },
+    { "command": "git diff --check", "status": "passed" }
+  ],
+  "finding_ids_addressed": [
+    "V57-HOOK-001"
+  ],
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-57-responsive-navigation-shell/coder-handoff.md"
+}

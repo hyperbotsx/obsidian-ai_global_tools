@@ -1,0 +1,36 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-105",
+  "purpose": "Hygiene cleanup recheck for Issue #105 after HYG-105-R2-001.",
+  "expected_response": "Compact verdict JSON per coms contract; proceed to final bug-check if approved.",
+  "stop_condition": "Approve hygiene cleanup or return bounded hygiene findings.",
+  "checkpoint": "hygiene cleanup after implementation approval",
+  "revision": 3,
+  "requested_action": "review",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/105"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-105-prd-body-status-stamp/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/prd_closeout.py",
+    "src/agentops_harness/prd_closeout_body.py",
+    "src/agentops_harness/prd_closeout_body_github.py",
+    "src/agentops_harness/prd_closeout_github.py",
+    "tests/unit/test_prd_closeout_body.py",
+    "tests/unit/test_prd_closeout_github.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-105-prd-body-status-stamp/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-105-prd-body-status-stamp/review-request-r3-hygiene-cleanup.json"
+  ],
+  "validation_results": [
+    {
+      "command": "git status --ignored --short | grep -E '(__pycache__|\\.pytest_cache)' || true",
+      "status": "passed",
+      "summary": "no generated cache paths listed after cleanup"
+    }
+  ],
+  "finding_ids_addressed": [
+    "HYG-105-R2-001"
+  ]
+}

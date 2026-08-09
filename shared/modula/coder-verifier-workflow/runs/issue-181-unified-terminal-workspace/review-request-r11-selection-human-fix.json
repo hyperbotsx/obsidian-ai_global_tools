@@ -1,0 +1,29 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-181",
+  "purpose": "Review bounded post-human-QA terminal selection fix before any PR/handoff continuation",
+  "expected_response": "Compact verifier verdict JSON per coms contract; write full findings to verifier-report.md",
+  "stop_condition": "Approve the selection fix or request bounded revisions with finding IDs",
+  "checkpoint": "1 - Selection checkpoint follow-up",
+  "revision": 3,
+  "requested_action": "review",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/181"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-181-unified-terminal-workspace/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/src/terminalSelection.ts",
+    "term-control-center/tests/termBasePath.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-181-unified-terminal-workspace/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-181-unified-terminal-workspace/review-request-r11-selection-human-fix.json"
+  ],
+  "validation_results": [
+    "PASS: cd term-control-center && npx tsc -p tsconfig.app.json --noEmit && node --import tsx --test tests/termBasePath.test.ts && npm run build:client && git diff --check"
+  ],
+  "finding_ids_addressed": [
+    "F-181-FINAL-001-partial-selection-localhost-feedback"
+  ],
+  "notes": "Human localhost QA reported selection still shrank/selected smaller ranges. Bounded fix delays copy-ready/menu display during active drag/settling; snapshots are remembered but UI appears only after release/settle."
+}

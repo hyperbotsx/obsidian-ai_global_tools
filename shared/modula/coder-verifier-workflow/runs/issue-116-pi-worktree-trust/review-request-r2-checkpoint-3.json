@@ -1,0 +1,41 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-116",
+  "purpose": "Review Issue #116 checkpoint 3 smoke evidence and artifact contents after checkpoint 1/2 approval.",
+  "expected_response": "Compact verifier verdict JSON; write full report to verifier-report.md if not approved.",
+  "stop_condition": "Approve checkpoint 3/final implementation or return bounded findings.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/116",
+  "checkpoint": "3 - smoke evidence and issue-scoped artifact contents",
+  "revision": 1,
+  "requested_action": "review",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-116-pi-worktree-trust/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "dev-plans/agentops/open-prd-sweep-ledger-2026-06-28.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-116-pi-worktree-trust/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-116-pi-worktree-trust/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-116-pi-worktree-trust/pi-agent-approve-smoke.txt",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-116-pi-worktree-trust/review-request-r1-checkpoint-1-2.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-116-pi-worktree-trust/review-request-r2-checkpoint-3.json"
+  ],
+  "validation_results": [
+    {
+      "command": "cd term-control-center && TMPDIR=$(mktemp -d) env -u TERM_CONTROL_CEO_REVIEW_WORKTREE -u TERM_CONTROL_CEO_REVIEW_REF -u TERM_CONTROL_CEO_REVIEW_ARTIFACT_ROOT -u TERM_CONTROL_BROWSER_USER_DATA_DIR -u TERM_CONTROL_BROWSER_STATE_DIR -u TERM_CONTROL_BROWSER_CDP_PORT -u TERM_CONTROL_BROWSER_CDP_PROXY_PORT -u TERM_CONTROL_BROWSER_VNC_PORT tsx --test tests/launchPlan.test.ts tests/workspaceTrust.test.ts tests/agentopsComsLabel.test.ts",
+      "result": "passed, 27 tests"
+    },
+    {
+      "command": "fake-pi wrapper smoke: scripts/agentops/pi-agent.sh coder --approve --model smoke-model --thinking low 'smoke prompt'",
+      "result": "passed; see pi-agent-approve-smoke.txt"
+    },
+    {
+      "command": "targeted server launch smoke",
+      "result": "blocked by missing local ESM package dependency 'ws'"
+    }
+  ],
+  "finding_ids_addressed": [],
+  "report_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-116-pi-worktree-trust/verifier-report.md"
+}

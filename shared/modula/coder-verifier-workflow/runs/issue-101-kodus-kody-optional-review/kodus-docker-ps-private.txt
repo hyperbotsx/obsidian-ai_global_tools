@@ -1,0 +1,9 @@
+NAMES                 STATUS                        PORTS
+kodus_api             Up About a minute             127.0.0.1:3001->3001/tcp
+kodus-worker-prod     Up About a minute             
+kodus-webhooks-prod   Up About a minute             127.0.0.1:13332->13332/tcp
+kodus-web-prod        Up About a minute             127.0.0.1:13000->3000/tcp
+rabbitmq-prod         Up About a minute (healthy)   4369/tcp, 5671-5672/tcp, 15671-15672/tcp, 15691-15692/tcp, 25672/tcp
+kodus-mcp-manager     Up About a minute             127.0.0.1:13101->13101/tcp
+db_kodus_postgres     Up About a minute             5432/tcp
+db_kodus_mongodb      Up About a minute             27017/tcp

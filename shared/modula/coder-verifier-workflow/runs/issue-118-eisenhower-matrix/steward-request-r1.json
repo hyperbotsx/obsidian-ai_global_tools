@@ -1,0 +1,32 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-118",
+  "purpose": "Structure/hygiene review before final bug-check for Issue #118",
+  "expected_response": "Concise markdown or JSON with clean/cleanup recommendations; no edits unless explicitly requested.",
+  "stop_condition": "Return clean or bounded cleanup recommendations for changed-file placement/artifacts/generated output.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/118",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-118-eisenhower-matrix/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/.gitignore",
+    "pipeline-diagram/README.md",
+    "pipeline-diagram/agentops-nav.js",
+    "pipeline-diagram/coworker-launcher.js",
+    "pipeline-diagram/generate.py",
+    "pipeline-diagram/matrix.html",
+    "src/agentops_harness/review_server.py",
+    "tests/unit/test_pipeline_board_generation.py",
+    "tests/unit/test_pipeline_generate.py",
+    "tests/unit/test_review_server_coworker.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-118-eisenhower-matrix/*",
+    "/mnt/hyperliquid-data/projects/repos/agentops-harness/dev-plans/agentops/open-prd-sweep-ledger-2026-06-28.md"
+  ],
+  "validation_summary": "Focused tests and generation passed after latest origin/main sync; branch divergence is 0 0; human visual validation passed; verifier approved checkpoints 1-7.",
+  "specific_questions": [
+    "Are changed files placed appropriately for the matrix UI/generator/Co-Worker integration?",
+    "Are run artifacts acceptable under dev-plans/agentops/coder-verifier-workflow/runs/issue-118-eisenhower-matrix/?",
+    "Is generated matrix-data.js correctly ignored/absent from tracked changes?",
+    "Any cleanup needed before final verifier bug-check?"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-101",
+  "purpose": "Review completed-list false-positive fix for open PRD #198 and #192 closeout",
+  "checkpoint": "Completed-work source attribution fix",
+  "revision": 1,
+  "requested_action": "Verify that the completed-list logic no longer marks open PRDs complete solely from unrelated merged PR cross-references, and that #192 closeout/#198 open status are correct.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/192",
+    "https://github.com/hyperbotsx/agentops-harness/issues/198"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-198-completed-prd-link-fix/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/completed_work.py",
+    "tests/unit/test_completed_work.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-198-completed-prd-link-fix/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-198-completed-prd-link-fix/review-request-r1.json"
+  ],
+  "github_mutations": [
+    "Closed issue #192 as completed and set Project 3 status to Done.",
+    "Issue #198 remains open in Project 3 as the token expiry/revoke validation follow-up."
+  ],
+  "validation_results": [
+    "PYTHONPATH=src python3 -m unittest tests.unit.test_completed_work — passed, 7 tests.",
+    "python3 -m py_compile pipeline-diagram/completed_work.py — passed.",
+    "git diff --check — passed.",
+    "python3 pipeline-diagram/generate.py — passed; local data shows #192 completed/not board and #198 board/not completed."
+  ],
+  "finding_ids_addressed": [],
+  "stop_condition": "Stop after verifier approval or bounded fix request; do not merge/deploy."
+}

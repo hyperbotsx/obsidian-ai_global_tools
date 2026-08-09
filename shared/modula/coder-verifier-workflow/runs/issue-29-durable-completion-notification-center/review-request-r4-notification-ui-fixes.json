@@ -1,0 +1,48 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Re-review PRD #29 checkpoint 2 after bounded UI fixes",
+  "expected_response": "Compact verifier verdict JSON matching schema; write full details to verifier-report.md",
+  "stop_condition": "Approve checkpoint or return bounded findings for revision",
+  "checkpoint": "2 - Notification-center UI",
+  "revision": 4,
+  "requested_action": "checkpoint_recheck",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/29"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-29-durable-completion-notification-center/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/completion-center.js",
+    "pipeline-diagram/review-notify.js",
+    "pipeline-diagram/board.html",
+    "pipeline-diagram/pipeline.html",
+    "pipeline-diagram/wip.html",
+    "term-control-center/tests/reviewNotify.test.ts",
+    "term-control-center/server/completionStore.ts",
+    "term-control-center/server/completionRoutes.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/shared/completion.ts",
+    "term-control-center/tests/completion-server.test.ts",
+    "term-control-center/tests/completion-store.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-29-durable-completion-notification-center/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-29-durable-completion-notification-center/review-request-r1-scope-persistence.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-29-durable-completion-notification-center/review-request-r2-scope-persistence-fixes.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-29-durable-completion-notification-center/review-request-r3-notification-ui.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-29-durable-completion-notification-center/review-request-r4-notification-ui-fixes.json"
+  ],
+  "validation_results": [
+    { "command": "node --check pipeline-diagram/review-notify.js", "status": "passed" },
+    { "command": "node --check pipeline-diagram/completion-center.js", "status": "passed" },
+    { "command": "npm --prefix term-control-center run typecheck", "status": "passed" },
+    { "command": "npm --prefix term-control-center run test", "status": "passed", "summary": "152/152" },
+    { "command": "npm --prefix term-control-center run build", "status": "passed", "summary": "Vite emitted existing term-config/chunk-size warnings" },
+    { "command": "git diff --check", "status": "passed" }
+  ],
+  "finding_ids_addressed": [
+    "V29-CP2-001",
+    "V29-CP2-002"
+  ],
+  "notes": "Bounded revision only: cold-load completion polling now bootstraps term token and polls server; completion UI extracted to a separate loaded module to restore KISS file-size compliance."
+}

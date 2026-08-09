@@ -1,0 +1,34 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-145",
+  "purpose": "Re-review PRD #145 checkpoint 3 after bounded fix F145-R5-001",
+  "expected_response": "Compact verifier verdict JSON matching schema; write full details to verifier-report.md",
+  "stop_condition": "Approve checkpoint 3 or request one bounded revision with finding IDs",
+  "issue_ref": "https://github.com/hyperbotsx/agentops-harness/issues/145",
+  "checkpoint": "3 - Start/resume freshness checkpoint",
+  "revision": 6,
+  "requested_action": "checkpoint_recheck",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-145-per-prd-worktree-lifecycle/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/prd_worktree_freshness.py",
+    "src/agentops_harness/prd_worktree_project.py",
+    "src/agentops_harness/prd_worktree_provision.py",
+    "src/agentops_harness/cli.py",
+    "tests/unit/test_prd_worktree_freshness.py",
+    "tests/unit/test_prd_worktree_project.py",
+    "tests/unit/test_prd_worktree_provision.py",
+    "README.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-145-per-prd-worktree-lifecycle/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-145-per-prd-worktree-lifecycle/review-request-r6-f145-r5-001.json"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests/unit/test_prd_worktree_freshness.py tests/unit/test_prd_worktree_project.py tests/unit/test_prd_worktree_provision.py tests/unit/test_cli.py -q && git diff --check",
+      "status": "passed",
+      "summary": "73 tests passed and diff whitespace check passed after F145-R5-001 fix"
+    }
+  ],
+  "finding_ids_addressed": ["F145-R5-001"]
+}

@@ -1,0 +1,33 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-101",
+  "purpose": "Review token lifecycle follow-up issue split for PRD #101",
+  "checkpoint": "PRD #101 token lifecycle follow-up split",
+  "revision": 1,
+  "requested_action": "Verify that GitHub issue #198 safely splits the operator-run token expiry/revoke validation and that local docs link it without closing PRD #101.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/101",
+    "https://github.com/hyperbotsx/agentops-harness/issues/198"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "changed_files": [
+    "dev-plans/agentops/prd-101-next-steps-plan.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/prd-101-closeout-assessment-20260701.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/prd-101-closeout-decision-packet-20260701.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r46-token-followup-split.json"
+  ],
+  "github_mutations": [
+    "Created https://github.com/hyperbotsx/agentops-harness/issues/198 with label agent:agentops. Did not close or comment on issue #101."
+  ],
+  "validation_results": [
+    "gh issue view 198 confirmed title, OPEN state, URL, agent:agentops label, Parent PRD #101 backlink text, and no-secret forbidden-scope text.",
+    "Markdown hygiene script passed for updated planning artifacts: final newline and no trailing whitespace.",
+    "git diff --check passed for tracked changes.",
+    "git status --short --branch reviewed after changes."
+  ],
+  "finding_ids_addressed": [],
+  "stop_condition": "Stop after verifier approves this split or requests bounded corrections; do not close PRD #101 or create/open a PR without human instruction."
+}

@@ -1,0 +1,78 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Final bug-check for PRD #58 unified activity center and Slack sink",
+  "expected_response": "Verdict JSON matching the verifier contract",
+  "stop_condition": "Run the default final bug-check across the implemented PRD #58 scope and return approved or bounded findings.",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-58-unified-activity-center-slack-notifications/coder-handoff.md",
+  "checkpoint": "final-bug-check",
+  "revision": 1,
+  "requested_action": "Run the final verifier bug-check across the full implemented PRD #58 scope.",
+  "issue_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/58"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-58-unified-activity-center-slack-notifications/coder-handoff.md",
+  "changed_files": [
+    "docs/activity-center.md",
+    "docs/slack-operator-gateway.md",
+    "pipeline-diagram/agentops-nav.js",
+    "pipeline-diagram/board.html",
+    "pipeline-diagram/global-nav.js",
+    "pipeline-diagram/pipeline.html",
+    "pipeline-diagram/wip.html",
+    "pipeline-diagram/activity-center.js",
+    "pipeline-diagram/activity-center-actions.js",
+    "pipeline-diagram/public/activity-center.js",
+    "pipeline-diagram/public/activity-center-actions.js",
+    "profiles/evonome.example.yaml",
+    "src/agentops_harness/activity_center.py",
+    "src/agentops_harness/activity_center_models.py",
+    "src/agentops_harness/activity_center_completion.py",
+    "src/agentops_harness/activity_center_runtime.py",
+    "src/agentops_harness/activity_center_sources.py",
+    "src/agentops_harness/activity_state.py",
+    "src/agentops_harness/profile_commands.py",
+    "src/agentops_harness/profile_schema.py",
+    "src/agentops_harness/review_server.py",
+    "src/agentops_harness/slack_activity_sink.py",
+    "src/agentops_harness/slack_gateway_health.py",
+    "term-control-center/server/adminHtml.ts",
+    "term-control-center/server/completionRetention.ts",
+    "term-control-center/server/completionStore.ts",
+    "term-control-center/src/navigation/navModel.ts",
+    "term-control-center/tests/admin.test.ts",
+    "term-control-center/tests/boardGuardrails.test.ts",
+    "term-control-center/tests/completion-store.test.ts",
+    "tests/unit/test_activity_center.py",
+    "tests/unit/test_activity_state.py",
+    "tests/unit/test_profile_schema.py",
+    "tests/unit/test_slack_activity_sink.py",
+    "tests/unit/test_slack_activity_sink_guardrails.py",
+    "tests/unit/test_slack_gateway_health.py"
+  ],
+  "validation": [
+    {
+      "command": "npm --prefix term-control-center run typecheck",
+      "result": "passed"
+    },
+    {
+      "command": "npm --prefix term-control-center test",
+      "result": "passed"
+    },
+    {
+      "command": "npm --prefix term-control-center run build",
+      "result": "passed"
+    },
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests/unit -q",
+      "result": "passed"
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed"
+    }
+  ],
+  "finding_ids_addressed": []
+}

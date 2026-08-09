@@ -1,0 +1,36 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-179",
+  "checkpoint": "1 - Kody observable state, findings import, UI controls, Activity Center mapping, explicit fix-loop plumbing",
+  "revision": 2,
+  "requested_action": "re_review_bounded_fixes",
+  "issue_url": "https://github.com/hyperbotsx/agentops-harness/issues/179",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-179-observable-kody/coder-handoff.md",
+  "previous_report_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-179-observable-kody/verifier-report.md",
+  "changed_files": [
+    "pipeline-diagram/completed.html",
+    "src/agentops_harness/activity_center.py",
+    "src/agentops_harness/activity_center_sources.py",
+    "src/agentops_harness/activity_center_kody.py",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/kodyReview.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/tests/completedStatic.test.ts",
+    "term-control-center/tests/kodyReview.test.ts",
+    "tests/unit/test_activity_center.py",
+    "docs/kody-review-sessions.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-179-observable-kody/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-179-observable-kody/review-request-r1-checkpoint-1.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-179-observable-kody/review-request-r2-checkpoint-1-fixes.json"
+  ],
+  "finding_ids_addressed": ["F179-R1-001", "F179-R1-002", "F179-R1-003", "F179-R1-004", "F179-R1-005"],
+  "validation_results": [
+    {"command":"cd term-control-center && node --import tsx --test --test-concurrency=1 tests/kodyReview.test.ts tests/completedKodusReview.test.ts tests/completedStatic.test.ts","status":"passed","note":"15 tests passed"},
+    {"command":"PYTHONPATH=src pytest tests/unit/test_activity_center.py -q","status":"passed","note":"10 passed"},
+    {"command":"python3 AST KISS check for src/agentops_harness/activity_center_kody.py","status":"passed","note":"no functions over 20 lines"},
+    {"command":"cd term-control-center && npx tsc --noEmit --module NodeNext --moduleResolution NodeNext --target ES2022 --skipLibCheck --esModuleInterop server/kodyReview.ts server/completedKodusReview.ts","status":"passed"},
+    {"command":"git diff --check","status":"passed"}
+  ],
+  "review_focus": "Re-review only bounded fixes for F179-R1-001 through F179-R1-005."
+}

@@ -1,0 +1,24 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-187",
+  "purpose": "Re-review PRD #187 checkpoint 2 after bounded fixes for V187-CP2-001, V187-CP2-002, and V187-CP2-003.",
+  "expected_response": "Compact verdict JSON matching the provided schema. Full report to verifier-report.md only if findings remain.",
+  "stop_condition": "Approve checkpoint 2 revision 2 or return bounded findings.",
+  "checkpoint": "2 - Confirmation-gated GitHub issue creation, label mapping, Project/profile scoping, and missing-label fail-closed behavior",
+  "revision": 2,
+  "requested_action": "checkpoint_re_review",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/187"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-187-discovery-backlog-prd-composition/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/issue_logger.py",
+    "src/agentops_harness/review_server.py",
+    "tests/unit/test_review_server_coworker.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-187-discovery-backlog-prd-composition/coder-handoff.md"
+  ],
+  "validation_results": [
+    {"command": "PYTHONPATH=src python3 -m pytest tests/unit/test_review_server_coworker.py -q && PYTHONPATH=src python3 -m compileall -q src/agentops_harness/review_server.py src/agentops_harness/issue_logger.py", "status": "passed", "detail": "66 passed; compileall passed"}
+  ],
+  "finding_ids_addressed": ["V187-CP2-001", "V187-CP2-002", "V187-CP2-003"]
+}

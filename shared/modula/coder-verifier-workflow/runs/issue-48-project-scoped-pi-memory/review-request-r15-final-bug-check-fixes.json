@@ -1,0 +1,33 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Review issue #48 final bug-check revision 15 after fixing V48-FBC-001 and V48-FBC-002.",
+  "expected_response": "Compact verifier verdict JSON only; write details to verifier-report.md if not approved/passed.",
+  "stop_condition": "Approve/passed final bug-check or request bounded bug-check fixes.",
+  "issue_ref": "https://github.com/hyperbotsx/agentops-harness/issues/48",
+  "checkpoint": "final bug-check",
+  "revision": 15,
+  "requested_action": "bug_check_review",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-48-project-scoped-pi-memory/coder-handoff.md",
+  "review_request_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-48-project-scoped-pi-memory/review-request-r15-final-bug-check-fixes.json",
+  "changed_files": [
+    "term-control-center/server/adminProjects.ts",
+    "term-control-center/server/adminRoutes.ts",
+    "term-control-center/server/projectMemory.ts",
+    "term-control-center/tests/projectMemory.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-48-project-scoped-pi-memory/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-48-project-scoped-pi-memory/review-request-r15-final-bug-check-fixes.json"
+  ],
+  "validation_results": [
+    { "command": "npm --prefix term-control-center test", "status": "passed", "summary": "243 tests" },
+    { "command": "npm --prefix term-control-center run build", "status": "passed", "summary": "Vite warning only: chunk larger than 500 kB; existing non-blocking build warning" },
+    { "command": "npm --prefix term-control-center run typecheck", "status": "passed" },
+    { "command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/projectMemory.test.ts tests/admin.test.ts tests/server.test.ts", "status": "passed", "summary": "62 tests" },
+    { "command": "PYTHONPATH=src python3 -m pytest tests/unit/test_ceo_review_answers.py tests/unit/test_prd_preflight.py tests/unit/test_pipeline_board_generation.py", "status": "passed", "summary": "31 tests" },
+    { "command": "python3 -m py_compile pipeline-diagram/generate.py tests/unit/test_pipeline_board_generation.py", "status": "passed" },
+    { "command": "git diff --check", "status": "passed" }
+  ],
+  "finding_ids_addressed": ["V48-FBC-001", "V48-FBC-002"]
+}

@@ -1,0 +1,47 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Phase 1 branch-collision regression checkpoint for issue 141",
+  "expected_response": "Compact verifier verdict JSON matching the response schema; write details to verifier-report.md",
+  "stop_condition": "Approve checkpoint or request bounded revision findings",
+  "checkpoint": "Phase 1 branch-collision regression checkpoint",
+  "revision": 1,
+  "requested_action": "Verify #138/#141-style target implementation branch mismatch, dirty/busy/missing target implementation worktree cases do not block CEO review, while implementation launch preflight still fails closed.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/141"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/ceoReviewRuntime.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "docs/admin-configuration.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/review-request-r3-phase1-branch-collision.json"
+  ],
+  "validation_results": [
+    {
+      "command": "cd term-control-center && node --import tsx --test tests/launchPlan.test.ts",
+      "status": "pass",
+      "summary": "16 tests passed, including dirty/mismatched target branch and missing target worktree CEO review regressions plus implementation dirty-worktree block"
+    },
+    {
+      "command": "cd term-control-center && npm run typecheck",
+      "status": "pass",
+      "summary": "tsconfig app/server typecheck passed"
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "summary": "no whitespace errors"
+    }
+  ],
+  "finding_ids_addressed": [],
+  "notes": [
+    "Checkpoint 1 was approved at revision 2.",
+    "Scope remains Phase 1; no Phase 2/3 completion claimed."
+  ]
+}

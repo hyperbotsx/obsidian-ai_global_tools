@@ -1,0 +1,35 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "issue": {
+    "number": 40,
+    "url": "https://github.com/hyperbotsx/agentops-harness/issues/40",
+    "title": "PRD: AgentOps Secure Access Layer with YubiKey WebAuthn"
+  },
+  "checkpoint": "1 - Architecture/provider decision",
+  "revision": 1,
+  "requested_action": "Review architecture checkpoint before checkpoint 2 implementation.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-yubikey-webauthn/coder-handoff.md",
+  "changed_files": [
+    "docs/secure-access-yubikey-webauthn.md",
+    "docs/security.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-yubikey-webauthn/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-yubikey-webauthn/review-request-r1.json"
+  ],
+  "validation_results": [
+    "git diff --check passed",
+    "Documentation-only checkpoint; no product code introduced"
+  ],
+  "finding_ids_addressed": [],
+  "scope_controls": {
+    "allowed": "repo/config/templates/runbooks only",
+    "forbidden": "no live host mutations, sudo, nginx reloads, DNS/firewall/cert changes, Docker/systemd changes, identity-provider bootstrap, secrets, .env files, or PR creation"
+  },
+  "preflight": {
+    "identity": "coder@agentops-term",
+    "verifier_live_in_pool": true,
+    "researcher_consult_completed": true,
+    "steward_ping_completed": true
+  }
+}

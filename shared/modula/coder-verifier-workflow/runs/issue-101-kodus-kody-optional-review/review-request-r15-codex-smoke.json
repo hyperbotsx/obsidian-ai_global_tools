@@ -1,0 +1,45 @@
+{
+  "type": "review_request",
+  "checkpoint": "1j-codex-direct-and-pr-smoke-validation",
+  "revision": 1,
+  "requested_action": "Verify Codex direct gateway smoke, Codex PR #176 smoke, cleanup/restoration to Claude, docs/evidence updates, and validation results.",
+  "source_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/101",
+    "https://github.com/hyperbotsx/agentops-harness/pull/176"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "evidence_paths": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-codex-smoke-pr176.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-operational-validation.md",
+    "docs/kodus-kody-sprint0-feasibility.md",
+    "docs/kodus-kody-docker-sandbox-runbook.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md"
+  ],
+  "changed_files": [
+    "src/agentops_harness/kodus_max_gateway.py",
+    "docs/kodus-kody-docker-sandbox-runbook.md",
+    "docs/kodus-kody-sprint0-feasibility.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-operational-validation.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-codex-smoke-pr176.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r15-codex-smoke.json"
+  ],
+  "validation_results": [
+    "Standalone Codex gateway on 172.17.0.1:18083 returned 200 for /v1/models from kodus_api.",
+    "Standalone Codex gateway returned 200 codex-smoke-ok for /v1/chat/completions from kodus_api.",
+    "Standalone Codex gateway prompt-marker leakage grep had zero hits.",
+    "Temporary PR #176 ran through API_LLM_PROVIDER_MODEL=codex-cli and live gateway --backend codex; Kodus agents used openai_compatible:codex-cli.",
+    "PR #176 completed with status=success and one GitHub review.",
+    "Codex gateway requests returned 200 with queued waits, including queued_ms=114201 and queued_ms=25408.",
+    "Privacy checks for PR #176 had zero gateway raw patch/source marker hits and zero Docker Mongoose/raw patch hits.",
+    "Cleanup completed: PR #176 closed, remote branch deleted, no merge performed, Kodus config restored to API_LLM_PROVIDER_MODEL=claude-cli, and live gateway restored to --backend claude.",
+    "GatewayConfig default queue_timeout aligned with CLI default at 600 seconds.",
+    "PYTHONPATH=src python3 -m unittest tests.unit.test_kodus_sprint0 tests.unit.test_kodus_max_gateway passed (14 tests).",
+    "PYTHONPATH=src python3 -m py_compile src/agentops_harness/kodus_sprint0.py src/agentops_harness/kodus_max_gateway.py passed.",
+    "AST KISS check passed for kodus_sprint0.py and kodus_max_gateway.py.",
+    "git diff --check passed."
+  ],
+  "finding_ids_addressed": [],
+  "notes": "Claude remains the restored live default; Codex is validated as an optional local fallback path. Actual token expiry/refresh remains untested until expiry or forced-expiry is available."
+}

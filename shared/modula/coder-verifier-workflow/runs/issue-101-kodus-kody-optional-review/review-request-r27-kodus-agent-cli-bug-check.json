@@ -1,0 +1,44 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-101",
+  "purpose": "Run default bug-check for approved PRD #101 kodus-agent CLI facade MVP",
+  "expected_response": "Compact verifier verdict JSON per coms transport contract; write full report to verifier-report.md",
+  "stop_condition": "Approve bug-check or report bounded actionable findings",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/101"
+  ],
+  "checkpoint": "PRD #101 Checkpoint 4 default bug-check - kodus-agent CLI facade MVP",
+  "revision": 1,
+  "requested_action": "bug_check",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "changed_files": [
+    "pyproject.toml",
+    "src/agentops_harness/kodus_agent.py",
+    "tests/unit/test_kodus_agent.py",
+    "docs/kodus-agent.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r26-kodus-agent-cli-facade.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r27-kodus-agent-cli-bug-check.json"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONPATH=src python3 -m unittest tests.unit.test_kodus_agent tests.unit.test_kodus_sprint0 tests.unit.test_kodus_max_gateway tests.unit.test_activity_center",
+      "status": "passed",
+      "summary": "34 tests passed"
+    },
+    {
+      "command": "PYTHONPATH=src python3 -m py_compile src/agentops_harness/kodus_agent.py src/agentops_harness/kodus_sprint0.py src/agentops_harness/kodus_max_gateway.py",
+      "status": "passed"
+    },
+    {
+      "command": "git diff --check",
+      "status": "passed"
+    }
+  ],
+  "scope_notes": [
+    "Implementation review r26 approved with zero findings.",
+    "Please run/default bug-check only; coder will not read full report on approved compact verdict."
+  ]
+}

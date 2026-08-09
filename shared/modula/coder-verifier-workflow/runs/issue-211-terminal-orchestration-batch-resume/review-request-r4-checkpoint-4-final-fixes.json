@@ -1,0 +1,53 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-211",
+  "purpose": "PRD #211 checkpoint 4 revision 4 review",
+  "checkpoint": "4 - Delegated actions",
+  "revision": 4,
+  "requested_action": "Verify bounded fixes for F211-C4-003, F211-C4-005, F211-C4-006, and F211-C4-KISS-001: both Kody writers fully canonicalize and dedupe coexisting legacy/canonical records; queue capacity remains global across batches; canonical ad-hoc approval also requires type:prd; and lane semantic objects keep changed helpers at four parameters or fewer. Preserve all existing gates/caps/queues/reuse/provisioning and no raw terminal git/gh injection.",
+  "prd_ref": "https://github.com/hyperbotsx/agentops-harness/issues/211",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-211-terminal-orchestration-batch-resume/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/kodus_agent.py",
+    "src/agentops_harness/kodus_state.py",
+    "tests/unit/test_kodus_agent.py",
+    "term-control-center/server/canonicalPrdApproval.ts",
+    "term-control-center/server/completionPrepareAction.ts",
+    "term-control-center/server/kodyReview.ts",
+    "term-control-center/server/kodyReviewStore.ts",
+    "term-control-center/server/kodyReviewTrigger.ts",
+    "term-control-center/server/laneOrchestrator.ts",
+    "term-control-center/server/laneRequestResolution.ts",
+    "term-control-center/server/orchestrator/delegatedActions.ts",
+    "term-control-center/server/projectScope.ts",
+    "term-control-center/tests/canonicalPrdApproval.test.ts",
+    "term-control-center/tests/kodyReviewTrigger.test.ts",
+    "term-control-center/tests/laneOrchestrator.test.ts",
+    "term-control-center/tests/paneInjection.test.ts"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck passed",
+    "focused TypeScript suite passed (76)",
+    "PYTHONPATH=src python3 -m pytest tests/unit/test_kodus_agent.py -q passed (10)",
+    "git diff --check passed"
+  ],
+  "finding_ids_addressed": ["F211-C4-003", "F211-C4-005", "F211-C4-006", "F211-C4-KISS-001"],
+  "stop_condition": "Return the compact verdict; place detailed findings only in verifier-report.md.",
+  "response_schema": {
+    "type": "object",
+    "required": ["decision", "checkpoint_reviewed", "revision_reviewed", "open_findings", "finding_ids", "bug_check_status", "next_actor", "report_path"],
+    "properties": {
+      "decision": {"enum": ["approved", "revision_requested", "needs_human"]},
+      "checkpoint_reviewed": {"type": "string"},
+      "revision_reviewed": {"type": "number"},
+      "open_findings": {"type": "number"},
+      "finding_ids": {"type": "array", "items": {"type": "string"}},
+      "bug_check_status": {"type": "string"},
+      "next_actor": {"type": "string"},
+      "report_path": {"type": "string"}
+    },
+    "additionalProperties": false
+  }
+}

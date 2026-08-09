@@ -1,0 +1,48 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-218",
+  "purpose": "Review desktop selection, output hold/pinning, tmux wheel, and jump-affordance implementation",
+  "expected_response": "Verdict JSON matching response_schema",
+  "stop_condition": "Approve checkpoint 2 or request one bounded implementation revision",
+  "checkpoint": "2 - Desktop selection and scroll-held behavior (AC-1–AC-3, AC-5)",
+  "revision": 1,
+  "requested_action": "review",
+  "prd_issue_ref": "https://github.com/hyperbotsx/agentops-harness/issues/218",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-218-terminal-selection-stability/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/src/terminalOutput.ts",
+    "term-control-center/src/TerminalPane.tsx",
+    "term-control-center/src/terminalSelection.ts",
+    "term-control-center/src/terminalJumpToBottom.ts",
+    "term-control-center/server/tmuxSupervisor.ts",
+    "term-control-center/src/styles.css",
+    "term-control-center/tests/terminalScrollHold.test.ts",
+    "term-control-center/tests/termBasePath.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-218-terminal-selection-stability/coder-handoff.md"
+  ],
+  "validation_results": [
+    "PASS: typecheck and client build against the existing shared dependency tree via a temporary symlink removed after validation.",
+    "PASS: focused terminal tests 33/33.",
+    "PASS: ephemeral tmux 3.4 accepted and rendered the ordered WheelUpPane binding.",
+    "PASS: git diff --check.",
+    "INCOMPLETE: full test suite exceeded the 300-second timeout after test 211 without a recorded failure."
+  ],
+  "finding_ids_addressed": ["V218-CP1-001"],
+  "response_schema": {
+    "type": "object",
+    "required": ["decision", "checkpoint_reviewed", "revision_reviewed", "open_findings", "finding_ids", "bug_check_status", "next_actor", "report_path"],
+    "properties": {
+      "decision": {"type": "string", "enum": ["approved", "revision_requested", "needs_human"]},
+      "checkpoint_reviewed": {"type": "string"},
+      "revision_reviewed": {"type": "integer", "minimum": 1},
+      "open_findings": {"type": "integer", "minimum": 0},
+      "finding_ids": {"type": "array", "items": {"type": "string"}},
+      "bug_check_status": {"type": "string", "enum": ["not_applicable", "pending", "completed_clean", "findings_open"]},
+      "next_actor": {"type": "string", "enum": ["coder", "human"]},
+      "report_path": {"type": "string"}
+    },
+    "additionalProperties": false
+  }
+}

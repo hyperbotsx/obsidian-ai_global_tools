@@ -1,0 +1,40 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-181",
+  "purpose": "Review issue #181 checkpoint 6 final regression before steward/final bug-check",
+  "expected_response": "Compact verifier verdict JSON per coms contract; write full findings to verifier-report.md",
+  "stop_condition": "Approve final implementation/regression checkpoint or request bounded revisions with finding IDs",
+  "checkpoint": "6 - Final regression checkpoint",
+  "revision": 1,
+  "requested_action": "review",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/181"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-181-unified-terminal-workspace/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/src/App.tsx",
+    "term-control-center/src/TerminalPane.tsx",
+    "term-control-center/src/styles.css",
+    "term-control-center/src/terminalSelection.ts",
+    "term-control-center/src/terminalTouchSelection.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/tests/termBasePath.test.ts",
+    "term-control-center/tests/terminalJobSidebar.test.ts",
+    "term-control-center/tests/server.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-181-unified-terminal-workspace/coder-handoff.md"
+  ],
+  "validation_results": [
+    "FAIL/pre-existing: npm --prefix term-control-center run typecheck fails due tests/contextRenewal.test.ts importing ../../pi-packages/agentops-context-renewal/lib/policy.ts outside rootDir and without allowImportingTsExtensions",
+    "FAIL/pre-existing: npm --prefix term-control-center run build fails at same typecheck blocker before client/server build",
+    "FAIL/pre-existing/timeout: npm --prefix term-control-center test timed out after 180s; unrelated failures include admin/auth expectation mismatches, pipeline generator import path issue, project action config expectation, and server fixture launch validation mismatches; relevant changed-surface tests passed including parallel draft subtest 451",
+    "PASS: cd term-control-center && npx tsc -p tsconfig.app.json --noEmit",
+    "PASS: cd term-control-center && node --import tsx --test tests/terminalJobSidebar.test.ts tests/termBasePath.test.ts",
+    "PASS: cd term-control-center && node --import tsx --test --test-name-pattern 'parallel draft PRD Studio launches keep unrelated draft authoring groups|starts pre-issue PRD planning drafts as Planner only|PRD planning execute fails closed' tests/server.test.ts",
+    "PASS: cd term-control-center && npm run build:client",
+    "PASS: git diff --check"
+  ],
+  "finding_ids_addressed": [],
+  "notes": "Checkpoints 1-5 are approved. Manual browser QA remains not run in this coder pane. If final regression is approved, coder will request required Steward review before final bug-check."
+}

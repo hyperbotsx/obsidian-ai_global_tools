@@ -1,0 +1,34 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-117",
+  "purpose": "Final verifier bug-check for PRD #117 after implementation approval and clean steward hygiene review.",
+  "expected_response": "Compact verifier verdict JSON per coms-transport.md; write full report to verifier-report.md if findings exist.",
+  "stop_condition": "Approve final bug-check or return bounded actionable bug findings.",
+  "checkpoint": "final-bug-check",
+  "revision": 3,
+  "requested_action": "Run the default final bug-check on the changed Browser-QA allowlist/diagnostics implementation and tests.",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/117"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-117-browser-qa-hosted-allowlists/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/frontendBrowserLaunch.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/tests/frontendBrowserLaunch.test.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "dev-plans/agentops/open-prd-sweep-ledger-2026-06-28.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-117-browser-qa-hosted-allowlists/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-117-browser-qa-hosted-allowlists/review-request-r1-hosted-allowlists.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-117-browser-qa-hosted-allowlists/review-request-r2-f117-r1-001.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-117-browser-qa-hosted-allowlists/steward-request-r1-prefinal-hygiene.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-117-browser-qa-hosted-allowlists/review-request-r3-final-bug-check.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-117-browser-qa-hosted-allowlists/verifier-report.md"
+  ],
+  "validation_results": [
+    {"command": "clean-env shared-tsx tests for frontendBrowserLaunch and launchPlan", "status": "pass", "summary": "26/26 subtests passed after F117-R1-001 fix."},
+    {"command": "git diff --check", "status": "pass", "summary": "No whitespace errors."},
+    {"command": "clean-env shared-tsx Browser QA focused launchPlan tests", "status": "pass", "summary": "3/3 Browser-QA subtests passed after steward."},
+    {"command": "steward hygiene review", "status": "pass", "summary": "Steward decision clean; no cleanup needed."}
+  ],
+  "finding_ids_addressed": ["F117-R1-001"]
+}

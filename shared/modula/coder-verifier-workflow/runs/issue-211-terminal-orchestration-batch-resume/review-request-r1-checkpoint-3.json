@@ -1,0 +1,29 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-211",
+  "purpose": "Review PRD #211 checkpoint 3 shared pane injection",
+  "checkpoint": "3 - Injection",
+  "revision": 1,
+  "requested_action": "Verify FR-19/AC-9/10/12/13/14: exact live group/session routing; project and PRD/draft, role, recovery, liveness, awaiting-input, and authority preflights; per-pane lock, explicit idempotency, one-minute rate limit; named-buffer tmux bracketed paste with two changed-tail echo samples before one Enter; and planner/context-brief recovery regression. Confirm the exposed approved-orchestrator authority is only an internal future executor seam, with no new route or token-mint path.",
+  "prd_ref": "https://github.com/hyperbotsx/agentops-harness/issues/211",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-211-terminal-orchestration-batch-resume/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/index.ts",
+    "term-control-center/server/launchGroup.ts",
+    "term-control-center/server/orchestrator/paneInjection.ts",
+    "term-control-center/server/orchestrator/paneInjectionGuard.ts",
+    "term-control-center/server/orchestrator/paneInjectionRunner.ts",
+    "term-control-center/tests/paneInjection.test.ts"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck: passed",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/paneInjection.test.ts: passed (15)",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 --test-name-pattern='fix-and-execute' tests/server.test.ts: passed (4)",
+    "disposable tmux smoke: Pi 0.80.6, Claude Code 2.1.195, Codex CLI 0.144.6 each confirmed echo-before-Enter",
+    "git diff --check: passed"
+  ],
+  "finding_ids_addressed": [],
+  "stop_condition": "Return the compact verifier verdict; record detailed findings only in verifier-report.md."
+}

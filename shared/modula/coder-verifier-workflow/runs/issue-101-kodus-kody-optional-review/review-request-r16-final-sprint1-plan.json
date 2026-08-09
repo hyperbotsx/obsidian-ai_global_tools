@@ -1,0 +1,42 @@
+{
+  "type": "review_request",
+  "checkpoint": "1k-sprint0-finalization-and-sprint1-advisory-plan",
+  "revision": 1,
+  "requested_action": "Verify Sprint 0 final recommendation, Sprint 1 advisory-only pilot plan, Claude-primary/Codex-fallback rationale, validation results, and readiness to commit without opening a PR.",
+  "source_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/101"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "evidence_paths": [
+    "docs/kodus-kody-sprint0-feasibility.md",
+    "docs/kodus-kody-sprint1-advisory-pilot.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-codex-smoke-pr176.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-token-rate-limit-pr175.md"
+  ],
+  "changed_files": [
+    "docs/kodus-kody-sprint0-feasibility.md",
+    "docs/kodus-kody-sprint1-advisory-pilot.md",
+    "docs/kodus-kody-docker-sandbox-runbook.md",
+    "src/agentops_harness/kodus_max_gateway.py",
+    "src/agentops_harness/kodus_sprint0.py",
+    "tests/unit/test_kodus_max_gateway.py",
+    "tests/unit/test_kodus_sprint0.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r16-final-sprint1-plan.json"
+  ],
+  "validation_results": [
+    "Sprint 0 recommendation updated to passed for a limited optional/advisory pilot with expiry/legal caveats.",
+    "Sprint 1 plan drafted with Claude primary reviewer and Codex fallback/comparison because the team tends to use Codex for coding and a different reviewer model improves bug-finding diversity.",
+    "Sprint 1 guardrails preserve advisory-only behavior: manual @kody start-review, no required checks, no branch protection changes, no auto approve/request-changes, no debt issue automation, no merge automation.",
+    "Live config was restored to Claude after Codex smoke: API_LLM_PROVIDER_MODEL=claude-cli and gateway --backend claude.",
+    "PYTHONPATH=src python3 -m unittest tests.unit.test_kodus_sprint0 tests.unit.test_kodus_max_gateway passed (14 tests).",
+    "PYTHONPATH=src python3 -m py_compile src/agentops_harness/kodus_sprint0.py src/agentops_harness/kodus_max_gateway.py passed.",
+    "AST KISS check passed for kodus_sprint0.py and kodus_max_gateway.py.",
+    "git diff --check passed.",
+    "Secret-pattern grep over changed and untracked files found zero hits."
+  ],
+  "finding_ids_addressed": [],
+  "notes": "Do not open a PR unless the user explicitly asks. Next intended action after approval is commit only. Actual token expiry/refresh remains untested until expiry or forced-expiry is available."
+}

@@ -1,0 +1,32 @@
+{
+    "cors_boundary": "localhost_only_required_because_ai_maestro_api_allows_wildcard_origin",
+    "forbidden_uses": [
+        "approval decisions",
+        "verifier evidence",
+        "checkpoint status changes",
+        "GitHub or Project 2 mutation",
+        "real-session create/delete/rename/injection",
+        "secret, token, provider config, or raw transcript storage"
+    ],
+    "memory_policy": "cache_only_with_canonical_links_no_secrets",
+    "message_policy": "reminder_only_not_approval_or_evidence",
+    "mode": "read_only",
+    "prd_number": 934,
+    "session_visibility": [
+        {
+            "name": "evonome/admin/prd-934-coder",
+            "role": "coder",
+            "visibility": "display_only"
+        },
+        {
+            "name": "evonome/admin/prd-934-verifier",
+            "role": "verifier",
+            "visibility": "display_only"
+        },
+        {
+            "name": "evonome/admin/orchestrator",
+            "role": "orchestrator",
+            "visibility": "display_only"
+        }
+    ]
+}

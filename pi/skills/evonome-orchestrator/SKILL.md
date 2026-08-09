@@ -68,17 +68,19 @@ Use one owning agent/worktree per PRD unless the human marks the work shared.
 | Training | `agent:evonome-training` | `/mnt/hyperliquid-data/projects/worktrees/Evonome-training` |
 | Trading | `agent:evonome-trading` | `/mnt/hyperliquid-data/projects/worktrees/Evonome-trading` |
 | Data, Predict, data services | `agent:evonome-data` | `/mnt/hyperliquid-data/projects/worktrees/Evonome-data` |
-| Admin hardening and ops | `agent:evonome-admin` | `/mnt/hyperliquid-data/projects/worktrees/Evonome-admin` |
+| Admin hardening and ops | `agent:evonome-admin` | `/mnt/hyperliquid-data/projects/worktrees/agentops-harness` |
 
-If ownership is unclear, recommend an owner decision before execution.
+If ownership is unclear, recommend an owner decision before execution. Use the active AgentOps Harness profile as the fresher source if this table drifts.
 
 ## Coder/Verifier Workflow
 
 - Coder and verifier are separate roles.
+- Before coder/verifier implementation starts, create or verify a dedicated working branch in the assigned worktree; the branch name must end with `-<PRD issue number>` and must not be `main` or `dev-main`.
 - The coder reads the PRD first, records dirty-tree state, implements only bounded checkpoint slices, writes handoff artifacts, and runs validation.
 - The verifier independently reviews the handoff, diff, evidence, and final bug-check.
 - Medium and larger PRDs need verifier checkpoints by phase or meaningful implementation slice.
 - PR creation is human-managed; do not create or open PRs unless the user explicitly asks.
+- When a PR is opened for PRD implementation, immediately complete PRD closeout: link the PR to the PRD, set Project 2 `Status` and `Pipeline Status` to `Done`, set `PR URL` when available, close the PRD issue, and update tracker evidence.
 - Do not merge, deploy, or approve trading/backtest/paper/live workflows without separate explicit approval.
 
 ## Authority Boundaries
@@ -97,7 +99,9 @@ Not allowed without separate explicit approval:
 - Mutating Project 2 fields.
 - Creating branches.
 - Launching coder/verifier sessions.
-- Opening or merging PRs.
+- Opening PRs.
+- Post-PR PRD closeout mutations.
+- Merging PRs.
 - Deploying.
 - Executing trading, backtests, paper trading, or live workflows.
 - Storing secrets, credentials, raw transcripts, or private account data.

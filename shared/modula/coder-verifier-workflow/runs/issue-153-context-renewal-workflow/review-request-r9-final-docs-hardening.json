@@ -1,0 +1,37 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-153",
+  "purpose": "Checkpoint 6 final documentation/hardening review before final bug-check.",
+  "checkpoint": "6 - Documentation and final hardening",
+  "revision": 9,
+  "requested_action": "Verify final docs/hardening, steward cleanup, validation, future-role documentation, and readiness for final bug-check. If implementation is approved, proceed to final bug-check per workflow.",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/153"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/coder-handoff.md",
+  "changed_files": [
+    "docs/agentops-context-renewal.md",
+    "pi-packages/agentops-context-renewal/",
+    "scripts/agentops/pi-agent.sh",
+    "scripts/agentops/context-renewal-*.py",
+    "src/agentops_harness/context_renewal_*.py",
+    "tests/unit/test_context_renewal_*.py",
+    "term-control-center/tests/contextRenewal.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/"
+  ],
+  "validation_results": [
+    {"command": "git diff --check", "status": "passed"},
+    {"command": "PYTHONPATH=src python3 -m pytest tests/unit/test_context_renewal_resume.py tests/unit/test_context_renewal_boundary.py tests/unit/test_context_renewal_pack.py tests/unit/test_context_renewal_preflight.py", "status": "passed", "summary": "16 tests passed."},
+    {"command": "cd term-control-center && node --import /mnt/hyperliquid-data/projects/repos/agentops-harness/term-control-center/node_modules/tsx/dist/loader.mjs --test --test-concurrency=1 tests/contextRenewal.test.ts", "status": "passed", "summary": "5 tests passed."},
+    {"command": "python3 -m py_compile context renewal scripts/modules", "status": "passed"},
+    {"command": "git status --short --ignored | grep -E '(__pycache__|\\.pytest_cache)' || true", "status": "passed", "summary": "No cache artifacts after cleanup."}
+  ],
+  "finding_ids_addressed": [],
+  "steward_review": {
+    "decision": "cleanup_recommended_then_cleaned",
+    "request_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/steward-request-r9-final-hygiene.json",
+    "cleanup": "Removed generated pytest/Python cache directories; tracked unrelated issue-154 log left untouched."
+  },
+  "isolation_preflight": {"sender_identity": "coder@agentops-prd-153", "pi_coms_dir": "/tmp/agentops/coms/agentops-prd-153", "verifier_live": true},
+  "stop_condition": "Return compact verifier verdict JSON. On implementation approval, proceed to final bug-check."
+}

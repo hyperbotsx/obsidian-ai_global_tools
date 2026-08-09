@@ -1,0 +1,25 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Final default bug-check for completed PRD #46 implementation",
+  "expected_response": "Compact verifier verdict JSON only; full report at verifier-report.md if findings exist.",
+  "stop_condition": "Approve final bug-check or return bounded actionable bug findings.",
+  "checkpoint": "final bug-check",
+  "revision": 10,
+  "requested_action": "bug-check",
+  "prd_issue": "https://github.com/hyperbotsx/agentops-harness/issues/46",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-46-multi-project-admin-switching/coder-handoff.md",
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck: passed",
+    "npm --prefix term-control-center test: passed (200 tests)",
+    "npm --prefix term-control-center run build: passed",
+    "python3 -m py_compile pipeline-diagram/generate.py: passed",
+    "node --check pipeline-diagram/global-nav.js: passed",
+    "node --check pipeline-diagram/review-notify.js: passed",
+    "git diff --check: passed"
+  ],
+  "implementation_checkpoints_approved": [1, 2, 3, 4, 5],
+  "steward_review": "approved with no findings"
+}

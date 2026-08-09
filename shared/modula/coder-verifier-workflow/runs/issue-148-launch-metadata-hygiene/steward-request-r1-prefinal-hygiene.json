@@ -1,0 +1,19 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-148",
+  "purpose": "Pre-final hygiene/structure review before final verifier bug-check for issue 148",
+  "expected_response": "Concise markdown or JSON with clean/cleanup findings; do not edit files.",
+  "stop_condition": "Return clean or bounded cleanup recommendations for changed-file placement, run artifacts, generated output, and docs/tests hygiene.",
+  "canonical_issue": "https://github.com/hyperbotsx/agentops-harness/issues/148",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-148-launch-metadata-hygiene/coder-handoff.md",
+  "changed_areas": [
+    "src/agentops_harness launch metadata audit/repair/approval guardrails",
+    "term-control-center repair-and-launch server route/tests",
+    "pipeline-diagram board refresh and mirror diagnostics",
+    "docs/worktree-branch-ownership.md",
+    "tests/unit and term-control-center/tests",
+    "run artifacts under dev-plans/agentops/coder-verifier-workflow/runs/issue-148-launch-metadata-hygiene"
+  ]
+}

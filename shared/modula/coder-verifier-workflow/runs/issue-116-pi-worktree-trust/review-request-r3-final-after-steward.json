@@ -1,0 +1,34 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-116",
+  "purpose": "Final verifier closeout after required steward hygiene review returned clean.",
+  "expected_response": "Compact verifier verdict JSON; final bug-check status should remain passed or return bounded findings.",
+  "stop_condition": "Approve final closeout/bug-check or return bounded findings.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/116",
+  "checkpoint": "final after steward hygiene",
+  "revision": 1,
+  "requested_action": "final_closeout_recheck",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-116-pi-worktree-trust/coder-handoff.md",
+  "steward_response_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-116-pi-worktree-trust/steward-response-r1-final-hygiene.md",
+  "changed_files": [
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "dev-plans/agentops/open-prd-sweep-ledger-2026-06-28.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-116-pi-worktree-trust/"
+  ],
+  "validation_results": [
+    {
+      "command": "cd term-control-center && TMPDIR=$(mktemp -d) env -u TERM_CONTROL_CEO_REVIEW_WORKTREE -u TERM_CONTROL_CEO_REVIEW_REF -u TERM_CONTROL_CEO_REVIEW_ARTIFACT_ROOT -u TERM_CONTROL_BROWSER_USER_DATA_DIR -u TERM_CONTROL_BROWSER_STATE_DIR -u TERM_CONTROL_BROWSER_CDP_PORT -u TERM_CONTROL_BROWSER_CDP_PROXY_PORT -u TERM_CONTROL_BROWSER_VNC_PORT tsx --test tests/launchPlan.test.ts tests/workspaceTrust.test.ts tests/agentopsComsLabel.test.ts",
+      "result": "passed, 27 tests"
+    },
+    {
+      "command": "steward final hygiene",
+      "result": "clean; no cleanup needed"
+    }
+  ],
+  "finding_ids_addressed": [],
+  "report_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-116-pi-worktree-trust/verifier-report.md"
+}

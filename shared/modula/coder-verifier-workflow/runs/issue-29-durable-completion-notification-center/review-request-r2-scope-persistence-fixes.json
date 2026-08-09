@@ -1,0 +1,41 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Re-review PRD #29 checkpoint 1/2 after bounded fixes",
+  "expected_response": "Compact verifier verdict JSON matching schema; write full details to verifier-report.md",
+  "stop_condition": "Approve checkpoint or return bounded findings for revision",
+  "checkpoint": "1/2 - Scope + persistence contract",
+  "revision": 2,
+  "requested_action": "checkpoint_recheck",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/29",
+    "https://github.com/hyperbotsx/agentops-harness/issues/41"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-29-durable-completion-notification-center/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/completionStore.ts",
+    "term-control-center/server/completionRoutes.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/shared/completion.ts",
+    "term-control-center/tests/completion-server.test.ts",
+    "term-control-center/tests/completion-store.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-29-durable-completion-notification-center/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-29-durable-completion-notification-center/review-request-r1-scope-persistence.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-29-durable-completion-notification-center/review-request-r2-scope-persistence-fixes.json"
+  ],
+  "validation_results": [
+    { "command": "npm --prefix term-control-center run typecheck", "status": "passed" },
+    { "command": "npm --prefix term-control-center run test", "status": "passed", "summary": "149/149" },
+    { "command": "npm --prefix term-control-center run build", "status": "passed", "summary": "Vite emitted existing term-config/chunk-size warnings" },
+    { "command": "git diff --check", "status": "passed" },
+    { "command": "node --check pipeline-diagram/review-notify.js", "status": "not_run", "summary": "board notification scripts unchanged" }
+  ],
+  "finding_ids_addressed": [
+    "V29-CP1-001",
+    "V29-CP1-002",
+    "V29-CP1-003"
+  ],
+  "notes": "Bounded revision only: stronger token scrubbing, merge_ready lifecycle derivation/persistence test, and KISS split for signal serializer."
+}

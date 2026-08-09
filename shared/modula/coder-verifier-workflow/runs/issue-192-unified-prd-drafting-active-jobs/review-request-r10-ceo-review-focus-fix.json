@@ -1,0 +1,31 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-192",
+  "purpose": "Checkpoint 5 revision 10 review for issue #192 CEO review focus fix",
+  "checkpoint": "5 - CEO review handoff and close",
+  "revision": 10,
+  "requested_action": "Review bounded fix for F192-CP5-001: Board Term live modal now shows Launch CEO review for PRD authoring sessions, posts to /groups/:id/launch-ceo-review with created issue metadata, remembers the returned group, and opens/focuses the CEO review group.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/192"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/board.html",
+    "term-control-center/tests/terminalJobSidebar.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/review-request-r10-ceo-review-focus-fix.json"
+  ],
+  "validation_results": [
+    {
+      "command": "cd term-control-center && node --import tsx --test --test-name-pattern \"board CEO review handoff|hand off to CEO review|PRD review launch prompt|parallel PRD authoring drafts|parallel draft PRD Studio|logical draft job row|authoring launch failure|PRD Author launch prompt|pi-agent wrapper honors draft-scoped|PRD planning execute fails closed|seed-only drafts|unsafe pre-issue\" tests/server.test.ts tests/launchPlan.test.ts tests/agentopsComsLabel.test.ts tests/terminalJobSidebar.test.ts tests/launcher.test.ts && git diff --check",
+      "status": "passed",
+      "notes": "13 focused tests passed and diff check passed."
+    }
+  ],
+  "finding_ids_addressed": [
+    "F192-CP5-001"
+  ],
+  "stop_condition": "Verifier approves checkpoint 5 or returns bounded findings."
+}

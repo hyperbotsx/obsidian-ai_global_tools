@@ -1,0 +1,30 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Checkpoint 5 revision 9 review for PRD #57 vanilla focus-loop fix",
+  "expected_response": "Compact verifier verdict JSON matching the agreed schema",
+  "stop_condition": "Approve checkpoint 5 or request one bounded follow-up for the focus-loop fix only",
+  "checkpoint": "5 - Accessibility, keyboard, safe-area, touch-target, and embedded-mode checks",
+  "revision": 9,
+  "requested_action": "Review only the bounded V57-A11Y-001 fix in global-nav-ui.js.",
+  "issue": {
+    "number": 57,
+    "title": "B1-PRD: Responsive AgentOps Navigation Shell",
+    "url": "https://github.com/hyperbotsx/agentops-harness/issues/57"
+  },
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-57-responsive-navigation-shell/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/global-nav-ui.js"
+  ],
+  "validation_results": [
+    { "command": "node --check pipeline-diagram/global-nav-ui.js", "status": "passed" },
+    { "command": "npm --prefix term-control-center run typecheck", "status": "passed" },
+    { "command": "git diff --check", "status": "passed" }
+  ],
+  "finding_ids_addressed": [
+    "V57-A11Y-001"
+  ],
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-57-responsive-navigation-shell/coder-handoff.md"
+}

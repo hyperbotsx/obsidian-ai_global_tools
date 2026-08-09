@@ -1,0 +1,15 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Recheck cleanup for HYG-100-001 and HYG-100-002 before final verifier bug-check.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/100",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-100-board-liveness-freshness/coder-handoff.md",
+  "cleanup_done": [
+    "Deleted ignored cache artifacts: .pytest_cache/, pipeline-diagram/__pycache__/, src/agentops_harness/__pycache__/, tests/unit/__pycache__/.",
+    "Added verifier-report.md to the run-folder evidence/changed-file list in coder-handoff.md."
+  ],
+  "expected_response": "Plain text CLEAN or CLEANUP REQUESTED with finding IDs.",
+  "stop_condition": "Return clean or bounded remaining cleanup."
+}

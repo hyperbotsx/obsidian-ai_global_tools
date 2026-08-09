@@ -1,0 +1,49 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Phase 3 stale-agent roster checkpoint for issue 141",
+  "expected_response": "Compact verifier verdict JSON matching the response schema; write details to verifier-report.md",
+  "stop_condition": "Approve checkpoint or request bounded revision findings",
+  "checkpoint": "Phase 3 stale-agent roster checkpoint",
+  "revision": 1,
+  "requested_action": "Verify stale/recoverable prior sessions are hidden from normal active session counts, chip highlights, and current-run reopen paths, while remaining reachable only through explicit stale/recovery session UI without automatic deletion.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/141"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/board.html",
+    "term-control-center/tests/boardGuardrails.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/review-request-r18-phase3-stale-agent-roster.json"
+  ],
+  "validation_results": [
+    {
+      "command": "cd term-control-center && node --import tsx --test tests/boardGuardrails.test.ts",
+      "status": "pass",
+      "summary": "34 tests passed, including stale-session roster guardrail"
+    },
+    {
+      "command": "cd term-control-center && node --import tsx --test tests/launchPlan.test.ts tests/launcher.test.ts tests/boardGuardrails.test.ts",
+      "status": "pass",
+      "summary": "80 tests passed"
+    },
+    {
+      "command": "cd term-control-center && npm run typecheck",
+      "status": "pass",
+      "summary": "app/server TypeScript typecheck passed"
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "summary": "no whitespace errors"
+    }
+  ],
+  "finding_ids_addressed": [],
+  "notes": [
+    "Post-approval session closeout recheck is approved.",
+    "This checkpoint is scoped to board/session roster behavior; coms process discovery is still outside browser code and can be covered in security/final review if needed."
+  ]
+}

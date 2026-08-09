@@ -1,0 +1,48 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-277",
+  "purpose": "CP-1 revision 3 review for issue #277 notification event contract and Python router",
+  "expected_response": "Verdict JSON matching the verifier contract",
+  "stop_condition": "Approve CP-1 or request one bounded CP-1 revision",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-277-notification-backbone/coder-handoff.md",
+  "checkpoint": "CP-1 — FR-1/FR-2 event contract, taxonomy, router recording and delivery skeleton",
+  "revision": 3,
+  "requested_action": "Review V277-CP1-003 and V277-CP1-004 only. The lead disposition recorded in the handoff resolves V277-CP1-005 and excludes the three lead-owned docs commits from CP-1 scope. Verify real review-job job_id propagation, its integration regression, and review_item() KISS size.",
+  "issue_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/277"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-277-notification-backbone/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/activity_center_runtime.py",
+    "tests/unit/test_notification_router.py"
+  ],
+  "validation": [
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 -m pytest tests/unit/test_notification_router.py tests/unit/test_activity_center.py tests/unit/test_activity_state.py -q",
+      "result": "passed (31 passed)"
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 -m pytest tests -q",
+      "result": "pre-existing failure: tests/unit/test_completed_work.py::CompletedWorkTests::test_unlinked_merged_pr_emits_warning_row; 1311 passed, 60 subtests passed"
+    },
+    {
+      "command": "cd term-control-center && npm test",
+      "result": "blocked before execution: local tsx dependency absent"
+    },
+    {
+      "command": "cd term-control-center && npm run typecheck && npm run build",
+      "result": "blocked before compilation: local tsc dependency absent"
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed"
+    }
+  ],
+  "finding_ids_addressed": [
+    "V277-CP1-003",
+    "V277-CP1-004",
+    "V277-CP1-005"
+  ]
+}

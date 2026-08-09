@@ -44,7 +44,7 @@ description: Create, revise, or plan project-aware PRDs; shape requirements; dec
 **Entry criteria:** Phase 1 returned `needs_clarification`, or a drafting route has material gaps.
 
 1. Ask concise option-based questions where practical.
-2. Prioritize problem/outcome, affected areas, owner, dependencies, validation, preview/manual QA, and authority boundaries.
+2. Prioritize problem/outcome, affected areas, owner, dependencies, validation, preview/manual QA, Research-first surfaces, and authority boundaries.
 3. If enough context exists, state assumptions and continue rather than asking low-value questions.
 
 **Exit criteria:** Required facts are known, the draft can proceed under stated assumptions, or the workflow stops for the human answer.
@@ -77,8 +77,9 @@ description: Create, revise, or plan project-aware PRDs; shape requirements; dec
 
 1. Render the standard sections from [prd-template.md](prd-template.md).
 2. Apply relevant overlays from [domain-overlays.md](domain-overlays.md).
-3. Include allowed actions, forbidden actions, acceptance criteria, suggested validation, verifier checkpoints, dependencies, and an explicit non-approval statement.
-4. Keep GitHub issue URL and issue-numbered branch placeholders until the issue number exists.
+3. Include Research-first surfaces when volatile APIs, SDKs, auth schemes, rate limits, provider docs, or deprecation-prone endpoints need pre-implementation research.
+4. Include allowed actions, forbidden actions, acceptance criteria, suggested validation, verifier checkpoints, dependencies, implementation hygiene / Steward readiness, and an explicit non-approval statement.
+5. Keep GitHub issue URL and issue-numbered branch placeholders until the issue number exists.
 
 **Exit criteria:** A complete draft exists with all required global sections unless a section is explicitly not applicable.
 
@@ -87,7 +88,7 @@ description: Create, revise, or plan project-aware PRDs; shape requirements; dec
 **Entry criteria:** A draft PRD or split PRD plan exists.
 
 1. Run the checklist in [readiness-checklist.md](readiness-checklist.md).
-2. Fix missing non-goals, ownership, dependencies, acceptance criteria, validation, verifier checkpoints, forbidden actions, preview/manual QA, or approval boundaries.
+2. Fix missing non-goals, ownership, dependencies, acceptance criteria, validation, verifier checkpoints, implementation hygiene / Steward readiness, forbidden actions, preview/manual QA, or approval boundaries.
 3. If readiness depends on unknown facts, ask targeted questions instead of guessing.
 
 **Exit criteria:** The draft is implementation-ready for human review, or the workflow is blocked on specific missing information.
@@ -99,8 +100,9 @@ description: Create, revise, or plan project-aware PRDs; shape requirements; dec
 1. Follow [github-issue-workflow.md](github-issue-workflow.md).
 2. Create/update draft PRD issues only in the configured repository and GitHub Project.
 3. Keep CEO approval as No/Draft unless a separate CEO review workflow has explicitly approved it.
-4. Update the issue body with the final issue URL and issue-numbered branch name after issue creation.
-5. Do not create repo-local live PRD copies.
+4. Update the issue body with the final issue URL, exact `Worktree` metadata, and exact `Proposed working branch` metadata after issue creation.
+5. Set and read back the GitHub Project `Working Branch` and `Worktree Path` fields; do not leave a created or updated PRD launch-blocked on missing metadata.
+6. Do not create repo-local live PRD copies.
 
 **Exit criteria:** The GitHub issue and configured draft project fields reflect the reviewed PRD without setting approval fields.
 
@@ -131,5 +133,5 @@ description: Create, revise, or plan project-aware PRDs; shape requirements; dec
 - The route is explicit before drafting.
 - Profile-derived values are cited or unknown values are called out.
 - Split-scope work is recommended when safer than one PRD.
-- Full PRDs include metadata, status, problem, goal, non-goals, dependencies, requirements, allowed actions, forbidden actions, acceptance criteria, validation, verifier checkpoints, and non-approval statement.
-- GitHub writes happen only when requested and never set approval fields by default.
+- Full PRDs include metadata, status, problem, goal, non-goals, dependencies, optional Research-first surfaces, requirements, allowed actions, forbidden actions, acceptance criteria, validation, verifier checkpoints, implementation hygiene / Steward readiness, and non-approval statement.
+- GitHub writes happen only when requested, always include PRD launch metadata fields, and never set approval fields by default.

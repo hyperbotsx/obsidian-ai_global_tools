@@ -1,0 +1,28 @@
+# Coder Ready
+
+- Checkpoint: `8 - Coder/verifier launch profiles`
+- Revision: `15`
+- Requested verifier action: `review_revision`
+- Artifact folder: `dev-plans/agentops/coder-verifier-workflow/runs/term-control-center-21-phase1`
+- Coder handoff: `dev-plans/agentops/coder-verifier-workflow/runs/term-control-center-21-phase1/coder-handoff.md`
+- Changed files for this checkpoint/revision:
+  - `term-control-center/package.json`
+  - `term-control-center/src/App.tsx`
+  - `term-control-center/src/TerminalPane.tsx`
+  - `dev-plans/agentops/coder-verifier-workflow/runs/term-control-center-21-phase1/coder-handoff.md`
+  - `dev-plans/agentops/coder-verifier-workflow/runs/term-control-center-21-phase1/coder-ready.md`
+  - `dev-plans/agentops/coder-verifier-workflow/runs/term-control-center-21-phase1/decision-log.md`
+- Findings addressed:
+  - `TCC-PROFILE-001`: included pane `profile` in browser `INIT` credentials.
+  - `TCC-PROFILE-002`: added client/server `typecheck` script and made `build` run it.
+  - `TCC-KISS-002`: extracted smaller React helpers; `App.tsx` and `TerminalPane.tsx` are under 300 lines.
+- Validation:
+  - `npm --prefix term-control-center run typecheck`: pass
+  - `npm --prefix term-control-center run build`: pass
+  - `npm --prefix term-control-center run test`: pass
+  - `npm --prefix term-control-center audit --audit-level=moderate`: pass
+  - `git diff --check`: pass
+  - tokenized `node build/server/index.js` health smoke on `127.0.0.1:3042/health`: pass
+- Notes:
+  - Fresh browser state defaults to verifier-left/coder-right panes.
+  - Real pi launch requires `TERM_CONTROL_WORKTREE` pointing to a worktree with `scripts/agentops/pi-agent.sh`.

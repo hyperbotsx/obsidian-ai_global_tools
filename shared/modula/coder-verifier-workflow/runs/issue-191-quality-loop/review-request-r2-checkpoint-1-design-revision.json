@@ -1,0 +1,25 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-191",
+  "purpose": "Re-review the one bounded checkpoint 1 design revision.",
+  "expected_response": "Verdict JSON using the agreed schema.",
+  "stop_condition": "Approve the revised checkpoint 1 design or escalate to human if it still needs revision.",
+  "checkpoint": "1 — Context brief foundation design",
+  "revision": 2,
+  "requested_action": "design_revision_review",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/191"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-191-quality-loop/coder-handoff.md",
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-191-quality-loop/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-191-quality-loop/review-request-r1-checkpoint-1-design.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-191-quality-loop/review-request-r2-checkpoint-1-design-revision.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-191-quality-loop/verifier-report.md"
+  ],
+  "validation_results": [
+    "F191-C1D-001 addressed with deterministic input, precedence, fail-closed unknown/conflict behavior, and persisted decision contract.",
+    "F191-C1D-002 addressed with a canonical global-skill mapping and a minimal two-phase ready/retry/degraded transition contract."
+  ],
+  "finding_ids_addressed": ["F191-C1D-001", "F191-C1D-002"]
+}

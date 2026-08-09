@@ -1,0 +1,32 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-195",
+  "purpose": "Issue #195 final bug-check revision 2",
+  "expected_response": "Compact verifier verdict JSON matching schema; full report written to verifier-report.md",
+  "stop_condition": "Approve final bug-check fix or request bounded revision",
+  "checkpoint": "final bug-check",
+  "revision": 2,
+  "requested_action": "Review bounded fix for F195-BUG-R1-001 only.",
+  "prd_issue": "https://github.com/hyperbotsx/agentops-harness/issues/195",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-195-source-of-truth-wording/coder-handoff.md",
+  "review_request_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-195-source-of-truth-wording/review-request-r9-final-bug-fix.json",
+  "validation_results": [
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 -m pytest -q -p no:cacheprovider tests/unit/test_source_of_truth_wording_guardrail.py tests/unit/test_ceo_review_evonome_apply.py",
+      "result": "7 passed in 0.15s"
+    },
+    {
+      "command": "rg -n \"Project 2|projects/2|SoldierOne|#862\" README.md docs profiles pipeline-diagram src tests",
+      "result": "one explicit allowlisted legacy compatibility context: src/agentops_harness/ceo_review_evonome_apply.py:155"
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed"
+    }
+  ],
+  "finding_ids_addressed": [
+    "F195-BUG-R1-001"
+  ]
+}

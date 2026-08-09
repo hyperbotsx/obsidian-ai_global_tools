@@ -1,0 +1,63 @@
+{
+  "artifact_folder": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781098548546",
+  "branch": "feat/slack-lead-dev-scoped-answers-visible-replies-972",
+  "browser_qa_devtools_recommended": false,
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/session-1781098548546/",
+    "docs/slack-operator-gateway.md",
+    "src/agentops_harness/slack_gateway.py",
+    "src/agentops_harness/slack_gateway_cli.py",
+    "src/agentops_harness/slack_gateway_policy.py",
+    "tests/unit/test_slack_gateway.py",
+    "tests/unit/test_slack_gateway_policy.py"
+  ],
+  "devtools_mcp_prerequisites": {
+    "chrome": true,
+    "node": true,
+    "npm": true,
+    "npx": true
+  },
+  "files": {
+    "coder-handoff.md": {
+      "bytes": 9300,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781098548546/coder-handoff.md"
+    },
+    "coder-ready.md": {
+      "bytes": 2663,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781098548546/coder-ready.md"
+    },
+    "decision-log.md": {
+      "bytes": 3439,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781098548546/decision-log.md"
+    },
+    "verifier-report.md": {
+      "bytes": 9828,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781098548546/verifier-report.md"
+    },
+    "verifier-request.md": {
+      "bytes": 3689,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781098548546/verifier-request.md"
+    }
+  },
+  "handoff_missing_fields": [],
+  "hotspot_files": [],
+  "ready_missing_fields": [],
+  "repo_root": "/mnt/hyperliquid-data/projects/worktrees/agentops-harness",
+  "report_machine_status_missing": [],
+  "review_profiles": {},
+  "status_short": [
+    "## feat/slack-lead-dev-scoped-answers-visible-replies-972",
+    " M docs/slack-operator-gateway.md",
+    " M src/agentops_harness/slack_gateway.py",
+    " M src/agentops_harness/slack_gateway_cli.py",
+    " M src/agentops_harness/slack_gateway_policy.py",
+    " M tests/unit/test_slack_gateway.py",
+    " M tests/unit/test_slack_gateway_policy.py",
+    "?? dev-plans/agentops/coder-verifier-workflow/runs/session-1781098548546/"
+  ]
+}

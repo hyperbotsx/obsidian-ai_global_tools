@@ -1,0 +1,24 @@
+{
+  "type": "review_request",
+  "checkpoint": "2 - Four-role launch checkpoint",
+  "revision": 2,
+  "requested_action": "recheck_finding",
+  "prd": "https://github.com/hyperbotsx/agentops-harness/issues/24",
+  "issue": "https://github.com/hyperbotsx/agentops-harness/issues/24",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/board.html",
+    "scripts/agentops/pi-agent.sh",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/tests/completion-server.test.ts",
+    "term-control-center/tests/launcher.test.ts",
+    "term-control-center/tests/server.test.ts"
+  ],
+  "validation_results": [
+    { "command": "cd term-control-center && npm run typecheck", "result": "pass" },
+    { "command": "cd term-control-center && npm test", "result": "pass" },
+    { "command": "bash -n scripts/agentops/pi-agent.sh", "result": "pass" }
+  ],
+  "finding_ids_addressed": ["LAUNCH-24-C2-001"]
+}

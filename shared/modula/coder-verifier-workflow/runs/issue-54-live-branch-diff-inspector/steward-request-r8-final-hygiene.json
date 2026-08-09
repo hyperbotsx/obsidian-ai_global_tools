@@ -1,0 +1,43 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Final structure/hygiene review before verifier bug-check for issue #54 Live Branch Diff Inspector",
+  "expected_response": "Concise JSON or markdown: clean, or bounded cleanup recommendations with file paths.",
+  "stop_condition": "Confirm changed-file placement/run artifacts are steward-clean or list bounded cleanup actions.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-54-live-branch-diff-inspector/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/board.html",
+    "pipeline-diagram/deploy/ops.evono.me.nginx",
+    "term-control-center/src/DiffInspector.tsx",
+    "term-control-center/src/App.tsx",
+    "term-control-center/src/styles.css",
+    "term-control-center/tests/boardGuardrails.test.ts",
+    "term-control-center/tests/nginxProxy.test.ts",
+    "term-control-center/tests/termBasePath.test.ts",
+    "term-control-center/tests/diffState.test.ts",
+    "term-control-center/shared/blockedPaths.ts",
+    "term-control-center/shared/diff.ts",
+    "term-control-center/server/diffConfig.ts",
+    "term-control-center/server/diffFailure.ts",
+    "term-control-center/server/diffPaths.ts",
+    "term-control-center/server/diffParsers.ts",
+    "term-control-center/server/gitDiffReader.ts",
+    "term-control-center/server/diffState.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/preparePr.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-54-live-branch-diff-inspector/"
+  ],
+  "approved_checkpoints": [
+    "1 - Server API safety",
+    "2 - Git coverage",
+    "3 - UI/UX",
+    "4 - Prepare PR integration",
+    "5 - Visual QA checklist"
+  ],
+  "notes": [
+    "Pipeline-diagram changes are limited to completion action center Review diff affordance and hosted nginx proxy for the token-guarded diff endpoint.",
+    "No generated build/dist files are tracked; build output is ignored."
+  ]
+}

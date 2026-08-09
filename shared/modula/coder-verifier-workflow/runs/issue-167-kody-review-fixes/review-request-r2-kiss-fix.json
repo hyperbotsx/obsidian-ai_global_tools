@@ -1,0 +1,30 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-167",
+  "purpose": "Review bounded fix for verifier finding F167-KODY-R1-001.",
+  "checkpoint": "Kody review remediation",
+  "revision": 2,
+  "requested_action": "verify_finding_fix_and_bug_check",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/167"],
+  "pr_refs": ["https://github.com/hyperbotsx/agentops-harness/pull/183"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-167-kody-review-fixes/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/lane_plan.py",
+    "src/agentops_harness/review_server.py",
+    "tests/unit/test_lane_plan.py",
+    "tests/unit/test_review_server_coworker.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-167-kody-review-fixes/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-167-kody-review-fixes/review-request-r1-kody-fixes.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-167-kody-review-fixes/review-request-r2-kiss-fix.json"
+  ],
+  "validation_results": [
+    {"command": "PYTHONPATH=src pytest -q tests/unit/test_lane_plan.py tests/unit/test_slot_queues.py tests/unit/test_review_server_coworker.py", "status": "passed", "summary": "79 passed"},
+    {"command": "PYTHONPATH=src python3 -m compileall -q src/agentops_harness tests/unit/test_lane_plan.py tests/unit/test_slot_queues.py tests/unit/test_review_server_coworker.py", "status": "passed"},
+    {"command": "git diff --check", "status": "passed"},
+    {"command": "PYTHONPATH=src:. pytest -q", "status": "failed", "summary": "1075 passed; 4 unrelated environment/pre-existing failures in agent GitHub env/socket path tests"}
+  ],
+  "finding_ids_addressed": ["3495474596", "3495474693", "3495474800", "3495474924", "F167-KODY-R1-001"],
+  "stop_condition": "Approve implementation and bug-check, or request bounded revision with finding IDs."
+}

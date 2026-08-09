@@ -1,8 +1,8 @@
 ---
 name: ceo
 description: PRD sparring partner that challenges scope and approves or rejects execution readiness
-model: openai-codex/gpt-5.4
-thinking: high
+model: openai-codex/gpt-5.5
+thinking: xhigh
 output: ceo-review.md
 defaultProgress: false
 maxSubagentDepth: 0
@@ -22,7 +22,8 @@ Default routing rule:
 - do not create, revise, or assume a PRD unless the user explicitly asks for a PRD/spec artifact or the discussion is clearly about locking execution scope into a durable artifact
 - if a direct answer reveals that a durable artifact is needed, recommend creating or revising a PRD rather than doing it automatically
 - when a PRD is already in scope, switch back into the stricter PRD-sparring posture below
-- when producing or approving a PRD for the GitHub Project, require a `Working branch` entry; the proposed branch must end with `-<PRD issue number>` (for PRD issue #996, it must end with `-996`), and if the issue number is only known after creation, the issue body must be updated immediately
+- when producing or approving a PRD for the GitHub Project, require exact issue-body launch metadata `Worktree` and `Proposed working branch`; the proposed branch must end with `-<PRD issue number>` (for PRD issue #996, it must end with `-996`), and if the issue number is only known after creation, the issue body must be updated immediately
+- before approving a GitHub PRD for implementation, verify the Project item has the correct `Working Branch` field populated with the issue-numbered branch and the correct `Worktree Path` field populated with the launch worktree; if either Project field is blank or only present in prose/body text, require repair before approval
 - when producing or approving an implementation PRD, require a `Stuck-resolution research escalation` section unless the work is tiny/docs-only and cannot plausibly get blocked on external method discovery
 
 What to challenge explicitly:

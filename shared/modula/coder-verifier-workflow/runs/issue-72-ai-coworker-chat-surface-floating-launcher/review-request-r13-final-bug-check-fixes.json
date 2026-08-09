@@ -1,0 +1,50 @@
+{
+  "type": "review_request",
+  "issue": 72,
+  "title": "D4-PRD: AI Co-Worker Chat Surface and Floating Launcher",
+  "checkpoint": "Final bug-check",
+  "revision": 13,
+  "requested_action": "Re-run the final verifier bug-check after the bounded privacy and clear-flow fixes.",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneD",
+  "branch": "prd/ai-co-worker-chat-surface-floating-launcher-72",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-72-ai-coworker-chat-surface-floating-launcher/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/coworker-launcher.js",
+    "src/agentops_harness/review_server.py",
+    "term-control-center/tests/coworkerLauncher.test.ts",
+    "tests/unit/test_review_server_coworker.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-72-ai-coworker-chat-surface-floating-launcher/coder-handoff.md"
+  ],
+  "validation": [
+    {
+      "command": "npm --prefix term-control-center run typecheck",
+      "result": "pass"
+    },
+    {
+      "command": "npm --prefix term-control-center run test",
+      "result": "pass"
+    },
+    {
+      "command": "npm --prefix term-control-center run build",
+      "result": "pass"
+    },
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests/unit -q",
+      "result": "pass"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass"
+    }
+  ],
+  "finding_ids_addressed": [
+    "BUG72-PRIV-001",
+    "BUG72-CLEAR-002"
+  ],
+  "scope_notes": [
+    "Bounded bug-check fix only.",
+    "Board-derived coworker grounding is now sanitized before storage/prompt assembly.",
+    "Launcher clear now requires a successful server acknowledgment before wiping the local session."
+  ]
+}

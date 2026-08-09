@@ -1,0 +1,25 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-277",
+  "purpose": "Re-review CP-3 bounded fixes for V277-CP3-001 through V277-CP3-005",
+  "expected_response": "Verifier verdict JSON",
+  "stop_condition": "Approve CP-3 or return bounded findings",
+  "checkpoint": "CP-3",
+  "revision": 2,
+  "requested_action": "checkpoint-review",
+  "issue_refs": ["#277", "dev-plans/drafts/frd-f3-notification-backbone-planning-brief.md"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-277-notification-backbone/coder-handoff.md",
+  "changed_files": "Exact cumulative CP-3 inventory is in the handoff; revision 2 touches review_server.py, activity-center.js, global-nav.js, completion-center.js, activityFeeds.ts, focused tests, receipts, and run artifacts.",
+  "validation_results": {
+    "typecheck": "passed",
+    "focused_term": "105 passed",
+    "focused_python": "39 passed",
+    "build": "passed",
+    "browser_seen_smoke": "authenticated open cleared activity-unread 1 to 0",
+    "full_python": "1312 passed, 60 subtests; one baseline failure",
+    "full_node": "1111 passed; five baseline failures"
+  },
+  "finding_ids_addressed": ["V277-CP3-001", "V277-CP3-002", "V277-CP3-003", "V277-CP3-004", "V277-CP3-005"]
+}

@@ -1,0 +1,29 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-115",
+  "purpose": "Review checkpoint 4 for issue #115: operator-authorized Project field setup/repair flow.",
+  "expected_response": "Compact verifier verdict JSON per coms-transport.md; write full details to verifier-report.md.",
+  "stop_condition": "Return approved or revision_requested with finding IDs.",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-115-project-launch-metadata/coder-handoff.md",
+  "checkpoint": "4 - Setup/repair checkpoint",
+  "revision": 1,
+  "requested_action": "Verify missing Project fields fail closed by default and the new explicit setup command plans/executes creation of Working Branch and Worktree Path only with operator confirmation.",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/115"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-115-project-launch-metadata/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/prd_worktree_project.py",
+    "src/agentops_harness/cli.py",
+    "tests/unit/test_prd_worktree_project.py",
+    "term-control-center/server/launchMetadataFix.ts"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONPATH=src pytest -q tests/unit/test_prd_create.py tests/unit/test_prd_author_github.py tests/unit/test_prd_author.py tests/unit/test_ceo_review_evonome_apply.py tests/unit/test_prd_worktree_project.py",
+      "status": "passed",
+      "summary": "57 passed in 0.24s"
+    }
+  ],
+  "finding_ids_addressed": []
+}

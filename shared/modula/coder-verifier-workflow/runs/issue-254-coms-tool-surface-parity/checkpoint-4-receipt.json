@@ -1,0 +1,14 @@
+{
+  "issue": 254,
+  "checkpoint": "4 - Literal runtime checkpoint",
+  "revision": 2,
+  "timestamp": "2026-07-19T11:10:11Z",
+  "native_coder_identity": "coder@agentops-prd-254",
+  "verifier_identity": "verifier@agentops-prd-254",
+  "duplicate_roles": false,
+  "first_outbound_await": "timeout",
+  "same_correlation_final_await": "complete",
+  "same_correlation_final_get": "complete",
+  "verifier_decision": "needs_human",
+  "outcome": "needs_human"
+}

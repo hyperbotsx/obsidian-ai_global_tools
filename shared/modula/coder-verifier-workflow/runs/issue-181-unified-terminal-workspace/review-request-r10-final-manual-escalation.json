@@ -1,0 +1,30 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-181",
+  "purpose": "Re-review issue #181 checkpoint 6 with explicit manual QA environment blocker/escalation",
+  "expected_response": "Compact verifier verdict JSON per coms contract; write full findings to verifier-report.md",
+  "stop_condition": "Approve final regression if blocker handling is acceptable, or return needs_human for required operator preview",
+  "checkpoint": "6 - Final regression checkpoint",
+  "revision": 2,
+  "requested_action": "review",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/181"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-181-unified-terminal-workspace/coder-handoff.md",
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-181-unified-terminal-workspace/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-181-unified-terminal-workspace/manual-qa/manual-qa-blocker.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-181-unified-terminal-workspace/review-request-r10-final-manual-escalation.json"
+  ],
+  "validation_results": [
+    "Manual QA attempted but blocked: npm run dev:fake did not become ready due local tsx IPC EADDRINUSE; port 3032 already owned by an existing backend not started for this checkpoint; Vite-only preview was briefly started and stopped; no UI opened against uncontrolled backend to avoid creating/attaching real sessions",
+    "Manual QA blocker artifact: dev-plans/agentops/coder-verifier-workflow/runs/issue-181-unified-terminal-workspace/manual-qa/manual-qa-blocker.md",
+    "Prior focused validations remain PASS; full required commands remain blocked by pre-existing issues as recorded in handoff"
+  ],
+  "finding_ids_addressed": [
+    "F-181-FINAL-001"
+  ],
+  "notes": "This revision explicitly records the environment blocker and requests verifier decision. If manual QA cannot be bypassed, please return needs_human so coder can stop per workflow pending operator preview."
+}

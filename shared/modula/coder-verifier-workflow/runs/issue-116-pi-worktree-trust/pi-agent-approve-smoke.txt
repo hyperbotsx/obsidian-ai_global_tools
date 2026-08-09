@@ -1,0 +1,3 @@
+FAKE_PI_ARGS=--no-extensions -e npm:@giovani-junior-dev/pi-coms-local@0.1.1 --name coder --project agentops-prd-116 --append-system-prompt /home/hyperbots/.local/state/agentops/term-control-center/runtime/agentops-prd-116-fc0de7a90d1b/tmp/tmp.iGxs2SpK3P/skills/coder/SKILL.md --approve --model smoke-model --thinking low smoke prompt
+FAKE_PI_CWD=/mnt/hyperliquid-data/projects/worktrees/agentops-prd-116
+FAKE_PI_COMS_DIR=/tmp/agentops/coms/agentops-prd-116

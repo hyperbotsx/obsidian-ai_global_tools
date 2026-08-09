@@ -1,0 +1,44 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-118",
+  "purpose": "Final verifier bug-check for Issue #118",
+  "expected_response": "Compact verdict JSON per coms transport; write full findings to verifier-report.md only if not approved.",
+  "stop_condition": "Approve final bug-check or return bounded actionable findings.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/118",
+  "checkpoint": "final bug-check",
+  "revision": 1,
+  "requested_action": "Run final bug-check after checkpoints 1-7 approval, latest main sync, human visual validation, ledger update, and Steward cleanup.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-118-eisenhower-matrix/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/.gitignore",
+    "pipeline-diagram/README.md",
+    "pipeline-diagram/agentops-nav.js",
+    "pipeline-diagram/coworker-launcher.js",
+    "pipeline-diagram/generate.py",
+    "pipeline-diagram/matrix.html",
+    "src/agentops_harness/review_server.py",
+    "tests/unit/test_pipeline_board_generation.py",
+    "tests/unit/test_pipeline_generate.py",
+    "tests/unit/test_review_server_coworker.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-118-eisenhower-matrix/*",
+    "/mnt/hyperliquid-data/projects/repos/agentops-harness/dev-plans/agentops/open-prd-sweep-ledger-2026-06-28.md"
+  ],
+  "validation_results": [
+    {"command": "git rev-list --left-right --count HEAD...origin/main", "result": "0 0"},
+    {"command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest tests.unit.test_pipeline_generate", "result": "passed: 8 tests"},
+    {"command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src pytest -q -p no:cacheprovider tests/unit/test_pipeline_board_generation.py tests/unit/test_review_server_coworker.py", "result": "passed: 30 tests"},
+    {"command": "python3 pipeline-diagram/generate.py", "result": "passed: generated data for 10 open PRDs; no --issue used"},
+    {"command": "local HTTP smoke on alternate port 9876", "result": "matrix.html, board.html, pipeline.html, wip.html all 200 text/html"},
+    {"command": "git diff --check", "result": "passed"},
+    {"command": "cache recheck", "result": "pytest and __pycache__ paths absent"}
+  ],
+  "finding_ids_addressed": ["F118-R1-001", "F118-R8-001", "F118-R8-002", "F118-R9-001", "F118-R10-001"],
+  "steward_response_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-118-eisenhower-matrix/steward-response-r1.md",
+  "notes": [
+    "Human visual validation passed by operator report: 'it looks good'.",
+    "Shared sweep ledger was updated at the user-requested canonical repo path; it is outside this worktree and untracked in that checkout.",
+    "No PR should be created until final verifier bug-check approval and explicit human instruction."
+  ]
+}

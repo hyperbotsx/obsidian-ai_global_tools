@@ -1,0 +1,36 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Checkpoint 4 review for PRD #46: project-aware launch/session/completion metadata",
+  "expected_response": "Compact verifier verdict JSON per coms contract; full report at verifier-report.md if not approved.",
+  "stop_condition": "Approve launch/session/completion projectId metadata checkpoint or return bounded findings.",
+  "checkpoint": "4 - Project-aware launch/session/completion metadata",
+  "revision": 6,
+  "requested_action": "review",
+  "prd_issue": "https://github.com/hyperbotsx/agentops-harness/issues/46",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-46-multi-project-admin-switching/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/shared/completion.ts",
+    "term-control-center/server/adminRoutes.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/launchGroup.ts",
+    "term-control-center/server/completionStore.ts",
+    "term-control-center/server/completionRoutes.ts",
+    "term-control-center/tests/admin.test.ts",
+    "pipeline-diagram/board.html",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-46-multi-project-admin-switching/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-46-multi-project-admin-switching/review-request-r6-launch-metadata.json"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck: passed",
+    "cd term-control-center && HOME=$(mktemp -d) node --import tsx --test --test-concurrency=1 tests/admin.test.ts: passed (14 tests)",
+    "npm --prefix term-control-center test: passed (198 tests)",
+    "npm --prefix term-control-center run build: passed",
+    "node --check pipeline-diagram/global-nav.js: passed",
+    "git diff --check: passed"
+  ],
+  "finding_ids_addressed": []
+}

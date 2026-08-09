@@ -1,0 +1,30 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-211",
+  "purpose": "Final re-review of PRD #211 checkpoint 3 bounded fixes",
+  "checkpoint": "3 - Injection",
+  "revision": 3,
+  "requested_action": "Recheck F211-C3-001, F211-C3-004, F211-C3-005, F211-C3-007, F211-C3-KISS-002, and F211-C3-HANDOFF-001. Explicit recovery actions now use a fresh server action ID or validated retry header; only terminal attempts are cached; no-side-effect preflight failures remain retryable; retired recovery groups clear owned records. Runtime authority requires the exact human_recovery discriminant. Active project and live identity are reread after the awaited gate. PTY/runner throws return structured failures. Please adversarially probe later actions, same-header retry, transient gate recovery, forged authority, map/project changes during gate, and throwing PTY.",
+  "prd_ref": "https://github.com/hyperbotsx/agentops-harness/issues/211",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-211-terminal-orchestration-batch-resume/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/contextBriefTransition.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/launchGroup.ts",
+    "term-control-center/server/orchestrator/paneInjection.ts",
+    "term-control-center/server/orchestrator/paneInjectionGuard.ts",
+    "term-control-center/server/orchestrator/paneInjectionRunner.ts",
+    "term-control-center/tests/paneInjection.test.ts"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck: passed",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/paneInjection.test.ts: passed (19)",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 --test-name-pattern='fix-and-execute' tests/server.test.ts: passed (4)",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/contextBrief.test.ts: passed (6)",
+    "git diff --check: passed"
+  ],
+  "finding_ids_addressed": ["F211-C3-001", "F211-C3-004", "F211-C3-005", "F211-C3-007", "F211-C3-KISS-002", "F211-C3-HANDOFF-001"],
+  "stop_condition": "Return the compact verifier verdict; record detailed findings only in verifier-report.md."
+}

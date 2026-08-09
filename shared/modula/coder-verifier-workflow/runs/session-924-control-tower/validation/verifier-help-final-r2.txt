@@ -1,0 +1,16 @@
+usage: evonome-orchestrator-status [-h] [--format {markdown,json}]
+                                   [--project-owner PROJECT_OWNER]
+                                   [--project-number PROJECT_NUMBER]
+                                   [--project-limit PROJECT_LIMIT]
+                                   [--repo REPO] [--worktree WORKTREE]
+                                   [--timeout TIMEOUT]
+
+options:
+  -h, --help            show this help message and exit
+  --format {markdown,json}
+  --project-owner PROJECT_OWNER
+  --project-number PROJECT_NUMBER
+  --project-limit PROJECT_LIMIT
+  --repo REPO
+  --worktree WORKTREE
+  --timeout TIMEOUT

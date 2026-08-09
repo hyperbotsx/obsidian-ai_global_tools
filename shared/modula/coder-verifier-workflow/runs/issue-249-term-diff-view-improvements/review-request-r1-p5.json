@@ -1,0 +1,38 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-249",
+  "purpose": "P5 DIFF-4 verifier recheck and final bug-check for Issue #249",
+  "checkpoint": "P5 — DIFF-4 workflow/evidence",
+  "revision": 1,
+  "requested_action": "Recheck Steward cleanup, review DIFF-4 workflow/export implementation, and run the required final bug-check. Explicitly assess the recorded pending live-scale Browser QA evidence.",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/249"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-249-term-diff-view-improvements/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/src/DiffInspector.tsx",
+    "term-control-center/src/DiffFileRail.tsx",
+    "term-control-center/src/diffShortcuts.ts",
+    "term-control-center/src/diffKeyboardNavigation.ts",
+    "term-control-center/src/DiffReviewAids.tsx",
+    "term-control-center/src/diffPinExport.ts",
+    "term-control-center/shared/diffPins.ts",
+    "term-control-center/server/diffPinExport.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/src/styles.css",
+    "term-control-center/tests/diffPins.test.ts",
+    "term-control-center/tests/diffPinExport.test.ts",
+    "term-control-center/tests/diffShortcuts.test.ts",
+    "term-control-center/tests/termBasePath.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-249-term-diff-view-improvements/coder-handoff.md"
+  ],
+  "validation_results": [
+    "tests/diff*.test.ts + completion-routes.test.ts + termBasePath.test.ts — passed 159/159",
+    "npm --prefix term-control-center run build — passed (existing Vite warnings only)",
+    "Steward cleanup completed: ignored build/ and dist/ removed",
+    "git diff --check — passed"
+  ],
+  "finding_ids_addressed": [],
+  "expected_response": "Verifier verdict JSON matching the supplied schema",
+  "stop_condition": "Return final approval, revision_requested, or needs_human with report path."
+}

@@ -1,0 +1,75 @@
+{
+  "artifact_folder": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781082730825",
+  "branch": "prd/agentops-control-tower-web-dashboard-949",
+  "browser_qa_devtools_recommended": false,
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/session-1781027913960/coder-followup.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/session-1781027913960/verifier-preflight.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/session-1781082730825/",
+    "src/agentops_harness/cli.py",
+    "src/agentops_harness/control_tower_extended_views.py",
+    "src/agentops_harness/control_tower_model.py",
+    "src/agentops_harness/control_tower_scope.py",
+    "src/agentops_harness/control_tower_server.py",
+    "src/agentops_harness/control_tower_views.py",
+    "tests/unit/test_control_tower.py",
+    "tests/unit/test_control_tower_extended_views.py",
+    "tests/unit/test_control_tower_server.py",
+    "tests/unit/test_control_tower_views.py"
+  ],
+  "devtools_mcp_prerequisites": {
+    "chrome": true,
+    "node": true,
+    "npm": true,
+    "npx": true
+  },
+  "files": {
+    "coder-handoff.md": {
+      "bytes": 6372,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781082730825/coder-handoff.md"
+    },
+    "coder-ready.md": {
+      "bytes": 2318,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781082730825/coder-ready.md"
+    },
+    "decision-log.md": {
+      "bytes": 3180,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781082730825/decision-log.md"
+    },
+    "verifier-report.md": {
+      "bytes": 12881,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781082730825/verifier-report.md"
+    },
+    "verifier-request.md": {
+      "bytes": 3344,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781082730825/verifier-request.md"
+    }
+  },
+  "handoff_missing_fields": [],
+  "hotspot_files": [],
+  "ready_missing_fields": [],
+  "repo_root": "/mnt/hyperliquid-data/projects/worktrees/agentops-harness",
+  "report_machine_status_missing": [],
+  "review_profiles": {},
+  "status_short": [
+    "## prd/agentops-control-tower-web-dashboard-949",
+    " M dev-plans/agentops/coder-verifier-workflow/runs/session-1781027913960/coder-followup.md",
+    " M dev-plans/agentops/coder-verifier-workflow/runs/session-1781027913960/verifier-preflight.json",
+    " M src/agentops_harness/cli.py",
+    " M tests/unit/test_control_tower.py",
+    "?? dev-plans/agentops/coder-verifier-workflow/runs/session-1781082730825/",
+    "?? src/agentops_harness/control_tower_extended_views.py",
+    "?? src/agentops_harness/control_tower_model.py",
+    "?? src/agentops_harness/control_tower_scope.py",
+    "?? src/agentops_harness/control_tower_server.py",
+    "?? src/agentops_harness/control_tower_views.py",
+    "?? tests/unit/test_control_tower_extended_views.py",
+    "?? tests/unit/test_control_tower_server.py",
+    "?? tests/unit/test_control_tower_views.py"
+  ]
+}

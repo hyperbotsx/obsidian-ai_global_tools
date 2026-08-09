@@ -1,0 +1,17 @@
+{
+  "artifact_path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780928113108/coder-handoff.md",
+  "authority": "visibility_only_not_approval_or_evidence",
+  "branch": "prd/ai-maestro-coder-verifier-handoff-visibility-mirror-939",
+  "checkpoint": "Lead Developer status-summary review",
+  "event_id": "handoff-mirror:b3f6288e4488c3ba",
+  "event_type": "coder_handoff_ready",
+  "issue_url": "https://github.com/hyperbotsx/SoldierOne/issues/939",
+  "next_actor": "verifier",
+  "payload_policy": "small_metadata_only_no_secrets_no_transcripts",
+  "prd_number": 939,
+  "source_of_truth": "canonical_coder_verifier_artifact",
+  "status": "ready_for_verifier",
+  "summary": "coder handoff ready for Lead Developer status-summary review: ready_for_verifier",
+  "timestamp": "2026-06-08T14:45:10.095859Z",
+  "worktree": "/mnt/hyperliquid-data/projects/worktrees/agentops-harness"
+}

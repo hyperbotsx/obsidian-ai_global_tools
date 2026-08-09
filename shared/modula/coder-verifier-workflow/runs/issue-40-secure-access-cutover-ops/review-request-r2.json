@@ -1,0 +1,43 @@
+{
+  "type": "review-request",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "checkpoint": "PRD #40 v1 secure-access cutover operationalization",
+  "revision": 2,
+  "requested_action": "Re-review after isolating out-of-scope dirty work and rerunning validation. No live host mutation was performed.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/40",
+    "https://github.com/hyperbotsx/agentops-harness/pull/44"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-cutover-ops/coder-handoff.md",
+  "changed_files": [
+    "docs/secure-access-yubikey-webauthn.md",
+    "docs/runbooks/secure-access-identity.md",
+    "docs/runbooks/secure-access-deployment.md",
+    "docs/runbooks/secure-access-validation.md",
+    "config/templates/secure-access/authentik-agentops-identity.template.yaml",
+    "config/templates/secure-access/agentops-route-protection.template.yaml",
+    "config/templates/secure-access/authentik-agentops-route-authorization.template.py",
+    "config/templates/secure-access/nginx-agentops-authentik-forward-auth.template.conf",
+    "config/templates/secure-access/validate-secure-access-templates.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-cutover-ops/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-cutover-ops/review-request-r1.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-cutover-ops/review-request-r2.json"
+  ],
+  "validation_results": [
+    "python3 config/templates/secure-access/validate-secure-access-templates.py — passed",
+    "git diff --check — passed",
+    "secret-pattern scan over secure-access docs/templates and run artifact — passed",
+    "npm --prefix term-control-center test -- tests/nginxProxy.test.ts — passed; repository script ran 142 tests, all passed",
+    "git status --short --branch --untracked-files=all — dirty tree limited to secure-access docs/templates and this run artifact folder"
+  ],
+  "finding_ids_addressed": [
+    "V40-CUTOVER-R1-001",
+    "V40-CUTOVER-R1-002"
+  ],
+  "notes": [
+    "Out-of-scope launch-profile work was preserved in git stash: stash@{0} out-of-scope launch-profile work before issue-40 secure-access review.",
+    "No live host mutation was performed."
+  ],
+  "report_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-40-secure-access-cutover-ops/verifier-report.md"
+}

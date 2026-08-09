@@ -1,0 +1,25 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-148",
+  "purpose": "Issue 148 checkpoints 2-4 revision 5 cross-PRD lease fix",
+  "expected_response": "Compact verdict JSON matching the provided schema; write full findings to verifier-report.md if not approved.",
+  "stop_condition": "Approve checkpoints 2-4 or request one bounded revision with finding IDs.",
+  "canonical_issue": "https://github.com/hyperbotsx/agentops-harness/issues/148",
+  "checkpoint": "2-4 - Single repair, bulk repair, safety/fail-closed",
+  "revision": 5,
+  "requested_action": "Review bounded fix for F148-R4-001.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-148-launch-metadata-hygiene/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/prd_launch_metadata_repair.py",
+    "tests/unit/test_prd_launch_metadata_repair.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-148-launch-metadata-hygiene/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-148-launch-metadata-hygiene/review-request-r5-cross-prd-lease-fix.json"
+  ],
+  "validation_results": [
+    "PYTHONPATH=src:. python3 -m pytest tests/unit/test_prd_launch_metadata_repair.py tests/unit/test_prd_launch_metadata_audit.py tests/unit/test_cli.py: passed (71 tests)",
+    "git diff --check: passed"
+  ],
+  "finding_ids_addressed": ["F148-R4-001"]
+}

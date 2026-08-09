@@ -1,0 +1,50 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-101",
+  "checkpoint": "Token expiry/refresh validation controls",
+  "revision": 4,
+  "requested_action": "bug_check_fix_review",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/101"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "previous_report_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/verifier-report.md",
+  "changed_files": [
+    "src/agentops_harness/kodus_token_smoke.py",
+    "tests/unit/test_kodus_token_smoke.py",
+    "docs/kodus-token-lifecycle.md",
+    "docs/kodus-kody-sprint1-advisory-pilot.md",
+    "pyproject.toml",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r38-token-lifecycle-controls.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r39-token-lifecycle-revision.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r40-token-lifecycle-revision2.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r41-token-lifecycle-bug-check.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r42-token-lifecycle-bug-fix.json"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONPATH=src python3 -m unittest tests.unit.test_kodus_token_smoke tests.unit.test_kodus_debt tests.unit.test_kodus_agent tests.unit.test_kodus_sprint0 tests.unit.test_kodus_max_gateway tests.unit.test_activity_center",
+      "status": "passed",
+      "note": "46 tests"
+    },
+    {
+      "command": "PYTHONPATH=src python3 -m py_compile src/agentops_harness/kodus_token_smoke.py src/agentops_harness/kodus_debt.py src/agentops_harness/kodus_agent.py",
+      "status": "passed"
+    },
+    {
+      "command": "AST KISS check for kodus_token_smoke.py and kodus_debt.py",
+      "status": "passed"
+    },
+    {
+      "command": "git diff --check",
+      "status": "passed"
+    }
+  ],
+  "finding_ids_addressed": [
+    "BUG-TK5-001"
+  ],
+  "summary": "Fixed BUG-TK5-001 by stripping all token aliases including stale KODUS_GITHUB_TOKEN from child gh env before setting only selected GH_TOKEN/GITHUB_TOKEN. Added custom --token-env GH_TOKEN regression coverage."
+}

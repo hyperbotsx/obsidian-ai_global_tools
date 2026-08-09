@@ -1,0 +1,34 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Checkpoint 5 review for PRD #57 accessibility/embedded-mode behavior",
+  "expected_response": "Compact verifier verdict JSON matching the agreed schema",
+  "stop_condition": "Approve or request one bounded revision for checkpoint 5 only",
+  "checkpoint": "5 - Accessibility, keyboard, safe-area, touch-target, and embedded-mode checks",
+  "revision": 8,
+  "requested_action": "Review the keyboard/focus-return/current-page/embedded-mode changes only.",
+  "issue": {
+    "number": 57,
+    "title": "B1-PRD: Responsive AgentOps Navigation Shell",
+    "url": "https://github.com/hyperbotsx/agentops-harness/issues/57"
+  },
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-57-responsive-navigation-shell/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/global-nav-ui.js",
+    "pipeline-diagram/global-nav.js",
+    "pipeline-diagram/completion-center.js",
+    "term-control-center/src/navigation/TopNav.tsx",
+    "term-control-center/src/styles.css"
+  ],
+  "validation_results": [
+    { "command": "npm --prefix term-control-center run typecheck", "status": "passed" },
+    { "command": "node --check pipeline-diagram/global-nav.js", "status": "passed" },
+    { "command": "node --check pipeline-diagram/global-nav-ui.js", "status": "passed" },
+    { "command": "node --check pipeline-diagram/completion-center.js", "status": "passed" },
+    { "command": "git diff --check", "status": "passed" }
+  ],
+  "finding_ids_addressed": [],
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-57-responsive-navigation-shell/coder-handoff.md"
+}

@@ -1,0 +1,37 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Final hygiene/placement review before PRD #56 verifier bug-check",
+  "expected_response": "Concise JSON or markdown with clean/cleanup recommendations; do not edit files.",
+  "stop_condition": "Return clean or bounded cleanup recommendations for file placement, run artifacts, generated outputs, and steward hygiene.",
+  "context": {
+    "issue": 56,
+    "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/coder-handoff.md",
+    "approved_checkpoints": [1, 2, 3, 4, 5, 6, 7],
+    "changed_files": [
+      "term-control-center/shared/diff.ts",
+      "term-control-center/server/gitDiffReader.ts",
+      "term-control-center/server/diffTestHints.ts",
+      "term-control-center/src/diffReviewState.ts",
+      "term-control-center/src/diffOutline.ts",
+      "term-control-center/src/diffRisk.ts",
+      "term-control-center/src/DiffReviewAids.tsx",
+      "term-control-center/src/DiffPatchView.tsx",
+      "term-control-center/src/DiffInspector.tsx",
+      "term-control-center/src/styles.css",
+      "term-control-center/tests/diffReviewState.test.ts",
+      "term-control-center/tests/diffOutline.test.ts",
+      "term-control-center/tests/diffRisk.test.ts",
+      "term-control-center/tests/diffTestHints.test.ts",
+      "term-control-center/tests/termBasePath.test.ts",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/"
+    ],
+    "validation_summary": [
+      "typecheck passed repeatedly",
+      "focused tests passed through checkpoint 7",
+      "git diff --check passed"
+    ]
+  }
+}

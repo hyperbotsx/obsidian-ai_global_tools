@@ -1,0 +1,35 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Checkpoint 5 review for PRD #56 read-surface safety",
+  "expected_response": "JSON verdict matching the provided schema; update full details in verifier-report.md.",
+  "stop_condition": "Approve checkpoint 5 or return bounded findings for read-surface safety only.",
+  "request": {
+    "issue": 56,
+    "issue_url": "https://github.com/hyperbotsx/agentops-harness/issues/56",
+    "checkpoint": "5 - Read-surface safety: operates on #54 payload/safe read path, reuses blocked-path module, no unguarded reads",
+    "revision": 7,
+    "requested_action": "checkpoint_review",
+    "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/coder-handoff.md",
+    "changed_files": [
+      "term-control-center/server/diffTestHints.ts",
+      "term-control-center/tests/diffTestHints.test.ts",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/coder-handoff.md",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/review-request-r7-checkpoint-5-read-safety.json"
+    ],
+    "validation_results": [
+      { "command": "npm --prefix term-control-center run typecheck", "result": "passed" },
+      { "command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/diffTestHints.test.ts tests/diffState.test.ts", "result": "passed (10/10)" },
+      { "command": "git diff --check", "result": "passed" }
+    ],
+    "finding_ids_addressed": [],
+    "notes": [
+      "Outline/risk helpers operate only on the selected #54 diff payload in memory.",
+      "Test hints read package.json only after a changed file is normalized within the verified worktree; candidate test paths are also normalized before existence checks.",
+      "The shared blocked-path module skips blocked changed paths and candidate test paths.",
+      "No raw package scripts, test contents, code, or diffs are returned or persisted by this checkpoint."
+    ]
+  }
+}

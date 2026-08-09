@@ -1,0 +1,29 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-249",
+  "purpose": "Re-review Issue #249 P4 / DIFF-3 renderer revision 3",
+  "checkpoint": "P4 — DIFF-3 renderer",
+  "revision": 3,
+  "requested_action": "Verify the final V249-P4-003 same-hunk stable-key correction and ensure P4 remains otherwise approved-scope only.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/249",
+    "/home/hyperbots/.local/state/agentops/term-control-center/runtime/agentops-prd-249-d3da57bf19fa/artifacts/project-context-brief.md"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-249-term-diff-view-improvements/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/src/diffPatchRows.ts",
+    "term-control-center/tests/diffPatchRows.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-249-term-diff-view-improvements/coder-handoff.md"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck — passed via build",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/diff*.test.ts — passed 86/86",
+    "npm --prefix term-control-center run build — passed (existing Vite warnings only)",
+    "git diff --check — passed"
+  ],
+  "finding_ids_addressed": ["V249-P4-003"],
+  "expected_response": "Verifier verdict JSON matching the supplied schema",
+  "stop_condition": "Return approved, revision_requested, or needs_human with report path."
+}

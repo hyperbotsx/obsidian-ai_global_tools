@@ -1,0 +1,19 @@
+{
+  "type": "review_request",
+  "checkpoint": "1 - UX contract checkpoint",
+  "revision": 1,
+  "requested_action": "initial_review",
+  "prd": "https://github.com/hyperbotsx/agentops-harness/issues/24",
+  "issue": "https://github.com/hyperbotsx/agentops-harness/issues/24",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/coder-handoff.md",
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/ux-contract-checkpoint.md"
+  ],
+  "validation_results": [
+    { "command": "gh issue view 24 --json number,title,body,state,labels,assignees,url", "result": "pass" },
+    { "command": "git status --short --branch", "result": "pass" },
+    { "command": "researcher freshness consult for PRD-named surfaces", "result": "pass" }
+  ],
+  "finding_ids_addressed": []
+}

@@ -1,0 +1,25 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Structure/hygiene review before PRD #60 final verifier bug-check",
+  "expected_response": "JSON or concise markdown with clean/cleanup recommendations and finding IDs if any.",
+  "stop_condition": "Return clean or bounded cleanup recommendations.",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-60-admin-panel-polish/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/adminAssets.ts",
+    "term-control-center/server/adminCss.ts",
+    "term-control-center/server/adminClient.ts",
+    "term-control-center/server/adminHtml.ts",
+    "term-control-center/server/adminRoutes.ts",
+    "term-control-center/tests/admin.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-60-admin-panel-polish/"
+  ],
+  "focus": [
+    "new admin asset/html module placement",
+    "run artifact placement",
+    "KISS/file-size hygiene",
+    "no generated build output or temporary files"
+  ]
+}

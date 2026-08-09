@@ -1,0 +1,29 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Review bounded revision for F138-R1-001 launch hygiene finding.",
+  "expected_response": "Verifier verdict JSON per coms contract; write full details to verifier-report.md.",
+  "stop_condition": "Approve revision or return bounded findings.",
+  "checkpoint": "Issue 138 CP10 launch hygiene revision",
+  "revision": 2,
+  "requested_action": "finding_fix_review",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/138"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-138-browser-qa-completion-action/coder-handoff.md",
+  "changed_files": [
+    "scripts/agentops/pi-agent.sh",
+    "term-control-center/server/implementationWorktreeSync.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/tests/implementationWorktreeSync.test.ts",
+    "term-control-center/tests/launcher.test.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-138-browser-qa-completion-action/coder-handoff.md"
+  ],
+  "validation_results": [
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/implementationWorktreeSync.test.ts tests/launchPlan.test.ts tests/launcher.test.ts && npm run typecheck — pass",
+    "cd term-control-center && npm run typecheck — pass"
+  ],
+  "finding_ids_addressed": ["F138-R1-001"],
+  "report_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-138-browser-qa-completion-action/verifier-report.md"
+}

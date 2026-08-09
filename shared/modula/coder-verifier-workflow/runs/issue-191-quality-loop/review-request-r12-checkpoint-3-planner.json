@@ -1,0 +1,30 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-191",
+  "purpose": "Review checkpoint 3 planner configured-Claude default and plan-mode fallback.",
+  "checkpoint": "3 — Planner default update",
+  "revision": 1,
+  "requested_action": "implementation_checkpoint_review",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/191"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-191-quality-loop/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/launchProfiles.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/server/rolePrompts.ts",
+    "term-control-center/server/delegationPrompts.ts",
+    "term-control-center/tests/launchProfiles.test.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "pipeline-diagram/board.html",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-191-quality-loop/"
+  ],
+  "validation_results": [
+    "typecheck passed",
+    "launch profile and launch plan tests passed (32 tests)",
+    "git diff --check passed",
+    "temporary node_modules removed"
+  ],
+  "finding_ids_addressed": []
+}

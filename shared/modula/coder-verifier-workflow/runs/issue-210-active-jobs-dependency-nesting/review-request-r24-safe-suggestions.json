@@ -1,0 +1,29 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-210",
+  "purpose": "Issue #210 safe grouping-suggestions checkpoint",
+  "checkpoint": "3 - Collapsible grouping operator aids",
+  "revision": 24,
+  "requested_action": "Verify PRD requirement 36: title-keyword folder suggestions are deterministic and exclude already grouped jobs; they remain project-scoped and do not create folders, dependencies, sessions, GitHub mutations, or other state until the operator explicitly clicks Create.",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/210"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-210-active-jobs-dependency-nesting/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/src/folderSuggestions.ts",
+    "term-control-center/src/JobFolderSuggestions.tsx",
+    "term-control-center/src/JobSidebar.tsx",
+    "term-control-center/src/JobFolder.css",
+    "term-control-center/tests/folderSuggestions.test.ts",
+    "term-control-center/tests/terminalJobSidebar.test.ts",
+    "docs/agentops-terminal-sessions.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-210-active-jobs-dependency-nesting/coder-handoff.md"
+  ],
+  "validation_results": [
+    {"command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/folderSuggestions.test.ts tests/terminalJobSidebar.test.ts tests/jobGrouping.test.ts tests/jobFolderActions.test.ts", "status": "pass", "summary": "49/49"},
+    {"command": "cd term-control-center && npm run typecheck", "status": "pass"},
+    {"command": "git diff --check", "status": "pass"}
+  ],
+  "finding_ids_addressed": [],
+  "stop_condition": "Return compact verdict JSON; write details to verifier-report.md only for non-approval."
+}

@@ -1,0 +1,39 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-231",
+  "purpose": "Issue #231 checkpoint 4 revision 1 review retry",
+  "checkpoint": "4 - Inbound mechanism + transparency",
+  "revision": 1,
+  "attempt": 2,
+  "requested_action": "The prior checkpoint-4 review response was not valid against the required JSON schema and did not update verifier-report.md. Please perform the same bounded checkpoint-4 review and return only the compact verdict schema. Review active-turn native await-loop startup/transparency, 30-second await, timeout resume, same-msg_id coms_respond, no coms_send reply/prompt injection/background loop, and preserved browser/role/human gates.",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/231", "docs/coms-wire-contract.md"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/coder-handoff.md",
+  "prior_request_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/review-request-r1-checkpoint-4.json",
+  "changed_files": ["term-control-center/server/delegationPrompts.ts", "term-control-center/server/launchPlan.ts", "term-control-center/tests/nativeClaudeLaunchPlan.test.ts"],
+  "validation_results": [
+    {"command": "cd term-control-center && node --import tsx --test tests/nativeClaudeLaunchPlan.test.ts tests/launchPlan.test.ts tests/frontendBrowserLaunch.test.ts", "status": "passed", "notes": "33 focused tests."},
+    {"command": "npm --prefix term-control-center run typecheck", "status": "passed"},
+    {"command": "npm --prefix term-control-center run build:server", "status": "passed"},
+    {"command": "npm --prefix term-control-center run test", "status": "blocked", "notes": "597 passed; unchanged 20 baseline failures."},
+    {"command": "git diff --check", "status": "passed"}
+  ],
+  "finding_ids_addressed": [],
+  "stop_condition": "Return a schema-valid checkpoint-4 verdict; do not begin checkpoint 5.",
+  "response_schema": {
+    "type": "object",
+    "required": ["decision", "checkpoint_reviewed", "revision_reviewed", "open_findings", "finding_ids", "bug_check_status", "next_actor", "report_path"],
+    "properties": {
+      "decision": {"type": "string", "enum": ["approved", "revision_requested", "needs_human"]},
+      "checkpoint_reviewed": {"type": "string"},
+      "revision_reviewed": {"type": "integer"},
+      "open_findings": {"type": "integer", "minimum": 0},
+      "finding_ids": {"type": "array", "items": {"type": "string"}},
+      "bug_check_status": {"type": "string"},
+      "next_actor": {"type": "string"},
+      "report_path": {"type": "string"}
+    },
+    "additionalProperties": false
+  }
+}

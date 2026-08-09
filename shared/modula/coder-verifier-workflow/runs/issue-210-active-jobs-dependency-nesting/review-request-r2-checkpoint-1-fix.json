@@ -1,0 +1,23 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-210",
+  "purpose": "Focused revision review for Issue #210 dependency state model",
+  "checkpoint": "1 - State model checkpoint",
+  "revision": 2,
+  "requested_action": "Verify the bounded fix for F210-CP1-001: enforce one blocker per dependent; preserve the first valid persisted edge; and release only the resolved edge. Write details to verifier-report.md only if a revision is needed.",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/210"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-210-active-jobs-dependency-nesting/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/jobDependencyStore.ts",
+    "term-control-center/tests/jobDependencyStore.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-210-active-jobs-dependency-nesting/coder-handoff.md"
+  ],
+  "validation_results": [
+    {"command": "focused dependency-store test", "status": "pass", "summary": "5/5 passed after fix"},
+    {"command": "git diff --check", "status": "pass", "summary": "No whitespace errors"}
+  ],
+  "finding_ids_addressed": ["F210-CP1-001"],
+  "stop_condition": "Return the compact verdict JSON; report only non-approval details to the run-folder verifier-report.md."
+}

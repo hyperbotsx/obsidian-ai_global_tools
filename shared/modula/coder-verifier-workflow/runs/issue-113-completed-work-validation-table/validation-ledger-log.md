@@ -1,0 +1,56 @@
+# Validation Ledger Log — Issue #113
+
+- 2026-06-29 — Implementation started for Completed-Work Validation Table.
+  - Scope: static completed-work table, generated completed data, local validation-state store, per-row Browser-QA wiring.
+  - Research freshness consult completed before implementation.
+- 2026-06-29 — Validation checkpoint.
+  - PASS: `npm --prefix term-control-center run typecheck`
+  - PASS: `cd term-control-center && node --import tsx --test tests/completedValidationStore.test.ts tests/completedStatic.test.ts tests/launchProjectFallback.test.ts` (10 tests after R3)
+  - PASS: `python3 -m py_compile pipeline-diagram/generate.py pipeline-diagram/completed_work.py pipeline-diagram/deploy/sync-public-assets.py pipeline-diagram/deploy/asset-smoke-check.py`
+  - PASS: `python3 tests/unit/test_completed_work.py`
+  - PASS: `python3 pipeline-diagram/deploy/sync-public-assets.py --root pipeline-diagram --check` after data generation
+  - PASS: `npm --prefix term-control-center run build`
+  - PARTIAL/ENV: full `npm --prefix term-control-center run test` timed out with existing launch/runtime fixture failures outside this scope.
+  - BLOCKED on later generator rerun: GitHub API rate limit exceeded; earlier generator pass produced ignored completed data with 51 rows.
+- 2026-06-29 — Verifier revision 3 decision: `needs_human`.
+  - Open finding F113-R1-002: approved PRD requires actual Browser-QA report link plus advisory pass/fail proposal/rationale surfaced on the row; current implementation only records pending report state after launch.
+  - Human chose to continue under original PRD and implement the report/proposal completion path.
+- 2026-06-29 — Revision 4 report/proposal path implemented.
+  - PASS: `cd term-control-center && node --import tsx --test tests/completedValidationStore.test.ts tests/completedStatic.test.ts tests/completedBrowserQaReport.test.ts tests/launchProjectFallback.test.ts` (13 tests)
+  - PASS: `python3 tests/unit/test_completed_work.py`
+  - PASS: `npm --prefix term-control-center run build`
+  - PASS: `git diff --check`
+  - PASS: `python3 pipeline-diagram/deploy/sync-public-assets.py --root pipeline-diagram --check`
+- 2026-06-29 — Revision 5 fail-closed worktree evidence fix.
+  - PASS: `cd term-control-center && node --import tsx --test tests/completedValidationStore.test.ts tests/completedStatic.test.ts tests/completedBrowserQa.test.ts tests/completedBrowserQaReport.test.ts tests/launchProjectFallback.test.ts` (15 tests)
+  - PASS: `python3 tests/unit/test_completed_work.py`
+  - PASS: `npm --prefix term-control-center run build`
+  - PASS: `git diff --check`
+- 2026-06-29 — Final bug-check fixes for report serving and stale-report baseline.
+  - PASS: `cd term-control-center && node --import tsx --test tests/completedValidationStore.test.ts tests/completedStatic.test.ts tests/completedBrowserQa.test.ts tests/completedBrowserQaReport.test.ts tests/launchProjectFallback.test.ts` (17 tests)
+  - PASS: `python3 tests/unit/test_completed_work.py`
+  - PASS: `npm --prefix term-control-center run build`
+  - PASS: `git diff --check`
+  - PASS: `python3 pipeline-diagram/deploy/sync-public-assets.py --root pipeline-diagram --check`
+- 2026-06-29 — Final verifier bug-check approved.
+  - PASS: verifier final bug-check revision 7 (`bug_check_status: passed`, open findings 0)
+- 2026-06-29 — Post-PR origin/main refresh after PR #156 merged.
+  - PASS: merged latest `origin/main` into `prd/c2-prd-completed-work-validation-table-113` with no conflicts.
+  - PASS: `npm --prefix term-control-center run typecheck`
+  - PASS: `cd term-control-center && node --import tsx --test tests/completedValidationStore.test.ts tests/completedStatic.test.ts tests/completedBrowserQa.test.ts tests/completedBrowserQaReport.test.ts tests/launchProjectFallback.test.ts` (17 tests)
+  - PASS: `python3 tests/unit/test_completed_work.py`
+  - PASS: `npm --prefix term-control-center run build`
+  - PASS: `python3 pipeline-diagram/deploy/sync-public-assets.py --root pipeline-diagram --check`
+  - PASS: `git diff --check`
+  - PASS: `cd pipeline-diagram && python3 generate.py` (8 open PRDs, 0 in progress, 54 completed)
+- 2026-06-29 — Post-refresh R8 bug-check fixes.
+  - Fixed F113-R8-001 with server-issued Browser-QA launch baseline instead of browser client clock.
+  - Fixed F113-R8-002 by classifying `major` Browser-QA findings as advisory fail; minor/note remain non-failing.
+  - PASS: `npm --prefix term-control-center run typecheck`
+  - PASS: `cd term-control-center && node --import tsx --test tests/completedValidationStore.test.ts tests/completedStatic.test.ts tests/completedBrowserQa.test.ts tests/completedBrowserQaReport.test.ts tests/launchProjectFallback.test.ts` (18 tests)
+  - PASS: `python3 tests/unit/test_completed_work.py`
+  - PASS: `npm --prefix term-control-center run build`
+  - PASS: `python3 pipeline-diagram/deploy/sync-public-assets.py --root pipeline-diagram --check`
+  - PASS: `git diff --check`
+- 2026-06-29 — Post-refresh verifier recheck approved.
+  - PASS: verifier post-origin/main refresh bug-check revision 9 (`bug_check_status: passed`, open findings 0)

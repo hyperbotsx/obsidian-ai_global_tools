@@ -1,0 +1,28 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-117",
+  "purpose": "Final bug-check re-review for F117-R3-001 in PRD #117.",
+  "expected_response": "Compact verifier verdict JSON per coms-transport.md; write full report to verifier-report.md if findings exist.",
+  "stop_condition": "Approve final bug-check or return bounded actionable bug findings.",
+  "checkpoint": "final-bug-check",
+  "revision": 4,
+  "requested_action": "Review only F117-R3-001 fix and focused tests: diagnostics redaction now covers cookie/session-style query keys in effective allowlist patterns and redacted MCP launch args.",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/117"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-117-browser-qa-hosted-allowlists/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/frontendBrowserLaunch.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "dev-plans/agentops/open-prd-sweep-ledger-2026-06-28.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-117-browser-qa-hosted-allowlists/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-117-browser-qa-hosted-allowlists/review-request-r4-f117-r3-001.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-117-browser-qa-hosted-allowlists/verifier-report.md"
+  ],
+  "validation_results": [
+    {"command": "git diff --check", "status": "pass", "summary": "No whitespace errors."},
+    {"command": "clean-env shared-tsx Browser QA focused launchPlan tests", "status": "pass", "summary": "4/4 Browser-QA subtests passed after F117-R3-001 fix."},
+    {"command": "clean-env shared-tsx frontendBrowserLaunch and launchPlan tests", "status": "pass", "summary": "27/27 subtests passed after F117-R3-001 fix."}
+  ],
+  "finding_ids_addressed": ["F117-R3-001"]
+}

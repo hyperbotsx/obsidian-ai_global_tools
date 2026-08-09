@@ -1,0 +1,31 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-191",
+  "purpose": "Review checkpoint 1 context-brief implementation.",
+  "expected_response": "Verdict JSON using the agreed schema.",
+  "stop_condition": "Approve checkpoint 1 or return bounded findings for human escalation under the one-revision budget.",
+  "checkpoint": "1 — Context brief foundation",
+  "revision": 3,
+  "requested_action": "implementation_review",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/191"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-191-quality-loop/coder-handoff.md",
+  "changed_files": [
+    "scripts/agentops/pi-agent.sh",
+    "term-control-center/server/contextBrief.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/launchGroup.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/shared/protocol.ts",
+    "term-control-center/tests/contextBrief.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-191-quality-loop/"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck passed after temporary npm ci.",
+    "Three new context-brief tests passed before the package-level command ran its broader suite and timed out at 600 seconds; no full-suite pass is claimed.",
+    "git diff --check and bash -n scripts/agentops/pi-agent.sh passed."
+  ],
+  "finding_ids_addressed": ["F191-C1D-001", "F191-C1D-002"]
+}

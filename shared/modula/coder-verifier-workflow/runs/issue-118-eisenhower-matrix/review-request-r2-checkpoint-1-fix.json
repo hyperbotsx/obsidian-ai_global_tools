@@ -1,0 +1,28 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-118",
+  "purpose": "Re-review Issue #118 checkpoint 1 after F118-R1-001 fix",
+  "expected_response": "Compact verdict JSON per coms transport; write full findings to verifier-report.md only if not approved.",
+  "stop_condition": "Approve checkpoint 1 revision 2 or return bounded findings.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/118",
+  "checkpoint": "1 - Classifier checkpoint",
+  "revision": 2,
+  "requested_action": "Verify bounded fix for F118-R1-001 plus checkpoint 1 requirements.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-118-eisenhower-matrix/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/generate.py",
+    "tests/unit/test_pipeline_generate.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-118-eisenhower-matrix/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-118-eisenhower-matrix/review-request-r1-checkpoint-1.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-118-eisenhower-matrix/review-request-r2-checkpoint-1-fix.json"
+  ],
+  "validation_results": [
+    {"command": "python3 -m unittest tests.unit.test_pipeline_generate", "result": "passed: 8 tests"},
+    {"command": "python3 -m unittest discover -s tests/unit -p 'test_pipeline_generate.py'", "result": "passed: 8 tests"},
+    {"command": "git diff --check", "result": "passed"}
+  ],
+  "finding_ids_addressed": ["F118-R1-001"],
+  "fix_summary": "Removed agent:agentops from core-infra/high-importance trigger labels and added owner-only AgentOps label fallback test proving Q4/low importance when no other urgency/importance metadata exists."
+}

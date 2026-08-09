@@ -1,0 +1,24 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-179",
+  "checkpoint": "1 - Kody observable state, findings import, UI controls, Activity Center mapping, explicit fix-loop plumbing",
+  "revision": 3,
+  "requested_action": "re_review_bounded_fix",
+  "issue_url": "https://github.com/hyperbotsx/agentops-harness/issues/179",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-179-observable-kody/coder-handoff.md",
+  "previous_report_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-179-observable-kody/verifier-report.md",
+  "finding_ids_addressed": ["F179-R2-001"],
+  "changed_files": [
+    "term-control-center/server/index.ts",
+    "term-control-center/tests/kodyReview.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-179-observable-kody/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-179-observable-kody/review-request-r3-checkpoint-1-fix-loop-reuse.json"
+  ],
+  "validation_results": [
+    {"command":"cd term-control-center && node --import tsx --test --test-concurrency=1 tests/kodyReview.test.ts tests/completedKodusReview.test.ts tests/completedStatic.test.ts","status":"passed","note":"15 tests passed"},
+    {"command":"PYTHONPATH=src pytest tests/unit/test_activity_center.py -q","status":"passed","note":"10 passed"},
+    {"command":"git diff --check","status":"passed"}
+  ],
+  "summary": "Removed generic existing implementation group reuse. Each explicit Kody fix loop starts a Kody-specific coder/verifier group carrying selected-finding repair context. Static regression asserts the reuse helper is absent and selected finding context remains wired."
+}

@@ -1,0 +1,9 @@
+{
+  "bind_address": "localhost",
+  "evidence": [
+    "LISTEN 0      511        127.0.0.1:23000      0.0.0.0:*    users:((\"node\",pid=4023096,fd=43))"
+  ],
+  "message": "listener is localhost-only",
+  "port": 23000,
+  "status": "ok"
+}

@@ -1,0 +1,59 @@
+{
+  "artifact_folder": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780943472412",
+  "branch": "prd/lead-developer-daily-narrative-wrapup-941",
+  "browser_qa_devtools_recommended": false,
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/session-1780943472412/",
+    "src/agentops_harness/cli.py",
+    "src/agentops_harness/daily_report.py",
+    "tests/unit/test_cli.py",
+    "tests/unit/test_daily_report.py"
+  ],
+  "devtools_mcp_prerequisites": {
+    "chrome": true,
+    "node": true,
+    "npm": true,
+    "npx": true
+  },
+  "files": {
+    "coder-handoff.md": {
+      "bytes": 5537,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780943472412/coder-handoff.md"
+    },
+    "coder-ready.md": {
+      "bytes": 2214,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780943472412/coder-ready.md"
+    },
+    "decision-log.md": {
+      "bytes": 3397,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780943472412/decision-log.md"
+    },
+    "verifier-report.md": {
+      "bytes": 10563,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780943472412/verifier-report.md"
+    },
+    "verifier-request.md": {
+      "bytes": 3240,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780943472412/verifier-request.md"
+    }
+  },
+  "handoff_missing_fields": [],
+  "hotspot_files": [],
+  "ready_missing_fields": [],
+  "repo_root": "/mnt/hyperliquid-data/projects/worktrees/agentops-harness",
+  "report_machine_status_missing": [],
+  "review_profiles": {},
+  "status_short": [
+    "## prd/lead-developer-daily-narrative-wrapup-941",
+    " M src/agentops_harness/cli.py",
+    " M tests/unit/test_cli.py",
+    "?? dev-plans/agentops/coder-verifier-workflow/runs/session-1780943472412/",
+    "?? src/agentops_harness/daily_report.py",
+    "?? tests/unit/test_daily_report.py"
+  ]
+}

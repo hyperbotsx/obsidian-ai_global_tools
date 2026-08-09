@@ -1,0 +1,29 @@
+{
+  "checkpoint": "CP-3 — FR-6 / FR-7 / FR-8 / FR-9 / FR-12",
+  "revision": 3,
+  "requested_action": "Completeness-first recheck of CP3-001..005, CP3-007, and CP3-008 after functional wiring",
+  "prd_ref": "GitHub issue #283",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-283-page-bot-platform/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/page-bot-panel.js",
+    "pipeline-diagram/{board,completed,matrix,timeline}.html",
+    "pipeline-diagram/coworker-launcher.js",
+    "term-control-center/src/{PageBotPanel.tsx,pageBotPanelContract.js,pageBotPanelContract.d.ts,App.tsx}",
+    "term-control-center/server/{conversationStore.ts,pageBotInjection.ts,pageBotLazyPool.ts,pageBotRuntime.ts,index.ts}",
+    "term-control-center/vite.config.ts",
+    "term-control-center/tests/{conversationStore,pageBotInjection,pageBotLazyPool,pageBotPlatform}.test.ts",
+    "src/agentops_harness/{conversation_store.py,review_server.py}",
+    "tests/unit/test_conversation_store.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-283-page-bot-platform/{coder-handoff.md,review-request-r3-cp3.json}"
+  ],
+  "finding_ids_addressed": ["V283-CP3-001", "V283-CP3-002", "V283-CP3-003", "V283-CP3-004", "V283-CP3-005", "V283-CP3-007", "V283-CP3-008"],
+  "operator_pending": ["V283-CP3-006"],
+  "validation_results": [
+    {"command": "cd term-control-center && node --import tsx --test tests/conversationStore.test.ts tests/pageBotLazyPool.test.ts tests/pageBotInjection.test.ts tests/pageBotPlatform.test.ts", "status": "passed", "detail": "14/14"},
+    {"command": "cd term-control-center && npm run typecheck", "status": "passed", "detail": "ephemeral sibling dependency symlink removed"},
+    {"command": "cd term-control-center && npm run build", "status": "passed", "detail": "existing Vite non-module-script and chunk-size warnings only"},
+    {"command": "XDG_STATE_HOME=$(mktemp -d) PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 -m pytest tests -q", "status": "documented baseline", "detail": "1325 passed plus 60 subtests; sole baseline test_unlinked_merged_pr_emits_warning_row failed"},
+    {"command": "cd term-control-center && npm test", "status": "documented baselines", "detail": "1135 passed; five known baseline failures only after restoring the existing board cache key"},
+    {"command": "git diff --check", "status": "passed"}
+  ]
+}

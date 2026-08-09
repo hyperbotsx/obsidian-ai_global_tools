@@ -1,0 +1,35 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Checkpoint 6 review for PRD #56 visual and accessibility fit",
+  "expected_response": "JSON verdict matching the provided schema; update full details in verifier-report.md.",
+  "stop_condition": "Approve checkpoint 6 or return bounded findings for visual/accessibility fit only.",
+  "request": {
+    "issue": 56,
+    "issue_url": "https://github.com/hyperbotsx/agentops-harness/issues/56",
+    "checkpoint": "6 - Visual/accessibility fit with Diff Inspector and Term Control Center",
+    "revision": 9,
+    "requested_action": "checkpoint_review",
+    "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/coder-handoff.md",
+    "changed_files": [
+      "term-control-center/src/DiffReviewAids.tsx",
+      "term-control-center/src/styles.css",
+      "term-control-center/tests/termBasePath.test.ts",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/coder-handoff.md",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/review-request-r9-checkpoint-6-visual-a11y.json"
+    ],
+    "validation_results": [
+      { "command": "npm --prefix term-control-center run typecheck", "result": "passed" },
+      { "command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/termBasePath.test.ts tests/diffRisk.test.ts tests/diffReviewState.test.ts", "result": "passed (31/31)" },
+      { "command": "git diff --check", "result": "passed" }
+    ],
+    "finding_ids_addressed": [],
+    "notes": [
+      "Review aids live in a compact right rail using existing --ao tokens, square corners, and low-contrast borders.",
+      "Review aid sections are native collapsible details panels for keyboard and narrow layouts.",
+      "Pins, outline jumps, risk disclosures, copy-only test hints, and reviewed toggles are native focusable controls with aria labels where needed."
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Checkpoint 3 review for PRD #56 risk badge heuristics",
+  "expected_response": "JSON verdict matching the provided schema; update full details in verifier-report.md.",
+  "stop_condition": "Approve checkpoint 3 or return bounded findings for risk badges only.",
+  "request": {
+    "issue": 56,
+    "issue_url": "https://github.com/hyperbotsx/agentops-harness/issues/56",
+    "checkpoint": "3 - Risk badge heuristic clarity, path-first rule sourcing, and false-positive-safe wording",
+    "revision": 4,
+    "requested_action": "checkpoint_review",
+    "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/coder-handoff.md",
+    "changed_files": [
+      "term-control-center/src/diffRisk.ts",
+      "term-control-center/src/DiffReviewAids.tsx",
+      "term-control-center/src/styles.css",
+      "term-control-center/tests/diffRisk.test.ts",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/coder-handoff.md",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/review-request-r4-checkpoint-3-risk.json"
+    ],
+    "validation_results": [
+      { "command": "npm --prefix term-control-center run typecheck", "result": "passed" },
+      { "command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/diffRisk.test.ts tests/diffOutline.test.ts tests/termBasePath.test.ts", "result": "passed (27/27)" },
+      { "command": "git diff --check", "result": "passed" }
+    ],
+    "finding_ids_addressed": [],
+    "notes": [
+      "Risk badges are selected-file review hints in the review rail and do not mutate Prepare PR or review completion state.",
+      "Catalog follows the PRD starter rules with path-first rules and sparse changed-hunk content rules for network/process/filesystem writes.",
+      "Each clickable badge exposes the matched rule name/reason and states heuristic-only wording.",
+      "The full implemented rule catalog is documented in the coder handoff."
+    ]
+  }
+}

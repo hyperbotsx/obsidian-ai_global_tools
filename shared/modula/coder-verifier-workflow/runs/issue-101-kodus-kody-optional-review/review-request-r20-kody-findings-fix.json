@@ -1,0 +1,39 @@
+{
+  "type": "review_request",
+  "checkpoint": "1n-pr177-kody-advisory-findings",
+  "revision": 1,
+  "requested_action": "Verify bounded fixes for the four Kody advisory findings on PR #177 before commit/push/rerun.",
+  "source_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/101",
+    "https://github.com/hyperbotsx/agentops-harness/pull/177"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "evidence_paths": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md"
+  ],
+  "changed_files": [
+    "src/agentops_harness/kodus_max_gateway.py",
+    "tests/unit/test_kodus_max_gateway.py",
+    "term-control-center/server/completedKodusReview.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/tests/completedKodusReview.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r20-kody-findings-fix.json"
+  ],
+  "validation_results": [
+    "codex exec --help confirms '-' reads instructions from stdin when no prompt arg is provided.",
+    "PYTHONPATH=src python3 -m unittest tests.unit.test_kodus_sprint0 tests.unit.test_kodus_max_gateway passed (14 tests).",
+    "PYTHONPATH=src python3 -m py_compile src/agentops_harness/kodus_sprint0.py src/agentops_harness/kodus_max_gateway.py passed.",
+    "cd term-control-center && npm run typecheck passed.",
+    "cd term-control-center && node --import tsx --test tests/completedKodusReview.test.ts tests/completedStatic.test.ts passed (10 tests).",
+    "git diff --check passed."
+  ],
+  "finding_ids_addressed": [
+    "KODY-001 codex argv overflow",
+    "KODY-002 gateway print diagnostics",
+    "KODY-003 synchronous execFileSync route blocking",
+    "KODY-004 orphan duplicate Kody trigger comment on webhook relay failure"
+  ],
+  "notes": "Kodus remains optional/advisory. No branch protection, required check, workflow, paid API fallback, provider secret, service deployment, or debt issue automation added. Pre-existing untracked continuation prompt and future PRD brief were preserved."
+}

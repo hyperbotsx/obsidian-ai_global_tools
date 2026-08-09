@@ -1,0 +1,37 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-118",
+  "purpose": "Review Issue #118 checkpoint 3 - matrix UI",
+  "expected_response": "Compact verdict JSON per coms transport; write full findings to verifier-report.md only if not approved.",
+  "stop_condition": "Approve checkpoint 3 or return bounded findings.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/118",
+  "checkpoint": "3 - UI checkpoint",
+  "revision": 1,
+  "requested_action": "Verify matrix.html renders four quadrants with reasons, ranks, recommended actions, 8-card cap/overflow, Icebox / Defer copy, and shared nav includes Matrix without disrupting Board access or changing board.html.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-118-eisenhower-matrix/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/.gitignore",
+    "pipeline-diagram/agentops-nav.js",
+    "pipeline-diagram/generate.py",
+    "pipeline-diagram/matrix.html",
+    "tests/unit/test_pipeline_board_generation.py",
+    "tests/unit/test_pipeline_generate.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-118-eisenhower-matrix/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-118-eisenhower-matrix/review-request-r4-checkpoint-3.json"
+  ],
+  "validation_results": [
+    {"command": "python3 -m unittest tests.unit.test_pipeline_generate", "result": "passed: 8 tests"},
+    {"command": "PYTHONPATH=src pytest -q tests/unit/test_pipeline_board_generation.py", "result": "passed: 6 tests"},
+    {"command": "python3 pipeline-diagram/generate.py", "result": "passed: wrote matrix-data.js and existing data files; no --issue used"},
+    {"command": "local HTTP smoke on port 8799", "result": "404, likely existing server already owned PRD-suggested port"},
+    {"command": "local HTTP smoke on alternate port 9876", "result": "matrix.html 200 text/html; board.html 200 text/html"},
+    {"command": "git diff --check", "result": "passed"}
+  ],
+  "finding_ids_addressed": ["F118-R1-001"],
+  "notes": [
+    "board.html was not modified; only shared nav and new matrix.html UI were added for this checkpoint.",
+    "No Co-Worker route, launch, sequencing write, GitHub mutation, plan-order.json write, or lane-plan.json write has been added."
+  ]
+}

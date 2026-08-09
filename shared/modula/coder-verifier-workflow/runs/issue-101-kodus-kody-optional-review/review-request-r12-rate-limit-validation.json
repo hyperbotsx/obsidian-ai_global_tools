@@ -1,0 +1,37 @@
+{
+  "type": "review_request",
+  "checkpoint": "1h-gateway-rate-limit-validation",
+  "revision": 1,
+  "requested_action": "Verify gateway single-slot rate limiting, bounded queue timeout, sanitized queued_ms logging, docs/evidence updates, and validation results.",
+  "source_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/101"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "evidence_paths": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-operational-validation.md",
+    "docs/kodus-kody-docker-sandbox-runbook.md",
+    "docs/kodus-kody-sprint0-feasibility.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md"
+  ],
+  "changed_files": [
+    "src/agentops_harness/kodus_max_gateway.py",
+    "tests/unit/test_kodus_max_gateway.py",
+    "docs/kodus-kody-docker-sandbox-runbook.md",
+    "docs/kodus-kody-sprint0-feasibility.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-operational-validation.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r12-rate-limit-validation.json"
+  ],
+  "validation_results": [
+    "Gateway defaults to --max-concurrency 1 and --queue-timeout 30 seconds; live gateway restarted with those settings.",
+    "Rate-limit smoke with --max-concurrency 1 --queue-timeout 0.5 and a fake slow Claude-compatible backend returned [200, 429].",
+    "Rate-limit logs included queued_ms and one 429 metadata entry; zero private prompt/response leakage hits.",
+    "PYTHONPATH=src python3 -m unittest tests.unit.test_kodus_sprint0 tests.unit.test_kodus_max_gateway passed (14 tests).",
+    "PYTHONPATH=src python3 -m py_compile src/agentops_harness/kodus_sprint0.py src/agentops_harness/kodus_max_gateway.py passed.",
+    "AST KISS check passed for kodus_sprint0.py and kodus_max_gateway.py.",
+    "git diff --check passed."
+  ],
+  "finding_ids_addressed": [],
+  "notes": "Auth-refresh remains constrained by the current non-expiring token; Codex backend is not live-smoked unless it becomes part of the intended pilot path."
+}

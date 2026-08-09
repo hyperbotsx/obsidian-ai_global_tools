@@ -1,0 +1,23 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-210",
+  "purpose": "Issue #210 required pre-final structure and hygiene review",
+  "expected_response": "Concise findings with severity and bounded cleanup recommendations, or clean.",
+  "stop_condition": "Return clean or bounded cleanup findings; do not edit coder-owned files.",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-210-active-jobs-dependency-nesting/coder-handoff.md",
+  "scope": [
+    "Term Control Active Jobs dependency/folder state and routes",
+    "sidebar grouping, resume, bulk-action, and suggestion modules",
+    "scoped tests and operator documentation",
+    "run artifacts"
+  ],
+  "checks": [
+    "changed-file placement and ownership",
+    "file/function KISS limits",
+    "temporary/generated artifact cleanup",
+    "documentation and handoff accuracy",
+    "forbidden product names, local paths, secrets, or scope drift"
+  ]
+}

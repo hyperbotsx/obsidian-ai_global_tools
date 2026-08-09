@@ -1,0 +1,47 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Phase 1 concurrent review checkpoint for issue 141",
+  "expected_response": "Compact verifier verdict JSON matching the response schema; write details to verifier-report.md",
+  "stop_condition": "Approve checkpoint or request bounded revision findings",
+  "checkpoint": "Phase 1 concurrent review checkpoint",
+  "revision": 1,
+  "requested_action": "Verify simultaneous CEO reviews for different PRDs have isolated state/artifact paths/proposal paths and can share the configured clean review runtime without overwriting each other.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/141"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/ceoReviewRuntime.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "docs/admin-configuration.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/review-request-r4-phase1-concurrent-review.json"
+  ],
+  "validation_results": [
+    {
+      "command": "cd term-control-center && node --import tsx --test tests/launchPlan.test.ts",
+      "status": "pass",
+      "summary": "17 tests passed, including simultaneous review artifact-dir/proposal-path isolation"
+    },
+    {
+      "command": "cd term-control-center && npm run typecheck",
+      "status": "pass",
+      "summary": "tsconfig app/server typecheck passed"
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "summary": "no whitespace errors"
+    }
+  ],
+  "finding_ids_addressed": [],
+  "notes": [
+    "Checkpoint 1 and 2 are approved.",
+    "Scope remains Phase 1; no Phase 2/3 completion claimed."
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Review PRD #45 checkpoint 6 revision 2 fix for V-CP6-001.",
+  "expected_response": "Compact verdict JSON matching the supplied schema. Write full findings to verifier-report.md if not approved.",
+  "stop_condition": "Approve checkpoint 6 or request one bounded revision with finding IDs.",
+  "review_request": {
+    "prd_issue": "https://github.com/hyperbotsx/agentops-harness/issues/45",
+    "checkpoint": "6 - Observability checkpoint",
+    "revision": 2,
+    "requested_action": "checkpoint_review",
+    "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-45-prd-studio-planner-workflow/coder-handoff.md",
+    "changed_files": [
+      "term-control-center/src/App.tsx",
+      "term-control-center/tests/termBasePath.test.ts",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-45-prd-studio-planner-workflow/coder-handoff.md",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-45-prd-studio-planner-workflow/review-request-r10-observability-pagination-fix.json"
+    ],
+    "validation_results": [
+      { "command": "npm --prefix term-control-center run test -- --test-name-pattern=\"mobile view|authoring workspace|planner workspace\"", "status": "passed", "evidence": "184 tests passed" },
+      { "command": "npm --prefix term-control-center run typecheck", "status": "passed" },
+      { "command": "git diff --check", "status": "passed" }
+    ],
+    "finding_ids_addressed": ["V-CP6-001"]
+  }
+}

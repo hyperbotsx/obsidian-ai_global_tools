@@ -1,0 +1,55 @@
+{
+  "artifact_folder": "dev-plans/agentops/coder-verifier-workflow/runs/term-control-center-21-phase1",
+  "branch": "feat/term-control-center-21",
+  "browser_qa_devtools_recommended": false,
+  "changed_files": [
+    ".gitignore",
+    "dev-plans/agentops/coder-verifier-workflow/runs/term-control-center-21-phase1/",
+    "term-control-center/"
+  ],
+  "devtools_mcp_prerequisites": {
+    "chrome": true,
+    "node": true,
+    "npm": true,
+    "npx": true
+  },
+  "files": {
+    "coder-handoff.md": {
+      "bytes": 9391,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/term-control-center-21-phase1/coder-handoff.md"
+    },
+    "coder-ready.md": {
+      "bytes": 1671,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/term-control-center-21-phase1/coder-ready.md"
+    },
+    "decision-log.md": {
+      "bytes": 24771,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/term-control-center-21-phase1/decision-log.md"
+    },
+    "verifier-report.md": {
+      "bytes": 12905,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/term-control-center-21-phase1/verifier-report.md"
+    },
+    "verifier-request.md": {
+      "bytes": 1508,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/term-control-center-21-phase1/verifier-request.md"
+    }
+  },
+  "handoff_missing_fields": [],
+  "hotspot_files": [],
+  "ready_missing_fields": [],
+  "repo_root": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "report_machine_status_missing": [],
+  "review_profiles": {},
+  "status_short": [
+    "## feat/term-control-center-21",
+    " M .gitignore",
+    "?? dev-plans/agentops/coder-verifier-workflow/runs/term-control-center-21-phase1/",
+    "?? term-control-center/"
+  ]
+}

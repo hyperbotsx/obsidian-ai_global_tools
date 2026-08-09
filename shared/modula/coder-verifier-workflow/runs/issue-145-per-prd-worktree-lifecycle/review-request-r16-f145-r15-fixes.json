@@ -1,0 +1,31 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-145",
+  "purpose": "Review second bounded fixes for PRD #145 checkpoints 7-16 findings F145-R14-001 through F145-R14-005",
+  "expected_response": "Compact verifier verdict JSON; write full details to verifier-report.md",
+  "issue_ref": "https://github.com/hyperbotsx/agentops-harness/issues/145",
+  "checkpoint": "7-16 - Remaining lifecycle and guardrails bounded fixes",
+  "revision": 16,
+  "requested_action": "checkpoint_review",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-145-per-prd-worktree-lifecycle/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/prd_worktree_migration.py",
+    "src/agentops_harness/prd_worktree_lifecycle.py",
+    "src/agentops_harness/post_merge_teardown.py",
+    "tests/unit/test_prd_worktree_migration.py",
+    "tests/unit/test_prd_worktree_lifecycle.py",
+    "tests/unit/test_post_merge_teardown.py",
+    "tests/unit/post_merge_teardown_helpers.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-145-per-prd-worktree-lifecycle/coder-handoff.md"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests/unit/test_prd_worktree_migration.py tests/unit/test_prd_worktree_recovery.py tests/unit/test_prd_worktree_lifecycle.py tests/unit/test_git_town.py tests/unit/test_post_merge_teardown.py tests/unit/test_prd_worktree_runtime.py tests/unit/test_prd_worktree_lease.py tests/unit/test_prd_worktree_freshness.py tests/unit/test_prd_worktree_project.py tests/unit/test_prd_worktree_provision.py tests/unit/test_cli.py -q && cd term-control-center && node --import tsx --test --test-concurrency=1 tests/runtimeIsolation.test.ts tests/implementationWorktreeSync.test.ts tests/launcher.test.ts && npm run typecheck && cd .. && git diff --check",
+      "status": "passed",
+      "summary": "124 Python tests passed, 41 Term Control tests passed, TypeScript typecheck passed, diff whitespace check passed"
+    }
+  ],
+  "finding_ids_addressed": ["F145-R14-001", "F145-R14-002", "F145-R14-003", "F145-R14-004", "F145-R14-005"]
+}

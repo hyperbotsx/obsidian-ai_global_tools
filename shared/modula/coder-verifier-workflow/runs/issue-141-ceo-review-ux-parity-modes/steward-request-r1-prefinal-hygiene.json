@@ -1,0 +1,41 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Pre-final structure and hygiene review for issue 141",
+  "expected_response": "Compact steward verdict JSON; write details to steward-report.md if findings exist",
+  "stop_condition": "Approve hygiene or request bounded cleanup findings",
+  "checkpoint": "Pre-final steward hygiene review",
+  "revision": 1,
+  "requested_action": "Review changed-file placement, run artifacts, generated output, stale temporary files, structure/KISS hygiene, and docs/test placement before verifier final bug-check.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/141"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+  "changed_file_scope": [
+    "docs/admin-configuration.md",
+    "pipeline-diagram/board.html",
+    "src/agentops_harness/ceo_review.py",
+    "src/agentops_harness/ceo_review_answers.py",
+    "src/agentops_harness/ceo_review_apply.py",
+    "term-control-center/server/ceoReviewRuntime.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/tests/boardGuardrails.test.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "term-control-center/tests/launcher.test.ts",
+    "tests/unit/test_ceo_review.py",
+    "tests/unit/test_ceo_review_answers.py",
+    "tests/unit/test_ceo_review_apply.py",
+    "tests/unit/test_ceo_review_apply_cli.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/"
+  ],
+  "validation_results": [
+    "PYTHONPATH=src python3 -m pytest tests/unit/test_ceo_review_apply.py tests/unit/test_ceo_review_apply_cli.py tests/unit/test_ceo_review_answers.py tests/unit/test_ceo_review.py tests/unit/test_agent_github_health.py — pass, 60 tests",
+    "cd term-control-center && node --import tsx --test tests/launchPlan.test.ts tests/launcher.test.ts tests/boardGuardrails.test.ts — pass, 80 tests",
+    "cd term-control-center && npm run typecheck — pass",
+    "git diff --check — pass"
+  ]
+}

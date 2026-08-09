@@ -1,0 +1,40 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Phase 2 preview/apply gate checkpoint re-review for issue 141",
+  "expected_response": "Compact verifier verdict JSON matching the response schema; write details to verifier-report.md",
+  "stop_condition": "Approve checkpoint or request bounded revision findings",
+  "checkpoint": "Phase 2 preview/apply gate checkpoint",
+  "revision": 2,
+  "requested_action": "Re-review bounded fix for F141-P2-GATE-R1-001 only: draft propose-answers proposals must not be previewed/executed, while complete human-answers proposals still preview and execute only with explicit confirmation plus execute.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/141"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/ceo_review_apply.py",
+    "tests/unit/test_ceo_review_apply.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/review-request-r12-phase2-preview-apply-gate-fix.json"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests/unit/test_ceo_review_apply.py tests/unit/test_ceo_review.py tests/unit/test_ceo_review_answers.py",
+      "status": "pass",
+      "summary": "54 tests passed; draft proposals refused/not saved and complete human-answer proposals still preview/execute under gates"
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "summary": "no whitespace errors"
+    }
+  ],
+  "finding_ids_addressed": [
+    "F141-P2-GATE-R1-001"
+  ],
+  "notes": [
+    "Scope remains preview/apply gate only."
+  ]
+}

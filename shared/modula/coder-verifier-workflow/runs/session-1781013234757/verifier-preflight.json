@@ -1,0 +1,61 @@
+{
+  "artifact_folder": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781013234757",
+  "branch": "prd/lead-developer-slack-interactive-decision-buttons-947",
+  "browser_qa_devtools_recommended": false,
+  "changed_files": [
+    "dev-plans/agentops/coder-verifier-workflow/runs/session-1781013234757/",
+    "src/agentops_harness/cli.py",
+    "src/agentops_harness/slack_button_actions.py",
+    "src/agentops_harness/slack_button_workflows.py",
+    "src/agentops_harness/slack_buttons.py",
+    "tests/unit/test_slack_buttons.py"
+  ],
+  "devtools_mcp_prerequisites": {
+    "chrome": true,
+    "node": true,
+    "npm": true,
+    "npx": true
+  },
+  "files": {
+    "coder-handoff.md": {
+      "bytes": 7096,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781013234757/coder-handoff.md"
+    },
+    "coder-ready.md": {
+      "bytes": 1698,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781013234757/coder-ready.md"
+    },
+    "decision-log.md": {
+      "bytes": 5866,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781013234757/decision-log.md"
+    },
+    "verifier-report.md": {
+      "bytes": 4786,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781013234757/verifier-report.md"
+    },
+    "verifier-request.md": {
+      "bytes": 2724,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1781013234757/verifier-request.md"
+    }
+  },
+  "handoff_missing_fields": [],
+  "hotspot_files": [],
+  "ready_missing_fields": [],
+  "repo_root": "/mnt/hyperliquid-data/projects/worktrees/agentops-harness",
+  "report_machine_status_missing": [],
+  "review_profiles": {},
+  "status_short": [
+    "## prd/lead-developer-slack-interactive-decision-buttons-947",
+    " M src/agentops_harness/cli.py",
+    "?? dev-plans/agentops/coder-verifier-workflow/runs/session-1781013234757/",
+    "?? src/agentops_harness/slack_button_actions.py",
+    "?? src/agentops_harness/slack_button_workflows.py",
+    "?? src/agentops_harness/slack_buttons.py",
+    "?? tests/unit/test_slack_buttons.py"
+  ]
+}

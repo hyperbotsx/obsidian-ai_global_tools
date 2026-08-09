@@ -1,0 +1,29 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Checkpoint 6 re-review for PRD #58 Slack command-center non-bypass guardrails",
+  "expected_response": "Verdict JSON matching the verifier contract",
+  "stop_condition": "Approve or request one bounded revision for checkpoint 6 only",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-58-unified-activity-center-slack-notifications/coder-handoff.md",
+  "checkpoint": "6. No duplication/bypass of the existing command-center action path",
+  "revision": 2,
+  "requested_action": "Re-review only the strengthened sink guardrail proving the exact allowed Slack API method set and no Slack button/command-center imports.",
+  "issue_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/58"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-58-unified-activity-center-slack-notifications/coder-handoff.md",
+  "changed_files": [
+    "tests/unit/test_slack_activity_sink_guardrails.py"
+  ],
+  "validation": [
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests/unit/test_slack_activity_sink_guardrails.py -q",
+      "result": "passed"
+    }
+  ],
+  "finding_ids_addressed": [
+    "V58-CP6-001"
+  ]
+}

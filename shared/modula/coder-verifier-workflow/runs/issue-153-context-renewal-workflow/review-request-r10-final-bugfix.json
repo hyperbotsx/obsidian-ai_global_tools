@@ -1,0 +1,29 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-153",
+  "purpose": "Final bug-check fix verification for issue #153.",
+  "checkpoint": "final bug-check fixes",
+  "revision": 10,
+  "requested_action": "Verify F153-FBC-001 and F153-FBC-002 fixes, rerun/confirm final bug-check status, and return final verdict.",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/153"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/context_renewal_pack.py",
+    "scripts/agentops/context-renewal-pack.py",
+    "tests/unit/test_context_renewal_pack.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/review-request-r10-final-bugfix.json"
+  ],
+  "validation_results": [
+    {"command": "git diff --check", "status": "passed"},
+    {"command": "python3 -m py_compile context renewal scripts/modules", "status": "passed"},
+    {"command": "PYTHONPATH=src python3 -m pytest tests/unit/test_context_renewal_pack.py tests/unit/test_context_renewal_resume.py tests/unit/test_context_renewal_boundary.py tests/unit/test_context_renewal_preflight.py", "status": "passed", "summary": "18 tests passed."},
+    {"command": "cd term-control-center && node --import /mnt/hyperliquid-data/projects/repos/agentops-harness/term-control-center/node_modules/tsx/dist/loader.mjs --test --test-concurrency=1 tests/contextRenewal.test.ts", "status": "passed", "summary": "5 tests passed."},
+    {"command": "context-renewal-pack.py against non-git worktree", "status": "passed", "summary": "Fails closed and creates no pack."}
+  ],
+  "finding_ids_addressed": ["F153-FBC-001", "F153-FBC-002"],
+  "isolation_preflight": {"sender_identity": "coder@agentops-prd-153", "pi_coms_dir": "/tmp/agentops/coms/agentops-prd-153", "verifier_live": true},
+  "stop_condition": "Return compact verifier verdict JSON with final bug-check status."
+}

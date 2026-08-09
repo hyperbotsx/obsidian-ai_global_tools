@@ -1,0 +1,33 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-283",
+  "purpose": "Issue #283 CP-1 review: FR-1 conversation store and FR-2 control-plane pool isolation",
+  "checkpoint": "CP-1 — FR-1 / FR-2",
+  "revision": 1,
+  "requested_action": "Review completeness and acceptance before style. Verify both persistent key shapes, fresh-store restart reload, monotonic revision stamps, state-dir permissions and malformed-state handling; verify control-plane/implementation naming, exact pool-name attestation before adapter configuration, bidirectional cross-pool rejection using the unchanged adapter protocol, and no bridge enablement. Treat dropped requirements as blocking.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/283",
+    "dev-plans/agentops/coder-verifier-workflow/coms-transport.md"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-283-page-bot-platform/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/conversationStore.ts",
+    "term-control-center/server/draftComs.ts",
+    "term-control-center/tests/conversationStore.test.ts",
+    "term-control-center/tests/comsPool.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-283-page-bot-platform/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-283-page-bot-platform/review-request-r1-cp1.json"
+  ],
+  "validation_results": [
+    {"command": "cd term-control-center && node --import tsx --test tests/conversationStore.test.ts tests/comsPool.test.ts", "status": "passed", "notes": "3/3 using a temporary dependency symlink that was removed afterward."},
+    {"command": "cd term-control-center && npm run typecheck", "status": "passed", "notes": "Current-worktree sources; temporary dependency symlink removed afterward."},
+    {"command": "cd term-control-center && npm run build", "status": "passed", "notes": "Existing Vite non-module-script and chunk-size warnings only."},
+    {"command": "cd term-control-center && npm test", "status": "baseline_failures_only", "notes": "1121 passed; documented baseline failures only: PI_COMS label, fix-loop findings, Browser-QA pane, lane slots, verification-sandbox protected child."},
+    {"command": "PYTHONPATH=src python3 -m pytest tests -q", "status": "baseline_failures_only", "notes": "1321 passed plus 60 subtests; only documented test_unlinked_merged_pr_emits_warning_row failure."},
+    {"command": "git diff --check", "status": "passed", "notes": "No whitespace errors."}
+  ],
+  "finding_ids_addressed": [],
+  "stop_condition": "Approve CP-1 or return bounded CP-1 findings. Do not review CP-2/CP-3."
+}

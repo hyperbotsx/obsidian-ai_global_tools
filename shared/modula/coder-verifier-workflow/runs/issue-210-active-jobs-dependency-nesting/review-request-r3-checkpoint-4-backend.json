@@ -1,0 +1,26 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-210",
+  "purpose": "Checkpoint review for Issue #210 dependency API and verified-completion release integration",
+  "checkpoint": "4 - Completion integration (backend API slice)",
+  "revision": 1,
+  "requested_action": "Review authenticated project-scoped dependency read/create/clear routes and verified-completion release behavior. Confirm creation rejects jobs outside the selected active project and dismissed blockers do not release dependents. Resume prompt UI is explicitly out of this slice.",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/210"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-210-active-jobs-dependency-nesting/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/index.ts",
+    "term-control-center/server/jobDependencyRoutes.ts",
+    "term-control-center/server/jobDependencyStore.ts",
+    "term-control-center/tests/jobDependencyRoutes.test.ts",
+    "term-control-center/tests/jobDependencyStore.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-210-active-jobs-dependency-nesting/coder-handoff.md"
+  ],
+  "validation_results": [
+    {"command": "focused dependency store and route tests", "status": "pass", "summary": "6/6 passed"},
+    {"command": "git diff --check", "status": "pass", "summary": "No whitespace errors"}
+  ],
+  "finding_ids_addressed": [],
+  "stop_condition": "Return compact verdict JSON; write details to verifier-report.md only for non-approval."
+}

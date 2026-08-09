@@ -1,0 +1,32 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-153",
+  "purpose": "Checkpoint 5 review for coder reset/resume MVP manual path.",
+  "checkpoint": "5 - Coder reset/resume MVP",
+  "revision": 8,
+  "requested_action": "Verify manual coder resume path prints continuation prompt only after safe-boundary/operator-confirmed evidence, preserves role/worktree/coms instructions, documents manual fallback, and adds no automated reset/pane kill/prompt injection.",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/153"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/coder-handoff.md",
+  "changed_files": [
+    "docs/agentops-context-renewal.md",
+    "scripts/agentops/context-renewal-resume.py",
+    "src/agentops_harness/context_renewal_resume.py",
+    "tests/unit/test_context_renewal_resume.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/manual-resume-plan-r8-latest.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/safe-boundary-r8-latest.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/continuation/20260629T150817Z/STATE.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/continuation/20260629T150817Z/CONTINUATION_PROMPT.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/coder-handoff.md"
+  ],
+  "validation_results": [
+    {"command": "git diff --check", "status": "passed"},
+    {"command": "python3 -m py_compile context renewal scripts/modules", "status": "passed"},
+    {"command": "PYTHONPATH=src python3 -m pytest tests/unit/test_context_renewal_resume.py tests/unit/test_context_renewal_boundary.py tests/unit/test_context_renewal_pack.py tests/unit/test_context_renewal_preflight.py", "status": "passed", "summary": "16 tests passed."},
+    {"command": "context-renewal-resume.py with latest safe boundary", "status": "passed", "summary": "Wrote manual-ready plan; no reset or injection performed."}
+  ],
+  "finding_ids_addressed": [],
+  "isolation_preflight": {"sender_identity": "coder@agentops-prd-153", "pi_coms_dir": "/tmp/agentops/coms/agentops-prd-153", "verifier_live": true},
+  "stop_condition": "Return compact verifier verdict JSON and write detailed report to verifier-report.md."
+}

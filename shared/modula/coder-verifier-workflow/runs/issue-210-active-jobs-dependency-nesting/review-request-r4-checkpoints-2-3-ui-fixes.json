@@ -1,0 +1,29 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-210",
+  "purpose": "Revision 4 review for Issue #210 sidebar dependency and folder UI findings",
+  "checkpoint": "2-3 - Sidebar dependency and collapsible grouping UI",
+  "revision": 4,
+  "requested_action": "Re-review only F210-CP23-007, F210-CP23-008, F210-CP23-009, F210-CP23-011, and F210-CP23-013. Verify the CSS responsibility split, pinned-member folder promotion, synchronous no-cross-project overlay guard, mocked direction-confirmation/mutation-error behavior, and corrected durable handoff references. Deferred scope remains pending.",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/210"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-210-active-jobs-dependency-nesting/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/src/JobSidebar.tsx",
+    "term-control-center/src/JobSidebar.css",
+    "term-control-center/src/JobFolder.css",
+    "term-control-center/src/jobGrouping.ts",
+    "term-control-center/src/jobFolderActions.ts",
+    "term-control-center/tests/jobGrouping.test.ts",
+    "term-control-center/tests/jobFolderActions.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-210-active-jobs-dependency-nesting/coder-handoff.md"
+  ],
+  "validation_results": [
+    {"command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/jobGrouping.test.ts tests/jobFolderActions.test.ts tests/terminalJobSidebar.test.ts", "status": "pass", "summary": "35/35 passed using a temporary removed repository-shared node_modules symlink"},
+    {"command": "cd term-control-center && npm run build", "status": "pass", "summary": "app/server typecheck plus Vite client and server builds passed using the same temporary removed symlink"},
+    {"command": "git diff --check", "status": "pass", "summary": "No whitespace errors"}
+  ],
+  "finding_ids_addressed": ["F210-CP23-007", "F210-CP23-008", "F210-CP23-009", "F210-CP23-011", "F210-CP23-013"],
+  "stop_condition": "Return compact verdict JSON; write details to verifier-report.md only for non-approval."
+}

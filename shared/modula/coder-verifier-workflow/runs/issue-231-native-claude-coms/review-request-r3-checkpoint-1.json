@@ -1,0 +1,36 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-231",
+  "purpose": "Issue #231 checkpoint 1 revision 3 framing review",
+  "checkpoint": "1 - Contract",
+  "revision": 3,
+  "requested_action": "Review only V231-C1-003. The contract now matches the installed reference: reject only when accumulated decoded JavaScript UTF-16 code units, including LF when present, exceed 65,536 before first-LF extraction. It removes mandatory raw-byte rejection and labels raw-byte hardening non-conformant absent negotiated versioning.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/231",
+    "docs/coms-wire-contract.md"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/coder-handoff.md",
+  "changed_files": [
+    "docs/coms-wire-contract.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-231-native-claude-coms/review-request-r3-checkpoint-1.json"
+  ],
+  "validation_results": [
+    {
+      "command": "python3 source-conformance assertions against installed extensions/coms.ts",
+      "status": "passed",
+      "notes": "Verified decoded-string guard, tool surface, heartbeat timestamp refresh, and independent ping liveness."
+    },
+    {
+      "command": "git diff --check plus direct untracked-file whitespace checks",
+      "status": "passed",
+      "notes": "No whitespace errors."
+    }
+  ],
+  "finding_ids_addressed": [
+    "V231-C1-003"
+  ],
+  "stop_condition": "Approve checkpoint 1 or return a bounded framing-correctness finding."
+}

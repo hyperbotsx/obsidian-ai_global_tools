@@ -1,0 +1,37 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-195",
+  "purpose": "Issue #195 checkpoint 2 copy review revision 2",
+  "expected_response": "Compact verifier verdict JSON matching schema; full report written to verifier-report.md",
+  "stop_condition": "Approve bounded fixes for checkpoint 2 findings or request human escalation if still blocked",
+  "checkpoint": "2 - Copy checkpoint",
+  "revision": 2,
+  "requested_action": "Review bounded fixes for F195-CP2-R1-001 and F195-CP2-R1-002 only.",
+  "prd_issue": "https://github.com/hyperbotsx/agentops-harness/issues/195",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-195-source-of-truth-wording/coder-handoff.md",
+  "review_request_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-195-source-of-truth-wording/review-request-r3-copy-fix.json",
+  "changed_files_since_revision_1": [
+    "docs/human-confirmed-action-assistant.md",
+    "docs/slack-operator-gateway.md",
+    "src/agentops_harness/slack_prd_drafts.py",
+    "tests/unit/test_slack_gateway_policy.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-195-source-of-truth-wording/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-195-source-of-truth-wording/review-request-r3-copy-fix.json"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src python3 -m pytest -q -p no:cacheprovider tests/unit/test_slack_gateway_policy.py tests/unit/test_slack_prd_github_creation.py",
+      "result": "67 passed in 0.16s"
+    },
+    {
+      "command": "rg -n \"Project 2|projects/2|SoldierOne|#862\" README.md docs profiles pipeline-diagram src tests",
+      "result": "no matches (rg exit 1)"
+    }
+  ],
+  "finding_ids_addressed": [
+    "F195-CP2-R1-001",
+    "F195-CP2-R1-002"
+  ]
+}

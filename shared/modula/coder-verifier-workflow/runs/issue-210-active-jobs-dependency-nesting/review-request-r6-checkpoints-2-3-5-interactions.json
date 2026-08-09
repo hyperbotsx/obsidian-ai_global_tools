@@ -1,0 +1,16 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-210",
+  "purpose": "Issue #210 interaction and stale-blocker checkpoint review",
+  "checkpoint": "2-3 - Sidebar dependency and collapsible grouping UI; 5 - Stale and missing session handling",
+  "revision": 6,
+  "requested_action": "Verify direction-confirmed row drag/drop, keyboard fallback retention, folder rename/remove-member controls, project-scoped behavior, and the retained stale-blocker merge-not-verified warning. Deferred completed folding, suggestions, full bulk actions, and resume choices remain pending.",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/210"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-210-active-jobs-dependency-nesting/coder-handoff.md",
+  "changed_files": ["term-control-center/src/JobSidebar.tsx", "term-control-center/src/JobSidebar.css", "term-control-center/src/jobFolderActions.ts", "term-control-center/src/jobGrouping.ts", "term-control-center/tests/jobGrouping.test.ts", "term-control-center/tests/terminalJobSidebar.test.ts", "docs/agentops-terminal-sessions.md", "dev-plans/agentops/coder-verifier-workflow/runs/issue-210-active-jobs-dependency-nesting/coder-handoff.md"],
+  "validation_results": [{"command": "focused folder/group/sidebar tests", "status": "pass", "summary": "37/37"}, {"command": "cd term-control-center && npm run build", "status": "pass"}, {"command": "git diff --check", "status": "pass"}],
+  "finding_ids_addressed": [],
+  "stop_condition": "Return compact verdict JSON; write details to verifier-report.md only for non-approval."
+}

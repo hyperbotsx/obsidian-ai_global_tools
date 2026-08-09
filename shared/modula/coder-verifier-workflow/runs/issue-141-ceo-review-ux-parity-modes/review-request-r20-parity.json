@@ -1,0 +1,60 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Parity checkpoint for issue 141",
+  "expected_response": "Compact verifier verdict JSON matching the response schema; write details to verifier-report.md",
+  "stop_condition": "Approve checkpoint or request bounded revision findings",
+  "checkpoint": "Parity checkpoint",
+  "revision": 1,
+  "requested_action": "Compare the implemented app/CLI CEO review workflows against the PRD's hyper-pi CEO parity requirements: selectable Guided Questionnaire and Assisted Draft Review, exactly four grounded choices, editable/final human answers, shared human-answer payload, preview/apply gates, runtime isolation, post-approval closeout, and stale roster hygiene.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/141"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/board.html",
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/server/ceoReviewRuntime.ts",
+    "src/agentops_harness/ceo_review.py",
+    "src/agentops_harness/ceo_review_answers.py",
+    "src/agentops_harness/ceo_review_apply.py",
+    "tests/unit/test_ceo_review.py",
+    "tests/unit/test_ceo_review_answers.py",
+    "tests/unit/test_ceo_review_apply.py",
+    "tests/unit/test_ceo_review_apply_cli.py",
+    "term-control-center/tests/launchPlan.test.ts",
+    "term-control-center/tests/launcher.test.ts",
+    "term-control-center/tests/boardGuardrails.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/review-request-r20-parity.json"
+  ],
+  "validation_results": [
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests/unit/test_ceo_review_apply.py tests/unit/test_ceo_review_apply_cli.py tests/unit/test_ceo_review_answers.py tests/unit/test_ceo_review.py tests/unit/test_agent_github_health.py",
+      "status": "pass",
+      "summary": "60 tests passed"
+    },
+    {
+      "command": "cd term-control-center && node --import tsx --test tests/launchPlan.test.ts tests/launcher.test.ts tests/boardGuardrails.test.ts",
+      "status": "pass",
+      "summary": "80 tests passed"
+    },
+    {
+      "command": "cd term-control-center && npm run typecheck",
+      "status": "pass",
+      "summary": "app/server TypeScript typecheck passed"
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "summary": "no whitespace errors"
+    }
+  ],
+  "finding_ids_addressed": [],
+  "notes": [
+    "All required pre-parity checkpoints are approved."
+  ]
+}

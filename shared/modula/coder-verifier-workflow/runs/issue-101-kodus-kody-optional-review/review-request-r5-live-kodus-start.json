@@ -1,0 +1,47 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-101",
+  "purpose": "Review PRD #101 live Kodus container startup and container-to-Claude-gateway smoke after operator asked coder to run it here",
+  "expected_response": "Compact verifier verdict JSON matching the response schema; write detailed findings to verifier-report.md if not approved.",
+  "stop_condition": "Confirm live startup/gateway evidence is acceptable as a partial Sprint 0 result and identify remaining next actor, or request one bounded revision.",
+  "checkpoint": "1d - Live Kodus startup with local Claude gateway",
+  "revision": 1,
+  "requested_action": "Verify Kodus containers are running locally, web UI and container-to-gateway smokes passed, no repo secrets/provider keys/webhooks/paid fallback were added, and remaining sample review gate is correctly recorded.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/101",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+  "review_request_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r5-live-kodus-start.json",
+  "changed_files": [
+    "docs/kodus-kody-sprint0-feasibility.md",
+    "docs/kodus-kody-docker-sandbox-runbook.md",
+    "src/agentops_harness/kodus_sprint0.py",
+    "tests/unit/test_kodus_sprint0.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/validation-ledger-log.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-local-adapter-test.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-sandbox-start-report.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-docker-ps-live.txt",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-http-smoke.txt",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-container-gateway-smoke.txt",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-env-safety-check.txt",
+    "dev-plans/agentops/open-prd-sweep-ledger-2026-06-28.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/review-request-r5-live-kodus-start.json"
+  ],
+  "validation_results": [
+    {"command": "PATH=/snap/bin:$PATH PYTHONPATH=src python3 -m agentops_harness.kodus_sprint0 --work-dir /home/hyperbots/agentops-kodus-101/docker-sandbox --gateway-url http://host.docker.internal:18082/v1 --model claude-cli --start --report dev-plans/agentops/coder-verifier-workflow/runs/issue-101-kodus-kody-optional-review/kodus-sandbox-start-report.json", "result": "passed with status running"},
+    {"command": "docker ps filtered for Kodus services after 60 seconds", "result": "passed; web/API/worker/webhooks/MCP/RabbitMQ/Postgres/Mongo containers up"},
+    {"command": "HTTP smoke for http://127.0.0.1:13000, :3001, :13332", "result": "passed; web returned 200 HTML; API/webhook roots returned expected 404"},
+    {"command": "docker exec kodus_api Node fetch to http://host.docker.internal:18082/v1/models and /v1/chat/completions", "result": "passed; models 200 and completion returned kodus-container-gateway-ok"},
+    {"command": "PYTHONPATH=src python3 -m unittest tests.unit.test_kodus_sprint0 tests.unit.test_kodus_max_gateway", "result": "passed, 12 tests"},
+    {"command": "PYTHONPATH=src python3 -m py_compile src/agentops_harness/kodus_sprint0.py src/agentops_harness/kodus_max_gateway.py", "result": "passed"},
+    {"command": "git diff --check", "result": "passed"},
+    {"command": "secret-pattern grep over changed docs/code/artifacts", "result": "passed; no secret values detected"}
+  ],
+  "finding_ids_addressed": [],
+  "preflight": {
+    "identity": "coder@agentops-prd-101",
+    "pi_coms_dir": "/tmp/agentops/coms/agentops-prd-101",
+    "verifier_live": true
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "type": "review_request",
+  "issue": 72,
+  "title": "D4-PRD: AI Co-Worker Chat Surface and Floating Launcher",
+  "checkpoint": "Final bug-check",
+  "revision": 12,
+  "requested_action": "Run the final verifier bug-check over the implemented coworker scope after steward review.",
+  "sender": "coder",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneD",
+  "branch": "prd/ai-co-worker-chat-surface-floating-launcher-72",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-72-ai-coworker-chat-surface-floating-launcher/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/board.html",
+    "pipeline-diagram/coworker-launcher.js",
+    "pipeline-diagram/README.md",
+    "src/agentops_harness/review_server.py",
+    "term-control-center/server/index.ts",
+    "term-control-center/tests/coworkerGuard.test.ts",
+    "term-control-center/tests/coworkerLauncher.test.ts",
+    "term-control-center/README.md",
+    "tests/unit/test_review_server_coworker.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-72-ai-coworker-chat-surface-floating-launcher/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-72-ai-coworker-chat-surface-floating-launcher/review-request-r2-checkpoint-1.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-72-ai-coworker-chat-surface-floating-launcher/review-request-r3-checkpoint-1-fixes.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-72-ai-coworker-chat-surface-floating-launcher/review-request-r4-checkpoint-2-chat-wiring.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-72-ai-coworker-chat-surface-floating-launcher/review-request-r5-checkpoint-2-session-fix.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-72-ai-coworker-chat-surface-floating-launcher/review-request-r6-checkpoint-3-grounding.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-72-ai-coworker-chat-surface-floating-launcher/review-request-r7-checkpoint-3-plan-order-fix.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-72-ai-coworker-chat-surface-floating-launcher/review-request-r8-checkpoint-4-explicit-actions.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-72-ai-coworker-chat-surface-floating-launcher/review-request-r9-checkpoint-5-authority-guard.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-72-ai-coworker-chat-surface-floating-launcher/review-request-r10-checkpoint-6-redaction.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-72-ai-coworker-chat-surface-floating-launcher/review-request-r11-checkpoint-7-docs-validation.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-72-ai-coworker-chat-surface-floating-launcher/verifier-report.md"
+  ],
+  "validation": [
+    {
+      "command": "npm --prefix term-control-center run typecheck",
+      "result": "pass"
+    },
+    {
+      "command": "npm --prefix term-control-center run test",
+      "result": "pass"
+    },
+    {
+      "command": "npm --prefix term-control-center run build",
+      "result": "pass"
+    },
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests/unit -q",
+      "result": "pass"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass"
+    }
+  ],
+  "finding_ids_addressed": [],
+  "scope_notes": [
+    "Steward review completed: placement clean; run-folder audit trail intentionally visible via intent-to-add.",
+    "Optional cache-bust token normalization was intentionally left unchanged before bug-check because steward marked it optional.",
+    "Ready for final verifier bug-check only; no PR creation, merge, deploy, or approval actions requested."
+  ]
+}

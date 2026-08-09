@@ -1,0 +1,30 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-181",
+  "purpose": "Review issue #181 checkpoint 3 sidebar collapse and notification indicators",
+  "expected_response": "Compact verifier verdict JSON per coms contract; write full findings to verifier-report.md",
+  "stop_condition": "Approve checkpoint 3 or request bounded revisions with finding IDs",
+  "checkpoint": "3 - Sidebar and notification checkpoint",
+  "revision": 1,
+  "requested_action": "review",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/181"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-181-unified-terminal-workspace/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/src/App.tsx",
+    "term-control-center/src/styles.css",
+    "term-control-center/tests/terminalJobSidebar.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-181-unified-terminal-workspace/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-181-unified-terminal-workspace/review-request-r6-sidebar-notifications.json"
+  ],
+  "validation_results": [
+    "PASS: cd term-control-center && npx tsc -p tsconfig.app.json --noEmit && node --import tsx --test tests/terminalJobSidebar.test.ts tests/termBasePath.test.ts && npm run build:client && git diff --check",
+    "BLOCKED/pre-existing: npm --prefix term-control-center run typecheck fails in server config due tests/contextRenewal.test.ts importing ../../pi-packages/agentops-context-renewal/lib/policy.ts outside rootDir and without allowImportingTsExtensions",
+    "BLOCKED/pre-existing/env: npm --prefix term-control-center test reports unrelated admin/auth/pipeline-generator failures and timed out at 120s"
+  ],
+  "finding_ids_addressed": [],
+  "notes": "Please focus on FR-005 and FR-009: active jobs sidebar expanded/collapsed behavior, job switching safety, selected state, attention indicator priority/accessibility. Pipeline/Kody and parallel PRD lifecycle remain later checkpoints."
+}

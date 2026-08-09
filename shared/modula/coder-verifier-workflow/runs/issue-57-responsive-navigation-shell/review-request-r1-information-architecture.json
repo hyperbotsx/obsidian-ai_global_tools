@@ -1,0 +1,41 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Checkpoint 1 review for PRD #57 information architecture and grouped desktop header",
+  "expected_response": "Compact verifier verdict JSON matching the agreed schema",
+  "stop_condition": "Approve or request one bounded revision for checkpoint 1 only",
+  "checkpoint": "1 - Information architecture and grouped desktop header",
+  "revision": 1,
+  "requested_action": "Review the shared nav model and grouped desktop header changes only; defer mobile/safe-area/test-rewrite findings to later checkpoints unless they block this checkpoint.",
+  "issue": {
+    "number": 57,
+    "title": "B1-PRD: Responsive AgentOps Navigation Shell",
+    "url": "https://github.com/hyperbotsx/agentops-harness/issues/57"
+  },
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-57-responsive-navigation-shell/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/agentops-nav.js",
+    "pipeline-diagram/global-nav.js",
+    "pipeline-diagram/board.html",
+    "pipeline-diagram/pipeline.html",
+    "pipeline-diagram/wip.html",
+    "pipeline-diagram/public/agentops-nav.js",
+    "term-control-center/index.html",
+    "term-control-center/public/agentops-nav.js",
+    "term-control-center/src/App.tsx",
+    "term-control-center/src/main.tsx",
+    "term-control-center/src/nav.css",
+    "term-control-center/src/navigation/ProjectSwitcher.tsx",
+    "term-control-center/src/navigation/TopNav.tsx",
+    "term-control-center/src/navigation/navModel.ts"
+  ],
+  "validation_results": [
+    { "command": "npm --prefix term-control-center run typecheck", "status": "passed" },
+    { "command": "node --check pipeline-diagram/agentops-nav.js", "status": "passed" },
+    { "command": "node --check pipeline-diagram/global-nav.js", "status": "passed" }
+  ],
+  "finding_ids_addressed": [],
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-57-responsive-navigation-shell/coder-handoff.md"
+}

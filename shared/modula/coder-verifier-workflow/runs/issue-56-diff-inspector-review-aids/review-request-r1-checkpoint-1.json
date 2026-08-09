@@ -1,0 +1,43 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Checkpoint 1 review for PRD #56 Diff Inspector review pins and reviewed-file local state",
+  "expected_response": "JSON verdict matching the provided schema; write full details to verifier-report.md.",
+  "stop_condition": "Approve checkpoint 1 or return bounded findings for pins/reviewed state only.",
+  "request": {
+    "issue": 56,
+    "issue_url": "https://github.com/hyperbotsx/agentops-harness/issues/56",
+    "checkpoint": "1 - Review pins/bookmarks, reviewed-file local state, namespacing, and eviction caps",
+    "revision": 1,
+    "requested_action": "checkpoint_review",
+    "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/coder-handoff.md",
+    "changed_files": [
+      "term-control-center/shared/diff.ts",
+      "term-control-center/server/gitDiffReader.ts",
+      "term-control-center/src/diffReviewState.ts",
+      "term-control-center/src/DiffReviewAids.tsx",
+      "term-control-center/src/DiffPatchView.tsx",
+      "term-control-center/src/DiffInspector.tsx",
+      "term-control-center/src/styles.css",
+      "term-control-center/tests/diffReviewState.test.ts",
+      "term-control-center/tests/termBasePath.test.ts",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/coder-handoff.md",
+      "dev-plans/agentops/coder-verifier-workflow/runs/issue-56-diff-inspector-review-aids/review-request-r1-checkpoint-1.json"
+    ],
+    "validation_results": [
+      { "command": "npm --prefix term-control-center run typecheck", "result": "passed" },
+      { "command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/diffReviewState.test.ts tests/diffState.test.ts tests/termBasePath.test.ts", "result": "passed (33/33)" },
+      { "command": "git diff --check", "result": "passed" }
+    ],
+    "finding_ids_addressed": [],
+    "notes": [
+      "State is namespaced by repository + branch + issue number from the diff response.",
+      "Pins persist only path, line range, side, type, optional user note, and timestamps.",
+      "Reviewed entries persist only path, SHA-256 fingerprint, and timestamps; raw hunk text is used in memory for fingerprints but is not stored.",
+      "Mark reviewed is enabled once the selected file fingerprint is available; hide-reviewed affects the file rail only.",
+      "Patch rendering was split to keep DiffInspector under the repo KISS file-size guideline."
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-192",
+  "purpose": "Checkpoint 3 revision 7 review for issue #192 draft ID tmux-safe fix",
+  "checkpoint": "3 - Planner-to-authoring transition",
+  "revision": 7,
+  "requested_action": "Review bounded fix for remaining F192-CP3-002: draft IDs used as physical group/session path seeds now allow only tmux/path-safe [A-Za-z0-9_-], rejecting path separators, colon, and dot.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/192"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/tests/launcher.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/review-request-r7-draft-id-tmux-safe-fix.json"
+  ],
+  "validation_results": [
+    {
+      "command": "cd term-control-center && node --import tsx --test --test-name-pattern \"logical draft job row|authoring launch failure|PRD Author launch prompt|pi-agent wrapper honors draft-scoped|PRD planning execute fails closed|seed-only drafts|unsafe pre-issue\" tests/server.test.ts tests/launchPlan.test.ts tests/agentopsComsLabel.test.ts tests/terminalJobSidebar.test.ts tests/launcher.test.ts && git diff --check",
+      "status": "passed",
+      "notes": "7 focused tests passed and diff check passed after draft ID character-set tightening."
+    }
+  ],
+  "finding_ids_addressed": [
+    "F192-CP3-002"
+  ],
+  "stop_condition": "Verifier approves checkpoint 3 or returns bounded findings."
+}

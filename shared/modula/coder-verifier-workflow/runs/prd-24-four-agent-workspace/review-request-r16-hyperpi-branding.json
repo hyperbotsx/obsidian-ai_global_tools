@@ -1,0 +1,30 @@
+{
+  "type": "review_request",
+  "task": {
+    "issue_url": "https://github.com/hyperbotsx/agentops-harness/issues/24",
+    "branch": "feat/four-agent-workspace-24",
+    "worktree": "/mnt/hyperliquid-data/projects/worktrees/agentops-term"
+  },
+  "checkpoint": "post-approval browser QA follow-up: HyperPi top-left branding",
+  "revision": 16,
+  "requested_action": "bounded_review",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/global-nav.js",
+    "term-control-center/src/App.tsx",
+    "term-control-center/src/styles.css",
+    "term-control-center/tests/boardGuardrails.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/review-request-r16-hyperpi-branding.json"
+  ],
+  "summary": "Added a restrained HyperPi wordmark and pi monogram to the top-left brand position on static dashboard pages and the terminal app. Static pages use global-nav.js injection with inline/floating modes; terminal app uses a BrandLink in TopNav. Mobile overflow handling preserves nav usability.",
+  "validation_results": [
+    "node --check pipeline-diagram/global-nav.js — pass",
+    "cd term-control-center && npm run typecheck — pass",
+    "cd term-control-center && npm test -- --test-name-pattern='persistent navigation|term control center exposes' — pass, 118 tests run",
+    "cd term-control-center && npm run build — pass",
+    "git diff --check — pass",
+    "Deployed global-nav.js to nginx-served public root and restarted term service on 127.0.0.1:3032"
+  ],
+  "finding_ids_addressed": []
+}

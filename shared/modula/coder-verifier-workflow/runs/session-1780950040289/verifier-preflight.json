@@ -1,0 +1,48 @@
+{
+  "artifact_folder": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780950040289",
+  "branch": "prd/lead-developer-human-approved-ceo-review-workflow-942",
+  "browser_qa_devtools_recommended": false,
+  "changed_files": [],
+  "devtools_mcp_prerequisites": {
+    "chrome": true,
+    "node": true,
+    "npm": true,
+    "npx": true
+  },
+  "files": {
+    "coder-handoff.md": {
+      "bytes": 13802,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780950040289/coder-handoff.md"
+    },
+    "coder-ready.md": {
+      "bytes": 5083,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780950040289/coder-ready.md"
+    },
+    "decision-log.md": {
+      "bytes": 4511,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780950040289/decision-log.md"
+    },
+    "verifier-report.md": {
+      "bytes": 4044,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780950040289/verifier-report.md"
+    },
+    "verifier-request.md": {
+      "bytes": 6109,
+      "exists": true,
+      "path": "dev-plans/agentops/coder-verifier-workflow/runs/session-1780950040289/verifier-request.md"
+    }
+  },
+  "handoff_missing_fields": [],
+  "hotspot_files": [],
+  "ready_missing_fields": [],
+  "repo_root": "/mnt/hyperliquid-data/projects/worktrees/agentops-harness",
+  "report_machine_status_missing": [],
+  "review_profiles": {},
+  "status_short": [
+    "## prd/lead-developer-human-approved-ceo-review-workflow-942...origin/prd/lead-developer-human-approved-ceo-review-workflow-942"
+  ]
+}

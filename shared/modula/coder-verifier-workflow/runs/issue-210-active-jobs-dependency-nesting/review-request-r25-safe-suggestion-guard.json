@@ -1,0 +1,27 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-210",
+  "purpose": "Issue #210 safe grouping-suggestion guard re-review",
+  "checkpoint": "3 - Collapsible grouping operator aids",
+  "revision": 25,
+  "requested_action": "Re-review only F210-CP3-010. Verify suggestions require a successfully loaded, non-stale overlay for the active project; unloaded, stale, and cross-project failure states suppress actionable Create controls; focused tests prove that readiness guard and realistic already-grouped exclusion.",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/210"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-210-active-jobs-dependency-nesting/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/src/jobGrouping.ts",
+    "term-control-center/src/JobSidebar.tsx",
+    "term-control-center/tests/jobGrouping.test.ts",
+    "term-control-center/tests/folderSuggestions.test.ts",
+    "term-control-center/tests/terminalJobSidebar.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-210-active-jobs-dependency-nesting/coder-handoff.md"
+  ],
+  "validation_results": [
+    {"command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/folderSuggestions.test.ts tests/terminalJobSidebar.test.ts tests/jobGrouping.test.ts tests/jobFolderActions.test.ts", "status": "pass", "summary": "51/51"},
+    {"command": "cd term-control-center && npm run typecheck", "status": "pass"},
+    {"command": "git diff --check", "status": "pass"}
+  ],
+  "finding_ids_addressed": ["F210-CP3-010"],
+  "stop_condition": "Return compact verdict JSON; write details to verifier-report.md only for non-approval."
+}

@@ -1,0 +1,40 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-192",
+  "purpose": "Checkpoint 3 review for issue #192 planner-to-authoring transition",
+  "checkpoint": "3 - Planner-to-authoring transition",
+  "revision": 5,
+  "requested_action": "Review planner-to-authoring transition changes: stable logical draft row, planner retirement, explicit planningBriefPath handoff, draft-scoped coms context, and duplicate-launch guard.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/192"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/launchGroup.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "term-control-center/tests/server.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/review-request-r5-planner-authoring-transition.json"
+  ],
+  "validation_results": [
+    {
+      "command": "cd term-control-center && node --import tsx --test --test-name-pattern \"logical draft job row|PRD Author launch prompt|pi-agent wrapper honors draft-scoped|PRD planning execute fails closed|seed-only drafts\" tests/server.test.ts tests/launchPlan.test.ts tests/agentopsComsLabel.test.ts tests/terminalJobSidebar.test.ts && git diff --check",
+      "status": "passed",
+      "notes": "5 focused tests passed and diff check passed after Checkpoint 3 transition changes."
+    },
+    {
+      "command": "cd term-control-center && npx tsc -p tsconfig.app.json --noEmit && npx tsc -p tsconfig.server.json --noEmit",
+      "status": "failed",
+      "notes": "App typecheck passed first; server typecheck failed on known tests/contextRenewal.test.ts outside-rootDir import before checkpoint-specific server type errors."
+    }
+  ],
+  "finding_ids_addressed": [
+    "F192-CP2-001"
+  ],
+  "stop_condition": "Verifier approves checkpoint 3 or returns bounded findings."
+}

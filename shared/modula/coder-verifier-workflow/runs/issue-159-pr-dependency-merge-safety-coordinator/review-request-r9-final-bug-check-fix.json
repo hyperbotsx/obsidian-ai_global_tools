@@ -1,0 +1,34 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-159",
+  "purpose": "Final bug-check fix re-review for PRD #159",
+  "expected_response": "Compact verifier verdict JSON matching schema; write full details to verifier-report.md if not approved",
+  "stop_condition": "Approve final bug-check or request human escalation if unresolved",
+  "checkpoint": "5 - Final integration and bug-check checkpoint",
+  "revision": 9,
+  "requested_action": "bug-check-recheck",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/159"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-159-pr-dependency-merge-safety-coordinator/coder-handoff.md",
+  "changed_files": [
+    "src/agentops_harness/pr_coordination.py",
+    "src/agentops_harness/pr_coordination_analysis.py",
+    "src/agentops_harness/cli.py",
+    "tests/fixtures/pr_coordination_overlap_stale.json",
+    "tests/unit/test_pr_coordination.py",
+    "tests/unit/test_cli.py",
+    "docs/pr-coordination.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-159-pr-dependency-merge-safety-coordinator/**"
+  ],
+  "validation_results": [
+    {"command": "PYTHONPATH=src python3 -m pytest tests/unit/test_pr_coordination.py tests/unit/test_cli.py -q", "status": "passed", "summary": "65 passed, 7 subtests passed"},
+    {"command": "PYTHONPATH=src python3 - <<'PY' ... linked_issue ambiguous dependency body ... PY", "status": "passed", "summary": "returned 159"},
+    {"command": "PYTHONPATH=src python3 -m agentops_harness.cli pr-coordination --fixture tests/fixtures/pr_coordination_overlap_stale.json --format json", "status": "passed", "summary": "fixture JSON renders"},
+    {"command": "PYTHONPATH=src python3 -m agentops_harness.cli handoff-metadata-check --artifact dev-plans/agentops/coder-verifier-workflow/runs/issue-159-pr-dependency-merge-safety-coordinator/coder-handoff.md --format json", "status": "passed", "summary": "status: passed"},
+    {"command": "git diff --check", "status": "passed", "summary": "no whitespace errors"}
+  ],
+  "finding_ids_addressed": ["F159-R8-001"],
+  "steward_review": {"decision": "clean_after_cleanup", "cleanup_done": true},
+  "isolation_preflight": {"cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-159", "project": "agentops-prd-159", "identity_expected": "coder@agentops-prd-159", "pi_coms_dir": "/tmp/agentops/coms/agentops-prd-159", "verifier_live": true}
+}

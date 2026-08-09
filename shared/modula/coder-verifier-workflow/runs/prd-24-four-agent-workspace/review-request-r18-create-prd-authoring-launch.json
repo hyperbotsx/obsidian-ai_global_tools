@@ -1,0 +1,46 @@
+{
+  "type": "review_request",
+  "task": {
+    "issue_url": "https://github.com/hyperbotsx/agentops-harness/issues/24",
+    "branch": "feat/four-agent-workspace-24",
+    "worktree": "/mnt/hyperliquid-data/projects/worktrees/agentops-term"
+  },
+  "checkpoint": "Create PRD full-screen terminal authoring launch follow-up",
+  "revision": 18,
+  "requested_action": "bounded_review",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/board.html",
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/launchGroup.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/server/completionDiscovery.ts",
+    "term-control-center/tests/boardGuardrails.test.ts",
+    "term-control-center/tests/launcher.test.ts",
+    "term-control-center/tests/server.test.ts",
+    "term-control-center/tests/termBasePath.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/review-request-r18-create-prd-authoring-launch.json"
+  ],
+  "summary": "Replaced the old Create PRD bottom-sheet/custom chat flow with a full-screen terminal authoring launcher. The launcher collects the operator PRD idea, starts /launch in prd-authoring mode, defaults to exactly prd-author/researcher/codebase-expert, excludes Steward by default, supports explicit compact prd-author-only mode, supports draft/pre-issue task context via draftId without fake PRD completion detection, and keeps implementation four-agent launch behavior unchanged.",
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck — pass",
+    "npm --prefix term-control-center run test — pass, 122 tests",
+    "npm --prefix term-control-center run build:client — pass with existing non-blocking Vite warnings",
+    "PYTHONPATH=src python3 -m pytest — pass, 654 tests",
+    "bash -n scripts/agentops/pi-agent.sh — pass",
+    "git diff --check — pass",
+    "coms_list project=agentops-term include_explicit=true — verifier/researcher/steward peers live"
+  ],
+  "finding_ids_addressed": [],
+  "review_focus": [
+    "Create PRD full-screen terminal launch wiring replaces old chat panel/API mutation path",
+    "draft/pre-issue PRD authoring launch validation and completion-skip safety",
+    "default authoring roles exactly prd-author, researcher, codebase-expert",
+    "no default Steward pane in PRD authoring",
+    "operator PRD idea reaches PRD Author prompt/context and primes Researcher/Codebase Expert for bounded consults",
+    "compact mode is explicit and launches only prd-author",
+    "no arbitrary browser-provided command execution and no GitHub mutation/approval/PR/merge/deploy/trading/backtest path"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-153",
+  "purpose": "Checkpoint 2 review for issue #153 global extension/package foundation.",
+  "checkpoint": "2 - Global extension/package foundation",
+  "revision": 2,
+  "requested_action": "Verify the first-party Pi package foundation, feature-flagged AgentOps wrapper loading, threshold/status behavior, unsupported fallback preflight, tests, and that no reset automation was added.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/153"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/coder-handoff.md",
+  "changed_files": [
+    "docs/agentops-context-renewal.md",
+    "pi-packages/agentops-context-renewal/package.json",
+    "pi-packages/agentops-context-renewal/lib/policy.ts",
+    "pi-packages/agentops-context-renewal/extensions/context-renewal.ts",
+    "scripts/agentops/pi-agent.sh",
+    "scripts/agentops/context-renewal-preflight.py",
+    "src/agentops_harness/context_renewal_preflight.py",
+    "term-control-center/tests/contextRenewal.test.ts",
+    "tests/unit/test_context_renewal_preflight.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/review-request-r1-policy-global-activation-design.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-153-context-renewal-workflow/review-request-r2-global-extension-foundation.json"
+  ],
+  "validation_results": [
+    {
+      "command": "git diff --check",
+      "status": "passed"
+    },
+    {
+      "command": "python3 -m py_compile scripts/agentops/context-renewal-preflight.py src/agentops_harness/context_renewal_preflight.py",
+      "status": "passed"
+    },
+    {
+      "command": "cd term-control-center && node --import /mnt/hyperliquid-data/projects/repos/agentops-harness/term-control-center/node_modules/tsx/dist/loader.mjs --test --test-concurrency=1 tests/contextRenewal.test.ts",
+      "status": "passed",
+      "summary": "5 tests passed. Used existing canonical repo tsx loader because this worktree lacks local node_modules."
+    },
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests/unit/test_context_renewal_preflight.py",
+      "status": "passed",
+      "summary": "3 tests passed."
+    },
+    {
+      "command": "scripts/agentops/context-renewal-preflight.py --format json | python3 -m json.tool",
+      "status": "passed",
+      "summary": "Reports terminal Pi/hyper-pi unsupported, AgentOps normal with flag disabled."
+    },
+    {
+      "command": "AGENTOPS_CONTEXT_RENEWAL=1 scripts/agentops/context-renewal-preflight.py --format json | python3 -m json.tool",
+      "status": "passed",
+      "summary": "Reports AgentOps wrapper active and terminal Pi/hyper-pi unsupported until settings reference the package."
+    },
+    {
+      "command": "cd term-control-center && npm test -- --test-name-pattern \"context renewal\"",
+      "status": "failed",
+      "summary": "Fails before tests because local term-control-center/node_modules is missing and Node cannot resolve tsx."
+    },
+    {
+      "command": "cd term-control-center && npm run typecheck",
+      "status": "failed",
+      "summary": "Fails because local TypeScript/React/xterm dependencies are missing from this worktree."
+    }
+  ],
+  "finding_ids_addressed": [],
+  "isolation_preflight": {
+    "sender_identity": "coder@agentops-prd-153",
+    "pi_coms_dir": "/tmp/agentops/coms/agentops-prd-153",
+    "verifier_live": true
+  },
+  "stop_condition": "Return compact verifier verdict JSON and write detailed report to verifier-report.md."
+}

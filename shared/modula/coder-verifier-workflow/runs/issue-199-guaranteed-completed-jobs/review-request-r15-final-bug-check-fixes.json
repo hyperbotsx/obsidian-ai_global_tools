@@ -1,0 +1,35 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-199",
+  "purpose": "Final bug-check fixes re-review for issue #199",
+  "expected_response": "Compact verdict JSON matching schema; full report in verifier-report.md only if not approved",
+  "stop_condition": "Approve final bug-check or report bounded findings",
+  "checkpoint": "6 - Final bug-check for silent omissions, stale evidence, duplicate rows, and unsafe persistence",
+  "revision": 2,
+  "requested_action": "bug-check",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/199"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-199-guaranteed-completed-jobs/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/completed.html",
+    "pipeline-diagram/completed_work.py",
+    "pipeline-diagram/completed_registry.py",
+    "pipeline-diagram/completed_links.py",
+    "pipeline-diagram/generate.py",
+    "pipeline-diagram/.gitignore",
+    "tests/unit/test_completed_work.py",
+    "tests/unit/test_completed_generate.py",
+    "tests/unit/test_completed_html_static.py",
+    "tests/unit/test_pipeline_generate.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-199-guaranteed-completed-jobs/coder-handoff.md"
+  ],
+  "validation_results": [
+    "python3 -m pytest tests/unit/test_completed_work.py tests/unit/test_completed_generate.py tests/unit/test_completed_html_static.py tests/unit/test_pipeline_generate.py -q — passed (33 tests)",
+    "PYTHONPATH=src python3 -m pytest tests -q — passed (1201 tests, 60 subtests)",
+    "python3 -m py_compile pipeline-diagram/generate.py pipeline-diagram/completed_work.py pipeline-diagram/completed_registry.py pipeline-diagram/completed_links.py tests/unit/test_completed_work.py tests/unit/test_completed_generate.py tests/unit/test_completed_html_static.py tests/unit/test_pipeline_generate.py — passed",
+    "git diff --check — passed",
+    "Ignored caches removed after validation"
+  ],
+  "finding_ids_addressed": ["F199-FBC-001", "F199-FBC-002"]
+}

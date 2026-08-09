@@ -1,0 +1,39 @@
+{
+  "type": "review_request",
+  "task": {
+    "issue_url": "https://github.com/hyperbotsx/agentops-harness/issues/24",
+    "branch": "feat/four-agent-workspace-24",
+    "worktree": "/mnt/hyperliquid-data/projects/worktrees/agentops-term"
+  },
+  "checkpoint": "Create PRD full-screen terminal authoring launch final bug-check",
+  "revision": 20,
+  "requested_action": "bug_check",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/board.html",
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/launchGroup.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/server/completionDiscovery.ts",
+    "term-control-center/tests/boardGuardrails.test.ts",
+    "term-control-center/tests/launcher.test.ts",
+    "term-control-center/tests/server.test.ts",
+    "term-control-center/tests/termBasePath.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/review-request-r18-create-prd-authoring-launch.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/review-request-r19-create-prd-authoring-launch-fix.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/review-request-r20-create-prd-authoring-bug-check.json"
+  ],
+  "summary": "Final bug-check request for the approved Create PRD terminal authoring launch follow-up after AUTHORING-24-R18-001 was resolved and revision 19 was approved.",
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck — pass",
+    "npm --prefix term-control-center run test — pass, 122 tests",
+    "npm --prefix term-control-center run build:client — pass with existing non-blocking Vite warnings",
+    "PYTHONPATH=src python3 -m pytest — pass, 654 tests",
+    "bash -n scripts/agentops/pi-agent.sh — pass",
+    "git diff --check — pass",
+    "GET http://127.0.0.1:3032/launch-context with current x-term-token — pass; returned JSON launch context"
+  ],
+  "finding_ids_addressed": ["AUTHORING-24-R18-001"]
+}

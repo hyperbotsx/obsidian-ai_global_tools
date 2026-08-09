@@ -1,0 +1,33 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Checkpoint 3 review for PRD #46: active-project API and top-left dropdown",
+  "expected_response": "Compact verifier verdict JSON per coms contract; full report at verifier-report.md if not approved.",
+  "stop_condition": "Approve active-project API/dropdown checkpoint or return bounded findings before launch/session deeper integration.",
+  "checkpoint": "3 - Active-project API and dropdown",
+  "revision": 4,
+  "requested_action": "review",
+  "prd_issue": "https://github.com/hyperbotsx/agentops-harness/issues/46",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-46-multi-project-admin-switching/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/adminProjects.ts",
+    "term-control-center/server/adminRoutes.ts",
+    "term-control-center/src/App.tsx",
+    "term-control-center/src/styles.css",
+    "term-control-center/tests/admin.test.ts",
+    "pipeline-diagram/global-nav.js",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-46-multi-project-admin-switching/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-46-multi-project-admin-switching/review-request-r4-active-project-dropdown.json"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck: passed",
+    "cd term-control-center && HOME=$(mktemp -d) node --import tsx --test --test-concurrency=1 tests/admin.test.ts: passed (14 tests)",
+    "node --check pipeline-diagram/global-nav.js: passed",
+    "npm --prefix term-control-center test: passed (198 tests)",
+    "npm --prefix term-control-center run build: passed",
+    "git diff --check: passed"
+  ],
+  "finding_ids_addressed": ["CP2-001", "CP2-002", "CP2-003"]
+}

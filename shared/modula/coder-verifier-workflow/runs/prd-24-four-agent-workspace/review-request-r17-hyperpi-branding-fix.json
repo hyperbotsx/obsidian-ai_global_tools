@@ -1,0 +1,30 @@
+{
+  "type": "review_request",
+  "task": {
+    "issue_url": "https://github.com/hyperbotsx/agentops-harness/issues/24",
+    "branch": "feat/four-agent-workspace-24",
+    "worktree": "/mnt/hyperliquid-data/projects/worktrees/agentops-term"
+  },
+  "checkpoint": "post-approval browser QA follow-up: HyperPi top-left branding",
+  "revision": 17,
+  "requested_action": "bounded_recheck",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/global-nav.js",
+    "term-control-center/src/App.tsx",
+    "term-control-center/src/styles.css",
+    "term-control-center/tests/boardGuardrails.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/prd-24-four-agent-workspace/review-request-r17-hyperpi-branding-fix.json"
+  ],
+  "summary": "Addressed BRAND-24-R16-001 by reconciling the regression test expectations with the current HyperPi terminal visual contract. Static dashboard theme assertions remain for agentops-theme.css; term CSS now has explicit HyperPi palette assertions. Re-ran the previously failing test command and it passed all 118 tests.",
+  "validation_results": [
+    "cd term-control-center && npm test -- --test-name-pattern='persistent navigation|term control center exposes' — pass, 118 tests",
+    "node --check pipeline-diagram/global-nav.js — pass",
+    "cd term-control-center && npm run typecheck — pass",
+    "cd term-control-center && npm run build — pass",
+    "git diff --check — pass",
+    "Deployed global-nav.js to nginx-served public root and restarted term service on 127.0.0.1:3032"
+  ],
+  "finding_ids_addressed": ["BRAND-24-R16-001"]
+}

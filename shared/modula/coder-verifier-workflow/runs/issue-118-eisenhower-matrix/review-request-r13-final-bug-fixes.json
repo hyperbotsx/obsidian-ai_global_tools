@@ -1,0 +1,52 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-118",
+  "purpose": "Final verifier bug-check re-review after F118-FBC fixes",
+  "expected_response": "Compact verdict JSON per coms transport; write full findings to verifier-report.md only if not approved.",
+  "stop_condition": "Approve final bug-check revision 2 or return bounded actionable findings.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/118",
+  "checkpoint": "final bug-check",
+  "revision": 2,
+  "requested_action": "Verify F118-FBC-001 and F118-FBC-002 fixes and final bug-check approval readiness.",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-118-eisenhower-matrix/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/.gitignore",
+    "pipeline-diagram/README.md",
+    "pipeline-diagram/agentops-nav.js",
+    "pipeline-diagram/coworker-launcher.js",
+    "pipeline-diagram/deploy/INSTALL-ops.md",
+    "pipeline-diagram/deploy/asset-smoke-check.py",
+    "pipeline-diagram/deploy/sync-public-assets.py",
+    "pipeline-diagram/generate.py",
+    "pipeline-diagram/matrix.html",
+    "pipeline-diagram/public/matrix-data.js",
+    "pipeline-diagram/public/matrix.html",
+    "src/agentops_harness/review_server.py",
+    "term-control-center/server/adminPipeline.ts",
+    "term-control-center/tests/admin.test.ts",
+    "tests/unit/test_pipeline_board_generation.py",
+    "tests/unit/test_pipeline_generate.py",
+    "tests/unit/test_review_server_coworker.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-118-eisenhower-matrix/*",
+    "/mnt/hyperliquid-data/projects/repos/agentops-harness/dev-plans/agentops/open-prd-sweep-ledger-2026-06-28.md"
+  ],
+  "validation_results": [
+    {"command": "python3 pipeline-diagram/deploy/sync-public-assets.py --root pipeline-diagram", "result": "passed: created public matrix.html and matrix-data.js symlinks"},
+    {"command": "python3 pipeline-diagram/deploy/sync-public-assets.py --check --root pipeline-diagram", "result": "passed"},
+    {"command": "public-root HTTP smoke on alternate port 9880", "result": "matrix.html 200 text/html; matrix-data.js 200 text/javascript; board.html 200 text/html"},
+    {"command": "python3 pipeline-diagram/deploy/asset-smoke-check.py http://127.0.0.1:9880/", "result": "passed"},
+    {"command": "cd term-control-center && TMPDIR=$(mktemp -d) node --import tsx --test --test-concurrency=1 --test-name-pattern 'promoteCachedPipelineData swaps the active project cache into the shared board files' tests/admin.test.ts", "result": "passed: 1 test"},
+    {"command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest tests.unit.test_pipeline_generate", "result": "passed: 8 tests"},
+    {"command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src pytest -q -p no:cacheprovider tests/unit/test_pipeline_board_generation.py tests/unit/test_review_server_coworker.py", "result": "passed: 30 tests"},
+    {"command": "git diff --check", "result": "passed"},
+    {"command": "cache cleanup", "result": "term-control-center/node_modules removed; pytest/Python cache paths absent"}
+  ],
+  "finding_ids_addressed": ["F118-FBC-001", "F118-FBC-002"],
+  "notes": [
+    "Broad npm test attempt accidentally ran unrelated term-control tests and failed on pre-existing/environment launch/auth cases; focused promotion test passed after npm ci and node_modules was removed afterward.",
+    "Shared sweep ledger updated with final bug-check fix validation evidence at user-requested canonical repo path.",
+    "No PR should be created until final verifier bug-check approval and explicit human instruction."
+  ]
+}

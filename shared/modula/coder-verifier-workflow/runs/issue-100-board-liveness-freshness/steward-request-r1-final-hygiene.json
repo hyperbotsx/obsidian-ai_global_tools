@@ -1,0 +1,27 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Check changed-file placement, run artifacts, generated/public asset hygiene before final verifier bug-check for issue #100.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/100",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-100-board-liveness-freshness/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/freshness.js",
+    "pipeline-diagram/public/freshness.js",
+    "pipeline-diagram/board.html",
+    "pipeline-diagram/wip.html",
+    "pipeline-diagram/pipeline.html",
+    "pipeline-diagram/review-notify.js",
+    "pipeline-diagram/generate.py",
+    "pipeline-diagram/README.md",
+    "term-control-center/server/adminRoutes.ts",
+    "term-control-center/tests/admin.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-100-board-liveness-freshness/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-100-board-liveness-freshness/review-request-r1-implementation.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-100-board-liveness-freshness/review-request-r2-f100-r1-001.json",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-100-board-liveness-freshness/steward-request-r1-final-hygiene.json"
+  ],
+  "expected_response": "Concise JSON or markdown: clean vs cleanup recommendations, with finding IDs if any.",
+  "stop_condition": "Return clean or bounded cleanup recommendations before verifier final bug-check."
+}

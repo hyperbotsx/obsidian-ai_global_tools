@@ -1,0 +1,44 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Phase 2 preview/apply CLI KISS re-review for issue 141",
+  "expected_response": "Compact verifier verdict JSON matching the response schema; write details to verifier-report.md",
+  "stop_condition": "Approve checkpoint or request bounded revision findings",
+  "checkpoint": "Phase 2 preview/apply gate checkpoint",
+  "revision": 4,
+  "requested_action": "Re-review bounded fix for F141-P2-GATE-R3-001 only: new split CLI test functions must satisfy the KISS function-size limit while preserving gate coverage.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/141"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+  "changed_files": [
+    "tests/unit/test_ceo_review_apply_cli.py",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-141-ceo-review-ux-parity-modes/review-request-r14-phase2-preview-apply-cli-kiss-fix.json"
+  ],
+  "validation_results": [
+    {
+      "command": "wc -l tests/unit/test_ceo_review_apply_cli.py",
+      "status": "pass",
+      "summary": "test_ceo_review_apply_cli.py is 69 lines"
+    },
+    {
+      "command": "PYTHONPATH=src python3 -m pytest tests/unit/test_ceo_review_apply.py tests/unit/test_ceo_review_apply_cli.py tests/unit/test_ceo_review.py tests/unit/test_ceo_review_answers.py",
+      "status": "pass",
+      "summary": "54 tests passed"
+    },
+    {
+      "command": "git diff --check",
+      "status": "pass",
+      "summary": "no whitespace errors"
+    }
+  ],
+  "finding_ids_addressed": [
+    "F141-P2-GATE-R3-001"
+  ],
+  "notes": [
+    "Prior gate and file-size findings were closed by verifier in R12/R13."
+  ]
+}

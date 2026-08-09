@@ -1,0 +1,19 @@
+{
+  "status": "ready",
+  "work_dir": "/tmp/agentops-kodus-101/docker-sandbox",
+  "gateway_url": "http://host.docker.internal:18082/v1",
+  "model": "claude-cli",
+  "installer_path": "/tmp/agentops-kodus-101/docker-sandbox/kodus-installer",
+  "docker_available": false,
+  "validation": {
+    "command": "./scripts/validate-env.sh",
+    "returncode": 0,
+    "stdout": "\n\u001b[1;33m== Schema source ==\u001b[0m\n\u001b[0;32mOK\u001b[0m .env.example found (.env.example).\n\u001b[0;32mOK\u001b[0m schema-vars.sh loaded (9 required, 11 autogen).\n\u001b[0;32mOK\u001b[0m .env found (.env).\n\u001b[0;32mOK\u001b[0m Schema parsed: 124 vars known.\n\n\u001b[1;33m== Required variables ==\u001b[0m\n\u001b[0;32mOK\u001b[0m All 9 required variables are set.\n\n\u001b[1;33m== Type checks ==\u001b[0m\n\u001b[0;32mOK\u001b[0m 73 typed values OK.\n\n\u001b[1;33m== Variables not in self-hosted schema ==\u001b[0m\n\u001b[0;32mOK\u001b[0m Every variable in .env is part of the self-hosted schema.\n\n\u001b[1;33m== Runtime drift (.env vs running containers) ==\u001b[0m\n\u001b[1;33mWARN\u001b[0m docker not found \u2014 skipping runtime drift check.\n\n\u001b[1;33m== Summary ==\u001b[0m\n\u001b[1;33mvalidate-env: 1 warning(s).\u001b[0m\n",
+    "stderr": ""
+  },
+  "compose": null,
+  "notes": [
+    "No repo-stored secrets; generated Kodus .env remains outside the worktree.",
+    "Run again with --start on a Docker-capable host."
+  ]
+}

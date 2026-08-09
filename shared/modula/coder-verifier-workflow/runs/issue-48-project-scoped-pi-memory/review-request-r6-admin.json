@@ -1,0 +1,42 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Review issue #48 checkpoint 4: admin memory settings/status UI and project-scoped controls.",
+  "expected_response": "Compact verifier verdict JSON only; write details to verifier-report.md if not approved.",
+  "stop_condition": "Approve checkpoint 4 or request bounded fixes.",
+  "issue_ref": "https://github.com/hyperbotsx/agentops-harness/issues/48",
+  "checkpoint": "4 - Admin checkpoint",
+  "revision": 6,
+  "requested_action": "checkpoint_review",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-48-project-scoped-pi-memory/coder-handoff.md",
+  "changed_files": [
+    "docs/agentops-project-memory.md",
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/server/projectMemory.ts",
+    "term-control-center/server/adminProjectMemory.ts",
+    "term-control-center/server/adminProjects.ts",
+    "term-control-center/server/adminRoutes.ts",
+    "term-control-center/server/adminAssets.ts",
+    "term-control-center/server/adminHtml.ts",
+    "term-control-center/server/adminClient.ts",
+    "term-control-center/server/adminMemoryClient.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/server/launchGroup.ts",
+    "term-control-center/server/tmuxSupervisor.ts",
+    "term-control-center/tests/projectMemory.test.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "term-control-center/tests/admin.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-48-project-scoped-pi-memory/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-48-project-scoped-pi-memory/review-request-r6-admin.json"
+  ],
+  "validation_results": [
+    { "command": "git diff --check", "status": "passed" },
+    { "command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/projectMemory.test.ts tests/launchPlan.test.ts", "status": "passed", "summary": "14 tests" },
+    { "command": "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/admin.test.ts", "status": "passed", "summary": "17 tests" },
+    { "command": "npm --prefix term-control-center run typecheck", "status": "passed" }
+  ],
+  "finding_ids_addressed": []
+}

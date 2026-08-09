@@ -1,0 +1,41 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-laneB",
+  "purpose": "Review Issue 138 implementation slice covering Browser QA completion action hardening, refresh visibility/safe reload, post-merge activity state, launch-time Browser QA diagnostics, and launch hygiene.",
+  "expected_response": "Verifier verdict JSON per coms contract; write full details to verifier-report.md.",
+  "stop_condition": "Approve implementation checkpoint or return bounded findings.",
+  "checkpoint": "Issue 138 checkpoints 1-11 implementation review",
+  "revision": 1,
+  "requested_action": "implementation_review",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/138"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-138-browser-qa-completion-action/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/board.html",
+    "pipeline-diagram/deploy/ops.evono.me.nginx",
+    "pipeline-diagram/freshness.js",
+    "term-control-center/server/browserRuntime.ts",
+    "term-control-center/server/completionRetention.ts",
+    "term-control-center/server/implementationWorktreeSync.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/shared/completion.ts",
+    "term-control-center/src/App.tsx",
+    "term-control-center/tests/admin.test.ts",
+    "term-control-center/tests/boardGuardrails.test.ts",
+    "term-control-center/tests/browserRuntime.test.ts",
+    "term-control-center/tests/completion.test.ts",
+    "term-control-center/tests/implementationWorktreeSync.test.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "term-control-center/tests/nginxProxy.test.ts",
+    "term-control-center/tests/termBasePath.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-138-browser-qa-completion-action/coder-handoff.md"
+  ],
+  "validation_results": [
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/completion.test.ts tests/implementationWorktreeSync.test.ts tests/launchPlan.test.ts tests/browserRuntime.test.ts tests/nginxProxy.test.ts tests/termBasePath.test.ts tests/boardGuardrails.test.ts tests/admin.test.ts — pass (128 tests)",
+    "cd term-control-center && node --import tsx --test --test-concurrency=1 tests/admin.test.ts tests/boardGuardrails.test.ts && npm run typecheck — pass",
+    "cd term-control-center && npm run typecheck — pass"
+  ],
+  "finding_ids_addressed": [],
+  "report_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-138-browser-qa-completion-action/verifier-report.md"
+}

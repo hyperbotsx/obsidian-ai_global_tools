@@ -1,0 +1,17 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-187",
+  "purpose": "Re-review PRD #187 checkpoints 3-10 after fixes for V187-CP3-10-007 and V187-CP3-10-008.",
+  "expected_response": "Compact verdict JSON matching schema. Full report to verifier-report.md if findings remain.",
+  "stop_condition": "Approve checkpoints 3-10 revision 4 or return bounded findings.",
+  "checkpoint": "3-10 - Discovery Backlog through PRD planner kickoff and idempotency",
+  "revision": 4,
+  "requested_action": "checkpoint_re_review",
+  "prd_refs": ["https://github.com/hyperbotsx/agentops-harness/issues/187"],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-187-discovery-backlog-prd-composition/coder-handoff.md",
+  "changed_files": ["src/agentops_harness/issue_logger.py", "src/agentops_harness/discovery_backlog.py", "src/agentops_harness/backlog_prd_composer.py", "src/agentops_harness/review_server.py", "pipeline-diagram/coworker-launcher.js", "pipeline-diagram/board.html", "tests/unit/test_review_server_coworker.py", "tests/unit/test_pipeline_board_generation.py", "dev-plans/agentops/coder-verifier-workflow/runs/issue-187-discovery-backlog-prd-composition/coder-handoff.md"],
+  "validation_results": [{"command": "PYTHONPATH=src python3 -m pytest tests/unit/test_review_server_coworker.py tests/unit/test_pipeline_board_generation.py -q && PYTHONPATH=src python3 -m compileall -q src/agentops_harness/review_server.py src/agentops_harness/issue_logger.py src/agentops_harness/discovery_backlog.py src/agentops_harness/backlog_prd_composer.py && node --check pipeline-diagram/coworker-launcher.js", "status": "passed", "detail": "91 tests passed; compileall passed; node check passed"}],
+  "finding_ids_addressed": ["V187-CP3-10-007", "V187-CP3-10-008"]
+}

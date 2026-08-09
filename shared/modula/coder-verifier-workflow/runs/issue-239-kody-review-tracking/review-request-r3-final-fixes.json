@@ -1,0 +1,30 @@
+{
+  "type": "review_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-239",
+  "checkpoint": "Final cumulative PRD #239 diff and bug-check",
+  "revision": 3,
+  "requested_action": "Final re-review and bug-check of only F239-FINAL-007 and F239-FINAL-008 after bounded fixes.",
+  "canonical_task": "https://github.com/hyperbotsx/agentops-harness/issues/239",
+  "project_context_brief": "/home/hyperbots/.local/state/agentops/term-control-center/runtime/agentops-prd-239-ab17c3bfbb4f/artifacts/project-context-brief.md",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-239-kody-review-tracking/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/kodyReview.ts",
+    "term-control-center/server/kodyReviewParsing.ts",
+    "term-control-center/tests/kodyReview.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-239-kody-review-tracking/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-239-kody-review-tracking/review-request-r3-final-fixes.json"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run build passed; only existing Vite notices/advisory.",
+    "Focused Kody/UI/group suite passed 37/37 with the documented pre-existing static launchPlan assertion excluded.",
+    "git diff --check passed.",
+    "No __pycache__ directories or .pyc files remain."
+  ],
+  "finding_ids_addressed": [
+    "F239-FINAL-007",
+    "F239-FINAL-008"
+  ],
+  "stop_condition": "Return compact verdict and write detailed non-approved findings to verifier-report.md. On approval, complete the required final bug-check."
+}

@@ -1,0 +1,56 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-192",
+  "purpose": "Checkpoint 2 review for issue #192 draft job sidebar visibility",
+  "checkpoint": "2 - Draft job sidebar visibility",
+  "revision": 3,
+  "requested_action": "Review draft job sidebar visibility and stable logical draft row implementation. Focus on one active row for seed/planning/authoring, existing execution/review row safety, safe metadata, and draft-scoped coms isolation needed by checkpoint 1 finding.",
+  "prd_refs": [
+    "https://github.com/hyperbotsx/agentops-harness/issues/192"
+  ],
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/coder-handoff.md",
+  "changed_files": [
+    "pipeline-diagram/board.html",
+    "scripts/agentops/pi-agent.sh",
+    "term-control-center/server/draftComs.ts",
+    "term-control-center/server/draftJobs.ts",
+    "term-control-center/server/index.ts",
+    "term-control-center/server/launchGroup.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/src/App.tsx",
+    "term-control-center/tests/agentopsComsLabel.test.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "term-control-center/tests/server.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/current-state-design.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-192-unified-prd-drafting-active-jobs/review-request-r3-draft-job-sidebar.json"
+  ],
+  "validation_results": [
+    {
+      "command": "npm --prefix term-control-center ci",
+      "status": "passed",
+      "notes": "Installed local dependencies for validation."
+    },
+    {
+      "command": "cd term-control-center && node --import tsx --test --test-name-pattern \"logical draft job row|PRD Author launch prompt|pi-agent wrapper honors draft-scoped|PRD planning execute fails closed\" tests/server.test.ts tests/launchPlan.test.ts tests/agentopsComsLabel.test.ts",
+      "status": "passed",
+      "notes": "4 focused tests passed."
+    },
+    {
+      "command": "git diff --check",
+      "status": "passed",
+      "notes": "No whitespace errors."
+    },
+    {
+      "command": "cd term-control-center && npx tsc -p tsconfig.app.json --noEmit && npx tsc -p tsconfig.server.json --noEmit",
+      "status": "failed",
+      "notes": "App typecheck passed first; server typecheck failed on pre-existing tests/contextRenewal.test.ts importing ../../pi-packages/agentops-context-renewal/lib/policy.ts outside term-control-center rootDir."
+    }
+  ],
+  "finding_ids_addressed": [
+    "F192-CP1-001"
+  ],
+  "stop_condition": "Verifier approves checkpoint 2 or returns bounded findings."
+}

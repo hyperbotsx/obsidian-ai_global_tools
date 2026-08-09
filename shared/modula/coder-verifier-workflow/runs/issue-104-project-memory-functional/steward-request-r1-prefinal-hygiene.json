@@ -1,0 +1,30 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "steward",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-prd-104",
+  "purpose": "Check changed-file placement, docs/run artifact hygiene, generated output, and cleanup before final verifier bug-check for PRD #104.",
+  "expected_response": "Concise markdown with clean / cleanup findings and any required bounded action.",
+  "stop_condition": "Return clean or list specific cleanup recommendations.",
+  "context_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-104-project-memory-functional/coder-handoff.md",
+  "changed_files": [
+    "docs/agentops-project-memory.md",
+    "docs/agentops-project-memory-live-enablement.md",
+    "term-control-center/server/adminHtml.ts",
+    "term-control-center/server/adminMemoryClient.ts",
+    "term-control-center/server/adminProjectMemory.ts",
+    "term-control-center/server/adminRoutes.ts",
+    "term-control-center/server/completionCloseoutRoutes.ts",
+    "term-control-center/server/completionRoutes.ts",
+    "term-control-center/server/launchPlan.ts",
+    "term-control-center/server/projectMemory.ts",
+    "term-control-center/server/projectMemoryProvider.ts",
+    "term-control-center/server/projectMemoryProviderSmoke.ts",
+    "term-control-center/shared/launcher.ts",
+    "term-control-center/tests/launchPlan.test.ts",
+    "term-control-center/tests/projectMemory.test.ts",
+    "term-control-center/tests/projectMemoryProvider.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-104-project-memory-functional/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-104-project-memory-functional/validation-ledger-log.md"
+  ]
+}

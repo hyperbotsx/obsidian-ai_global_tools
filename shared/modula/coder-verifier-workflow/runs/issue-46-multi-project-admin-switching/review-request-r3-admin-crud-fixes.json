@@ -1,0 +1,29 @@
+{
+  "type": "peer_request",
+  "sender": "coder",
+  "target": "verifier",
+  "sender_cwd": "/mnt/hyperliquid-data/projects/worktrees/agentops-term",
+  "purpose": "Checkpoint 2 revision review for PRD #46 admin CRUD findings",
+  "expected_response": "Compact verifier verdict JSON per coms contract; full report at verifier-report.md if not approved.",
+  "stop_condition": "Confirm CP2-001/002/003 are fixed or return bounded residual findings.",
+  "checkpoint": "2 - Admin CRUD UI/API",
+  "revision": 3,
+  "requested_action": "review",
+  "prd_issue": "https://github.com/hyperbotsx/agentops-harness/issues/46",
+  "handoff_path": "dev-plans/agentops/coder-verifier-workflow/runs/issue-46-multi-project-admin-switching/coder-handoff.md",
+  "changed_files": [
+    "term-control-center/server/adminProjects.ts",
+    "term-control-center/server/adminAssets.ts",
+    "term-control-center/tests/admin.test.ts",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-46-multi-project-admin-switching/coder-handoff.md",
+    "dev-plans/agentops/coder-verifier-workflow/runs/issue-46-multi-project-admin-switching/review-request-r3-admin-crud-fixes.json"
+  ],
+  "validation_results": [
+    "npm --prefix term-control-center run typecheck: passed",
+    "cd term-control-center && HOME=$(mktemp -d) node --import tsx --test --test-concurrency=1 tests/admin.test.ts: passed (13 tests)",
+    "npm --prefix term-control-center test: passed (197 tests)",
+    "npm --prefix term-control-center run build: passed",
+    "git diff --check: passed"
+  ],
+  "finding_ids_addressed": ["CP2-001", "CP2-002", "CP2-003"]
+}
