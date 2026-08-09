@@ -1283,3 +1283,68 @@ most work.
    one the operator learns to ignore.
 7. **For FRD #391 CP-5:** renewal must publish an identity-change event, or every peer holding a handle
    is silently broken with no way to learn it. The registry knows; nothing else does.
+
+## H-64 — Ask of every check: "if the thing I fear were true right now, would this fire?"
+
+Three times in one session on PR #471 I built a check that could report success and could not report the
+specific failure I was watching for. Each looked like a working check until the failure it was blind to
+actually occurred.
+
+**1. A findings monitor keyed on new IDs.** It emitted a Kody finding only if its id exceeded the last
+seen. An **unfixed** finding keeps the same id forever, so it never re-fires — and silence read as
+"clean". It reported clean while a high-severity trust regression sat open.
+
+**2. A filter that excluded the finding it was about.** Checking for findings "above #13383" excluded
+#13383 itself, which was the open one.
+
+**3. Reading only the latest review.** Kody files **each finding as its own review**, so one commit had
+reviews 2551 (#13381) and 2552 (#13383). Reading `reviews[-1]` saw one and missed the other. Correct
+form: aggregate comments across **every review whose `commit_id` matches the current head**, and print
+how many reviews were consulted so `0 OPEN` is a positive statement rather than an absence of news.
+
+A fourth, milder case: a stall detector keyed on "no commit and no dirty files" fired twice on an agent
+that was idle **because it had finished**. It could not distinguish delivered from abandoned, because the
+distinguishing fact — whether the pushed head already contained the work — was not an input.
+
+**Rules:**
+1. **Before arming any check, name the exact bad state and ask whether the check fires in it.** If you
+   cannot describe the firing condition for the failure, you have built a success detector.
+2. **Prefer positive assertions over absence.** "0 open findings across 3 reviews of `<sha>`" is a claim.
+   "No new findings" is silence, and silence has too many causes.
+3. **A monitor that false-alarms gets ignored.** Retire a watcher once the thing it watched is delivered,
+   rather than letting it cry wolf — the second false alarm costs more than the watcher saved.
+4. **Verify before acting on your own alarm.** Both stall alarms would have made me re-dispatch work that
+   was already pushed. Checking the artifact took seconds.
+
+## H-65 — Specify the model, not the instance; a brief can encode the defect
+
+PR #471 took seven review rounds. The code work was consistently correct. **At least four rounds trace to
+briefs that named an instance or a scope instead of stating a rule**, and each fix then satisfied the
+instance while leaving the class open for the next round to find.
+
+Two examples, both mine:
+
+- **Precondition enumeration.** I gated a call on "valid issue number", then on "issue-scoped worktree",
+  then a third round found port bounds. Each gate was correct and incomplete. Replacing all three with
+  *attempt, and fall back on any failure* closed the class — and reverting that single try/catch turned
+  **three** tests red, which is the measure of how much the enumeration had been missing.
+- **Unscoped security rule.** I wrote "restore `--approve` for runtime-less launches" thinking of two
+  modes. Applied literally and correctly, it granted auto-approval to three more modes that previously
+  made their own trust decision. Two further rounds then found that the same rule permitted unvalidated
+  and symlink-escaped workspaces. Stating the invariant once — *trust only a canonically issue-scoped
+  path; no trust is a safe outcome* — closed two criticals together.
+
+The failure mode is specific: **verification against the brief cannot detect a defective brief.** A
+careful implementer will faithfully build the hole you specified, and every test you asked for will pass.
+
+**Rules:**
+1. **State the invariant, then let implementation follow.** If a brief lists conditions, ask whether the
+   list is knowable in advance. If it is not, the list is the bug.
+2. **When a second round touches the same function, stop patching.** The recurrence is the signal that
+   the class was not named.
+3. **Any rule touching trust, auth, or scope must state its boundary explicitly** — which modes, which
+   paths, which callers. "Restore X for Y" without a boundary will be applied wider than intended, and
+   correctly so.
+4. **Own it in the brief.** Saying "this was my under-scoped rule, not your error" keeps the agent
+   reporting contradictions instead of quietly absorbing them — which is how #13609 reached me as an
+   escalation rather than a silent weakening.
