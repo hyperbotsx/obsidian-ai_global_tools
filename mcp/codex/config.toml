@@ -15057,3 +15057,18 @@ trust_level = "trusted"
 
 [projects."/tmp/lead-worktree-FXRCEv/agentops-prd-1001"]
 trust_level = "trusted"
+
+[projects."/tmp/lead-worktree-SQ3UVi/agentops-prd-1001"]
+trust_level = "trusted"
+
+[projects."/tmp/pty-lead-verification-3aWtGm/agentops-prd-1"]
+trust_level = "trusted"
+
+[projects."/tmp/pty-lead-verification-kRRSMN/agentops-prd-1"]
+trust_level = "trusted"
+
+[projects."/tmp/pty-lead-verification-sMhjhl/agentops-prd-1"]
+trust_level = "trusted"
+
+[projects."/tmp/pty-lead-verification-yp0Bx4/agentops-prd-1"]
+trust_level = "trusted"
