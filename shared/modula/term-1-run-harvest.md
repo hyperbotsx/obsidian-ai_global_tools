@@ -1348,3 +1348,48 @@ careful implementer will faithfully build the hole you specified, and every test
 4. **Own it in the brief.** Saying "this was my under-scoped rule, not your error" keeps the agent
    reporting contradictions instead of quietly absorbing them — which is how #13609 reached me as an
    escalation rather than a silent weakening.
+
+## H-66 — Every standstill in this run was a notification failure, not a work failure
+
+Catalogue from a single day on PR #471. In **every** case the work was either done or correctly stopped,
+and the run halted anyway because the signal never reached the Lead. Recording them together because the
+individual glitches look unrelated and the root cause is one thing.
+
+| # | What happened | How long it cost | How it was actually found |
+|---|---|---|---|
+| 1 | Coder hit a contradiction in the brief, escalated over coms, went idle awaiting an answer | ~1 hour | Lead read the pane |
+| 2 | Coder consumed a steer and produced no work at all | ~1 hour | Lead compared commit time to wall clock |
+| 3 | Git-manager stopped correctly on `mergeable:false`, wrote a full disk report, coms ping **rejected — "inbound capacity"** | until the operator pasted it | **The operator noticed** |
+| 4 | Verifier cannot be steered at all — `agentops-steer` returns `nack: malformed envelope` for a Claude-runtime pane | permanent | Lead tried twice |
+| 5 | Verifier relaunch died instantly because the command was piped through `tee`, so `claude` saw no TTY and demanded `--print` input | ~15 min | Lead captured the wrapper's stderr |
+
+**The unifying fact: the Lead cannot read its own coms inbox.** `relay_poll` polls *outbound* replies by
+`msg_id`; there is no non-blocking inbound read. So any protocol in which a delegate reports **to** the
+Lead over coms is broken by construction — it works only when the Lead happens to be blocking on
+`coms_await`, which a working Lead never is.
+
+Case 3 is the sharpest: the git-manager did everything right. It refused an unsafe merge, wrote a precise
+report to disk, and attempted to notify. The **only** failure was the notification, and it was enough to
+stall the run indefinitely.
+
+Compounding it: **the Lead's own watchers were success-detectors** (H-64). The watcher was keyed on "PR
+becomes merged", so a correct *refusal to merge* matched no condition and was indistinguishable from
+still-working. A watcher that cannot fire on "stopped and reported" cannot detect the most likely outcome
+of a careful delegate.
+
+**Rules:**
+1. **Disk is the channel; coms is a courtesy.** Every delegation names a report path, and the Lead polls
+   that path's mtime. Say so in the brief — "if the ping is rejected, the disk report is what matters"
+   — so the delegate does not treat a failed ping as a failed handoff.
+2. **Every watcher needs a stopped-and-reported condition**, not only a success condition. Watch the
+   report file's mtime alongside the success artifact. Ask: *if my delegate stopped correctly right now,
+   would anything fire?*
+3. **Do not build a protocol that requires the Lead to receive a coms message.** Until inbound is
+   readable without blocking, delegate→Lead reporting must be disk-first. (FRD #391 CP-2 is exactly this
+   gap; this run is the evidence.)
+4. **Never pipe a TTY-dependent wrapper.** `| tee`, `> log`, and `2>&1 |` all make `claude` and similar
+   CLIs switch to non-interactive mode and exit. To capture output, use `tmux pipe-pane` after launch,
+   not a shell pipe in the launch command.
+5. **Nested `tmux attach` fails.** From inside a pane use `tmux switch-client -t <name>`, or
+   `TMUX= tmux attach -t <name>`. "can't find session" and "sessions should be nested with care" are
+   different errors with different fixes — read which one you got.
