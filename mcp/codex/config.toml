@@ -14868,3 +14868,177 @@ trust_level = "trusted"
 
 [projects."/tmp/pty-lead-verification-BJYEFn/agentops-prd-1"]
 trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-alrHIh/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-TEHf9s/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-TEHf9s/agentops-agentops-harness-prd-213"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-tTZXsD/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-tTZXsD/agentops-agentops-harness-prd-213"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-JMEZZP/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-JMEZZP/agentops-agentops-harness-prd-213"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-jIw4BR/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-jIw4BR/agentops-agentops-harness-prd-213"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-cTBH9q/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-cTBH9q/agentops-agentops-harness-prd-213"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-21iwMl/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-0lStmL/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-0lStmL/agentops-agentops-harness-prd-213"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-6fZVPx/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-aOSEiX/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-aOSEiX/agentops-agentops-harness-prd-213"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-aOSEiX/agentops-agentops-harness-prd-214"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-St9AOj/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-St9AOj/agentops-agentops-harness-prd-213"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-St9AOj/agentops-agentops-harness-prd-214"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-UQzl4U/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-UQzl4U/agentops-agentops-harness-prd-213"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-UQzl4U/agentops-agentops-harness-prd-214"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-UQzl4U/agentops-agentops-harness-prd-215"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-OBZTZa/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-8XkfRE/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-gPOvDd/agentops-agentops-harness-prd-213"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-gPOvDd/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-RaFpji/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-RaFpji/agentops-agentops-harness-prd-213"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-C4OFlE/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-C4OFlE/agentops-agentops-harness-prd-213"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-4giGKG/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-4giGKG/agentops-agentops-harness-prd-213"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-FkyEfo/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-rPo0xA/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-58zghE/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-ngAixy/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-fingerprint-BxTsoT/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-project-isolation-SzqqOt/agentops-project-b-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-project-isolation-Ym41Ye/agentops-project-b-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-project-isolation-hKRNAN/agentops-project-b-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-project-isolation-hKRNAN/agentops-project-b-prd-213"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-project-isolation-Xw4HJc/worktrees-project-b/agentops-project-b-prd-214"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-project-isolation-HA6bJG/agentops-project-b-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-project-isolation-HA6bJG/agentops-project-b-prd-213"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-project-isolation-HA6bJG/agentops-project-b-prd-214"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-project-isolation-4WoHpg/agentops-project-b-prd-219"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-project-isolation-raJMGG/agentops-project-b-prd-216"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-project-isolation-raJMGG/agentops-project-b-prd-217"]
+trust_level = "trusted"
+
+[projects."/tmp/lane-retirement-8Hkxl9/agentops-agentops-harness-prd-212"]
+trust_level = "trusted"
+
+[projects."/tmp/launch-cleanup-worktree-u4mfER/agentops-prd-363"]
+trust_level = "trusted"
+
+[projects."/tmp/launch-cleanup-worktree-OOeOC0/agentops-prd-363"]
+trust_level = "trusted"
+
+[projects."/tmp/launch-cleanup-worktree-PjisdP/agentops-prd-363"]
+trust_level = "trusted"
+
+[projects."/tmp/launch-cleanup-worktree-53llSJ/agentops-prd-363"]
+trust_level = "trusted"
+
+[projects."/tmp/lead-implementation-IzLlF5/agentops-prd-1019"]
+trust_level = "trusted"
+
+[projects."/tmp/lead-worktree-7T1T3F/agentops-prd-1001"]
+trust_level = "trusted"
