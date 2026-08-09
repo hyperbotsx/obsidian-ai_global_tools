@@ -29,6 +29,23 @@ never as a post-hoc checklist. Depth on demand: `deep-modules` (module/interface
 - **Pull complexity downward.** The module author absorbs difficulty so every caller
   doesn't; a simple implementation behind a complex interface is backwards.
 
+## Reuse before you write
+
+- **Search first, always.** Before writing a component, helper, hook, type, or style,
+  look for an existing one. The default failure of agent-written code is a fourth variant
+  of something that already exists — context holds only what you actually read, so absence
+  from your context is not evidence of absence from the codebase.
+- **Extend the near-match** rather than forking a near-copy. Widening one thing
+  deliberately beats maintaining two things accidentally.
+- **Compose, don't restyle.** Build on the primitive; a local override that re-implements
+  it is a fork with extra steps.
+- **The third occurrence extracts.** Two similar spots can wait; at the third, extract a
+  primitive, name it for what it is, and put it where the next reader will look —
+  discoverability is what makes it get reused instead of re-written.
+- **But duplication beats the wrong abstraction.** Do not extract a shallow wrapper just
+  to avoid repeating a few lines. Coincidental similarity is not shared meaning; two
+  things that merely look alike today will diverge and the abstraction will fight both.
+
 ## Dependencies and boundaries
 
 - **Dependencies point toward stability.** Business logic never imports frameworks,

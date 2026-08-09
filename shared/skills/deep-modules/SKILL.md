@@ -64,6 +64,42 @@ decision the other never needs. Merge (or never split) when:
   escape hatch, not decomposition commands. Say "exceeds default, cohesive because X,
   seam when Y" in the PR and keep the module whole.
 
+## Reuse: find it, extend it, or extract it
+
+Deep modules only pay off if they are *found*. The dominant failure in agent-written code
+is not a bad interface — it is a fifth implementation of something that already exists,
+written because nobody looked. Reuse is therefore a search discipline first and a design
+judgment second.
+
+**Before writing anything reusable-shaped** (component, hook, helper, type, style, client
+wrapper): search the codebase by concept *and* by shape — the existing one is probably
+named differently than you would name it. Look at siblings of the file you are editing and
+at any `primitives/`, `shared/`, `common/`, or `lib/` location the project keeps.
+
+Then decide, in this order:
+
+| Finding | Move |
+|---|---|
+| Exact match exists | Use it. Zero new surface. |
+| Close match, difference is a genuine parameter | Extend it — widen deliberately, apply the deep-module test |
+| Close match, difference is a *different meaning* | Write the new one; note why it is not the same thing |
+| Third occurrence of the same shape | Extract a primitive the others compose |
+| Two occurrences, unclear whether they will converge | Leave the duplication; extract on the third |
+
+**Extraction rules.** The extracted thing must hide a decision (layout anatomy, protocol,
+formatting rule), not merely collect lines. Name it for the concept, not the caller
+(`menu`, not `jobSwitcherBox`). Put it where the next person will look before they look
+anywhere else. If you cannot state what it hides in one clause, it is packaging, not a
+primitive — leave the duplication.
+
+**When duplication wins.** Coincidental similarity is not shared meaning. Two blocks that
+look alike but change for different reasons must stay apart; a shared abstraction over
+them becomes a knot of flags. The cost of the wrong abstraction is higher than the cost of
+the duplication, and it is paid by everyone downstream.
+
+**Forks are debt with a due date.** If you must copy, say so at the copy site and name the
+condition under which the two reconverge.
+
 ## Comments are part of the interface (house reconciliation)
 
 House rules stand: no what-comments, naming first, <5% density. Within that, the
@@ -80,3 +116,7 @@ declaration beats every caller rediscovering it. Never narrate implementation.
 - New options/knobs: show the caller that varies; otherwise a computed default.
 - Split files: each side names the secret it hides; no conjoined reading order.
 - Error paths: list the error cases the design removed vs merely handles.
+- New reusable-shaped code states what search was done and why nothing existing fit.
+- Third occurrence of a shape is extracted, or the PR says why not.
+- Extracted primitives name the decision they hide and are placed where callers look.
+- Copies are marked at the copy site with the condition for reconverging.
