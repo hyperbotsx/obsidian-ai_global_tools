@@ -14640,3 +14640,9 @@ trust_level = "trusted"
 
 [projects."/tmp/launch-cleanup-worktree-u5IEuq/agentops-prd-363"]
 trust_level = "trusted"
+
+[projects."/tmp/lead-implementation-K5gwRl/agentops-prd-1019"]
+trust_level = "trusted"
+
+[projects."/tmp/lead-worktree-PUGOcW/agentops-prd-1001"]
+trust_level = "trusted"
