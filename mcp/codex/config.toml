@@ -13158,3 +13158,15 @@ trust_level = "trusted"
 
 [projects."/tmp/launch-cleanup-worktree-mcf3iX/agentops-prd-363"]
 trust_level = "trusted"
+
+[projects."/tmp/lead-implementation-AxXjKx/agentops-prd-1019"]
+trust_level = "trusted"
+
+[projects."/tmp/lead-worktree-V73I8v/agentops-prd-1001"]
+trust_level = "trusted"
+
+[projects."/tmp/pty-lead-verification-uaqfge/agentops-prd-1"]
+trust_level = "trusted"
+
+[projects."/tmp/pty-lead-verification-eOA4UG/agentops-prd-1"]
+trust_level = "trusted"
