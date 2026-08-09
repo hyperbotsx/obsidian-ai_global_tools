@@ -1,0 +1,13 @@
+Agent CLIs now run in ptys under tmux and stream over the terminal channels
+from CP-1 — scrollback, resize, reattach, and the ACK flow-control window that
+CP-1 left out. Same behaviour whether the runner is co-resident with the
+control plane or split across the network.
+
+Terminal messages (init/input/resize/ack/output/exit/scroll) ride `terminal`
+data frames as json, so the v1 wire format is unchanged. Worktree provisioning
+cuts lanes off a local repo deterministically, takes a branch by creating its
+ref before attaching the worktree, and serializes per repo so concurrent lanes
+can't corrupt each other's state. client.ts split into transport,
+reconciliation, and liveness along the way.
+
+Full history and review in #4.

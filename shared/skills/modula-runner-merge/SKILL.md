@@ -82,26 +82,38 @@ curl -sS -X POST "$AGENTOPS_FORGE_FORGEJO_URL/api/v1/repos/ModulaStack/modula-ru
 If merging through the web UI instead: pick **"Squash and merge"**, then **replace the entire
 auto-filled message** with the hand-written title and body, and confirm no co-author lines.
 
+## Voice and attribution — non-negotiable
+
+- **Never state or imply the work was written by an AI.** No mention of Claude, Claude Code,
+  Codex, an assistant, a model, or any tool — not in the title, body, trailers, or anywhere.
+  This is a hard rule, above style.
+- **Write like a person, not a changelog generator.** A real engineer's commit message is
+  short, plain, and uneven — a few sentences, varied length, the occasional informal aside,
+  and *not* exhaustive. Do not list every component, do not open every paragraph with the same
+  noun, do not use marketing verbs ("delivers", "ensures", "enables", "leverages"), do not
+  bullet-spam. Say what changed and why it mattered, the way you'd tell a teammate. If it reads
+  like a spec or a release note, rewrite it shorter and flatter.
+
 ## Squash message standard
 
-The message is the public face of the slice on `main` and the mirror. It must read as a single
-coherent feature commit, in the same engineering voice as the repo's docs.
+The message is the public face of the slice on `main` and the mirror. One coherent commit
+message, in the repo's own plain engineering voice.
 
-- **Title:** `type(scope): <slice> — <one-line what it delivers>`, conventional-commit form,
-  naming the checkpoint (e.g. `CP-2`). ≤ ~72 chars for the subject.
-- **Body:** what the slice delivers and why, as prose or tight bullets — the components, the
-  contract it implements, the security/robustness invariants, and the protocol-versioning note
-  if the protocol changed. End with a one-line pointer to the PR for the full history. Do **not**
-  enumerate review rounds or frame the work as churn; describe the result.
-- No tool attribution, no personal emails, no internal business context — engineering content only.
+- **Title:** `type(scope): <slice> (<checkpoint>)`, conventional-commit form. ≤ ~72 chars.
+  Plain words over jargon.
+- **Body:** what the slice does and the one or two things worth knowing about how — a short
+  paragraph or two, ending with a pointer to the PR for the full history. Skip the review-round
+  count and anything that frames the work as churn; describe the result, briefly.
+- No tool attribution, no personal emails, no internal business context — engineering only.
 
-### Worked template (CP-2, ready to use)
+### Worked example (CP-2, ready to use)
 
 Title:
 ```
-feat(runner): CP-2 — pty host and worktree provisioning behind the wire contract
+feat(runner): pty host and worktree provisioning (CP-2)
 ```
-Body: see `squash-message-cp2.txt` beside this skill.
+Body: `squash-message-cp2.txt` beside this skill. Read it as the reference for *tone* — that is
+the length and flatness every future runner squash message should match.
 
 ## Post-merge closeout (modula-runner) — in this order
 
