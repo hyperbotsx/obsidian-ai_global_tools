@@ -13,3 +13,4 @@ This folder holds canonical skills that should be reused across multiple runtime
 - `herdr/` — herdr workspace/tab/pane control skill, with `SOCKET_API.md` reference
 - `create-pr/` — push branch + open GitHub PR via `git town propose` with house formatting (Greptile tag, no AI mentions). Symlinked into `claude/skills/create-pr` and `codex/skills/create-pr`.
 - `create-branch/` — create a new development branch from the latest `main` via `git town hack`, with clean-tree checks and branch naming guidance. Symlinked into `claude/skills/create-branch` and `codex/skills/create-branch`.
+- `fast-lane/` — build one approved FRD slice end-to-end in a single strong-model session; review after, not checkpoints during. Model-tier guidance (Fable 5 / Opus 5 / Codex via Pi) and mandatory tracker row in `docs/fast-lane-pilot.md` (modulastack repo). Symlinked into `claude/`, `pi/`, and `codex/` skills.
