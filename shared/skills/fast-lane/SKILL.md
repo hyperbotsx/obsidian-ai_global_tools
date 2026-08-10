@@ -86,6 +86,51 @@ and never by piling more commits onto an already-proposed branch:
 - **Merge only on the operator's explicit word.** Then standard closeout: update canonical
   main, delete the branch, mirror sync.
 
+## Working the review loop without generating it
+
+A review round costs roughly 12-15 minutes and reviews *whatever the head is now*. Three
+rules follow from that, and skipping them is how a five-round slice becomes a twenty-round
+one. All three are drawn from modula-runner CP-3, where ~85 of ~110 findings were
+self-inflicted rather than first-pass defects.
+
+**One push per batch, not per finding.** Every push starts a round on changed code, so
+fixing three findings and pushing means the next round reviews three new edges. Collect a
+round's findings, fix them together, run the caller audit below, then push once. While a
+round is in flight the head stays still — a loop that never sees a stable head cannot
+converge on one.
+
+**Sweep the class, never the instance.** When a finding names a site, ask what class it
+belongs to and grep for the rest *in the same fix*:
+
+```
+# the function whose contract changed — do all callers handle the new answer?
+grep -n "thatFunction(" src/*.ts
+# the pattern that was wrong — where else does it appear?
+grep -rn "\.catch(() =>" src/
+```
+
+Ninety seconds. On CP-3 this was done three times and found 2-3 extra instances each time;
+it was skipped five times and each skip cost one to three further rounds when the identical
+sibling surfaced. **A fix that lands only on the reported line is half a fix.**
+
+**Cap the rounds at five, then stop patching.** At the cap, classify what has been found
+rather than fixing more:
+
+- Findings concentrated in one subsystem, and a rising share of each round being breakage
+  from the previous round's fix → the *design* is generating them. Restructure, or narrow
+  the promise, or escalate the scope question. Do not write the sixth patch.
+- Findings spread thin and shrinking → ordinary tail; keep going.
+
+The cap is a prompt to re-diagnose, not a merge trigger. On CP-3 the signal was unmistakable
+at round twelve — 71% of findings in one subsystem, fix-introduces-defect near 1:1 — and
+fifteen more rounds were spent before acting on it.
+
+**Prefer properties true by construction over properties verified at runtime.** Most of
+CP-3's churn was a runtime check trying to establish something an OS-level mechanism would
+have made impossible to violate. When a design can only *detect* what it promises to
+*prevent*, that gap is a spec decision, not an implementation detail — see the adjudication
+gate in `acceptance-specs`.
+
 ## Evidence discipline (inherited from the trio's lead/verifier rules)
 
 - **The deterministic gate runs before judgment, always** — gate failures are findings that

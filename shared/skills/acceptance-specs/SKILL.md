@@ -144,6 +144,44 @@ shift toward design and security as the specs absorb the correctness defects.
 That last list is usually the most valuable artifact. The defects that survive an implementer's
 own suite are precisely the ones it never thought to assert.
 
+## The adjudication gate — the list is a decision, not a document
+
+**Produce the list early, then rule on every line before implementing.** This step is not
+optional and it is not the verifier's to make: the lead adjudicates, in writing, one of three
+verdicts per item.
+
+| Verdict | Meaning | Required output |
+|---|---|---|
+| **In scope** | The obligation is testable here after all, possibly at a narrower reading | The narrower reading, written down, and a test |
+| **Out of scope** | Belongs to another plane or checkpoint | The *runner-side shadow* that IS tested, plus where the rest lands |
+| **Blocks** | The criterion cannot be satisfied by the design being built | Stop. Amend the criterion or change the design **before** writing code |
+
+The third row is the one that pays for this whole practice, and it is the one most easily
+missed — because an unexpressible obligation reads like a *testing* limitation when it is
+often a *specification* one. "The verifier cannot test X" and "X may not be achievable as
+stated" are the same sentence viewed from two sides, and only the second stops a checkpoint
+building the wrong thing.
+
+**Evidence this is not theoretical.** On modula-runner CP-3 the verifier wrote, before any
+test existed, that "exhaustive network/OS containment remains outside this checkpoint". That
+was read as a testing limitation and filed. It was a **Blocks**: the checkpoint's criterion
+("previews bind to localhost") implied prevention, the design could only deliver detection,
+and no amount of implementation could close the difference. Fifteen review rounds later a
+reviewer reached the same conclusion empirically, and the criterion was narrowed anyway —
+after the cost, instead of before it. Roughly 85 of that slice's ~110 review findings trace
+to patching around that one unadjudicated line.
+
+**How to run the gate in practice:**
+
+1. Ask for the list at the *brief* stage, before the interface commit — a verifier who has
+   read the contract can produce it without having written a test.
+2. For each line, write the verdict and its required output. Two sentences each is enough.
+3. Any **Blocks** goes to the operator as a scope question, not to the backlog.
+4. Attach the adjudication to the checkpoint record. A later reviewer finding the same gap
+   should land on a decision, not a discovery.
+
+A list that is read and admired is worth nothing. The value is entirely in the ruling.
+
 ## Sources
 
 Gojko Adzic, *Specification by Example* (process, living documentation, "the examples are the
