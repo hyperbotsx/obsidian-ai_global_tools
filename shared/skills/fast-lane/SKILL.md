@@ -28,6 +28,13 @@ type back up a tier.
 
 ## Preconditions (refuse to start without them)
 
+0. **Every acceptance criterion has one reading.** Before code: for each criterion, write
+   the observable that proves it. A criterion you cannot turn into an observable is
+   ambiguous, and ambiguity discovered during review costs an order of magnitude more than
+   ambiguity resolved at the brief. Where a verifier lane exists, this is the adjudication
+   gate in `acceptance-specs` — rule on every unexpressible obligation *before* the
+   interface commit, and treat "cannot be tested" as a possible "cannot be built as
+   stated". CP-3 skipped this step and paid ~85 avoidable review findings for it.
 1. **An approved FRD or slice** with acceptance criteria, ideally prototype-anchored. No
    FRD → stop and say so; building from a conversation is how sloppy code happens.
 2. **Grounding read** (the Context Brief function, inlined): the FRD, the prototype anchors
