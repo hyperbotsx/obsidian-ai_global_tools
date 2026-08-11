@@ -129,6 +129,32 @@ Each CP: coder implements + tests → verifier reviews → Lead disposition; Git
 **CP-6 — Multi-project switching.** FR-24: the existing NavDrawer switcher surfaced prominently in the shell (one action; anchor: prototype admin scope select, prototype line 3011) over registry `activeProjectId`; FR-25: switch re-scopes board, launches, WIP slots, page bots, heartbeat configs, notifications — board via per-project data files (e.g. `board.html?project=<id>` reading `projects/<id>/*`) instead of the single promoted set; FR-26: per-project WIP policy (lane caps and `activeLaneGroupCount` scoped per project — `laneOrchestrator.ts:218-220`), worktree dirs carry the projectId (collision fix, `worktreeProvision.ts:42-44`), validation-ledger project filter, project-neutral localStorage keys (`App.tsx:92`; one-time migration of the remembered-jobs cache, or an accepted reset — it is non-authoritative UI state); FR-27: both projects configured and launchable concurrently; project create/edit UI exposes forge repo + paths, validated against the forge; A4 guard: the dock never issues an empty-projectId load (F-14) and `resolveProjectId` rejects non-slugs with a clear 400. 
 **CP-7 — Wake, renewal, headless harness.** FR-28: `stall_redrive` authority + bounded auto re-drive off the existing heartbeat classifier (re-anchor with brief/FRD paths, never a bare "continue"); **never fires on `waiting_on_human`/`blocked` or any human-gate-pending state — those remain notification-only** (auto re-drive must not nudge an agent past a pending human decision); delivery via `injectPanePrompt` or the in-repo verifier-socket `deliverAs:'steer'` path — decide and vendor ONE steer surface in-tree (the external pi-coms-local patch is not a dependency; note `agentops-steer`'s doc/impl mismatch when retiring it); FR-29: **context-percent feed** — publish real usage from the renewal extension to a server-readable artifact and stop hardcoding `context_used_pct=0` (`comsAdapter.ts:208,255`); renewal watcher on it (detect → relaunch pane → seed with continuation); `leads.refresh` exposed on `createLeadRuntimes` (`leadRuntime.ts:117`) and wired; compaction fallback = steer-resume; FR-30: headless E2E harness (fake-pi-agent): launch → gate → spawn-verify → lead message → stall re-drive → teardown, runnable in CI and against a live instance (A6). 
 
+### Inbound dependency on FR-29 — from FRD Term-2 (#364), recorded 2026-08-11
+
+Term-2 shipped and closed with **AC-2 untickable**: its live gauges and renew chip wait on
+FR-29's context-percent feed, the single cross-FRD data dependency its §4 names. The
+surfaces are built and styled — each renders the design's empty state rather than a
+confident wrong number (`0%` reads as "plenty of room left", so the gauge shows `—` unlit
+and the renew chip is absent rather than disabled).
+
+The binding point is one module, `term-control-center/src/navigation/contextGauge.ts`,
+which already takes `percent: number | undefined` and derives the rest:
+
+- **per-pane 4-bar gauge** — `barStates(percent)` lights it, `gaugeLevel()` gives ok/near/over
+- **renew chip** (topbar `#renew-chip-m` + modebar variant) — appears once `isRenewable(percent)`
+  is true. Its *action* also needs the renewal engine (this CP + W-3/E3); until that exists the
+  chip should stay hidden rather than become a dead control
+- **statusline role strip** — the per-role percents. Two of its other fields need no feed and
+  are the cheapest next binding: `task.worktreePath` and `panes.length`. The runner host has
+  no signal anywhere
+
+The per-pane **model chip** was assumed to depend on FR-29 and does not: `modelProfileId` has
+been on the pane summary since `server/launchGroup.ts:279` and the client was dropping it.
+Bound as of Term-2 CP-5. Only the gauge and the renew chip are real dependants.
+
+When FR-29 lands, bind `contextGauge.ts` and re-check Term-2's AC-2. Full detail in
+`dev-plans/agentops/coder-verifier-workflow/runs/frd-364-term2-parity/parity-note.md`.
+
 ## 8. Acceptance criteria
 
 - **AC-1 (A1):** From the board, an approved FRD launches: context-brief agent visibly spawns (tmux + coms + logs), produces the brief, `continue` starts trio+Lead, and a live Lead ↔ Coder ↔ Verifier exchange runs — end-to-end in the app, on a proper deploy.
