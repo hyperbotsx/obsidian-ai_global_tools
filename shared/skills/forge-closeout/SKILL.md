@@ -26,6 +26,27 @@ update both files together.
 - Record any `@modula` relay failure — it usually means the poster is not on the
   relay allowlist, or the webhook secret/event wiring on that repo is broken.
 
+## Round caps, and what to produce at the cap
+
+Reviews are automatic on every push, so a cap is a discipline about how many times you
+push, not about how often you trigger.
+
+- **Code PRs: five rounds.** At the cap, classify on **composition, not volume** — what
+  share of the round is breakage from the previous round's fix. A flat count can hide a
+  loop that has started feeding itself. The output is **one rule per class as tracked
+  issues**, never another patch.
+- **Docs-only PRs: two rounds.** A code reviewer on prose has no compiler, no tests and
+  no runtime; two passes catch a real specification gap and the rest is spend.
+- **At the docs cap, produce a DECISION, not another draft.** A contract needing a third
+  pass is usually saying the underlying question is unsettled rather than the wording
+  imprecise. Write the ruling; stop editing.
+- **Contract documents still deserve their one review.** Where prose is the spec that
+  implementations are tested against, a specification gap caught early is the cheapest
+  finding available. Review it once, deliberately — not on every push.
+- **Before merging, verify a completed review exists against the CURRENT head SHA.**
+  "A review happened recently" is a different claim. Compare each review's `commit_id`
+  against the PR head; an execution sitting `in_progress` for hours is dead, not slow.
+
 ## Post-merge closeout — in this order, every forge merge
 
 The order is the point; each step's failure mode is caused by skipping the previous one.
