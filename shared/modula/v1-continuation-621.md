@@ -63,7 +63,14 @@ HOW TO WORK (hard-won this session):
 STANDING OPERATOR GATES (do not clear autonomously): FRD approvals, PR merges, the #603 host
 cutover, merchant-of-record choice for L4, and the W2 leadHistory sign-off (#391 single-owner).
 
+CARRIED-OVER CLOSEOUT (from the prior session, not yet done):
+- Master-plan amendment (dual-update rule): update issue #455 AND docs/implementation-plan.md to
+  record L2 (#524) as SHIPPED, mark Phase E done pending the CP-6 receipt PR, and slot the new FRDs
+  (#617/#618/#619/#620/#634) into Phase L / their lanes. #455 and the doc are ONE document — touch both.
+- L2 run report on #524 (the AC-1 receipt is already posted as comment 16717; a consolidated run
+  report + findings ledger is the remaining write-up).
+
 FIRST ACTIONS: rebuild your task list from #621's body; confirm the CP-6 receipt PR / Phase-E
-close status; then (a) supervise the #603 host cutover if the operator is present, and (b) start
-Lane A on Coms Delivery #618 (author to review-ready, then launch the implementation cohort in-app).
-Report the plan before launching cohorts.
+close status; do the master-plan amendment above; then (a) supervise the #603 host cutover if the
+operator is present, and (b) start Lane A on Coms Delivery #618 (author to review-ready, then launch
+the implementation cohort in-app). Report the plan before launching cohorts.
