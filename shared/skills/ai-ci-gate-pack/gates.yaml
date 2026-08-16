@@ -1,0 +1,74 @@
+# Modula engine extension — NOT part of the Agent Skills standard.
+# Verifier reads this; coder reads SKILL.md. They ship together (one selection, two consumers).
+#
+# Owns REPO-SCALE / RUN-REQUIRED gates only, tiered by cost. Local lint -> machine-lint-pack;
+# security -> security-per-pr. Posture: every gate starts advisory and graduates on measured FP rate.
+
+schema_version: 1
+skill: ai-ci-gate-pack
+
+tiers:
+  # Run cheap gates always; reserve expensive gates for where risk is, to keep the pipeline fast.
+  1: "standard lint/tests + machine-lint-pack + security-per-pr blocking gates — every change"
+  2: "duplication + dependency-freshness — when shared code or dependencies change"
+  3: "integration-completeness + mutation/test-quality — high-risk changes (new surface, auth, data)"
+
+surfaces:
+  always: true
+  has_dependencies: "manifest or lockfile present"
+  new_surface: "change adds an endpoint, handler, or service"
+  has_tests: "tests present"
+
+gates:
+  - id: duplication
+    intent: No copy-pasted block duplicated across the repo (not just within the diff).
+    capability: duplication-detector
+    tier: 2
+    severity: advisory            # graduates; may block above a clone-count threshold once measured
+    block_threshold: 20           # minimum duplicated lines to report
+    applies_when: always
+    evidence: [clone_set_locations, block_size]
+    remediation: Extract/reuse the existing implementation; delete the copies.
+
+  - id: dependency-freshness
+    intent: No dependency more than one major behind current, or on the project deprecated list.
+    capability: dependency-version-auditor
+    tier: 2
+    severity: advisory
+    applies_when: has_dependencies
+    evidence: [package, current_version, latest_version, majors_behind]
+    remediation: Upgrade toward current major, or replace the outgrown dependency.
+
+  - id: integration-completeness
+    intent: New surface wires into logging, error tracking, auth middleware, request context, flags, metrics.
+    capability: integration-point-analysis
+    tier: 3
+    severity: advisory            # graduates
+    applies_when: new_surface
+    evidence: [new_surface, missing_integration_points]
+    remediation: Wire the new surface into the systems the codebase already runs on.
+
+  - id: test-quality
+    intent: Tests kill mutants (mutation score), vary assertions, and cover failure/edge paths.
+    capability: mutation-tester
+    tier: 3
+    severity: advisory
+    applies_when: has_tests
+    evidence: [surviving_mutants, happy_path_skew]
+    remediation: Add assertions/negative cases that fail when the code is perturbed.
+
+capability_bindings:
+  duplication-detector:
+    default: jscpd                # 223+ languages, single binary, SARIF — one tool covers everything
+  dependency-version-auditor:
+    default: native-manifest-check # per-ecosystem latest-version query (npm/pip/cargo/go...)
+    alternate: [renovate-datasource]
+  integration-point-analysis:
+    default: semgrep              # rules asserting new handlers reference logging/error-tracking/auth
+    alternate: [agent-judgment]
+  mutation-tester:
+    default: muti                 # tree-sitter polyglot, pipe-to-any-test-command
+    alternate: [bough, stryker, mutmut, pit, cargo-mutants]  # per-ecosystem where preferred
+
+# See also: machine-lint-pack (local lint + shallow test smells), security-per-pr (security),
+# Context Brief duplicate & reuse scan (the pre-write twin of the duplication gate).

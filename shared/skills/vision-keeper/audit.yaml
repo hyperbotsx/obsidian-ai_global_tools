@@ -1,0 +1,41 @@
+# Modula engine extension — NOT part of the Agent Skills standard.
+# Declares WHEN the vision audit runs and the verdict contract. Read-only; produces a verdict,
+# never a code change. Runs isolated (Claude context:fork) or inline (fallback) — same verdict.
+
+schema_version: 1
+skill: vision-keeper
+
+triggers:
+  # A major, keystone decision — routine edits do not pay the cost.
+  - add-component        # new component / service / module / layer
+  - dependency-change    # add or change a dependency
+  - structural-choice    # storage / transport / boundary / data-model trade-off
+  - load-bearing-path    # a change under a path listed in load_bearing_paths
+
+load_bearing_paths: []   # project-scoped; paths whose change always triggers an audit
+
+inputs:
+  # Re-read LIVE on every invocation — never a remembered version.
+  - master_prd           # resolved at project scope
+  - relevant_frd
+  - adr_directory
+
+verdicts:
+  ALIGNED:
+    meaning: Consistent with the spec.
+    action: proceed
+  CONTRADICTS:
+    meaning: Reverses a stated Goal / Non-Goal / commitment.
+    requires: [cited_spec_line]
+    action: stop-and-reconcile
+  AMBIGUOUS:
+    meaning: Spec is silent or unclear.
+    action: raise-adr-or-amendment   # via §3 amendment pipeline; never self-resolves
+
+commitments:
+  # 3–8 load-bearing commitments kept visible; reversing one is a CONTRADICTS.
+  count_range: [3, 8]
+  source: spec Goals / Non-Goals / Alternatives Considered
+
+# Integrates with §3 amendment proposals, §6 reconciliation, §7 Context Brief. Audits
+# intent-alignment only — code quality lives in machine-lint-pack / ai-ci-gate-pack / security-per-pr.

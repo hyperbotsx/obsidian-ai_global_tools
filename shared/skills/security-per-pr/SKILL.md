@@ -102,10 +102,23 @@ their evidence and route them to the coder; track their false-positive rate, and
 class to blocking once it is reliably precise. A false positive is dismissed **with a reason**
 and is restorable — never silently dropped.
 
+## Threat modeling on high-risk changes (STRIDE)
+
+Where a change touches a **high-risk surface** — authentication, payments, data models,
+a new external endpoint, cryptography, file upload, or deserialization — the seven checks are not
+enough; the change also gets a STRIDE threat model. Walk the six categories — Spoofing, Tampering,
+Repudiation, Information disclosure, Denial of service, Elevation of privilege — against the change,
+and produce a **threat table** (threat · category · affected asset · mitigation present? · action).
+It produces analysis, never a code edit. Full walkthrough: `references/stride.md`.
+
+Runs isolated where the harness supports a read-only sub-context (Claude `context: fork`), and
+**inline as a SKILL.md step where it does not** (Pi and others). The isolation is a preference, not
+a correctness dependency — the threat table is identical either way.
+
 ## Notes
 
 - **Language/app-type coverage** is the adapter's job: each capability binds to a multi-language
   tool where one exists, so this doctrine is authored once and holds everywhere. The default
   bindings and an alternate single-binary engine are declared in `gates.yaml`.
-- **Threat modeling** (STRIDE on high-risk changes — auth, payments, data models, new external
-  surface, crypto, upload, deserialization) is a fast-follow (v2) built on this skill.
+- STRIDE composes with `vision-keeper`'s fork-optional/inline-fallback pattern — both are read-only
+  analyses that degrade gracefully across harnesses.

@@ -1,0 +1,50 @@
+# Modula engine extension — NOT part of the Agent Skills standard.
+# Verifier/reviewer reads this; the reviewer overlay is SKILL.md. Owns the review LENS
+# (scope, absence pass, risk-tiering); composes the gate packs, never re-implements them.
+
+schema_version: 1
+skill: review-for-absence
+
+tiers:
+  1: "automated — formatting, lint, gate-pack blocking gates. No human attention."
+  2: "quick scan — scope + what's-missing pass, ~minutes. Standard, well-tested changes."
+  3: "deep — full absence lens + security-per-pr STRIDE. Auth, payments, data, migrations, new surface."
+
+checks:
+  - id: scope-analysis
+    intent: Expected file changes (from the FRD/spec) match the actual diff — both directions.
+    owned_here: true
+    inputs: [frd_or_spec, diff]
+    severity: advisory
+    evidence: [expected_but_missing, present_but_unexpected]
+    remediation: Add the forgotten change; remove the out-of-scope edit.
+
+  - id: missing-integration
+    intent: New code wires into logging/error-tracking/auth/context/flags.
+    composes: ai-ci-gate-pack#integration-completeness
+    severity: advisory
+    remediation: Report the gate finding; route to coder.
+
+  - id: missing-test-scenarios
+    intent: Failure modes and edge/negative cases are tested, not just the happy path.
+    composes: [ai-ci-gate-pack#test-quality, machine-lint-pack#shallow-tests]
+    severity: advisory
+    evidence: [absent_scenarios]
+    remediation: Name the missing scenarios; route to coder.
+
+  - id: architectural-alignment
+    intent: New abstractions match existing patterns; no reinvention under a new name.
+    composes: [machine-lint-pack#abstraction-bypass, vision-keeper]
+    severity: advisory
+    remediation: Reuse the existing pattern, or justify the new abstraction.
+
+pr_template:
+  # Every non-trivial PR answers these explicitly.
+  heading: "What's missing?"
+  items:
+    - Expected integration points (logging, error tracking, auth, context, flags)
+    - Required test scenarios (failure modes, edge/negative cases)
+    - Architectural alignment (existing patterns, justified new abstractions, scope match)
+
+# Owns the lens and routing only. Mechanizable absences are composed from machine-lint-pack,
+# ai-ci-gate-pack, security-per-pr, vision-keeper — reported, not re-derived.

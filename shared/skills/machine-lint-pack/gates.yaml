@@ -1,0 +1,108 @@
+# Modula engine extension — NOT part of the Agent Skills standard.
+# Verifier reads this; coder reads SKILL.md. They ship together (one selection, two consumers).
+#
+# Owns LOCAL (single-file / diff-decidable) anti-patterns only. Security -> security-per-pr;
+# duplication / freshness / integration / mutation -> ai-ci-gate-pack. Do not re-declare those here.
+
+schema_version: 1
+skill: machine-lint-pack
+
+surfaces:
+  always: true
+  typed: "language has a static type system"
+  concurrent: "code uses async / threads / concurrency"
+  has_deprecated_list: "project maintains a deprecated-patterns list, or the ecosystem marks deprecations"
+  has_wrappers: "project defines wrappers or a banned-import list"
+  has_tests: "change includes or touches tests"
+
+gates:
+  - id: variant-files
+    intent: No iteration-residue filenames (_old/_new/_v2/_copy/_backup/.bak/near-duplicate siblings).
+    capability: filename-residue-detector
+    severity: blocking
+    applies_when: always
+    evidence: [path, matched_pattern]
+    remediation: Delete it; git history is the record.
+
+  - id: swallowed-errors
+    intent: No empty or catch-all-and-continue handler that hides failure.
+    capability: error-handling-lint
+    severity: blocking
+    confidence_floor: high
+    applies_when: always
+    evidence: [file, line, handler_shape]
+    remediation: Surface the error to the caller or operator; never drop it silently.
+
+  - id: type-escapes
+    intent: No dynamic/any types, unchecked casts, or blanket suppressions where the type is known.
+    capability: type-strictness-check
+    severity: advisory
+    applies_when: typed
+    evidence: [file, line, escape_kind]
+    remediation: Give it the real type; scope any suppression to one line with a reason.
+
+  - id: dead-code
+    intent: No unused imports/vars/params, unreachable branches, or single-caller abstractions.
+    capability: dead-code-lint
+    severity: advisory
+    applies_when: always
+    evidence: [file, line, symbol]
+    remediation: Delete it; do not comment it out.
+
+  - id: async-misuse
+    intent: No blocking calls in async contexts, floating async results, or error-less fire-and-forget.
+    capability: async-correctness-lint
+    severity: advisory
+    applies_when: concurrent
+    evidence: [file, line, misuse_kind]
+    remediation: Await it and give it an error path; move blocking work off the async path.
+
+  - id: deprecated-apis
+    intent: No calls the project or ecosystem has deprecated.
+    capability: deprecated-pattern-detector
+    severity: advisory
+    applies_when: has_deprecated_list
+    evidence: [file, line, deprecated_symbol, replacement]
+    remediation: Use the current API / the project's supported replacement.
+
+  - id: abstraction-bypass
+    intent: No raw library/primitive where the project has a wrapper for that concern.
+    capability: banned-api-check
+    severity: advisory
+    applies_when: has_wrappers
+    evidence: [file, line, raw_api, project_wrapper]
+    remediation: Use the project wrapper.
+
+  - id: shallow-tests
+    intent: No assertion-free tests, unused setup, mock-asserting tests, or copy-pasted cases.
+    capability: test-smell-lint
+    severity: advisory
+    applies_when: has_tests
+    evidence: [test_file, line, smell_kind]
+    remediation: Assert on behaviour; consolidate duplicated cases. (Depth = ai-ci-gate-pack mutation.)
+
+capability_bindings:
+  filename-residue-detector:
+    default: builtin-regex        # name-based; no external tool, language-agnostic
+  error-handling-lint:
+    default: semgrep              # cross-language rules
+    alternate: [native-linter]    # ruff | eslint | clippy | golangci-lint per ecosystem
+  type-strictness-check:
+    default: native-typechecker   # pyright/mypy | tsc noImplicitAny | etc. (language-specific by nature)
+  dead-code-lint:
+    default: native-linter
+    alternate: [semgrep]
+  async-correctness-lint:
+    default: semgrep
+    alternate: [native-linter]
+  deprecated-pattern-detector:
+    default: semgrep              # + grep over the project deprecated-patterns file
+    alternate: [native-linter]
+  banned-api-check:
+    default: semgrep              # over the project banned-import list
+  test-smell-lint:
+    default: semgrep
+    alternate: [native-linter]
+
+# See also: security-per-pr (security anti-patterns), ai-ci-gate-pack (duplication, freshness,
+# integration-completeness, mutation/test-quality-beyond-coverage).

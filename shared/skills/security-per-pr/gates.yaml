@@ -77,6 +77,16 @@ gates:
     evidence: [path, auth_state]
     remediation: Put it behind auth, or disable it in production.
 
+# Risk-triggered ceiling above the always-on seven. Read-only analysis producing a threat table,
+# never a code edit. Runs isolated (Claude context:fork) or inline (fallback) — same output.
+threat_model:
+  method: STRIDE
+  reference: references/stride.md
+  applies_when: high_risk
+  high_risk_surfaces: [authentication, authorization, payments, data-model, new-external-endpoint, cryptography, file-upload, deserialization]
+  output: threat-table            # threat | category | asset | mitigation-present? | action
+  routing: gate-mapped-findings-through-their-gate; ungated-findings-to-coder; trade-offs-to-human
+
 # capability -> concrete tooling. The adapter picks the binding for the detected ecosystem,
 # preferring genuinely multi-language tools so the doctrine holds for any language/app type.
 # `default` is the shipped choice; `alternate` is a supported swap.
