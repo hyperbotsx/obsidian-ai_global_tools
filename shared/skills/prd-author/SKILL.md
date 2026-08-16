@@ -50,10 +50,11 @@ belongs / does-not-belong map.
 - **Carry the origin.** Every proposal names its originating source; every applied amendment writes a
   **§17 revision-log entry naming its origin and date** — this is the "what changed / why / who" record
   that prevents drift.
-- **Cosmetic is filtered, not escalated.** Layout, spacing, colour, and copy-wording changes are
-  acknowledged, never gated. Anything that changes a **capability, a contract, an invariant, or a
-  user-visible promise** is substantive and goes through the gate. (`prd-rules.yaml` declares the
-  split — do not guess case by case.)
+- **Cosmetic is filtered, not escalated.** Layout, spacing, colour, and **semantics-preserving** copy
+  edits are acknowledged, never gated. **Substantive wins on overlap:** any edit — a wording change
+  included — that changes a **capability, a contract, an invariant, or a user-visible promise** is
+  substantive and goes through the gate. (`prd-rules.yaml` declares the split, substantive-first — do
+  not guess case by case.)
 - **The reverse gap is a work request, not an amendment:** a PRD statement with no surface behind it
   is raised as a design/plan work request.
 - **Amend the spec first, then act.** When intent evolves, the PRD updates before the guardrail or the

@@ -61,7 +61,7 @@ requires (`requirements.yaml`). **Both directions are smells:** an empty require
 padded or restating one. The ≤8-line **SUMMARY** is mandatory at every tier so the long form can be
 skipped by agents that only need to re-anchor.
 
-- **XS** (one-file fix): Header, SUMMARY, Problem, Goal, FR-N, AC-N.
+- **XS** (one-file fix): Header, SUMMARY, Problem, Goal, Non-goals, FR-N, AC-N.
 - **S**: + Non-goals, Constraints, Verifier checkpoints.
 - **M**: + Design/approach, Validation plan, Rollback, Open questions.
 - **L** (structural/risky): full skeleton incl. Decisions and correctness properties.

@@ -8,7 +8,9 @@ schema_version: 1
 skill: frd-author
 
 # Section required-by-tier matrix. required_from: lowest tier at which the section is mandatory.
-# empty_required and padded are BOTH smells (severity high) — the anti-bloat teeth.
+# empty_required and padded are BOTH smells (severity high) — the anti-bloat teeth — EXCEPT a
+# section flagged empty_at_approval_ok, where an empty section IS the success state (its heading is
+# required to exist; content empty at approval is correct, not padding).
 sections:
   - {id: header,       required_from: XS, purpose: "where the work lives"}
   - {id: summary,      required_from: XS, purpose: "≤8-line agent digest, re-sent every iteration", max_lines: 8}
@@ -22,7 +24,7 @@ sections:
   - {id: verifier_checkpoints, required_from: S, purpose: "CP-N: FR/AC -> gate"}
   - {id: validation_plan,      required_from: M, purpose: "safe, scoped, runnable steps"}
   - {id: rollback,     required_from: M,  purpose: "undo path where state mutates"}
-  - {id: open_questions, required_from: M, purpose: "unresolved ambiguities; empty at approval"}
+  - {id: open_questions, required_from: M, empty_at_approval_ok: true, purpose: "unresolved ambiguities; heading required, empty at approval is the success state"}
   - {id: decisions,    required_from: L,  purpose: "D-N: resolved operator decisions, dated"}
   - {id: revision_log, required_from: L,  purpose: "attributed in-flight amendments"}
 

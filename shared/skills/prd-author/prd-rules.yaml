@@ -37,9 +37,12 @@ amendment:
   order: amend-spec-first          # intent evolves -> PRD updates before the build/guardrail follows
 
 # Declared cosmetic-vs-substantive split (do not decide case by case).
+# Substantive WINS on overlap: evaluate substantive first; a copy edit that changes any substantive
+# category is substantive, never cosmetic — a wording change can move a contract.
 change_classification:
-  cosmetic: [layout, spacing, colour, copy-wording]     # acknowledged + filtered, never gated
-  substantive: [capability, contract, invariant, user-visible-promise]  # -> amendment gate
+  precedence: substantive-wins
+  cosmetic: [layout, spacing, colour, semantics-preserving-copy]   # semantics-preserving ONLY; acknowledged + filtered, never gated
+  substantive: [capability, contract, invariant, user-visible-promise]  # -> amendment gate (takes precedence)
 
 provenance:
   operator_edit: [marked, attributed, previous-wording-recoverable]
