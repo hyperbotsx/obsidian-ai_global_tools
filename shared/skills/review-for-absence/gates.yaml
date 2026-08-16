@@ -11,33 +11,49 @@ tiers:
   3: "deep — full absence lens + security-per-pr STRIDE. Auth, payments, data, migrations, new surface."
 
 # Top-level `gates` (not `checks`) so a generic verifier reading the gate list finds these.
-# review-for-absence's gates COMPOSE other skills' gates rather than run a tool directly.
+surfaces:
+  always: true
+  has_spec: "an FRD or spec exists for the change"
+  new_surface: "change adds an endpoint, handler, or service"
+  has_tests: "tests present"
+
+# Every gate declares `kind`: `owned` runs here (a reviewer/verifier step); `composed` reports
+# another skill's gate result rather than running a tool directly.
 gates:
   - id: scope-analysis
+    kind: owned
     intent: Expected file changes (from the FRD/spec) match the actual diff — both directions.
-    owned_here: true
+    applies_when: has_spec
     inputs: [frd_or_spec, diff]
     severity: advisory
     evidence: [expected_but_missing, present_but_unexpected]
     remediation: Add the forgotten change; remove the out-of-scope edit.
 
   - id: missing-integration
+    kind: composed
     intent: New code wires into logging/error-tracking/auth/context/flags.
     composes: ai-ci-gate-pack#integration-completeness
+    applies_when: new_surface
     severity: advisory
-    remediation: Report the gate finding; route to coder.
+    evidence: [new_surface, missing_integration_points]
+    remediation: Report the composed gate finding; route to coder.
 
   - id: missing-test-scenarios
+    kind: composed
     intent: Failure modes and edge/negative cases are tested, not just the happy path.
     composes: [ai-ci-gate-pack#test-quality, machine-lint-pack#shallow-tests]
+    applies_when: has_tests
     severity: advisory
     evidence: [absent_scenarios]
     remediation: Name the missing scenarios; route to coder.
 
   - id: architectural-alignment
+    kind: composed
     intent: New abstractions match existing patterns; no reinvention under a new name.
     composes: [machine-lint-pack#abstraction-bypass, vision-keeper]
+    applies_when: always
     severity: advisory
+    evidence: [reinvented_pattern, unjustified_abstraction]
     remediation: Reuse the existing pattern, or justify the new abstraction.
 
 pr_template:

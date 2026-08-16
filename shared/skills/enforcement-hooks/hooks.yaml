@@ -4,7 +4,7 @@
 # (Claude Code), but correctness never depends on the harness providing it.
 #
 # action: inject | block | warn
-# event:  session-start | pre-compaction | pre-write | pre-commit | pre-tool | stop
+# event:  session-start | pre-compaction | pre-write | pre-commit | commit-msg | pre-tool | stop
 # Only BINARY, judgment-free rules belong here; anything needing judgment stays a gate.
 
 schema_version: 1
@@ -16,34 +16,34 @@ hooks:
     event: [session-start, pre-compaction]
     action: inject
     payload: condensed summary of enabled skills' load-bearing rules
-    default: on
+    default: "on"
 
   - id: secret-write-guard
     intent: A file containing a credential is never written.
     event: [pre-write, pre-tool]
     action: block
-    default: on
+    default: "on"
     pairs_with: security-per-pr#secrets     # prevention at write time; detection at review time
 
   - id: commit-format-guard
     intent: Commit messages are conventional-commits form with no forbidden tool/author attribution.
-    event: pre-commit
+    event: commit-msg     # not pre-commit — the message is not finalized until commit-msg
     action: block
-    default: on
+    default: "on"
     pairs_with: house-conventions
 
   - id: file-size-guard
     intent: Files stay under the size default unless a cohesive unit justifies exceeding it.
     event: pre-write
     action: warn                             # block only when a project opts into hard enforcement
-    default: warn
+    default: "warn"
     escape_hatch: KISS — a cohesive unit may exceed with a stated reason
 
   - id: variant-file-guard
     intent: Iteration-residue filenames (*_v2/_old/_backup/_copy) are never created.
     event: [pre-write, pre-tool]
     action: block
-    default: on
+    default: "on"
     pairs_with: machine-lint-pack#variant-files
 
   - id: periodic-nudge
@@ -51,13 +51,13 @@ hooks:
     event: stop
     cadence: every-nth
     action: warn
-    default: off
+    default: "off"
 
   - id: lightweight-judgment
     intent: A narrow high-frequency check a regex is too blunt for, routed through a cheap model.
     event: [pre-commit, pre-tool]
     action: warn                             # advises, not blocks — the one non-deterministic hook
-    default: off
+    default: "off"
 
 # Enforcement is engine-side because hooks do not port (Agent Skills standard: allowed-tools /
 # disable-model-invocation / hooks are Claude-only). See SKILL.md "why this tier is engine-side".

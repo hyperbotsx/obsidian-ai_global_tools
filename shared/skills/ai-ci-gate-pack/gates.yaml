@@ -67,8 +67,8 @@ capability_bindings:
     default: semgrep              # rules asserting new handlers reference logging/error-tracking/auth
     alternate: [agent-judgment]
   mutation-tester:
-    default: muti                 # tree-sitter polyglot, pipe-to-any-test-command
-    alternate: [bough, stryker, mutmut, pit, cargo-mutants]  # per-ecosystem where preferred
+    default: per-ecosystem        # bind to the ecosystem's mutation tester (no single verified polyglot default)
+    alternate: [mutmut, stryker, pit, cargo-mutants, muti, bough]  # per-language; muti/bough are tree-sitter polyglot options
 
 # See also: machine-lint-pack (local lint + shallow test smells), security-per-pr (security),
 # Context Brief duplicate & reuse scan (the pre-write twin of the duplication gate).
