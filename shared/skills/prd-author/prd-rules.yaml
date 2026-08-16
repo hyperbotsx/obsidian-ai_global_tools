@@ -1,0 +1,71 @@
+# Modula engine extension — NOT part of the Agent Skills standard.
+# The §3 amendment-proposal pipeline + reconciliation checker read this; the Author reads SKILL.md.
+# They ship together so authoring rules and gate rules cannot diverge (one selection, two consumers).
+
+schema_version: 1
+skill: prd-author
+
+# Altitude map: what each master-PRD section is for, and what must NOT creep in.
+# Global rule: if a passage could be an FR/AC, it belongs in an FRD — propose moving it, leave a pointer.
+altitude:
+  global_rule: "if a passage could be an FR or AC, it belongs in an FRD, not the PRD"
+  sections:
+    - {n: 1,  id: vision,            not_belongs: feature-lists}
+    - {n: 2,  id: users_deployment,  not_belongs: per-feature-UX}
+    - {n: 3,  id: operating_model,   not_belongs: implementation-of-a-step}
+    - {n: 4,  id: agent_roles,       not_belongs: a-role's-full-system-prompt}
+    - {n: 5,  id: terminal_workspace, not_belongs: component-specs}
+    - {n: 6,  id: planning,          not_belongs: none}
+    - {n: 7,  id: context_continuity, not_belongs: renewal-algorithm-detail}
+    - {n: 8,  id: board,             not_belongs: board-component-behaviour}
+    - {n: 9,  id: validation,        not_belongs: test-cases}
+    - {n: 10, id: reviews,           not_belongs: reviewer-config}
+    - {n: 11, id: memory,            not_belongs: provider-internals}
+    - {n: 12, id: communications,    not_belongs: protocol-frame-detail}
+    - {n: 13, id: settings,          not_belongs: individual-toggle-UI}
+    - {n: 14, id: security,          not_belongs: key-rotation-procedure}
+    - {n: 15, id: non_goals,         not_belongs: soft-preferences}
+    - {n: 16, id: open_questions,    not_belongs: premature-answers}
+    - {n: 17, id: revision_log,      not_belongs: none}
+  grow_when: "the product DEFINITION changed — never when a feature was built (that's an FRD tracing back)"
+
+# Every PRD change is a proposal through the §3 human gate; nothing auto-applies.
+amendment:
+  auto_apply: false
+  requires: [originating_source, revision_log_entry]   # entry names origin + date — the anti-drift record
+  reverse_gap: work-request        # PRD statement with no surface -> design/plan work request, not an amendment
+  order: amend-spec-first          # intent evolves -> PRD updates before the build/guardrail follows
+
+# Declared cosmetic-vs-substantive split (do not decide case by case).
+change_classification:
+  cosmetic: [layout, spacing, colour, copy-wording]     # acknowledged + filtered, never gated
+  substantive: [capability, contract, invariant, user-visible-promise]  # -> amendment gate
+
+provenance:
+  operator_edit: [marked, attributed, previous-wording-recoverable]
+  agent_draft: [marked-as-agent]
+  snapshots: named-readonly-restorable   # a restore is itself a revision-stamped edit
+
+reconciliation:
+  triggers: [on-demand, after-frd-approval, after-pr-merge]   # not a timer
+  directions:
+    prd_section_without_surface: raise-work-request
+    surface_without_prd_section: raise-amendment-proposal
+  output: proposal      # never an automatic edit
+  boundary: "board = execution state · Implementation Plan = order/lanes · PRD = definition — never competing"
+
+# Weakening any of these is REFUSED; only an explicit, recorded operator decision may change them.
+protected_invariants:
+  - authority_floor        # no autonomous approval/PR/merge/deploy/trading (gated/future/non-goal framing OK; granting refused)
+  - product_naming         # no hardcoded product name; APP_NAME config only
+  - prd_frd_terminology    # PRD = master doc only; feature docs are FRDs
+
+# Bloat is a smell (severity high) — same anti-bloat teeth as frd-author, tuned for a living doc.
+bloat_smells:
+  - section-drifted-into-feature-detail
+  - section-restating-another
+  - accreted-dead-history
+  - premature-detail-that-belongs-in-open-questions
+
+# Feeds the existing §3 amendment pipeline + reconciliation; adds no parallel approval path.
+# Sibling: frd-author (feature specs). Protected invariants mirror the ceo_review hard floor.
