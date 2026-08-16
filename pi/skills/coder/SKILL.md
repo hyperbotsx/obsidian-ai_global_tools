@@ -56,6 +56,15 @@ ask for it before editing.
 17. Stop only after final verifier bug-check approval or a true human escalation.
 18. Do not create or open a PR unless the user explicitly asks; PR creation is human-managed.
 
+## Reuse note (record it in the handoff)
+
+Design Core (`CLAUDE.md`/`AGENTS.md`) already requires *searching for an existing primitive before
+writing a new one*. Make that decision **auditable**: the handoff carries a one-block **Reuse note** —
+for each new component/helper/hook/type/style you added, the existing thing you reused or extended;
+and for anything that resembled a near-duplicate, whether you extracted it or consciously duplicated
+it, and why (coincidental similarity → duplication is correct; a third occurrence of real shared
+meaning → extract). This records a decision you already made; it is not new work.
+
 ## Continuation authorization
 
 A durable handoff may record explicit operator continuation authorization for the active PRD/run. When present, run the full bounded checkpoint loop without pausing for ordinary implementation, test, coverage, KISS, validation, steward-cleanup, or verifier-revision findings. Record every revision and re-request verifier review. Treat `revision_requested` as a required next action, not a reason to report progress or wait for the operator.
