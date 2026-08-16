@@ -88,6 +88,16 @@ threat_model:
   output: threat-table            # threat | category | asset | mitigation-present? | action
   routing: gate-mapped-findings-through-their-gate; ungated-findings-to-coder; trade-offs-to-human
 
+# Egress contract is GLOBAL, not per-tool: every binding below — default AND alternate — runs
+# under this profile. No binding may enable remote validators, telemetry, or DB auto-update.
+# (Generalizes the per-binding grype profile; closes the semgrep-secrets validator egress path.)
+binding_profile:
+  offline: true
+  network: denied
+  remote_validators: disabled   # e.g. semgrep-secrets token validators MUST be off — they POST detected tokens
+  telemetry: disabled
+  db: pinned                    # no scan-time auto-update (grype/trivy)
+
 # capability -> concrete tooling. The adapter picks the binding for the detected ecosystem,
 # preferring genuinely multi-language tools so the doctrine holds for any language/app type.
 # `default` is the shipped choice; `alternate` is a supported swap.

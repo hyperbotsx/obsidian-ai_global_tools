@@ -54,8 +54,18 @@ gates:
     tier: 3
     severity: advisory
     applies_when: has_tests
+    scope: changed-and-impacted     # mutate only changed lines + directly impacted code, never the whole repo
+    budget: {max_mutants: 500, max_wall_clock_s: 600, on_exceeded: report-partial}   # bounded fanout/time; partial result reported, never silent skip
     evidence: [surviving_mutants, assertion_variety, happy_path_skew]
     remediation: Add assertions/negative cases that fail when the code is perturbed.
+
+# Egress contract is GLOBAL: every binding (default + alternate) runs offline with network denied,
+# no telemetry, and a pinned dependency DB — scans never phone home.
+binding_profile:
+  offline: true
+  network: denied
+  telemetry: disabled
+  db: pinned
 
 capability_bindings:
   duplication-detector:
@@ -68,7 +78,7 @@ capability_bindings:
     alternate: [agent-judgment]
   mutation-tester:
     by_ecosystem: {python: mutmut, javascript: stryker, typescript: stryker, java: pit, rust: cargo-mutants}
-    polyglot: [muti, bough]       # tree-sitter, for ecosystems without a mapped tool
+    polyglot: [mewt, bough]       # tree-sitter, for ecosystems without a mapped tool
     on_unsupported: report        # never silently skip — report "no mutation tester for <ecosystem>", do not mark clean
   test-structure-analysis:
     default: semgrep              # rules for assertion presence/variety, negative/edge cases, mock-assertion
