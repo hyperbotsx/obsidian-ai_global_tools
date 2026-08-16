@@ -1,0 +1,64 @@
+# Modula engine extension — NOT part of the Agent Skills standard.
+# The requirements gate (FRD-Reviewer packet + five-artifact gate) reads this; the Author reads
+# SKILL.md + template.md. They ship together so authoring rules and approval rules cannot diverge.
+#
+# One selection, two consumers: SKILL.md is the author overlay; this is the enforcement half.
+
+schema_version: 1
+skill: frd-author
+
+# Section required-by-tier matrix. required_from: lowest tier at which the section is mandatory.
+# empty_required and padded are BOTH smells (severity high) — the anti-bloat teeth.
+sections:
+  - {id: header,       required_from: XS, purpose: "where the work lives"}
+  - {id: summary,      required_from: XS, purpose: "≤8-line agent digest, re-sent every iteration", max_lines: 8}
+  - {id: problem,      required_from: XS, purpose: "user-visible pain, in the customer's words"}
+  - {id: goal,         required_from: XS, purpose: "observable outcome, not aspirational"}
+  - {id: non_goals,    required_from: XS, purpose: "the fence"}          # required at XS too — cheapest scope guard
+  - {id: constraints,  required_from: S,  purpose: "stack/boundaries/invariants"}
+  - {id: functional_requirements, required_from: XS, purpose: "FR-N: atomic, MUST-phrased"}
+  - {id: acceptance_criteria,     required_from: XS, purpose: "AC-N: verifiable, ≥1 per FR"}
+  - {id: design,       required_from: M,  purpose: "the how — architecture, correctness properties"}
+  - {id: verifier_checkpoints, required_from: S, purpose: "CP-N: FR/AC -> gate"}
+  - {id: validation_plan,      required_from: M, purpose: "safe, scoped, runnable steps"}
+  - {id: rollback,     required_from: M,  purpose: "undo path where state mutates"}
+  - {id: open_questions, required_from: M, purpose: "unresolved ambiguities; empty at approval"}
+  - {id: decisions,    required_from: L,  purpose: "D-N: resolved operator decisions, dated"}
+  - {id: revision_log, required_from: L,  purpose: "attributed in-flight amendments"}
+
+tiers:
+  order: [XS, S, M, L]
+  fr_soft_cap: {XS: 3, S: 6, M: 12, L: null}   # FR-count over cap is a drift signal, not a hard limit
+  escape_hatch: "author may ADD a normally-omitted section with a one-line reason; never DROP a required one"
+
+# Score each pass | warn | fail (mirrors quality-rubric.v1). `feeds` = the existing gate this supports.
+rubric_criteria:
+  - {id: problem_clarity,   check: "a stranger understands the pain and why it matters"}
+  - {id: goal_observability, check: "outcome is observable, not aspirational"}
+  - {id: non_goals_present, check: "the fence is drawn; scope creep bounded"}
+  - {id: fr_atomicity,      check: "each FR is one testable obligation, MUST-phrased", feeds: requirements-smells}
+  - {id: ac_verifiability,  check: "every AC is runnable/observable; every FR has >=1 AC", feeds: acceptance-specs}
+  - {id: traceability,      check: "every FR traces to a PRD section", feeds: evidence-matrix}
+  - {id: ambiguity_resolved, check: "no unresolved [NEEDS CLARIFICATION] at approval", feeds: requirements-smells}
+  - {id: right_sized,       check: "sections match the tier; no empty required, no padding"}
+  - {id: authority_floor,   check: "grants no autonomous approval/PR/merge/deploy/trading", feeds: ceo_review#forbidden_scope}
+  - {id: reversibility,     check: "rollback/recovery present wherever state mutates"}
+
+# smell -> fix. The detector (prd_studio_artifacts.py) catches; this teaches the fix.
+smell_fixes:
+  vague_term:          "replace with an observable threshold or a concrete AC"
+  unresolved_tbd:      "convert to a [NEEDS CLARIFICATION] open question with an owner, or resolve it"
+  compound_requirement: "split into two atomic FRs"
+  passive_voice:       "name the actor (the system MUST… / the user MUST be able to…)"
+
+# Re-tiering when scope drifts (SKILL.md §Re-tiering). The gate raises a proposal, never auto-jumps.
+retier:
+  drift_signals: [second_surface_touched, persistent_state_or_schema_change, new_operator_decision, rollback_needed, fr_over_soft_cap]
+  on_drift:
+    same_feature_bigger: re-tier-proposal      # XS->S->M->L; one-line operator confirm amends effort_classification
+    more_than_one_feature: split-proposal      # routes to domain_classification.split_recommendation + new-FRD path
+  direction: up-by-default                      # a downgrade drops sections -> explicit operator action only
+  gate: human                                   # §3 amendment proposal — never autonomous
+
+# Feeds Modula's existing gates; does not add a parallel approval path.
+# See also: acceptance-specs (verifiable AC), ceo_review 13-question rubric, the five-artifact gate.
