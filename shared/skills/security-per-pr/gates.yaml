@@ -1,0 +1,100 @@
+# Modula engine extension — NOT part of the Agent Skills standard.
+# The verifier reads this; the coder reads SKILL.md. They ship together so the
+# generation overlay and the enforced gates cannot diverge ("one selection, two consumers").
+#
+# severity:     blocking | advisory   (advisory graduates to blocking once its FP rate is measured)
+# applies_when: predicate over the change's detected surface — a gate fires only where it holds
+# capability:   an intent name resolved to a concrete tool by the language-adapter registry
+#               (see capability_bindings) — never a tool or language named in a gate
+
+schema_version: 1
+skill: security-per-pr
+
+surfaces:
+  # Predicates the adapter evaluates against the change; referenced by applies_when.
+  always: true
+  has_dependencies: "manifest or lockfile present or changed"
+  request_handling: "code registers routes/handlers or reads request input"
+  service: "process exposes a network or IPC service surface"
+  web: "surface speaks HTTP to a browser or public client"
+
+gates:
+  - id: secrets
+    intent: No credential is committed or reachable in the change's history.
+    capability: secrets-scanner
+    severity: blocking
+    applies_when: always
+    evidence: [file, line_or_commit, detector_rule]
+    remediation: Remove the secret, rotate it, and load it from the secret store.
+
+  - id: dependency-vulnerabilities
+    intent: No added or present dependency carries a known high/critical advisory.
+    capability: dep-vuln-auditor
+    severity: blocking            # high + critical only; lower severities are advisory
+    threshold: [high, critical]
+    applies_when: has_dependencies
+    evidence: [package, version, advisory_id, severity]
+    remediation: Upgrade past the advisory, or replace the dependency.
+
+  - id: injection
+    intent: Untrusted input cannot reach an interpreter (SQL/NoSQL/command/template/LDAP/path/XSS).
+    capability: sast-scanner
+    severity: blocking            # high-confidence reachable findings; heuristic hits are advisory
+    confidence_floor: high
+    applies_when: always
+    evidence: [source, sink, dataflow_path]
+    remediation: Parameterize / use the framework-safe API; validate at the boundary.
+
+  - id: authz-bypass
+    intent: Protected operations check identity and object-level permission.
+    capability: authz-check
+    severity: advisory            # graduates once precise
+    applies_when: request_handling
+    evidence: [endpoint_or_handler, missing_check]
+    remediation: Add the authN/authZ check, including object-level ownership.
+
+  - id: error-leakage
+    intent: Errors returned to callers leak no stack trace, path, SQL, or internal id.
+    capability: sast-scanner
+    severity: advisory
+    applies_when: service
+    evidence: [handler_or_response_path, leaked_detail_class]
+    remediation: Return a safe message; send detail to logs only.
+
+  - id: security-headers
+    intent: HTTPS enforced and baseline headers present (HSTS, CSP, X-Content-Type-Options, X-Frame-Options).
+    capability: header-check
+    severity: advisory
+    applies_when: web
+    evidence: [surface, missing_header]
+    remediation: Set the header at the framework/proxy layer.
+
+  - id: exposed-routes
+    intent: No admin/debug/introspection surface is unintentionally public.
+    capability: route-exposure
+    severity: advisory
+    applies_when: web
+    evidence: [path, auth_state]
+    remediation: Put it behind auth, or disable it in production.
+
+# capability -> concrete tooling. The adapter picks the binding for the detected ecosystem,
+# preferring genuinely multi-language tools so the doctrine holds for any language/app type.
+# `default` is the shipped choice; `alternate` is a supported swap.
+capability_bindings:
+  secrets-scanner:
+    default: gitleaks
+    alternate: [semgrep-secrets, xgrep]
+  dep-vuln-auditor:
+    default: grype
+    alternate: [trivy, semgrep-supply-chain]
+  sast-scanner:
+    default: semgrep            # OWASP rulesets; 30+ languages; scans stay local
+    alternate: [xgrep]          # single binary SAST+secrets+SCA with a verified scan->fix->rescan loop
+  authz-check:
+    default: agent-judgment     # route/handler inventory + judgment; dynamic probe where a running surface exists
+  header-check:
+    default: agent-judgment
+    alternate: [dynamic-probe]
+  route-exposure:
+    default: agent-judgment
+    alternate: [dynamic-probe]
