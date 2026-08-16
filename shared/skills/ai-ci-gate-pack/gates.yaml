@@ -71,7 +71,9 @@ capability_bindings:
   duplication-detector:
     default: jscpd                # 223+ languages, single binary, SARIF — one tool covers everything
   dependency-version-auditor:
-    default: native-manifest-check # per-ecosystem latest-version query (npm/pip/cargo/go...)
+    default: native-manifest-check   # checks a pre-provisioned versioned registry snapshot, NOT the live network
+    data: registry-snapshot          # refreshed in a separate controlled phase, never during the network-denied scan
+    on_unavailable: report-not-checked  # stale/missing snapshot -> "not checked", never reported as current
     alternate: [renovate-datasource]
   integration-point-analysis:
     default: semgrep              # rules asserting new handlers reference logging/error-tracking/auth

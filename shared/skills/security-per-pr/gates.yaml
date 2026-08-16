@@ -40,6 +40,8 @@ gates:
   - id: injection
     intent: Untrusted input cannot reach an interpreter (SQL/NoSQL/command/template/LDAP/path/XSS).
     capability: sast-scanner
+    requires: cross-file-taint    # source->sink can cross files/functions; a single-file engine (Semgrep CE) misses it
+    on_unsupported: report-unavailable   # if no cross-file-taint engine is bound, report the gate unavailable — never a false clean
     severity: blocking            # high-confidence reachable findings; heuristic hits are advisory
     confidence_floor: high
     applies_when: always
@@ -110,8 +112,9 @@ capability_bindings:
     alternate: [trivy, semgrep-supply-chain]
     profile: {offline: true, db: pinned, network: denied}   # egress contract (FRD): pin the vuln DB, no db.auto-update at scan time, deny network
   sast-scanner:
-    default: semgrep            # OWASP rulesets; 30+ languages; scans stay local
-    alternate: [xgrep]          # single binary SAST+secrets+SCA with a verified scan->fix->rescan loop
+    default: semgrep           # with the Pro engine (offline) for cross-file taint — required by the injection gate; plain Semgrep CE is single-file and NOT eligible for injection
+    alternate: [xgrep]         # single binary with cross-file taint, offline
+    requires: cross-file-taint
   authz-check:
     default: agent-judgment     # route/handler inventory + judgment; dynamic probe where a running surface exists
   header-check:
