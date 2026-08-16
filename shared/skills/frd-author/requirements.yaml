@@ -7,6 +7,12 @@
 schema_version: 1
 skill: frd-author
 
+# ENGINE INTEGRATION (the second consumer) is a follow-on FRD, not this skill file. Wiring the
+# production five-artifact gate to LOAD these rubric criteria (and reject an empty quality-rubric),
+# validating the brief's effort level against level_aliases below, and enforcing them at approval is
+# the "second consumer" build — same pattern as the §13 verifier-gate seam (spec here, engine
+# consumption in its own FRD). This file is the declared contract that integration wires to.
+
 # Section required-by-tier matrix. required_from: lowest tier at which the section is mandatory.
 # empty_required and padded are BOTH smells (severity high) — the anti-bloat teeth — EXCEPT a
 # section flagged empty_at_approval_ok, where an empty section IS the success state (its heading is
@@ -32,6 +38,9 @@ tiers:
   order: [XS, S, M, L]
   fr_soft_cap: {XS: 3, S: 6, M: 12, L: null}   # FR-count over cap is a drift signal, not a hard limit
   escape_hatch: "author may ADD a normally-omitted section with a one-line reason; never DROP a required one"
+  # The planning brief's effort_classification.level is free-form (example: "standard"); map it to a tier.
+  level_aliases: {trivial: XS, xs: XS, minor: S, small: S, standard: M, medium: M, large: L, structural: L, epic: L}
+  default_tier: M   # unrecognized or absent level -> M (standard); the Author may re-tier from there
 
 # Score each pass | warn | fail (mirrors quality-rubric.v1). `feeds` = the existing gate this supports.
 rubric_criteria:

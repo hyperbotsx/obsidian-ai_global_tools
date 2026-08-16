@@ -5,6 +5,12 @@
 schema_version: 1
 skill: prd-author
 
+# ENGINE INTEGRATION (the second consumer) is a follow-on FRD, not this skill file. Threading the
+# required provenance metadata (originating_source + a §17 revision_log_entry) through the master-PRD
+# save path, and enforcing the change_classification / protected_invariants at the gate, is the
+# "second consumer" build — same pattern as the §13 verifier-gate seam. This file is the declared
+# contract that integration wires to.
+
 # Altitude map: what each master-PRD section is for, and what must NOT creep in.
 # Global rule: if a passage could be an FR/AC, it belongs in an FRD — propose moving it, leave a pointer.
 altitude:
