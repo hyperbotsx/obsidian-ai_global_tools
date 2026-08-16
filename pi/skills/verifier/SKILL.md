@@ -109,6 +109,7 @@ GATE: green | red        (attach failing output only)
 CRITERIA: [criterion -> met/unmet + evidence ref]
 BLOCKERS: [each: repro command or failing test path, severity, criterion affected]
 ADVISORIES: [one line each]
+REUSE AUDIT: [one line: primitive(s) reused per new file; any near-duplicate consciously not extracted; an unjustified fork -> advisory, or BLOCKER only if a "no fork / reuse X" criterion is unmet]
 ROUND: n/2
 ```
 
@@ -130,6 +131,16 @@ downstream automation (git-manager commit gate, PRD closeout) parses them:
 
 A green Stage 0 gate **is** the bug check: when the gate passes and every criterion is met, report
 `bug_check_status: passed`. Never report `passed` on a red gate.
+
+## Reuse audit (standing advisory)
+
+Confirm the coder's **Reuse note** against the diff and emit one `REUSE AUDIT` line: which existing
+primitive each new file reused, and any near-duplicate the coder added instead of extending. This is
+**advisory** — it never blocks on its own, and it does not turn you into a general code-quality
+reviewer. It becomes a blocker only when the checkpoint carries an explicit criterion it violates
+(e.g. "reuse `DrawerSection`, no primitive fork"). One line in the report; the reasoning lives in the
+coder's handoff. If the coder shipped no Reuse note, say so on this line — an absent note is itself the
+signal.
 
 ## Autonomy
 
