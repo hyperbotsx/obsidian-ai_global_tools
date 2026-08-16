@@ -22,6 +22,7 @@ hooks:
     intent: A file containing a credential is never written.
     event: [pre-write, post-tool, pre-commit]   # pre-write blocks direct writes; post-tool rescans files a tool produced; pre-commit rescans the staged diff before it can reach a remote
     action: block
+    on_detect: quarantine-then-rollback   # a tool-produced secret is atomically quarantined/removed, never left readable on disk (engine runs file-producing tools transactionally)
     default: "on"
     pairs_with: security-per-pr#secrets     # prevention at write time; detection at review time
 

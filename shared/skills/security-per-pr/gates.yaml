@@ -98,6 +98,7 @@ capability_bindings:
   dep-vuln-auditor:
     default: grype
     alternate: [trivy, semgrep-supply-chain]
+    profile: {offline: true, db: pinned, network: denied}   # egress contract (FRD): pin the vuln DB, no db.auto-update at scan time, deny network
   sast-scanner:
     default: semgrep            # OWASP rulesets; 30+ languages; scans stay local
     alternate: [xgrep]          # single binary SAST+secrets+SCA with a verified scan->fix->rescan loop

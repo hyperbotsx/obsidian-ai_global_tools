@@ -67,8 +67,9 @@ capability_bindings:
     default: semgrep              # rules asserting new handlers reference logging/error-tracking/auth
     alternate: [agent-judgment]
   mutation-tester:
-    default: per-ecosystem        # bind to the ecosystem's mutation tester (no single verified polyglot default)
-    alternate: [mutmut, stryker, pit, cargo-mutants, muti, bough]  # per-language; muti/bough are tree-sitter polyglot options
+    by_ecosystem: {python: mutmut, javascript: stryker, typescript: stryker, java: pit, rust: cargo-mutants}
+    polyglot: [muti, bough]       # tree-sitter, for ecosystems without a mapped tool
+    on_unsupported: report        # never silently skip — report "no mutation tester for <ecosystem>", do not mark clean
   test-structure-analysis:
     default: semgrep              # rules for assertion presence/variety, negative/edge cases, mock-assertion
     alternate: [native-linter]

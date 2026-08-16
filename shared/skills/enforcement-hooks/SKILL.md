@@ -34,7 +34,7 @@ weaken the hook.
 
 ## The four layers
 
-### 1. Doctrine re-injection — event: session-start, pre-compaction
+### 1. Doctrine re-injection — event: session-start, post-compaction
 Re-inject a condensed summary of the project's active doctrine (the enabled skills' load-bearing
 rules) so it survives context compaction and long sessions. Action: **inject**. This is what keeps
 the other skills honest past hour three.
