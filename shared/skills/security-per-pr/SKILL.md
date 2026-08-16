@@ -104,7 +104,7 @@ and is restorable — never silently dropped.
 
 ## Threat modeling on high-risk changes (STRIDE)
 
-Where a change touches a **high-risk surface** — authentication, payments, data models,
+Where a change touches a **high-risk surface** — authentication, authorization, payments, data models,
 a new external endpoint, cryptography, file upload, or deserialization — the seven checks are not
 enough; the change also gets a STRIDE threat model. Walk the six categories — Spoofing, Tampering,
 Repudiation, Information disclosure, Denial of service, Elevation of privilege — against the change,
