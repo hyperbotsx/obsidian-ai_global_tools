@@ -17,6 +17,7 @@ surfaces:
   request_handling: "code registers routes/handlers or reads request input"
   service: "process exposes a network or IPC service surface"
   web: "surface speaks HTTP to a browser or public client"
+  high_risk: "change touches authentication, authorization, payments, a data model, a new external endpoint, cryptography, file upload, or deserialization"
 
 gates:
   - id: secrets

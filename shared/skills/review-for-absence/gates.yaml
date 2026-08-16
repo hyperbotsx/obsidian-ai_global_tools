@@ -10,7 +10,9 @@ tiers:
   2: "quick scan — scope + what's-missing pass, ~minutes. Standard, well-tested changes."
   3: "deep — full absence lens + security-per-pr STRIDE. Auth, payments, data, migrations, new surface."
 
-checks:
+# Top-level `gates` (not `checks`) so a generic verifier reading the gate list finds these.
+# review-for-absence's gates COMPOSE other skills' gates rather than run a tool directly.
+gates:
   - id: scope-analysis
     intent: Expected file changes (from the FRD/spec) match the actual diff — both directions.
     owned_here: true
