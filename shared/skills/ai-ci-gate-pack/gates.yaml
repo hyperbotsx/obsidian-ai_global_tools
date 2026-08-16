@@ -49,12 +49,12 @@ gates:
     remediation: Wire the new surface into the systems the codebase already runs on.
 
   - id: test-quality
-    intent: Tests kill mutants (mutation score), vary assertions, and cover failure/edge paths.
-    capability: mutation-tester
+    intent: Tests kill mutants (mutation score) and vary assertions / cover failure/edge paths.
+    capability: [mutation-tester, test-structure-analysis]   # mutants come from the mutation tester; assertion-variety and negative-ratio come from structure analysis
     tier: 3
     severity: advisory
     applies_when: has_tests
-    evidence: [surviving_mutants, happy_path_skew]
+    evidence: [surviving_mutants, assertion_variety, happy_path_skew]
     remediation: Add assertions/negative cases that fail when the code is perturbed.
 
 capability_bindings:
@@ -69,6 +69,9 @@ capability_bindings:
   mutation-tester:
     default: per-ecosystem        # bind to the ecosystem's mutation tester (no single verified polyglot default)
     alternate: [mutmut, stryker, pit, cargo-mutants, muti, bough]  # per-language; muti/bough are tree-sitter polyglot options
+  test-structure-analysis:
+    default: semgrep              # rules for assertion presence/variety, negative/edge cases, mock-assertion
+    alternate: [native-linter]
 
 # See also: machine-lint-pack (local lint + shallow test smells), security-per-pr (security),
 # Context Brief duplicate & reuse scan (the pre-write twin of the duplication gate).

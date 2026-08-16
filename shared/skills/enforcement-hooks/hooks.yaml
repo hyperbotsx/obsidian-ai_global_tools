@@ -4,7 +4,7 @@
 # (Claude Code), but correctness never depends on the harness providing it.
 #
 # action: inject | block | warn
-# event:  session-start | pre-compaction | pre-write | pre-commit | commit-msg | pre-tool | stop
+# event:  session-start | post-compaction | pre-write | pre-tool | post-tool | pre-commit | commit-msg | stop
 # Only BINARY, judgment-free rules belong here; anything needing judgment stays a gate.
 
 schema_version: 1
@@ -13,14 +13,14 @@ skill: enforcement-hooks
 hooks:
   - id: reinject-doctrine
     intent: Keep the active doctrine present after compaction and in long sessions.
-    event: [session-start, pre-compaction]
+    event: [session-start, post-compaction]   # after compaction, not before — pre-compaction re-injection is discarded by the compaction it precedes
     action: inject
     payload: condensed summary of enabled skills' load-bearing rules
     default: "on"
 
   - id: secret-write-guard
     intent: A file containing a credential is never written.
-    event: [pre-write, pre-tool]
+    event: [pre-write, post-tool, pre-commit]   # pre-write blocks direct writes; post-tool rescans files a tool produced; pre-commit rescans the staged diff before it can reach a remote
     action: block
     default: "on"
     pairs_with: security-per-pr#secrets     # prevention at write time; detection at review time
@@ -50,6 +50,7 @@ hooks:
     intent: Remind to update memory / re-check the plan / record decisions.
     event: stop
     cadence: every-nth
+    interval: 3            # emit on every Nth stop event (required positive integer)
     action: warn
     default: "off"
 

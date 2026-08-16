@@ -4,6 +4,7 @@
 
 schema_version: 1
 skill: vision-keeper
+audit_id: alignment   # stable id — other skills reference this audit's verdict as `vision-keeper#alignment`
 
 triggers:
   # A major, keystone decision — routine edits do not pay the cost.

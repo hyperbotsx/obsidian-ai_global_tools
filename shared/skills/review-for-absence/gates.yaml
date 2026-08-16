@@ -16,6 +16,7 @@ surfaces:
   has_spec: "an FRD or spec exists for the change"
   new_surface: "change adds an endpoint, handler, or service"
   has_tests: "tests present"
+  behaviour_change: "change adds or alters production behaviour (logic, endpoint, data path)"
 
 # Every gate declares `kind`: `owned` runs here (a reviewer/verifier step); `composed` reports
 # another skill's gate result rather than running a tool directly.
@@ -47,10 +48,19 @@ gates:
     evidence: [absent_scenarios]
     remediation: Name the missing scenarios; route to coder.
 
+  - id: untested-change
+    kind: owned
+    intent: A production behaviour change ships with at least one test (not skipped just because no tests exist).
+    applies_when: behaviour_change   # fires when behaviour changes AND no test was added — the has_tests gate above cannot see this
+    severity: advisory
+    evidence: [changed_behaviour, no_test_added]
+    remediation: Add a test exercising the new behaviour; missing-test-scenarios then checks its depth.
+
   - id: architectural-alignment
     kind: composed
     intent: New abstractions match existing patterns; no reinvention under a new name.
-    composes: [machine-lint-pack#abstraction-bypass, vision-keeper]
+    composes: [machine-lint-pack#abstraction-bypass]
+    audits: [vision-keeper#alignment]   # vision-keeper exposes an audit VERDICT, not a gate result — composed as an audit, not a gate
     applies_when: always
     severity: advisory
     evidence: [reinvented_pattern, unjustified_abstraction]
