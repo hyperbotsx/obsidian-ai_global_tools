@@ -127,6 +127,24 @@ lens**, not a coder/verifier split. Recorded because a doctrine catch is data re
 
 ---
 
+## 🔬 The reviewer beat solo self-review on the risky path — AC-C3 #680 (2026-08-17)
+The single most important dogfood data point so far. AC-C2 (#676/#679) drew **zero** Kody findings and I merged
+them clean. AC-C3's `full_loop` **auto-launch driver** drew **6 findings, all anchored to the head**, on exactly the
+path my Lead self-review under-weighted. Verified dispositions:
+- **REAL + load-bearing** — `full_loop` can't progress past round 1: nothing in production moves a session out of the
+  protected `fixing_findings` status, so the driver auto-launches one round then stalls (never reaches the cap). I had
+  *punted* on this during grounding ("loop machinery is out of scope"); the reviewer caught the feature is premature.
+- **REAL** — unbounded batch launch (driver ignores `cycleCap`, O(N) pane launches); manual+driver double-launch race
+  (await between load and status flip); untrusted-task-injection into an auto-launched agent (Kodus accepts
+  any-author marker comments → `full_loop` removes the operator gate) — the same class as the deferred least-privilege
+  foundation; missing cap→needs_human escalation for capped sessions.
+- **FALSE POSITIVE (severity)** — "production orchestrator omits `maxLoopCount`": only one caller exists and it passes
+  the cap.
+**Lesson:** on an unattended-launch / trust-boundary change, a real reviewer catches design-level prematurity that a
+solo self-review (and even a clean prior slice's track record) misses. This is the case FOR the L1 built-in reviewer
+and FOR running the gates, not just the doctrine lens. It also confirms the round-cap "classify on composition" rule:
+the breakage concentrates in the new driver → defer the driver, don't patch it to green.
+
 ## ⚠️ Tool-gates have NOT actually run — dogfood has been DOCTRINE-ONLY (2026-08-17)
 Operator asked, on the CP-C AC-C3 PR, "did we run the lint checks etc that our new skills are about?" Honest answer:
 **no.** Across all of CP-C (AC-C1/C2/C3, PRs #671/#676/#679/#680) the skills were applied as a **manual review lens**
