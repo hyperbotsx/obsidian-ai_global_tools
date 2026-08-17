@@ -1,0 +1,89 @@
+# Modula engine extension — NOT part of the Agent Skills standard.
+# The §3 amendment/reconciliation pipeline + the §8 Replan action read this; the Planner reads SKILL.md.
+# They ship together so maintenance rules and gate rules cannot diverge (one selection, two consumers).
+
+schema_version: 1
+skill: impl-plan-author
+
+# ENGINE INTEGRATION (the second consumer) is a follow-on FRD, not this skill file. Threading the
+# required provenance metadata (author + a version_history reason) through the plan save path, deriving
+# shipped-state from the Ledger, and enforcing queue-not-running / feasibility at the gate is the
+# "second consumer" build. This file is the declared contract that integration wires to.
+
+# Altitude map: what the Implementation Plan is for, and what must NOT creep in.
+# Global rule: if a passage could be an FR/AC, it belongs in an FRD — leave a plan row that points at it.
+altitude:
+  global_rule: "if a passage could be an FR or AC, it belongs in an FRD, not the plan"
+  belongs: [phase-order, lane-assignment, lane-rules, dependency-blocking, queued-remainder, derived-shipped-state]
+  not_belongs:
+    - dates-as-roadmap        # the plan sequences work; it does not promise calendar dates
+    - feature-mechanics       # how a feature works lives in its FRD
+    - acceptance-criteria     # ACs live in the FRD, not the plan
+  grow_when: "there is more work to sequence — never to restate a feature's design (that's an FRD)"
+
+# Completion is COMPUTED, never written. A row is shipped only on PR-merge + validation receipts.
+completion:
+  derived_from: [pr-merge, validation-receipts]
+  hand_settable: false        # a manual "mark shipped" is REFUSED — the plan cannot claim what the Ledger cannot prove
+
+# Every re-sequence / scope change is a proposal through the §3 human gate; nothing auto-applies.
+amendment:
+  auto_apply: false
+  requires: [author, version_history_reason]   # who + why — the anti-drift, anti-thrash record
+  reverse_gap: work-request        # PRD section with no plan item -> design/plan work request
+  order: amend-spec-first          # intent evolves -> PRD/FRD updates before the plan follows
+
+# The replan lifecycle (FR-6): the plan is continuously replanned as FRDs land and priorities move.
+# Every rule here is checkable by the §8 Replan action.
+replan:
+  triggers:
+    - new-frd-approved
+    - dependency-changed
+    - lane-freed
+    - lane-slipped
+    - capacity-changed
+    - operator-priority-shift
+    - reconciliation-gap
+    - operator-request
+  scope: queued-only              # in-flight lanes are board-owned and untouched; reorder the QUEUE not the RUNNING
+  reads_board: read-only          # the Planner reads live execution state to tell in-flight from queued; it never writes it
+  feasibility: [dependency-order, capacity]   # no item before its blocker; detect cycles; respect available lanes/runners
+  minimal_delta: true             # smallest change that reflects new reality — a stable plan beats a churned one
+  reason: required                # every re-order records WHY (the version history)
+  gate: §3-proposal               # the Planner proposes; the operator approves
+  completion_untouched: true      # merged+receipted rows turn shipped underneath; replan operates on the remainder only
+
+# The operator edit model (FR-7): structure-safe, because the plan drives execution order.
+edit:
+  editable_fields: [order, lane, priority, phase, notes]
+  locked_fields: [shipped_state]  # derived, read-only — hand-editing it is refused
+  validate_on_save: true          # structure/parse-checked against the plan schema under base-revision guards; malformed refs/lanes/orderings rejected or flagged
+  provenance: operator|planner    # every edit stamped with its author
+  operator_primacy: true          # operator edits are authoritative; the Planner flags infeasibility as a §3 proposal, NEVER silently overturns
+  version_history: audit-trail     # why-the-order-changed + author; NOT restore-to-past-state (the plan is forward-moving)
+
+# Two-way reconciliation with the PRD; runs on demand + after FRD approval / PR merge (not a timer).
+reconciliation:
+  triggers: [on-demand, after-frd-approval, after-pr-merge]
+  directions:
+    plan_item_without_prd_section: raise-amendment-proposal
+    prd_section_without_plan_item: raise-work-request
+  output: proposal      # never an automatic edit
+  boundary: "board = execution state · plan = order/lanes/what-shipped · PRD = definition — never competing"
+
+# Weakening any of these is REFUSED; only an explicit, recorded operator decision may change them.
+protected_invariants:
+  - derived_completion     # shipped-state computed from PR-merge + receipts; never hand-set
+  - queue_not_running      # never re-sequence an in-flight lane; the board owns live execution
+  - gated_resequencing     # order/scope changes are §3 proposals, never silent edits
+  - product_naming         # no hardcoded product name; APP_NAME config only
+
+# Bloat is a smell (severity high) — same anti-bloat teeth as prd-author, tuned for a delivery doc.
+bloat_smells:
+  - padded-plan-row
+  - dates-as-roadmap
+  - feature-detail-that-belongs-in-an-frd
+  - churned-plan-thrash
+
+# Feeds the existing §3 amendment pipeline + reconciliation + the §8 Replan action; adds no parallel path.
+# Siblings: prd-author (product definition), frd-author (feature specs).
