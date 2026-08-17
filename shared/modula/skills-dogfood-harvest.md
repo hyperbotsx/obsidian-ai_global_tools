@@ -36,7 +36,7 @@ Single location (vault working artifact, not a skill — no repo mirror). Relate
 | machine-lint-pack | swallowed-errors | 0 | 0 | 0 | 0 | — | (already blocks, conf≥high) |
 | machine-lint-pack | variant-files | 1 | 0 | 0 | 0 | 0% | (already blocks) |
 | machine-lint-pack | type-strictness | 0 | 0 | 0 | 0 | — | no (advisory) |
-| machine-lint-pack | dead-code | 0 | 0 | 0 | 0 | — | no |
+| machine-lint-pack | dead-code | 1 | 1 | 0 | 0 | 0% | no (1 self-review TP) |
 | machine-lint-pack | async-correctness | 0 | 0 | 0 | 0 | — | no |
 | machine-lint-pack | deprecated-pattern | 0 | 0 | 0 | 0 | — | no |
 | machine-lint-pack | banned-api | 0 | 0 | 0 | 0 | — | no |
@@ -109,6 +109,21 @@ preventive applications that shaped the code with no false alarms.
 fixture. (2) Zero FPs across a real slice is encouraging but N is tiny; keep accumulating before any advisory→blocking
 move. (3) Two latent-gap candidates on *pre-existing* code (sibling raw reason; boundedReason naming) — hardening
 backlog, not this lane.
+
+### 2026-08-17 · AC-C2 per-finding dismiss/restore (FRONTEND) · PR #679 (merged 7aeee67a) · Lead-solo (no cohort)
+The frontend half was Lead-built solo (operator chose Lead-build over a cohort), so the skills ran as a **self-review
+lens**, not a coder/verifier split. Recorded because a doctrine catch is data regardless of who applied it.
+- `machine-lint-pack#dead-code` — **TP (self-review)** — I first added a `dismissed: boolean` to the render
+  `ReviewFinding`, then the dead-code/narrow-interface lens flagged that nothing reads it (membership in
+  `dismissedFindings` + the hardcoded CSS class already carry the signal; `dismissReason` carries the reason).
+  Removed before commit. Interface-bloat catch, pre-PR. Evidence: `reviewBoard.ts` ReviewFinding.
+- `review-for-absence#scope-analysis` — surfaced the **non-blocking-rollup dismiss gap** (a medium/low
+  `actionable_bug` is routed but, being rolled up, isn't individually dismissable from the UI). Not a defect — a
+  conscious scope boundary documented in the PR + a follow-up candidate. Classified NOISE-adjacent / scope-signal.
+- Kody: clean, zero inline findings on the head. Guardrail tests (not a skill) caught the 3 intentional invariant
+  flips (incl. the "no per-finding write control" pin) — updated consciously; a reminder that deterministic pins +
+  the absence lens are complementary.
+- False positives: none.
 
 ---
 
