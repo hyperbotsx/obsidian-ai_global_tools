@@ -127,6 +127,28 @@ lens**, not a coder/verifier split. Recorded because a doctrine catch is data re
 
 ---
 
+## ⚠️ Tool-gates have NOT actually run — dogfood has been DOCTRINE-ONLY (2026-08-17)
+Operator asked, on the CP-C AC-C3 PR, "did we run the lint checks etc that our new skills are about?" Honest answer:
+**no.** Across all of CP-C (AC-C1/C2/C3, PRs #671/#676/#679/#680) the skills were applied as a **manual review lens**
+only. What actually ran: `tsc` (typecheck — the type-strictness gate's real tool), the test suite, `vite build`.
+**Two reasons the tool-gates didn't run:** (1) the gate engine that resolves `capability → tool` isn't built; (2) the
+bound scanners **aren't installed on the dev box** — verified absent: `gitleaks` (secrets), `grype` (dep-vuln),
+`semgrep` (injection/SAST), `jscpd` (duplication). So the blocking gates (secrets, dep-vuln, injection) and the
+advisory duplication gate have **never executed** on our own work; only doctrine + tsc did.
+
+**Runnable substitutes executed on AC-C3 (#680) when the gap was caught:**
+- `security-per-pr#secrets` (grep substitute for gitleaks) — **clean**, no credential-shaped additions.
+- `machine-lint-pack#variant-files` (filename grep) — **clean**, no residue files.
+- `security-per-pr#dependency-vulnerabilities` (`npm audit` substitute for grype) — **4 high + 2 moderate**, ALL
+  pre-existing transitive deps, none introduced by CP-C (AC-C3 changed no manifest/lockfile): `postcss` (via
+  vite@8 — build tooling), `fast-uri`, `ip-address` (SSRF/trust-boundary), `nanoid`. → **repo-wide dependency-hygiene
+  backlog item**, not an AC-C3 blocker; remedy is a dedicated `npm audit fix` hygiene PR, not scope-crept into AC-C3.
+
+**Decision needed (infra):** to dogfood the skills as REAL gates (not doctrine), install the scanners
+(gitleaks/grype/semgrep/jscpd) + wire the engine. Until then every "0 FP" tally row above is doctrine-lens data, not
+tool-run data — a material caveat on the graduation heuristic. The dep-vuln gate, run once, immediately found real
+pre-existing debt the doctrine-only passes missed — evidence the tool-run layer catches a different class than the lens.
+
 ## Retrospective (pre-dogfood) observations — NOT counted in the tally
 Data points from before the skills were dogfooded live, kept separately so they don't skew FP rates. Useful as
 coverage-gap signals only.
