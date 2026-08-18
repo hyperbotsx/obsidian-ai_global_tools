@@ -5,7 +5,7 @@ description: Proactively creates and maintains a task list for a user request wi
 
 # Automatic Task Discipline
 
-Use the enabled `tasks` tool without asking the user to request a todo list.
+Create the list without asking the user to request a todo list. Use the native task tool available in the current harness.
 
 ## 1. Decide whether a list pays for itself
 
@@ -15,16 +15,23 @@ Do not create a list for a direct answer, a single read, a one-command check, or
 
 ## 2. Start the list before acting
 
-1. Call `tasks.new-list` with a concise title and purpose.
-2. Add 2–7 outcome-oriented tasks. Include verification when it is distinct work.
-3. Toggle the first task to `inprogress` before non-read work.
+1. Create a concise, outcome-oriented list of 2–7 tasks. Include verification when it is distinct work.
+2. Mark the first task in progress before non-read work.
+3. For a request such as “do A, B, and C,” create one task per independently deliverable outcome, in dependency order.
 
-For a request such as “do A, B, and C,” create one task per independently deliverable outcome, in dependency order.
+### Harness bindings
+
+| Harness | Task tool | Start a list |
+| --- | --- | --- |
+| Pi | `tasks` | Use `new-list`, add the tasks, then toggle the first task to `inprogress`. |
+| Claude Code | `TodoWrite` | Write the tasks with exactly one `in_progress` item. |
+
+If no task tool is available, do not claim that a list exists.
 
 ## 3. Keep it truthful
 
 1. Mark a task done immediately after its acceptance condition is met.
-2. Toggle the next task to `inprogress` before beginning it.
+2. Mark the next task in progress before beginning it.
 3. Update the list if the scope materially changes; do not retain stale tasks.
 4. Before the final response, ensure every task is done or state the blocker plainly.
 
