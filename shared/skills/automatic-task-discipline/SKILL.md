@@ -23,7 +23,7 @@ Do not create a list for a direct answer, a single read, a one-command check, or
 
 | Harness | Task tool | Start a list |
 | --- | --- | --- |
-| Pi | `tasks` | Use `new-list`, add the tasks, then toggle the first task to `inprogress`. |
+| Pi | `TaskCreate`, `TaskUpdate`, `TaskList` | Create the tasks with `TaskCreate`, mark the first `in_progress` with `TaskUpdate`, and keep the list current with `TaskList`. |
 | Claude Code | `TodoWrite` | Write the tasks with exactly one `in_progress` item. |
 
 If no task tool is available, do not claim that a list exists.
